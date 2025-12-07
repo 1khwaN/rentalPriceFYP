@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+    
+        <script>
+            L_NO_TOUCH = false;
+            L_DISABLE_3D = false;
+        </script>
+    
+    <style>html, body {width: 100%;height: 100%;margin: 0;padding: 0;}</style>
+    <style>#map {position:absolute;top:0;bottom:0;right:0;left:0;}</style>
+    <script src="https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.js"></script>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.2.0/css/all.min.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/python-visualization/folium/folium/templates/leaflet.awesome.rotate.min.css"/>
+    
+            <meta name="viewport" content="width=device-width,
+                initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+            <style>
+                #map_0073a39f2a93bf64c4ff6d0f8c32c6a1 {
+                    position: relative;
+                    width: 100.0%;
+                    height: 100.0%;
+                    left: 0.0%;
+                    top: 0.0%;
+                }
+                .leaflet-container { font-size: 1rem; }
+            </style>
+        
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet.markercluster/1.1.0/leaflet.markercluster.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet.markercluster/1.1.0/MarkerCluster.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet.markercluster/1.1.0/MarkerCluster.Default.css"/>
+</head>
+<body>
+    
+    
+            <div class="folium-map" id="map_0073a39f2a93bf64c4ff6d0f8c32c6a1" ></div>
+        
+</body>
+<script>
+    
+    
+            var map_0073a39f2a93bf64c4ff6d0f8c32c6a1 = L.map(
+                "map_0073a39f2a93bf64c4ff6d0f8c32c6a1",
+                {
+                    center: [3.1786115, 101.6954799],
+                    crs: L.CRS.EPSG3857,
+                    zoom: 13,
+                    zoomControl: true,
+                    preferCanvas: false,
+                }
+            );
+
+            
+
+        
+    
+            var tile_layer_b6f5b19eef9bb8991c94ca77339263f1 = L.tileLayer(
+                "https://tile.openstreetmap.org/{z}/{x}/{y}.png",
+                {"attribution": "\u0026copy; \u003ca href=\"https://www.openstreetmap.org/copyright\"\u003eOpenStreetMap\u003c/a\u003e contributors", "detectRetina": false, "maxNativeZoom": 19, "maxZoom": 19, "minZoom": 0, "noWrap": false, "opacity": 1, "subdomains": "abc", "tms": false}
+            );
+        
+    
+            tile_layer_b6f5b19eef9bb8991c94ca77339263f1.addTo(map_0073a39f2a93bf64c4ff6d0f8c32c6a1);
+        
+    
+            var marker_cluster_94fa21e594e145da27afd84b77e36c0b = L.markerClusterGroup(
+                {}
+            );
+        
+    
+            marker_cluster_94fa21e594e145da27afd84b77e36c0b.addTo(map_0073a39f2a93bf64c4ff6d0f8c32c6a1);
+        
+    
+            var marker_8da12339350e4649b41f52c7ed6c5c3f = L.marker(
+                [3.1809047, 101.6911108],
+                {}
+            ).addTo(map_0073a39f2a93bf64c4ff6d0f8c32c6a1);
+        
+    
+            var icon_e033da1ddd7e9dab22d7f307329bfde8 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "green", "prefix": "glyphicon"}
+            );
+            marker_8da12339350e4649b41f52c7ed6c5c3f.setIcon(icon_e033da1ddd7e9dab22d7f307329bfde8);
+        
+    
+        var popup_17b4a6e478725bc9fc414be81dcc92eb = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_26a45dfad40d3a1becd38c91fca8ba45 = $(`<div id="html_26a45dfad40d3a1becd38c91fca8ba45" style="width: 100.0%; height: 100.0%;">The Tamarind - RM 580,000.00</div>`)[0];
+                popup_17b4a6e478725bc9fc414be81dcc92eb.setContent(html_26a45dfad40d3a1becd38c91fca8ba45);
+            
+        
+
+        marker_8da12339350e4649b41f52c7ed6c5c3f.bindPopup(popup_17b4a6e478725bc9fc414be81dcc92eb)
+        ;
+
+        
+    
+    
+            var marker_8ba44dfb6c6c707639c8f4f8b2760f4a = L.marker(
+                [3.1786115, 101.6954799],
+                {}
+            ).addTo(map_0073a39f2a93bf64c4ff6d0f8c32c6a1);
+        
+    
+            var icon_16e7316d33d1fb1ef121a46af1f54065 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "green", "prefix": "glyphicon"}
+            );
+            marker_8ba44dfb6c6c707639c8f4f8b2760f4a.setIcon(icon_16e7316d33d1fb1ef121a46af1f54065);
+        
+    
+        var popup_c407a4df70fe10ca5b8a905dc7c52d03 = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_b55f6612dc864078bb29ef799b1f03ab = $(`<div id="html_b55f6612dc864078bb29ef799b1f03ab" style="width: 100.0%; height: 100.0%;">Unknown - RM 330,000.00</div>`)[0];
+                popup_c407a4df70fe10ca5b8a905dc7c52d03.setContent(html_b55f6612dc864078bb29ef799b1f03ab);
+            
+        
+
+        marker_8ba44dfb6c6c707639c8f4f8b2760f4a.bindPopup(popup_c407a4df70fe10ca5b8a905dc7c52d03)
+        ;
+
+        
+    
+    
+            var marker_7889a293ad2a8c7db12557a484bebcec = L.marker(
+                [3.1810258, 101.6935098],
+                {}
+            ).addTo(map_0073a39f2a93bf64c4ff6d0f8c32c6a1);
+        
+    
+            var icon_ab91e9f19531030bc41e8dd5f86e408f = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "green", "prefix": "glyphicon"}
+            );
+            marker_7889a293ad2a8c7db12557a484bebcec.setIcon(icon_ab91e9f19531030bc41e8dd5f86e408f);
+        
+    
+        var popup_785fe63e1d55741efe2615b2dad672d7 = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_ae1cdb047ef5a81bff701c403026a7e0 = $(`<div id="html_ae1cdb047ef5a81bff701c403026a7e0" style="width: 100.0%; height: 100.0%;">The Capers - RM 3,900.00</div>`)[0];
+                popup_785fe63e1d55741efe2615b2dad672d7.setContent(html_ae1cdb047ef5a81bff701c403026a7e0);
+            
+        
+
+        marker_7889a293ad2a8c7db12557a484bebcec.bindPopup(popup_785fe63e1d55741efe2615b2dad672d7)
+        ;
+
+        
+    
+    
+            var marker_e104b589fee719724515d717f9b841fc = L.marker(
+                [3.1847913, 101.6824071],
+                {}
+            ).addTo(map_0073a39f2a93bf64c4ff6d0f8c32c6a1);
+        
+    
+            var icon_bfe8f452914709734d8ac02a73f72452 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "green", "prefix": "glyphicon"}
+            );
+            marker_e104b589fee719724515d717f9b841fc.setIcon(icon_bfe8f452914709734d8ac02a73f72452);
+        
+    
+        var popup_a09559216cae9411721e6d64956527f7 = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_d7f9b4e97ceee650c25afa2dbe57a00c = $(`<div id="html_d7f9b4e97ceee650c25afa2dbe57a00c" style="width: 100.0%; height: 100.0%;">The Maple Condominium - RM 3,600.00</div>`)[0];
+                popup_a09559216cae9411721e6d64956527f7.setContent(html_d7f9b4e97ceee650c25afa2dbe57a00c);
+            
+        
+
+        marker_e104b589fee719724515d717f9b841fc.bindPopup(popup_a09559216cae9411721e6d64956527f7)
+        ;
+
+        
+    
+    
+            var marker_48f7502efd6cc408b3999d7cca6cc8b8 = L.marker(
+                [3.1809047, 101.6911108],
+                {}
+            ).addTo(map_0073a39f2a93bf64c4ff6d0f8c32c6a1);
+        
+    
+            var icon_820a995f4d60e136e221cf6fa2bb94cd = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "green", "prefix": "glyphicon"}
+            );
+            marker_48f7502efd6cc408b3999d7cca6cc8b8.setIcon(icon_820a995f4d60e136e221cf6fa2bb94cd);
+        
+    
+        var popup_5efb98a8a7164cb68c32f411b0a0140e = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_d50e4b07a76a4092eae82b13c0cca3e7 = $(`<div id="html_d50e4b07a76a4092eae82b13c0cca3e7" style="width: 100.0%; height: 100.0%;">The Tamarind - RM 3,500.00</div>`)[0];
+                popup_5efb98a8a7164cb68c32f411b0a0140e.setContent(html_d50e4b07a76a4092eae82b13c0cca3e7);
+            
+        
+
+        marker_48f7502efd6cc408b3999d7cca6cc8b8.bindPopup(popup_5efb98a8a7164cb68c32f411b0a0140e)
+        ;
+
+        
+    
+</script>
+</html>

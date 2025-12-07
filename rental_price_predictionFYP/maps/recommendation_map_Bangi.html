@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+    
+        <script>
+            L_NO_TOUCH = false;
+            L_DISABLE_3D = false;
+        </script>
+    
+    <style>html, body {width: 100%;height: 100%;margin: 0;padding: 0;}</style>
+    <style>#map {position:absolute;top:0;bottom:0;right:0;left:0;}</style>
+    <script src="https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.js"></script>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.2.0/css/all.min.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/python-visualization/folium/folium/templates/leaflet.awesome.rotate.min.css"/>
+    
+            <meta name="viewport" content="width=device-width,
+                initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+            <style>
+                #map_ae4a31ef75137f5a63b2b27870360f73 {
+                    position: relative;
+                    width: 100.0%;
+                    height: 100.0%;
+                    left: 0.0%;
+                    top: 0.0%;
+                }
+                .leaflet-container { font-size: 1rem; }
+            </style>
+        
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet.markercluster/1.1.0/leaflet.markercluster.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet.markercluster/1.1.0/MarkerCluster.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet.markercluster/1.1.0/MarkerCluster.Default.css"/>
+</head>
+<body>
+    
+    
+            <div class="folium-map" id="map_ae4a31ef75137f5a63b2b27870360f73" ></div>
+        
+</body>
+<script>
+    
+    
+            var map_ae4a31ef75137f5a63b2b27870360f73 = L.map(
+                "map_ae4a31ef75137f5a63b2b27870360f73",
+                {
+                    center: [2.9040583, 101.7862548],
+                    crs: L.CRS.EPSG3857,
+                    zoom: 13,
+                    zoomControl: true,
+                    preferCanvas: false,
+                }
+            );
+
+            
+
+        
+    
+            var tile_layer_0332027ac8ae03e948cf0a7aa36d3d50 = L.tileLayer(
+                "https://tile.openstreetmap.org/{z}/{x}/{y}.png",
+                {"attribution": "\u0026copy; \u003ca href=\"https://www.openstreetmap.org/copyright\"\u003eOpenStreetMap\u003c/a\u003e contributors", "detectRetina": false, "maxNativeZoom": 19, "maxZoom": 19, "minZoom": 0, "noWrap": false, "opacity": 1, "subdomains": "abc", "tms": false}
+            );
+        
+    
+            tile_layer_0332027ac8ae03e948cf0a7aa36d3d50.addTo(map_ae4a31ef75137f5a63b2b27870360f73);
+        
+    
+            var marker_cluster_33b52dbd2f6f3bcf05f75cf3d8d83f0c = L.markerClusterGroup(
+                {}
+            );
+        
+    
+            marker_cluster_33b52dbd2f6f3bcf05f75cf3d8d83f0c.addTo(map_ae4a31ef75137f5a63b2b27870360f73);
+        
+    
+            var marker_8b2e1b79356b4f395acd4203be252833 = L.marker(
+                [2.9040583, 101.7862548],
+                {}
+            ).addTo(map_ae4a31ef75137f5a63b2b27870360f73);
+        
+    
+            var icon_3b810b389fe401df85c7954765401f05 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "green", "prefix": "glyphicon"}
+            );
+            marker_8b2e1b79356b4f395acd4203be252833.setIcon(icon_3b810b389fe401df85c7954765401f05);
+        
+    
+        var popup_9af5f99c8cf6c271a114d28d6551c187 = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_aa062a65cc53345267659bbf606c92a8 = $(`<div id="html_aa062a65cc53345267659bbf606c92a8" style="width: 100.0%; height: 100.0%;">Sunway Gandaria Residences - RM 2,800.00</div>`)[0];
+                popup_9af5f99c8cf6c271a114d28d6551c187.setContent(html_aa062a65cc53345267659bbf606c92a8);
+            
+        
+
+        marker_8b2e1b79356b4f395acd4203be252833.bindPopup(popup_9af5f99c8cf6c271a114d28d6551c187)
+        ;
+
+        
+    
+    
+            var marker_7b486553cddb71f373950437925d0847 = L.marker(
+                [2.9040583, 101.7862548],
+                {}
+            ).addTo(map_ae4a31ef75137f5a63b2b27870360f73);
+        
+    
+            var icon_3ad6070c521c83e5aeb5f1b76cf6b52a = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "green", "prefix": "glyphicon"}
+            );
+            marker_7b486553cddb71f373950437925d0847.setIcon(icon_3ad6070c521c83e5aeb5f1b76cf6b52a);
+        
+    
+        var popup_30ca329b7d1085a9e1cee9b27be659db = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_90cc0cd3c0ca5560c6f3945d07d5cb15 = $(`<div id="html_90cc0cd3c0ca5560c6f3945d07d5cb15" style="width: 100.0%; height: 100.0%;">Sensory Residence - RM 2,300.00</div>`)[0];
+                popup_30ca329b7d1085a9e1cee9b27be659db.setContent(html_90cc0cd3c0ca5560c6f3945d07d5cb15);
+            
+        
+
+        marker_7b486553cddb71f373950437925d0847.bindPopup(popup_30ca329b7d1085a9e1cee9b27be659db)
+        ;
+
+        
+    
+    
+            var marker_9900932e3c35029892657fbf5fb5d659 = L.marker(
+                [2.9040583, 101.7862548],
+                {}
+            ).addTo(map_ae4a31ef75137f5a63b2b27870360f73);
+        
+    
+            var icon_a9f65b2b4ef3ecf644d5692fabb5466e = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "green", "prefix": "glyphicon"}
+            );
+            marker_9900932e3c35029892657fbf5fb5d659.setIcon(icon_a9f65b2b4ef3ecf644d5692fabb5466e);
+        
+    
+        var popup_cd0ca487faf10992779be4378efa8cc2 = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_f0e01c206795c7c6f2edaacacb672011 = $(`<div id="html_f0e01c206795c7c6f2edaacacb672011" style="width: 100.0%; height: 100.0%;">Evo SOHO Suites @ Bandar Baru Bangi - RM 2,300.00</div>`)[0];
+                popup_cd0ca487faf10992779be4378efa8cc2.setContent(html_f0e01c206795c7c6f2edaacacb672011);
+            
+        
+
+        marker_9900932e3c35029892657fbf5fb5d659.bindPopup(popup_cd0ca487faf10992779be4378efa8cc2)
+        ;
+
+        
+    
+    
+            var marker_50510305b0c1bce416d7c70926229dfb = L.marker(
+                [2.9040583, 101.7862548],
+                {}
+            ).addTo(map_ae4a31ef75137f5a63b2b27870360f73);
+        
+    
+            var icon_82763baf58d8f544e393a2d8b1057191 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "green", "prefix": "glyphicon"}
+            );
+            marker_50510305b0c1bce416d7c70926229dfb.setIcon(icon_82763baf58d8f544e393a2d8b1057191);
+        
+    
+        var popup_643ba8c37b21233c660ff825f9871d1b = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_8f52dcd3466ea552e1dac59e0b7801c4 = $(`<div id="html_8f52dcd3466ea552e1dac59e0b7801c4" style="width: 100.0%; height: 100.0%;">Sensory Residence - RM 2,200.00</div>`)[0];
+                popup_643ba8c37b21233c660ff825f9871d1b.setContent(html_8f52dcd3466ea552e1dac59e0b7801c4);
+            
+        
+
+        marker_50510305b0c1bce416d7c70926229dfb.bindPopup(popup_643ba8c37b21233c660ff825f9871d1b)
+        ;
+
+        
+    
+    
+            var marker_c31458a3de6fb92302bf78ea9b9567da = L.marker(
+                [2.9040583, 101.7862548],
+                {}
+            ).addTo(map_ae4a31ef75137f5a63b2b27870360f73);
+        
+    
+            var icon_4762566983e43c6377bcdc2d70d94d46 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "green", "prefix": "glyphicon"}
+            );
+            marker_c31458a3de6fb92302bf78ea9b9567da.setIcon(icon_4762566983e43c6377bcdc2d70d94d46);
+        
+    
+        var popup_fc43e90997aff195bb6baa30fe87f0c4 = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_1c3df7bd34dfa02aa529b5899dbaee9f = $(`<div id="html_1c3df7bd34dfa02aa529b5899dbaee9f" style="width: 100.0%; height: 100.0%;">Sunway Gandaria Residences - RM 2,100.00</div>`)[0];
+                popup_fc43e90997aff195bb6baa30fe87f0c4.setContent(html_1c3df7bd34dfa02aa529b5899dbaee9f);
+            
+        
+
+        marker_c31458a3de6fb92302bf78ea9b9567da.bindPopup(popup_fc43e90997aff195bb6baa30fe87f0c4)
+        ;
+
+        
+    
+</script>
+</html>

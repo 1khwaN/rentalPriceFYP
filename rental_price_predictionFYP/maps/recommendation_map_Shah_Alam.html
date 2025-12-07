@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+    
+        <script>
+            L_NO_TOUCH = false;
+            L_DISABLE_3D = false;
+        </script>
+    
+    <style>html, body {width: 100%;height: 100%;margin: 0;padding: 0;}</style>
+    <style>#map {position:absolute;top:0;bottom:0;right:0;left:0;}</style>
+    <script src="https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.js"></script>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.2.0/css/all.min.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/python-visualization/folium/folium/templates/leaflet.awesome.rotate.min.css"/>
+    
+            <meta name="viewport" content="width=device-width,
+                initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+            <style>
+                #map_43c7d4da3022d019731e7ca81cd8c053 {
+                    position: relative;
+                    width: 100.0%;
+                    height: 100.0%;
+                    left: 0.0%;
+                    top: 0.0%;
+                }
+                .leaflet-container { font-size: 1rem; }
+            </style>
+        
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet.markercluster/1.1.0/leaflet.markercluster.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet.markercluster/1.1.0/MarkerCluster.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet.markercluster/1.1.0/MarkerCluster.Default.css"/>
+</head>
+<body>
+    
+    
+            <div class="folium-map" id="map_43c7d4da3022d019731e7ca81cd8c053" ></div>
+        
+</body>
+<script>
+    
+    
+            var map_43c7d4da3022d019731e7ca81cd8c053 = L.map(
+                "map_43c7d4da3022d019731e7ca81cd8c053",
+                {
+                    center: [3.0739429, 101.5185278],
+                    crs: L.CRS.EPSG3857,
+                    zoom: 13,
+                    zoomControl: true,
+                    preferCanvas: false,
+                }
+            );
+
+            
+
+        
+    
+            var tile_layer_b72e501975b39cead2b5e18e073d5cd4 = L.tileLayer(
+                "https://tile.openstreetmap.org/{z}/{x}/{y}.png",
+                {"attribution": "\u0026copy; \u003ca href=\"https://www.openstreetmap.org/copyright\"\u003eOpenStreetMap\u003c/a\u003e contributors", "detectRetina": false, "maxNativeZoom": 19, "maxZoom": 19, "minZoom": 0, "noWrap": false, "opacity": 1, "subdomains": "abc", "tms": false}
+            );
+        
+    
+            tile_layer_b72e501975b39cead2b5e18e073d5cd4.addTo(map_43c7d4da3022d019731e7ca81cd8c053);
+        
+    
+            var marker_cluster_a603394784914341c4e291e2462087e4 = L.markerClusterGroup(
+                {}
+            );
+        
+    
+            marker_cluster_a603394784914341c4e291e2462087e4.addTo(map_43c7d4da3022d019731e7ca81cd8c053);
+        
+    
+            var marker_4f71c06fb843fe53d02f6031a777e75f = L.marker(
+                [3.1713685, 101.5166911],
+                {}
+            ).addTo(map_43c7d4da3022d019731e7ca81cd8c053);
+        
+    
+            var icon_c9320e96cb033ab85852f96304a6b78c = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "green", "prefix": "glyphicon"}
+            );
+            marker_4f71c06fb843fe53d02f6031a777e75f.setIcon(icon_c9320e96cb033ab85852f96304a6b78c);
+        
+    
+        var popup_548c7eb0bdfb24fa98a750ff07c7ae37 = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_58230432870d6f158cfee776180f6e33 = $(`<div id="html_58230432870d6f158cfee776180f6e33" style="width: 100.0%; height: 100.0%;">Pangsapuri Kiambang (Taman Bukit Subang) - RM 95,000.00</div>`)[0];
+                popup_548c7eb0bdfb24fa98a750ff07c7ae37.setContent(html_58230432870d6f158cfee776180f6e33);
+            
+        
+
+        marker_4f71c06fb843fe53d02f6031a777e75f.bindPopup(popup_548c7eb0bdfb24fa98a750ff07c7ae37)
+        ;
+
+        
+    
+    
+            var marker_beff19c903d341ee9ad371c82f7c2d5e = L.marker(
+                [3.0739429, 101.5185278],
+                {}
+            ).addTo(map_43c7d4da3022d019731e7ca81cd8c053);
+        
+    
+            var icon_492e9415ec472b173717e0438805c941 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "green", "prefix": "glyphicon"}
+            );
+            marker_beff19c903d341ee9ad371c82f7c2d5e.setIcon(icon_492e9415ec472b173717e0438805c941);
+        
+    
+        var popup_b91cd436412036de36ad87e9f085a268 = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_e2b891adb1e1290578ceb0550b1c19d1 = $(`<div id="html_e2b891adb1e1290578ceb0550b1c19d1" style="width: 100.0%; height: 100.0%;">Paisley @ Tropicana Metropark, Subang Jaya - RM 4,400.00</div>`)[0];
+                popup_b91cd436412036de36ad87e9f085a268.setContent(html_e2b891adb1e1290578ceb0550b1c19d1);
+            
+        
+
+        marker_beff19c903d341ee9ad371c82f7c2d5e.bindPopup(popup_b91cd436412036de36ad87e9f085a268)
+        ;
+
+        
+    
+    
+            var marker_1d7c5eb886b38bd3626204ef9722f8d8 = L.marker(
+                [3.0739429, 101.5185278],
+                {}
+            ).addTo(map_43c7d4da3022d019731e7ca81cd8c053);
+        
+    
+            var icon_fbd84989d17dadf192220d90529945ee = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "green", "prefix": "glyphicon"}
+            );
+            marker_1d7c5eb886b38bd3626204ef9722f8d8.setIcon(icon_fbd84989d17dadf192220d90529945ee);
+        
+    
+        var popup_f9eb36b74c75e5ac9feee4a82fdfbfbb = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_3168da241b4c3041e58824c4d783a903 = $(`<div id="html_3168da241b4c3041e58824c4d783a903" style="width: 100.0%; height: 100.0%;">Unknown - RM 4,000.00</div>`)[0];
+                popup_f9eb36b74c75e5ac9feee4a82fdfbfbb.setContent(html_3168da241b4c3041e58824c4d783a903);
+            
+        
+
+        marker_1d7c5eb886b38bd3626204ef9722f8d8.bindPopup(popup_f9eb36b74c75e5ac9feee4a82fdfbfbb)
+        ;
+
+        
+    
+    
+            var marker_6b82eb2d03da87df546966e8b363e20b = L.marker(
+                [3.0739429, 101.5185278],
+                {}
+            ).addTo(map_43c7d4da3022d019731e7ca81cd8c053);
+        
+    
+            var icon_10201d9d25edbfec1db004db25844a81 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "green", "prefix": "glyphicon"}
+            );
+            marker_6b82eb2d03da87df546966e8b363e20b.setIcon(icon_10201d9d25edbfec1db004db25844a81);
+        
+    
+        var popup_4fd959d1897df170a766c90d6fbb1258 = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_1f7763f756a7ccadf07672e1930496f3 = $(`<div id="html_1f7763f756a7ccadf07672e1930496f3" style="width: 100.0%; height: 100.0%;">Acappella Residences - RM 3,000.00</div>`)[0];
+                popup_4fd959d1897df170a766c90d6fbb1258.setContent(html_1f7763f756a7ccadf07672e1930496f3);
+            
+        
+
+        marker_6b82eb2d03da87df546966e8b363e20b.bindPopup(popup_4fd959d1897df170a766c90d6fbb1258)
+        ;
+
+        
+    
+    
+            var marker_2b9e53962b02ad74de42d82f7e17fafa = L.marker(
+                [3.0739429, 101.5185278],
+                {}
+            ).addTo(map_43c7d4da3022d019731e7ca81cd8c053);
+        
+    
+            var icon_f46f964e9f7acf25dcd9ca2833615962 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "green", "prefix": "glyphicon"}
+            );
+            marker_2b9e53962b02ad74de42d82f7e17fafa.setIcon(icon_f46f964e9f7acf25dcd9ca2833615962);
+        
+    
+        var popup_74a7f09e4a89b08b539ff85eda8db50c = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_b69527e243252a2b15a9f9d237de3c1b = $(`<div id="html_b69527e243252a2b15a9f9d237de3c1b" style="width: 100.0%; height: 100.0%;">Sri Acappella Serviced Apartments - RM 3,000.00</div>`)[0];
+                popup_74a7f09e4a89b08b539ff85eda8db50c.setContent(html_b69527e243252a2b15a9f9d237de3c1b);
+            
+        
+
+        marker_2b9e53962b02ad74de42d82f7e17fafa.bindPopup(popup_74a7f09e4a89b08b539ff85eda8db50c)
+        ;
+
+        
+    
+</script>
+</html>
