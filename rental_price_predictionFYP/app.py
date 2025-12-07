@@ -2,208 +2,219 @@ from flask import Flask, render_template, request, jsonify, send_from_directory
 import pandas as pd
 import numpy as np
 import joblib
-from geopy.geocoders import Nominatim
 import folium
 from folium.plugins import MarkerCluster
+from geopy.geocoders import Nominatim
 import os
 import warnings
 warnings.filterwarnings("ignore")
 
 app = Flask(__name__)
 
-# =========================================================
-# FILES
-# =========================================================
-CLEANED_BEFORE_CSV = "cleaned_rental_dataset_before_encoding.csv"
-MODEL_READY_CSV    = "cleaned_rental_dataset_model_ready.csv"
-MODEL_PKL          = "hybrid_rent_model_city.pkl"
+# ============================================================
+# FILES — MUST EXIST IN SAME FOLDER AS app.py
+# ============================================================
+MODEL_PKL = "hybrid_rent_model_city.pkl"
+MODEL_READY_CSV = "cleaned_rental_dataset_model_ready.csv"
+RAW_CSV = "cleaned_rental_dataset_before_encoding.csv"   # for recommendations
 
-# =========================================================
-# LOAD DATASETS
-# =========================================================
-if not os.path.exists(CLEANED_BEFORE_CSV):
-    raise FileNotFoundError(f"Missing {CLEANED_BEFORE_CSV}")
+# ============================================================
+# LOAD CLEANED MODEL-READY DATA (NO RE-CLEANING!)
+# ============================================================
+df_model_ready = pd.read_csv(MODEL_READY_CSV)
 
-if not os.path.exists(MODEL_READY_CSV):
-    raise FileNotFoundError(f"Missing {MODEL_READY_CSV}")
+# Rebuild X exactly the same way as the notebook
+drop_cols = ["ads_id", "prop_name", "facilities", "additional_facilities",
+             "monthly_rent", "location"]
 
-df_original = pd.read_csv(CLEANED_BEFORE_CSV)       # contains region, city, monthly_rent, etc.
-df_model_ready = pd.read_csv(MODEL_READY_CSV)       # used to get model columns
+X_reference = df_model_ready.drop(columns=[c for c in drop_cols if c in df_model_ready],
+                                  errors="ignore")
+
+MODEL_COLUMNS = X_reference.columns.tolist()   # EXACT training columns
+
+print(f"Loaded model-ready CSV → {len(MODEL_COLUMNS)} model columns (must match notebook).")
 
 
-# =========================================================
+# ============================================================
+# LOAD RAW CLEANED DATA FOR RECOMMENDATIONS
+# ============================================================
+df_original = pd.read_csv(RAW_CSV)
+
+# Normalize text formats
+df_original["region"] = df_original["region"].astype(str).str.title()
+df_original["city"] = df_original["city"].astype(str).str.title()
+
+
+# ============================================================
 # LOAD MODEL
-# =========================================================
+# ============================================================
+if not os.path.exists(MODEL_PKL):
+    raise FileNotFoundError("Model file hybrid_rent_model_city.pkl not found!")
+
 model_data = joblib.load(MODEL_PKL)
 rf = model_data["rf"]
 xgb = model_data["xgb"]
 
-# Get the true feature columns — EXACTLY as used during training
-drop_cols = ["ads_id","prop_name","facilities","additional_facilities","monthly_rent","location"]
-X_train_used = df_model_ready.drop(columns=[c for c in drop_cols if c in df_model_ready.columns], errors='ignore')
-model_columns = X_train_used.columns.tolist()
-
-print("\n=== Loaded Model Columns ===")
-print(len(model_columns), "columns")
-print(model_columns[:40])
-print("=============================\n")
+print("RandomForest & XGBoost loaded successfully.")
 
 
-# =========================================================
-# PREPROCESS USER INPUT
-# =========================================================
-def preprocess_user_input(d):
-    def safe_float(v, fb=np.nan):
-        try: return float(v)
-        except: return fb
+# ============================================================
+# USER INPUT → MODEL FEATURES (MATCH NOTEBOOK EXACTLY)
+# ============================================================
+def preprocess_user_input(data):
+    # Normalize text input
+    region = str(data["region"]).title()
+    city = str(data["city"]).title()
+    property_type = str(data["property_type"]).title()
+    furnished = str(data["furnished"]).title()
 
-    def safe_int(v, fb=0):
-        try: return int(float(v))
-        except: return fb
+    # Safe conversions
+    size = float(data["size"])
+    completion_year = int(float(data["completion_year"]))
+    parking = int(float(data["parking"]))
+    rooms = float(data["rooms"])
+    bathroom = float(data["bathroom"])
 
-    region = d.get("region","").title().strip()
-    city = d.get("city","").title().strip()
-    property_type = d.get("property_type","").title().strip()
-    furnished = d.get("furnished","").title().strip()
+    # Derived features (same as notebook)
+    rooms_per_bathroom = rooms / (bathroom + 1)
+    age_of_property = 2025 - completion_year
 
-    size = safe_float(d.get("size"))
-    comp_year = safe_int(d.get("completion_year"))
-    rooms = safe_float(d.get("rooms"))
-    bath = safe_float(d.get("bathroom"))
-    parking = safe_int(d.get("parking"))
-
-    # fill missing using dataset medians
-    if np.isnan(size): size = df_original["size"].median()
-    if np.isnan(rooms): rooms = df_original["rooms"].median()
-    if np.isnan(bath): bath = df_original["bathroom"].median()
-    if comp_year <= 0: comp_year = int(df_original["completion_year"].median())
-
-    # Compute city avg price_per_sqft
+    # Determine price_per_sqft using city-based baseline
     df_city = df_original[df_original["city"].str.lower() == city.lower()]
-    if not df_city.empty:
+    if len(df_city) > 0:
         price_per_sqft = df_city["monthly_rent"].mean() / (df_city["size"].mean() + 1)
     else:
         price_per_sqft = df_original["monthly_rent"].mean() / (df_original["size"].mean() + 1)
 
     row = {
         "size": size,
-        "completion_year": comp_year,
+        "completion_year": completion_year,
         "parking": parking,
         "rooms": rooms,
-        "bathroom": bath,
+        "bathroom": bathroom,
         "region": region,
         "city": city,
         "property_type": property_type,
         "furnished": furnished,
         "price_per_sqft": price_per_sqft,
-        "rooms_per_bathroom": rooms / (bath + 1),
-        "age_of_property": 2025 - comp_year
+        "rooms_per_bathroom": rooms_per_bathroom,
+        "age_of_property": age_of_property
     }
 
-    df = pd.DataFrame([row])
+    df_input = pd.DataFrame([row])
 
-    df = pd.get_dummies(df, columns=["region","city","property_type","furnished"], drop_first=True)
+    # SAME ONE-HOT ENCODING AS NOTEBOOK
+    df_input = pd.get_dummies(df_input,
+        columns=["region", "city", "property_type", "furnished"],
+        drop_first=True
+    )
 
-    df = df.reindex(columns=model_columns, fill_value=0)
+    # ALIGN COLUMNS EXACTLY LIKE TRAINING DATA
+    aligned = pd.DataFrame(columns=MODEL_COLUMNS)
+    df_input = df_input.reindex(columns=MODEL_COLUMNS, fill_value=0)
 
-    return df
-
-
-# =========================================================
-# ROUTES
-# =========================================================
-@app.route("/")
-def home():
-    return render_template("dashboard.html")
-
-@app.route("/predict_form")
-def form():
-    return render_template("index.html")
+    return df_input
 
 
+# ============================================================
+# PREDICT ENDPOINT
+# ============================================================
 @app.route("/predict", methods=["POST"])
 def predict():
-    user_input = {
-        "region": request.form.get("region",""),
-        "city": request.form.get("city",""),
-        "size": request.form.get("size",""),
-        "completion_year": request.form.get("completion_year",""),
-        "parking": request.form.get("parking","0"),
-        "rooms": request.form.get("rooms",""),
-        "bathroom": request.form.get("bathroom",""),
-        "property_type": request.form.get("property_type",""),
-        "furnished": request.form.get("furnished","")
+    data = {
+        "region": request.form["region"],
+        "city": request.form["city"],
+        "size": request.form["size"],
+        "completion_year": request.form["completion_year"],
+        "parking": request.form["parking"],
+        "rooms": request.form["rooms"],
+        "bathroom": request.form["bathroom"],
+        "property_type": request.form["property_type"],
+        "furnished": request.form["furnished"]
     }
 
-    X = preprocess_user_input(user_input)
+    X_user = preprocess_user_input(data)
 
-    rf_log = rf.predict(X)[0]
-    xgb_log = xgb.predict(X)[0]
+    # Debugging
+    print("==== MODEL INPUT DEBUG ====")
+    print("Shape:", X_user.shape)
+    print("Non-zero features:", X_user.sum().sum())
+
+    # Predict (log scale)
+    rf_log = rf.predict(X_user)[0]
+    xgb_log = xgb.predict(X_user)[0]
+
+    # Correct hybrid prediction
     hybrid_log = (rf_log + xgb_log) / 2
     rent = float(np.expm1(hybrid_log))
 
-    map_path, recommendations = generate_map_and_recs(
-        user_input["region"], user_input["city"], rent
-    )
+    # Generate recommendations
+    map_file, recs = generate_map_and_recs(data["region"], data["city"], rent)
 
     return render_template("result.html",
-                           rent=round(rent,2),
-                           city=user_input["city"].title(),
-                           region=user_input["region"].title(),
-                           size=user_input["size"],
-                           map_path=map_path,
-                           recommendations=recommendations)
+        rent=round(rent, 2),
+        city=data["city"],
+        region=data["region"],
+        size=data["size"],
+        recommendations=recs,
+        map_path=map_file
+    )
 
 
-# =========================================================
+# ============================================================
 # MAP + RECOMMENDATIONS
-# =========================================================
+# ============================================================
 def generate_map_and_recs(region, city, predicted_rent):
-    geolocator = Nominatim(user_agent="rental_app")
-
     try:
+        geolocator = Nominatim(user_agent="rent_app")
         loc = geolocator.geocode(f"{city}, {region}, Malaysia")
+
         if not loc:
             return None, []
 
         user_coords = (loc.latitude, loc.longitude)
 
-        m = folium.Map(location=user_coords, zoom_start=13)
+        # Base map
+        m = folium.Map(location=user_coords, zoom_start=12)
         MarkerCluster().add_to(m)
 
-        # Filter properties in this city
-        city_df = df_original[df_original["city"].str.lower() == city.lower()]
+        # Filter city properties
+        df_city = df_original[df_original["city"].str.lower() == city.lower()].copy()
 
-        if city_df.empty:
-            city_df = df_original[df_original["region"].str.lower() == region.lower()]
+        # Recommend properties within ±10%
+        min_rent = predicted_rent * 0.9
+        max_rent = predicted_rent * 1.1
 
-        low, high = predicted_rent*0.9, predicted_rent*1.1
-        recs = city_df[(city_df["monthly_rent"] >= low) & (city_df["monthly_rent"] <= high)]
+        recs = df_city[(df_city["monthly_rent"] >= min_rent) &
+                       (df_city["monthly_rent"] <= max_rent)]
 
         if recs.empty:
-            recs = city_df.nlargest(5, "monthly_rent")
+            recs = df_city.sort_values("monthly_rent").head(5)
 
         recommendations = []
-
         for _, row in recs.iterrows():
-            prop = row["prop_name"]
+            name = row["prop_name"]
             rent = row["monthly_rent"]
 
-            p_loc = geolocator.geocode(f"{prop}, {city}, {region}, Malaysia")
-            marker_coords = (p_loc.latitude, p_loc.longitude) if p_loc else user_coords
+            try:
+                ploc = geolocator.geocode(f"{name}, {city}, Malaysia")
+                coords = (ploc.latitude, ploc.longitude) if ploc else user_coords
+            except:
+                coords = user_coords
 
             folium.Marker(
-                marker_coords,
-                popup=f"{prop} - RM {rent:,.2f}",
+                coords,
+                popup=f"{name} — RM {rent}",
                 icon=folium.Icon(color="green")
             ).add_to(m)
 
-            recommendations.append({"name": prop, "rent": float(rent)})
+            recommendations.append({"name": name, "rent": rent})
 
         os.makedirs("maps", exist_ok=True)
-        file = f"map_{city.replace(' ','_')}.html"
-        m.save(f"maps/{file}")
-        return file, recommendations
+        file_path = f"recommendation_map_{city.replace(' ', '_')}.html"
+        m.save(os.path.join("maps", file_path))
+
+        return file_path, recommendations
 
     except Exception as e:
         print("MAP ERROR:", e)
@@ -211,12 +222,24 @@ def generate_map_and_recs(region, city, predicted_rent):
 
 
 @app.route("/maps/<path:filename>")
-def maps(filename):
+def serve_map(filename):
     return send_from_directory("maps", filename)
 
 
-# =========================================================
-# RUN
-# =========================================================
+# ============================================================
+# HOME & FORM ROUTES
+# ============================================================
+@app.route("/")
+def home():
+    return render_template("dashboard.html")
+
+@app.route("/predict_form")
+def predict_form():
+    return render_template("index.html")
+
+
+# ============================================================
+# START FLASK APP
+# ============================================================
 if __name__ == "__main__":
     app.run(debug=True)
