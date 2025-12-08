@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+    
+        <script>
+            L_NO_TOUCH = false;
+            L_DISABLE_3D = false;
+        </script>
+    
+    <style>html, body {width: 100%;height: 100%;margin: 0;padding: 0;}</style>
+    <style>#map {position:absolute;top:0;bottom:0;right:0;left:0;}</style>
+    <script src="https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.js"></script>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.2.0/css/all.min.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/python-visualization/folium/folium/templates/leaflet.awesome.rotate.min.css"/>
+    
+            <meta name="viewport" content="width=device-width,
+                initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+            <style>
+                #map_887ddf31a5a2bf739ab15a75f3f20d9e {
+                    position: relative;
+                    width: 100.0%;
+                    height: 100.0%;
+                    left: 0.0%;
+                    top: 0.0%;
+                }
+                .leaflet-container { font-size: 1rem; }
+            </style>
+        
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet.markercluster/1.1.0/leaflet.markercluster.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet.markercluster/1.1.0/MarkerCluster.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet.markercluster/1.1.0/MarkerCluster.Default.css"/>
+</head>
+<body>
+    
+    
+            <div class="folium-map" id="map_887ddf31a5a2bf739ab15a75f3f20d9e" ></div>
+        
+</body>
+<script>
+    
+    
+            var map_887ddf31a5a2bf739ab15a75f3f20d9e = L.map(
+                "map_887ddf31a5a2bf739ab15a75f3f20d9e",
+                {
+                    center: [3.3189044, 101.5750187],
+                    crs: L.CRS.EPSG3857,
+                    zoom: 13,
+                    zoomControl: true,
+                    preferCanvas: false,
+                }
+            );
+
+            
+
+        
+    
+            var tile_layer_bb07993c36a680fd069725252847a4bb = L.tileLayer(
+                "https://tile.openstreetmap.org/{z}/{x}/{y}.png",
+                {"attribution": "\u0026copy; \u003ca href=\"https://www.openstreetmap.org/copyright\"\u003eOpenStreetMap\u003c/a\u003e contributors", "detectRetina": false, "maxNativeZoom": 19, "maxZoom": 19, "minZoom": 0, "noWrap": false, "opacity": 1, "subdomains": "abc", "tms": false}
+            );
+        
+    
+            tile_layer_bb07993c36a680fd069725252847a4bb.addTo(map_887ddf31a5a2bf739ab15a75f3f20d9e);
+        
+    
+            var marker_cluster_817f85478ca5ddad49d113ab4e42b026 = L.markerClusterGroup(
+                {}
+            );
+        
+    
+            marker_cluster_817f85478ca5ddad49d113ab4e42b026.addTo(map_887ddf31a5a2bf739ab15a75f3f20d9e);
+        
+    
+            var marker_77ba2581b4711a85bdd7e8361ceac50a = L.marker(
+                [3.3189044, 101.5750187],
+                {}
+            ).addTo(map_887ddf31a5a2bf739ab15a75f3f20d9e);
+        
+    
+            var icon_cad46139eb434e282a96eb1b9150cd30 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "green", "prefix": "glyphicon"}
+            );
+            marker_77ba2581b4711a85bdd7e8361ceac50a.setIcon(icon_cad46139eb434e282a96eb1b9150cd30);
+        
+    
+        var popup_81943e1a4e7f291d28622ded4416f12c = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_23d527d5d5dbaa03257c7d89ca3fe56d = $(`<div id="html_23d527d5d5dbaa03257c7d89ca3fe56d" style="width: 100.0%; height: 100.0%;">Legendview Rawang Condominium - RM 1,550.00</div>`)[0];
+                popup_81943e1a4e7f291d28622ded4416f12c.setContent(html_23d527d5d5dbaa03257c7d89ca3fe56d);
+            
+        
+
+        marker_77ba2581b4711a85bdd7e8361ceac50a.bindPopup(popup_81943e1a4e7f291d28622ded4416f12c)
+        ;
+
+        
+    
+    
+            var marker_67a426b5ccd8cf1365aec74f31e31da0 = L.marker(
+                [3.3189044, 101.5750187],
+                {}
+            ).addTo(map_887ddf31a5a2bf739ab15a75f3f20d9e);
+        
+    
+            var icon_596311056a42b514a35e8fb300096b90 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "green", "prefix": "glyphicon"}
+            );
+            marker_67a426b5ccd8cf1365aec74f31e31da0.setIcon(icon_596311056a42b514a35e8fb300096b90);
+        
+    
+        var popup_0a682cb380e64f0a47239ed79fa56e2d = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_b5b1029e1fa2dcb8ebf7b9637661b40b = $(`<div id="html_b5b1029e1fa2dcb8ebf7b9637661b40b" style="width: 100.0%; height: 100.0%;">Legendview Rawang Condominium - RM 1,550.00</div>`)[0];
+                popup_0a682cb380e64f0a47239ed79fa56e2d.setContent(html_b5b1029e1fa2dcb8ebf7b9637661b40b);
+            
+        
+
+        marker_67a426b5ccd8cf1365aec74f31e31da0.bindPopup(popup_0a682cb380e64f0a47239ed79fa56e2d)
+        ;
+
+        
+    
+    
+            var marker_22248eb8ca820e62249583ffa502f3cb = L.marker(
+                [3.3189044, 101.5750187],
+                {}
+            ).addTo(map_887ddf31a5a2bf739ab15a75f3f20d9e);
+        
+    
+            var icon_51765be7a1ed3a36a235edd8a29aa251 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "green", "prefix": "glyphicon"}
+            );
+            marker_22248eb8ca820e62249583ffa502f3cb.setIcon(icon_51765be7a1ed3a36a235edd8a29aa251);
+        
+    
+        var popup_36ae7655be210f3d86c4abcd287fe9f5 = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_948a6a306a55b6816e7878b102456ee4 = $(`<div id="html_948a6a306a55b6816e7878b102456ee4" style="width: 100.0%; height: 100.0%;">TPark Land Apartment - RM 1,500.00</div>`)[0];
+                popup_36ae7655be210f3d86c4abcd287fe9f5.setContent(html_948a6a306a55b6816e7878b102456ee4);
+            
+        
+
+        marker_22248eb8ca820e62249583ffa502f3cb.bindPopup(popup_36ae7655be210f3d86c4abcd287fe9f5)
+        ;
+
+        
+    
+    
+            var marker_95cf83edbb7d2cb740e8d1ad0ae303df = L.marker(
+                [3.3189044, 101.5750187],
+                {}
+            ).addTo(map_887ddf31a5a2bf739ab15a75f3f20d9e);
+        
+    
+            var icon_4af8e83929e4b5e951be2ab5f6f0d6a6 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "green", "prefix": "glyphicon"}
+            );
+            marker_95cf83edbb7d2cb740e8d1ad0ae303df.setIcon(icon_4af8e83929e4b5e951be2ab5f6f0d6a6);
+        
+    
+        var popup_d9281a9b529176a27688e36a7b658586 = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_89f8c797c654e69cafb4e5d516118bb8 = $(`<div id="html_89f8c797c654e69cafb4e5d516118bb8" style="width: 100.0%; height: 100.0%;">Templer Impian - RM 1,500.00</div>`)[0];
+                popup_d9281a9b529176a27688e36a7b658586.setContent(html_89f8c797c654e69cafb4e5d516118bb8);
+            
+        
+
+        marker_95cf83edbb7d2cb740e8d1ad0ae303df.bindPopup(popup_d9281a9b529176a27688e36a7b658586)
+        ;
+
+        
+    
+    
+            var marker_531776afd3bc0b6b2ac2276474f28cc2 = L.marker(
+                [3.3189044, 101.5750187],
+                {}
+            ).addTo(map_887ddf31a5a2bf739ab15a75f3f20d9e);
+        
+    
+            var icon_1011da46a1f6d5a0d921e62aed9b8ffa = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "green", "prefix": "glyphicon"}
+            );
+            marker_531776afd3bc0b6b2ac2276474f28cc2.setIcon(icon_1011da46a1f6d5a0d921e62aed9b8ffa);
+        
+    
+        var popup_e1001ff14e40ac4f725b6e8ad4e27d2e = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_635ef9983e664198c02af15aa34f370b = $(`<div id="html_635ef9983e664198c02af15aa34f370b" style="width: 100.0%; height: 100.0%;">Danau Ria - RM 1,500.00</div>`)[0];
+                popup_e1001ff14e40ac4f725b6e8ad4e27d2e.setContent(html_635ef9983e664198c02af15aa34f370b);
+            
+        
+
+        marker_531776afd3bc0b6b2ac2276474f28cc2.bindPopup(popup_e1001ff14e40ac4f725b6e8ad4e27d2e)
+        ;
+
+        
+    
+</script>
+</html>
