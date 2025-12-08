@@ -265,3 +265,12 @@ if __name__ == "__main__":
     print("Starting Flask app (debug mode)...")
     diagnostics_model_on_sample()
     app.run(debug=True)
+
+@app.route("/about")
+def about():
+    return render_template("about.html")
+
+@app.route("/analytics")
+def analytics():
+    return render_template("analytics.html")
+

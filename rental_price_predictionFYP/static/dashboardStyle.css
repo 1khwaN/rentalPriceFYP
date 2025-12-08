@@ -1,0 +1,72 @@
+/* Background & layout */
+body {
+    background: linear-gradient(135deg, #eef2f3 0%, #dfe9f3 100%);
+    min-height: 100vh;
+    font-family: 'Segoe UI', sans-serif;
+}
+
+/* Hero section */
+.hero-section {
+    padding: 120px 20px;
+    text-align: center;
+}
+
+.hero-title {
+    font-size: 3rem;
+    font-weight: 700;
+    color: #2c3e50;
+}
+
+.hero-subtitle {
+    font-size: 1.25rem;
+    color: #555;
+    margin-top: 15px;
+    margin-bottom: 30px;
+}
+
+/* Feature cards */
+.feature-card {
+    transition: 0.3s;
+    border-radius: 12px;
+    cursor: default;
+}
+
+.feature-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+}
+
+/* Footer */
+.footer {
+    margin-top: 60px;
+    padding: 20px;
+    text-align: center;
+    font-size: 0.9rem;
+    color: #777;
+}
+
+/* NAVBAR */
+.navbar {
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid rgba(0,0,0,0.05);
+}
+
+.navbar-brand {
+    color: #2c3e50 !important;
+}
+
+.nav-link {
+    color: #555 !important;
+    font-size: 1rem;
+    margin-right: 15px;
+    transition: 0.2s;
+}
+
+.nav-link:hover {
+    color: #000 !important;
+    transform: translateY(-2px);
+}
+
+.navbar .btn-primary {
+    border-radius: 8px;
+}

@@ -1,30 +1,120 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
+    <meta charset="UTF-8">
     <title>Rental Price Prediction System</title>
+
+    <!-- Bootstrap -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Icons -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css" rel="stylesheet">
+
+    <!-- External CSS -->
+    <link rel="stylesheet" href="/static/dashboardStyle.css">
 </head>
 
-<body class="bg-light">
+<body>
 
-<div class="container mt-5 text-center">
-    <h1 class="display-5">🏡 Rental Price Prediction System</h1>
-    <p class="lead">Predict rental prices for properties in Kuala Lumpur & Selangor using a hybrid AI model (RF + XGBoost).</p>
-
-    <a href="/predict_form" class="btn btn-primary btn-lg mt-3">
-        Start Prediction
+<!-- NAVBAR -->
+<nav class="navbar navbar-expand-lg navbar-light bg-white shadow-sm fixed-top px-4">
+    <a class="navbar-brand fw-bold" href="/" style="font-size: 1.3rem;">
+        🏡 RPPSHomes
     </a>
 
-    <hr class="my-4">
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+        <span class="navbar-toggler-icon"></span>
+    </button>
 
-    <h3>Features</h3>
-    <ul class="list-group w-50 mx-auto">
-        <li class="list-group-item">✔ Real Machine Learning Model</li>
-        <li class="list-group-item">✔ Smart Hybrid Prediction</li>
-        <li class="list-group-item">✔ Geolocation-Based Mapping</li>
-        <li class="list-group-item">✔ Ranked Property Recommendations</li>
-        <li class="list-group-item">✔ REST API Support</li>
-    </ul>
+    <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ms-auto">
+
+            <li class="nav-item">
+                <a class="nav-link" href="/">Home</a>
+            </li>
+
+            <li class="nav-item">
+                <a class="nav-link" href="/about">About System</a>
+            </li>
+
+            <li class="nav-item">
+                <a class="nav-link" href="/analytics">Analytics</a>
+            </li>
+
+            <li class="nav-item ms-3">
+                <a class="btn btn-primary px-4 py-2" href="/predict_form">
+                    <i class="bi bi-bar-chart-line"></i> Predict
+                </a>
+            </li>
+
+        </ul>
+    </div>
+</nav>
+
+
+<!-- OFFSET FOR FIXED NAVBAR -->
+<div style="height: 90px;"></div>
+
+
+<!-- HERO SECTION -->
+<div class="hero-section">
+    <h1 class="hero-title">🏡 Rental Price Prediction System</h1>
+    <p class="hero-subtitle">
+        Predict rental prices for properties in Kuala Lumpur & Selangor using a powerful Hybrid Machine Learning Model.
+    </p>
+
+    <a href="/predict_form" class="btn btn-primary btn-lg px-5 py-3 shadow-sm">
+        <i class="bi bi-bar-chart-line"></i> Start Prediction
+    </a>
+</div>
+
+<!-- FEATURES -->
+<div class="container mt-4">
+    <h3 class="text-center fw-bold mb-4">✨ System Features</h3>
+
+    <div class="row g-4 justify-content-center">
+
+        <div class="col-md-4">
+            <div class="card feature-card p-4 shadow-sm">
+                <h5><i class="bi bi-cpu-fill text-primary"></i> Real Machine Learning Model</h5>
+                <p class="text-muted mt-2">Trained using Random Forest + XGBoost with real-world rental data.</p>
+            </div>
+        </div>
+
+        <div class="col-md-4">
+            <div class="card feature-card p-4 shadow-sm">
+                <h5><i class="bi bi-diagram-3-fill text-success"></i> Smart Hybrid Prediction</h5>
+                <p class="text-muted mt-2">Combines two models for accurate rental estimations and generalization of model.</p>
+            </div>
+        </div>
+
+        <div class="col-md-4">
+            <div class="card feature-card p-4 shadow-sm">
+                <h5><i class="bi bi-geo-alt-fill text-danger"></i> Geolocation Mapping</h5>
+                <p class="text-muted mt-2">Visualizes predicted areas and comparable properties on a live map.</p>
+            </div>
+        </div>
+
+        <div class="col-md-4">
+            <div class="card feature-card p-4 shadow-sm">
+                <h5><i class="bi bi-stars text-warning"></i> Ranked Recommendations</h5>
+                <p class="text-muted mt-2">Suggests the best property options based on pricing & location.</p>
+            </div>
+        </div>
+
+        <div class="col-md-4">
+            <div class="card feature-card p-4 shadow-sm">
+                <h5><i class="bi bi-cloud-upload-fill text-info"></i> PowerBI Analytics Integration</h5>
+                <p class="text-muted mt-2">Allows integration with Microsoft PowerBI for visualization.</p>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+<!-- FOOTER -->
+<div class="footer">
+    © 2025 Rental Price Prediction System — Final Year Project (FYP)
 </div>
 
 </body>
