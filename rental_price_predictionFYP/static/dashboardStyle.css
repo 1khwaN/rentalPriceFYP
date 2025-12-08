@@ -70,3 +70,16 @@ body {
 .navbar .btn-primary {
     border-radius: 8px;
 }
+
+/* Smooth page fade-in animation */
+.page-transition {
+    animation: fadeIn 0.55s ease-in-out;
+    opacity: 0;
+    animation-fill-mode: forwards;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to   { opacity: 1; transform: translateY(0); }
+}
+

@@ -1,0 +1,84 @@
+body {
+    background: linear-gradient(135deg, #eef2f3 0%, #dfe9f3 100%);
+    font-family: 'Segoe UI', sans-serif;
+}
+
+.about-hero {
+    padding: 40px 20px 10px;
+}
+
+.about-hero h1 {
+    color: #2c3e50;
+}
+
+.about-hero p {
+    color: #555;
+}
+
+/* Card styling */
+.about-card {
+    border-radius: 10px;
+    margin-bottom: 20px;
+    overflow: hidden;
+    background: white;
+    border: 1px solid rgba(0,0,0,0.05);
+}
+
+.accordion-button {
+    font-size: 1.1rem;
+    padding: 18px;
+}
+
+.accordion-button:not(.collapsed) {
+    background-color: #eef5ff;
+    color: #2c3e50;
+}
+
+.accordion-body {
+    font-size: 1rem;
+    color: #2f3b52;
+}
+
+/* Footer */
+.footer {
+    margin-top: 150px;
+    padding: 20px;
+    text-align: center;
+    font-size: 0.9rem;
+    color: #777;
+}
+
+/* Smooth page fade-in animation */
+.page-transition {
+    animation: fadeIn 0.55s ease-in-out;
+    opacity: 0;
+    animation-fill-mode: forwards;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to   { opacity: 1; transform: translateY(0); }
+}
+
+/* Card hover animation (same style as dashboard feature cards) */
+.about-card {
+    transition: 0.3s ease;
+    border-radius: 12px !important;
+    border: none;
+    box-shadow: 0 3px 12px rgba(0,0,0,0.08);
+}
+
+.about-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 12px 30px rgba(0,0,0,0.18);
+}
+
+/* Smooth accordion animation */
+.accordion-button {
+    transition: background-color 0.2s ease;
+}
+
+.accordion-button:not(.collapsed) {
+    background-color: #f0f4ff;
+    color: #2c3e50;
+}

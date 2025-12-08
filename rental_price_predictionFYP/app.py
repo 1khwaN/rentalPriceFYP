@@ -212,6 +212,14 @@ def home():
 def predict_form():
     return render_template("index.html")
 
+@app.route("/about")
+def about():
+    return render_template("about.html")
+
+@app.route("/analytics")
+def analytics():
+    return render_template("analytics.html")
+
 @app.route("/predict", methods=["POST"])
 def predict():
     user_input = {
@@ -261,16 +269,12 @@ def api_predict():
     rent = float(np.expm1(hybrid_log))
     return jsonify({'predicted_rent': rent})
 
+
+
 if __name__ == "__main__":
     print("Starting Flask app (debug mode)...")
     diagnostics_model_on_sample()
     app.run(debug=True)
 
-@app.route("/about")
-def about():
-    return render_template("about.html")
 
-@app.route("/analytics")
-def analytics():
-    return render_template("analytics.html")
 
