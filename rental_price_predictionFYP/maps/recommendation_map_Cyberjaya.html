@@ -1,0 +1,353 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+    
+        <script>
+            L_NO_TOUCH = false;
+            L_DISABLE_3D = false;
+        </script>
+    
+    <style>html, body {width: 100%;height: 100%;margin: 0;padding: 0;}</style>
+    <style>#map {position:absolute;top:0;bottom:0;right:0;left:0;}</style>
+    <script src="https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.js"></script>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.2.0/css/all.min.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/python-visualization/folium/folium/templates/leaflet.awesome.rotate.min.css"/>
+    
+            <meta name="viewport" content="width=device-width,
+                initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+            <style>
+                #map_2bad6f0d0a85d004c409734e9af99e6a {
+                    position: relative;
+                    width: 100.0%;
+                    height: 100.0%;
+                    left: 0.0%;
+                    top: 0.0%;
+                }
+                .leaflet-container { font-size: 1rem; }
+            </style>
+        
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet.markercluster/1.1.0/leaflet.markercluster.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet.markercluster/1.1.0/MarkerCluster.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet.markercluster/1.1.0/MarkerCluster.Default.css"/>
+</head>
+<body>
+    
+    
+            <div class="folium-map" id="map_2bad6f0d0a85d004c409734e9af99e6a" ></div>
+        
+</body>
+<script>
+    
+    
+            var map_2bad6f0d0a85d004c409734e9af99e6a = L.map(
+                "map_2bad6f0d0a85d004c409734e9af99e6a",
+                {
+                    center: [2.9338908, 101.6455587],
+                    crs: L.CRS.EPSG3857,
+                    zoom: 13,
+                    zoomControl: true,
+                    preferCanvas: false,
+                }
+            );
+
+            
+
+        
+    
+            var tile_layer_cad8b8aeda8bf4f69ea032086b837313 = L.tileLayer(
+                "https://tile.openstreetmap.org/{z}/{x}/{y}.png",
+                {"attribution": "\u0026copy; \u003ca href=\"https://www.openstreetmap.org/copyright\"\u003eOpenStreetMap\u003c/a\u003e contributors", "detectRetina": false, "maxNativeZoom": 19, "maxZoom": 19, "minZoom": 0, "noWrap": false, "opacity": 1, "subdomains": "abc", "tms": false}
+            );
+        
+    
+            tile_layer_cad8b8aeda8bf4f69ea032086b837313.addTo(map_2bad6f0d0a85d004c409734e9af99e6a);
+        
+    
+            var marker_cluster_03f48babd07c91c035d688e3f4c20bc7 = L.markerClusterGroup(
+                {}
+            );
+        
+    
+            marker_cluster_03f48babd07c91c035d688e3f4c20bc7.addTo(map_2bad6f0d0a85d004c409734e9af99e6a);
+        
+    
+            var marker_61d32f48bf1f85f53685bf129462291b = L.marker(
+                [2.9338908, 101.6455587],
+                {}
+            ).addTo(map_2bad6f0d0a85d004c409734e9af99e6a);
+        
+    
+            var icon_e7dbb5db6a0892ae7ac4cf4f78b2569d = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "green", "prefix": "glyphicon"}
+            );
+            marker_61d32f48bf1f85f53685bf129462291b.setIcon(icon_e7dbb5db6a0892ae7ac4cf4f78b2569d);
+        
+    
+        var popup_16ac57dec08e8d2d23935e90fe666f96 = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_b03cb6923cdac86b8b838a18b239b52f = $(`<div id="html_b03cb6923cdac86b8b838a18b239b52f" style="width: 100.0%; height: 100.0%;">Mutiara Ville @ Cyberjaya - RM 1,600.00</div>`)[0];
+                popup_16ac57dec08e8d2d23935e90fe666f96.setContent(html_b03cb6923cdac86b8b838a18b239b52f);
+            
+        
+
+        marker_61d32f48bf1f85f53685bf129462291b.bindPopup(popup_16ac57dec08e8d2d23935e90fe666f96)
+        ;
+
+        
+    
+    
+            var marker_93a4b0f67173d2211c377e3b9298fc3a = L.marker(
+                [2.9296477, 101.6299382],
+                {}
+            ).addTo(map_2bad6f0d0a85d004c409734e9af99e6a);
+        
+    
+            var icon_9cd3d870ed9a47b1a680fe2324838a27 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "green", "prefix": "glyphicon"}
+            );
+            marker_93a4b0f67173d2211c377e3b9298fc3a.setIcon(icon_9cd3d870ed9a47b1a680fe2324838a27);
+        
+    
+        var popup_13ca13376b1867e62975a8354a260716 = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_3aa5532fd412c304189e78e4262828a6 = $(`<div id="html_3aa5532fd412c304189e78e4262828a6" style="width: 100.0%; height: 100.0%;">Lakefront Homes @ Cyberjaya - RM 1,600.00</div>`)[0];
+                popup_13ca13376b1867e62975a8354a260716.setContent(html_3aa5532fd412c304189e78e4262828a6);
+            
+        
+
+        marker_93a4b0f67173d2211c377e3b9298fc3a.bindPopup(popup_13ca13376b1867e62975a8354a260716)
+        ;
+
+        
+    
+    
+            var marker_777e5c6ab06e2750e4ee872c8bd40572 = L.marker(
+                [2.9296477, 101.6299382],
+                {}
+            ).addTo(map_2bad6f0d0a85d004c409734e9af99e6a);
+        
+    
+            var icon_a79f9e09a0cf299121c0400d27e82f2a = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "green", "prefix": "glyphicon"}
+            );
+            marker_777e5c6ab06e2750e4ee872c8bd40572.setIcon(icon_a79f9e09a0cf299121c0400d27e82f2a);
+        
+    
+        var popup_5159b09d0f66fd105b434c6010f6750f = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_d0863e50052e045e8e7ecfce0b00706d = $(`<div id="html_d0863e50052e045e8e7ecfce0b00706d" style="width: 100.0%; height: 100.0%;">Lakefront Homes @ Cyberjaya - RM 1,600.00</div>`)[0];
+                popup_5159b09d0f66fd105b434c6010f6750f.setContent(html_d0863e50052e045e8e7ecfce0b00706d);
+            
+        
+
+        marker_777e5c6ab06e2750e4ee872c8bd40572.bindPopup(popup_5159b09d0f66fd105b434c6010f6750f)
+        ;
+
+        
+    
+    
+            var marker_23d8cb4d13d2ced9faefe00d02b28342 = L.marker(
+                [2.9609151, 101.6573603],
+                {}
+            ).addTo(map_2bad6f0d0a85d004c409734e9af99e6a);
+        
+    
+            var icon_eda0a2b0e79829c91969331a18b23c8b = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "green", "prefix": "glyphicon"}
+            );
+            marker_23d8cb4d13d2ced9faefe00d02b28342.setIcon(icon_eda0a2b0e79829c91969331a18b23c8b);
+        
+    
+        var popup_ff4a6a7b30d79e041933929f036d0680 = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_3ee2e69c86131d44f266a028b907c8c3 = $(`<div id="html_3ee2e69c86131d44f266a028b907c8c3" style="width: 100.0%; height: 100.0%;">Vision Residence - RM 1,800.00</div>`)[0];
+                popup_ff4a6a7b30d79e041933929f036d0680.setContent(html_3ee2e69c86131d44f266a028b907c8c3);
+            
+        
+
+        marker_23d8cb4d13d2ced9faefe00d02b28342.bindPopup(popup_ff4a6a7b30d79e041933929f036d0680)
+        ;
+
+        
+    
+    
+            var marker_85d084c584a304680cc7d6bdb050277f = L.marker(
+                [2.9285113, 101.654096],
+                {}
+            ).addTo(map_2bad6f0d0a85d004c409734e9af99e6a);
+        
+    
+            var icon_753c64d71ce6f9de77d3c713ea9d27c7 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "green", "prefix": "glyphicon"}
+            );
+            marker_85d084c584a304680cc7d6bdb050277f.setIcon(icon_753c64d71ce6f9de77d3c713ea9d27c7);
+        
+    
+        var popup_8beca27babed6777e00ed63a62e9e7ac = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_71713fda767e997ef81326f0b2abffab = $(`<div id="html_71713fda767e997ef81326f0b2abffab" style="width: 100.0%; height: 100.0%;">Third Avenue - RM 1,800.00</div>`)[0];
+                popup_8beca27babed6777e00ed63a62e9e7ac.setContent(html_71713fda767e997ef81326f0b2abffab);
+            
+        
+
+        marker_85d084c584a304680cc7d6bdb050277f.bindPopup(popup_8beca27babed6777e00ed63a62e9e7ac)
+        ;
+
+        
+    
+    
+            var marker_95c44423088df05f62464bc7342f4656 = L.marker(
+                [2.9338908, 101.6455587],
+                {}
+            ).addTo(map_2bad6f0d0a85d004c409734e9af99e6a);
+        
+    
+            var icon_534c2d5af69a6aebd71cd969898433fc = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "green", "prefix": "glyphicon"}
+            );
+            marker_95c44423088df05f62464bc7342f4656.setIcon(icon_534c2d5af69a6aebd71cd969898433fc);
+        
+    
+        var popup_c03ed92a44ed263dd9d040bc8eaabff7 = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_e6f10446d6215aca684dc19461b20aaa = $(`<div id="html_e6f10446d6215aca684dc19461b20aaa" style="width: 100.0%; height: 100.0%;">Eclipse Residence @ Pan'gaea - RM 1,800.00</div>`)[0];
+                popup_c03ed92a44ed263dd9d040bc8eaabff7.setContent(html_e6f10446d6215aca684dc19461b20aaa);
+            
+        
+
+        marker_95c44423088df05f62464bc7342f4656.bindPopup(popup_c03ed92a44ed263dd9d040bc8eaabff7)
+        ;
+
+        
+    
+    
+            var marker_7a33f66b406ccd995175c1e279f94572 = L.marker(
+                [2.9148288, 101.6657635],
+                {}
+            ).addTo(map_2bad6f0d0a85d004c409734e9af99e6a);
+        
+    
+            var icon_e6a768b3c8852a0443fd7225835a4481 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "green", "prefix": "glyphicon"}
+            );
+            marker_7a33f66b406ccd995175c1e279f94572.setIcon(icon_e6a768b3c8852a0443fd7225835a4481);
+        
+    
+        var popup_256146c1cccf9e8adefdcfea6eca4502 = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_d5d79cc8191fb604c80aec5dd1b98f8e = $(`<div id="html_d5d79cc8191fb604c80aec5dd1b98f8e" style="width: 100.0%; height: 100.0%;">Mirage By The Lake - RM 1,600.00</div>`)[0];
+                popup_256146c1cccf9e8adefdcfea6eca4502.setContent(html_d5d79cc8191fb604c80aec5dd1b98f8e);
+            
+        
+
+        marker_7a33f66b406ccd995175c1e279f94572.bindPopup(popup_256146c1cccf9e8adefdcfea6eca4502)
+        ;
+
+        
+    
+    
+            var marker_edd15d97582c53a8fd2c549a8f7839df = L.marker(
+                [2.9318119, 101.6300909],
+                {}
+            ).addTo(map_2bad6f0d0a85d004c409734e9af99e6a);
+        
+    
+            var icon_479525bb4c90f3cd585b93b28bcbcba9 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "green", "prefix": "glyphicon"}
+            );
+            marker_edd15d97582c53a8fd2c549a8f7839df.setIcon(icon_479525bb4c90f3cd585b93b28bcbcba9);
+        
+    
+        var popup_80762c52000193125eef833e3ee43410 = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_2b00e640f61f2ec28f7f65b8ce131554 = $(`<div id="html_2b00e640f61f2ec28f7f65b8ce131554" style="width: 100.0%; height: 100.0%;">LakeFront Residence - RM 1,800.00</div>`)[0];
+                popup_80762c52000193125eef833e3ee43410.setContent(html_2b00e640f61f2ec28f7f65b8ce131554);
+            
+        
+
+        marker_edd15d97582c53a8fd2c549a8f7839df.bindPopup(popup_80762c52000193125eef833e3ee43410)
+        ;
+
+        
+    
+    
+            var marker_a491bb49d0109b7848c8fbc1d66c3c59 = L.marker(
+                [2.9338908, 101.6455587],
+                {}
+            ).addTo(map_2bad6f0d0a85d004c409734e9af99e6a);
+        
+    
+            var icon_10241b563eaddd3190ba381c9ef23efa = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "green", "prefix": "glyphicon"}
+            );
+            marker_a491bb49d0109b7848c8fbc1d66c3c59.setIcon(icon_10241b563eaddd3190ba381c9ef23efa);
+        
+    
+        var popup_b938a67983b91a57b196a76c2566bab1 = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_741432def32089ab62f4c0f4be087dd2 = $(`<div id="html_741432def32089ab62f4c0f4be087dd2" style="width: 100.0%; height: 100.0%;">Eclipse Residence @ Pan'gaea - RM 1,650.00</div>`)[0];
+                popup_b938a67983b91a57b196a76c2566bab1.setContent(html_741432def32089ab62f4c0f4be087dd2);
+            
+        
+
+        marker_a491bb49d0109b7848c8fbc1d66c3c59.bindPopup(popup_b938a67983b91a57b196a76c2566bab1)
+        ;
+
+        
+    
+    
+            var marker_5e60ff05bc7222e6e1625858706c78ce = L.marker(
+                [2.9318119, 101.6300909],
+                {}
+            ).addTo(map_2bad6f0d0a85d004c409734e9af99e6a);
+        
+    
+            var icon_3d58bf7de84668a4770259f7128c763f = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "green", "prefix": "glyphicon"}
+            );
+            marker_5e60ff05bc7222e6e1625858706c78ce.setIcon(icon_3d58bf7de84668a4770259f7128c763f);
+        
+    
+        var popup_1974e89ee2c7d8951df62fcdd0b046b2 = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_0653c1f8da0116539273341e76c8a6c9 = $(`<div id="html_0653c1f8da0116539273341e76c8a6c9" style="width: 100.0%; height: 100.0%;">LakeFront Residence - RM 1,700.00</div>`)[0];
+                popup_1974e89ee2c7d8951df62fcdd0b046b2.setContent(html_0653c1f8da0116539273341e76c8a6c9);
+            
+        
+
+        marker_5e60ff05bc7222e6e1625858706c78ce.bindPopup(popup_1974e89ee2c7d8951df62fcdd0b046b2)
+        ;
+
+        
+    
+</script>
+</html>

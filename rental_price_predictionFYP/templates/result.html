@@ -1,41 +1,131 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
+    <meta charset="UTF-8">
     <title>Prediction Result</title>
+
+    <!-- Bootstrap -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Icons -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css" rel="stylesheet">
+
+    <!-- Shared Styles -->
+    <link rel="stylesheet" href="/static/dashboardStyle.css">
+    <link rel="stylesheet" href="/static/resultStyle.css">
+
+    <!-- AOS -->
+    <link href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" rel="stylesheet">
+
+    <!-- SweetAlert2 -->
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
 </head>
 
-<body class="bg-light">
+<body>
 
-<div class="container mt-4">
+<!-- NAVBAR -->
+<nav class="navbar navbar-expand-lg navbar-light bg-white shadow-sm fixed-top px-4">
+    <a class="navbar-brand fw-bold" href="/" style="font-size: 1.3rem;">🏡 RPPSHomes</a>
 
-    <div class="card p-4 shadow">
-        <h2 class="text-success">🏠 Predicted Monthly Rent</h2>
-        <h1 class="display-4">RM {{ rent }}</h1>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+        <span class="navbar-toggler-icon"></span>
+    </button>
 
-        <hr>
-        <h4>Property Details</h4>
-        <p><strong>City:</strong> {{ city }}</p>
-        <p><strong>Region:</strong> {{ region }}</p>
-        <p><strong>Size:</strong> {{ size }} sqft</p>
-
-        <h4 class="mt-4">📍 Recommended Properties</h4>
-        <ul>
-            {% for r in recommendations %}
-            <li>{{ r.name }} — RM {{ r.rent }}</li>
-            {% endfor %}
+    <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ms-auto">
+            <li class="nav-item"><a class="nav-link" href="/">Home</a></li>
+            <li class="nav-item"><a class="nav-link" href="/about">About System</a></li>
+            <li class="nav-item"><a class="nav-link" href="/analytics">Analytics</a></li>
+            <li class="nav-item ms-3">
+                <a class="btn btn-primary px-4 py-2" href="/predict_form">
+                    <i class="bi bi-bar-chart-line"></i> Predict Again
+                </a>
+            </li>
         </ul>
+    </div>
+</nav>
 
-        {% if map_path %}
-        <h4 class="mt-4">📌 Location Map</h4>
-        <iframe src="/maps/{{ map_path }}" width="100%" height="500px"></iframe>
-        {% endif %}
+<div style="height: 90px;"></div>
 
+<!-- RESULT BOX -->
+<div class="result-box" data-aos="fade-up">
 
-        <a href="/predict_form" class="btn btn-secondary mt-3">Back</a>
+    <h2 class="text-center fw-bold mb-3">🎉 Prediction Successful!</h2>
+
+    <p class="text-center mb-4">Here is the estimated rental price for your selected property:</p>
+
+    <div class="text-center mb-4">
+        <div class="rent-value">RM {{ rent }}</div>
+        <div class="label-text">Estimated Monthly Rent</div>
     </div>
 
+    <hr>
+
+    <!-- PROPERTY DETAILS -->
+    <h4 class="fw-bold mt-4">📌 Property Information</h4>
+
+    <ul class="list-group mt-3 mb-4">
+        <li class="list-group-item"><strong>Region:</strong> {{ region }}</li>
+        <li class="list-group-item"><strong>City:</strong> {{ city }}</li>
+        <li class="list-group-item"><strong>Size:</strong> {{ size }} sqft</li>
+    </ul>
+
+    <!-- MAP SECTION -->
+    <div class="map-button-container">
+        {% if map_path %}
+        <a href="/maps/{{ map_path }}" target="_blank" class="btn btn-success btn-lg px-4 py-2 shadow">
+            <i class="bi bi-geo-alt-fill"></i> View Recommended Properties Map
+        </a>
+        {% else %}
+        <p class="text-danger">Map could not be generated.</p>
+        {% endif %}
+    </div>
+
+    <hr class="my-4">
+
+    <!-- RECOMMENDATION LIST -->
+    <h4 class="fw-bold mb-3">🏘 Recommended Properties</h4>
+
+    {% if recommendations %}
+        <div class="row g-4">
+            {% for rec in recommendations %}
+            <div class="col-md-6">
+                <div class="recommendation-card" data-aos="fade-up">
+                    <h5 class="fw-bold">{{ rec.name }}</h5>
+                    <p class="text-muted mb-1">Rent: RM {{ rec.rent }}</p>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    {% else %}
+        <p class="text-muted">No recommendations available for this search.</p>
+    {% endif %}
 </div>
+
+<!-- FOOTER -->
+<div class="footer">
+    © 2025 Rental Price Prediction System — Final Year Project
+</div>
+
+<!-- AOS -->
+<script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
+<script>AOS.init({ duration: 900 });</script>
+
+<!-- SWEETALERT SUCCESS POPUP -->
+<script>
+Swal.fire({
+    title: "Prediction Complete!",
+    text: "Your rental price estimation is ready.",
+    icon: "success",
+    confirmButtonText: "Great!",
+    confirmButtonColor: "#007bff",
+    timer: 2500,
+    timerProgressBar: true,
+    showClass: { popup: "animate__animated animate__fadeInDown" },
+    hideClass: { popup: "animate__animated animate__fadeOutUp" }
+});
+</script>
 
 </body>
 </html>

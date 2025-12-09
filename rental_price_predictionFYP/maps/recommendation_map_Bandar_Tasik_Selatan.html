@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+    
+        <script>
+            L_NO_TOUCH = false;
+            L_DISABLE_3D = false;
+        </script>
+    
+    <style>html, body {width: 100%;height: 100%;margin: 0;padding: 0;}</style>
+    <style>#map {position:absolute;top:0;bottom:0;right:0;left:0;}</style>
+    <script src="https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.js"></script>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.2.0/css/all.min.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/python-visualization/folium/folium/templates/leaflet.awesome.rotate.min.css"/>
+    
+            <meta name="viewport" content="width=device-width,
+                initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+            <style>
+                #map_a6cb4c241b006c0483c8736618f699d9 {
+                    position: relative;
+                    width: 100.0%;
+                    height: 100.0%;
+                    left: 0.0%;
+                    top: 0.0%;
+                }
+                .leaflet-container { font-size: 1rem; }
+            </style>
+        
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet.markercluster/1.1.0/leaflet.markercluster.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet.markercluster/1.1.0/MarkerCluster.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet.markercluster/1.1.0/MarkerCluster.Default.css"/>
+</head>
+<body>
+    
+    
+            <div class="folium-map" id="map_a6cb4c241b006c0483c8736618f699d9" ></div>
+        
+</body>
+<script>
+    
+    
+            var map_a6cb4c241b006c0483c8736618f699d9 = L.map(
+                "map_a6cb4c241b006c0483c8736618f699d9",
+                {
+                    center: [3.0760972, 101.7114467],
+                    crs: L.CRS.EPSG3857,
+                    zoom: 13,
+                    zoomControl: true,
+                    preferCanvas: false,
+                }
+            );
+
+            
+
+        
+    
+            var tile_layer_e9684ea64776004ebf2ea4f1f113aab3 = L.tileLayer(
+                "https://tile.openstreetmap.org/{z}/{x}/{y}.png",
+                {"attribution": "\u0026copy; \u003ca href=\"https://www.openstreetmap.org/copyright\"\u003eOpenStreetMap\u003c/a\u003e contributors", "detectRetina": false, "maxNativeZoom": 19, "maxZoom": 19, "minZoom": 0, "noWrap": false, "opacity": 1, "subdomains": "abc", "tms": false}
+            );
+        
+    
+            tile_layer_e9684ea64776004ebf2ea4f1f113aab3.addTo(map_a6cb4c241b006c0483c8736618f699d9);
+        
+    
+            var marker_cluster_08e0218ef6243d04c5d8a45b2b64434a = L.markerClusterGroup(
+                {}
+            );
+        
+    
+            marker_cluster_08e0218ef6243d04c5d8a45b2b64434a.addTo(map_a6cb4c241b006c0483c8736618f699d9);
+        
+    
+            var marker_919af40a17e5314262ebdc6e5c14191e = L.marker(
+                [3.0760972, 101.7114467],
+                {}
+            ).addTo(map_a6cb4c241b006c0483c8736618f699d9);
+        
+    
+            var icon_47c59030590b2b731015f05fccbe4213 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "green", "prefix": "glyphicon"}
+            );
+            marker_919af40a17e5314262ebdc6e5c14191e.setIcon(icon_47c59030590b2b731015f05fccbe4213);
+        
+    
+        var popup_60eb4b85b61259a2bf3d39fd24b4d482 = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_33c0f2b93f0526184e033eb839e4add7 = $(`<div id="html_33c0f2b93f0526184e033eb839e4add7" style="width: 100.0%; height: 100.0%;">Tasikmas - RM 1,000.00</div>`)[0];
+                popup_60eb4b85b61259a2bf3d39fd24b4d482.setContent(html_33c0f2b93f0526184e033eb839e4add7);
+            
+        
+
+        marker_919af40a17e5314262ebdc6e5c14191e.bindPopup(popup_60eb4b85b61259a2bf3d39fd24b4d482)
+        ;
+
+        
+    
+    
+            var marker_f48891395f592f01924a403232abf494 = L.marker(
+                [3.0760972, 101.7114467],
+                {}
+            ).addTo(map_a6cb4c241b006c0483c8736618f699d9);
+        
+    
+            var icon_978d197a6316ae094ff947b10ce8b298 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "green", "prefix": "glyphicon"}
+            );
+            marker_f48891395f592f01924a403232abf494.setIcon(icon_978d197a6316ae094ff947b10ce8b298);
+        
+    
+        var popup_d68bfc2423ea022f18f0a96385e9d575 = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_7d54515aa409e3b02981b5b67ece77a6 = $(`<div id="html_7d54515aa409e3b02981b5b67ece77a6" style="width: 100.0%; height: 100.0%;">Tasikmas - RM 1,000.00</div>`)[0];
+                popup_d68bfc2423ea022f18f0a96385e9d575.setContent(html_7d54515aa409e3b02981b5b67ece77a6);
+            
+        
+
+        marker_f48891395f592f01924a403232abf494.bindPopup(popup_d68bfc2423ea022f18f0a96385e9d575)
+        ;
+
+        
+    
+    
+            var marker_63ae5d49bebbfe88783bd2ecd50dc1c1 = L.marker(
+                [3.0760972, 101.7114467],
+                {}
+            ).addTo(map_a6cb4c241b006c0483c8736618f699d9);
+        
+    
+            var icon_a684b0f099c906855ebdd0d529ba0146 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "green", "prefix": "glyphicon"}
+            );
+            marker_63ae5d49bebbfe88783bd2ecd50dc1c1.setIcon(icon_a684b0f099c906855ebdd0d529ba0146);
+        
+    
+        var popup_ed250cbeeff0cf18a98bf9cad1f17891 = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_658135b1939b6ad111ede6d77300a1be = $(`<div id="html_658135b1939b6ad111ede6d77300a1be" style="width: 100.0%; height: 100.0%;">Tasik Height Apartment - RM 1,200.00</div>`)[0];
+                popup_ed250cbeeff0cf18a98bf9cad1f17891.setContent(html_658135b1939b6ad111ede6d77300a1be);
+            
+        
+
+        marker_63ae5d49bebbfe88783bd2ecd50dc1c1.bindPopup(popup_ed250cbeeff0cf18a98bf9cad1f17891)
+        ;
+
+        
+    
+    
+            var marker_94f587b617df789b8b7a207e9dc4b887 = L.marker(
+                [3.0760972, 101.7114467],
+                {}
+            ).addTo(map_a6cb4c241b006c0483c8736618f699d9);
+        
+    
+            var icon_65e5fdf25bcdc0a8d7a8914e2ff9ccd3 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "green", "prefix": "glyphicon"}
+            );
+            marker_94f587b617df789b8b7a207e9dc4b887.setIcon(icon_65e5fdf25bcdc0a8d7a8914e2ff9ccd3);
+        
+    
+        var popup_a85a3dd0ced0f868b6d2bf2eb5cdafbb = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_4e80f54a0511355f5f8e56ed1d148af7 = $(`<div id="html_4e80f54a0511355f5f8e56ed1d148af7" style="width: 100.0%; height: 100.0%;">Tasikmas - RM 1,000.00</div>`)[0];
+                popup_a85a3dd0ced0f868b6d2bf2eb5cdafbb.setContent(html_4e80f54a0511355f5f8e56ed1d148af7);
+            
+        
+
+        marker_94f587b617df789b8b7a207e9dc4b887.bindPopup(popup_a85a3dd0ced0f868b6d2bf2eb5cdafbb)
+        ;
+
+        
+    
+    
+            var marker_3908631d191f421e4d7555458e842d93 = L.marker(
+                [3.0760972, 101.7114467],
+                {}
+            ).addTo(map_a6cb4c241b006c0483c8736618f699d9);
+        
+    
+            var icon_b338154e320cc612e65ad5491aa6057e = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "green", "prefix": "glyphicon"}
+            );
+            marker_3908631d191f421e4d7555458e842d93.setIcon(icon_b338154e320cc612e65ad5491aa6057e);
+        
+    
+        var popup_6a65c9ee0e4b3f5cbf0bfa11e8b12584 = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_75e4ad28c7c63817747f8c464e64a777 = $(`<div id="html_75e4ad28c7c63817747f8c464e64a777" style="width: 100.0%; height: 100.0%;">Pangsapuri Sri Malaysia - RM 1,000.00</div>`)[0];
+                popup_6a65c9ee0e4b3f5cbf0bfa11e8b12584.setContent(html_75e4ad28c7c63817747f8c464e64a777);
+            
+        
+
+        marker_3908631d191f421e4d7555458e842d93.bindPopup(popup_6a65c9ee0e4b3f5cbf0bfa11e8b12584)
+        ;
+
+        
+    
+    
+            var marker_daf89d14b16f885b3a5875b1fe0563b0 = L.marker(
+                [3.0760972, 101.7114467],
+                {}
+            ).addTo(map_a6cb4c241b006c0483c8736618f699d9);
+        
+    
+            var icon_0e6995d4ecf40ed0f13be65053f2cb4c = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "green", "prefix": "glyphicon"}
+            );
+            marker_daf89d14b16f885b3a5875b1fe0563b0.setIcon(icon_0e6995d4ecf40ed0f13be65053f2cb4c);
+        
+    
+        var popup_a11dbdbcfd66b2bb4627dd77e78ca3c7 = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_5c6d4cffdb890411a62d74946008af28 = $(`<div id="html_5c6d4cffdb890411a62d74946008af28" style="width: 100.0%; height: 100.0%;">Tasikmas - RM 1,000.00</div>`)[0];
+                popup_a11dbdbcfd66b2bb4627dd77e78ca3c7.setContent(html_5c6d4cffdb890411a62d74946008af28);
+            
+        
+
+        marker_daf89d14b16f885b3a5875b1fe0563b0.bindPopup(popup_a11dbdbcfd66b2bb4627dd77e78ca3c7)
+        ;
+
+        
+    
+</script>
+</html>

@@ -1,14 +1,164 @@
-<!DOCTYPE html><html><body>
-<h2>Predict Form</h2>
-<form action="/predict" method="POST">
-Region: <input name="region"><br>
-City: <input name="city"><br>
-Size: <input name="size"><br>
-Completion Year: <input name="completion_year"><br>
-Parking: <input name="parking"><br>
-Rooms: <input name="rooms"><br>
-Bathroom: <input name="bathroom"><br>
-Property Type: <input name="property_type"><br>
-Furnished: <input name="furnished"><br>
-<button>Predict</button>
-</form></body></html>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Predict Rental Price</title>
+
+    <!-- Bootstrap -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Icons -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css" rel="stylesheet">
+
+    <!-- Shared Styles -->
+    <link rel="stylesheet" href="/static/dashboardStyle.css">
+    <link rel="stylesheet" href="/static/indexStyle.css">
+
+</head>
+
+<body>
+
+<!-- NAVBAR -->
+<nav class="navbar navbar-expand-lg navbar-light bg-white shadow-sm fixed-top px-4">
+    <a class="navbar-brand fw-bold" href="/" style="font-size: 1.3rem;">🏡 RPPSHomes</a>
+
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ms-auto">
+            <li class="nav-item"><a class="nav-link" href="/">Home</a></li>
+            <li class="nav-item"><a class="nav-link" href="/about">About System</a></li>
+            <li class="nav-item"><a class="nav-link" href="/analytics">Analytics</a></li>
+            <li class="nav-item ms-3">
+                <a class="btn btn-primary px-4 py-2" href="/predict_form">
+                    <i class="bi bi-bar-chart-line"></i> Predict
+                </a>
+            </li>
+        </ul>
+    </div>
+</nav>
+
+<div style="height: 90px;"></div>
+
+<h1 class="page-title">🔎 Predict Rental Price</h1>
+
+<div class="form-card" data-aos="fade-up">
+    <form id="predictForm" action="/predict" method="POST">
+
+        <!-- Region -->
+        <div class="mb-3">
+            <label class="form-label">Region</label>
+            <select name="region" id="regionSelect" class="form-select" required>
+                <option value="">Loading...</option>
+            </select>
+        </div>
+
+        <!-- City -->
+        <div class="mb-3">
+            <label class="form-label">City</label>
+            <select name="city" id="citySelect" class="form-select" required>
+                <option value="">Choose region first...</option>
+            </select>
+        </div>
+
+        <!-- Size + Completion -->
+        <div class="row mb-3">
+            <div class="col-md-6">
+                <label class="form-label">Size (sqft)</label>
+                <input type="number" name="size" class="form-control" required>
+            </div>
+            <div class="col-md-6">
+                <label class="form-label">Completion Year</label>
+                <input type="number" name="completion_year" class="form-control" required>
+            </div>
+        </div>
+
+        <!-- Parking + Rooms -->
+        <div class="row mb-3">
+            <div class="col-md-6">
+                <label class="form-label">Parking</label>
+                <input type="number" name="parking" class="form-control">
+            </div>
+            <div class="col-md-6">
+                <label class="form-label">Rooms</label>
+                <input type="number" name="rooms" class="form-control">
+            </div>
+        </div>
+
+        <!-- Bathroom -->
+        <div class="mb-3">
+            <label class="form-label">Bathrooms</label>
+            <input type="number" name="bathroom" class="form-control">
+        </div>
+
+        <!-- Property Type -->
+        <div class="mb-3">
+            <label class="form-label">Property Type</label>
+            <select name="property_type" id="propertyTypeSelect" class="form-select" required>
+                <option value="">Loading...</option>
+            </select>
+        </div>
+
+        <!-- Furnished -->
+        <div class="mb-4">
+            <label class="form-label">Furnished Status</label>
+            <select name="furnished" id="furnishedSelect" class="form-select" required>
+                <option value="">Loading...</option>
+            </select>
+        </div>
+
+        <!-- Submit -->
+        <button id="submitBtn" class="btn btn-primary submit-btn">
+            <i class="bi bi-search"></i> Predict Now
+        </button>
+
+    </form>
+</div>
+
+<!-- AOS -->
+<script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
+<script>AOS.init({ duration: 800 });</script>
+
+<!-- Load Dropdown Data -->
+<script>
+function fillDropdown(id, items) {
+    const dropdown = document.getElementById(id);
+    dropdown.innerHTML = `<option value="">Choose...</option>`;
+    items.forEach(item => {
+        dropdown.innerHTML += `<option value="${item}">${item}</option>`;
+    });
+}
+
+// Load all options on page load
+fetch("/api/options")
+    .then(r => r.json())
+    .then(data => {
+        fillDropdown("regionSelect", data.regions);
+        fillDropdown("propertyTypeSelect", data.property_types);
+        fillDropdown("furnishedSelect", data.furnished);
+    });
+
+// When region changes → filter cities
+document.getElementById("regionSelect").addEventListener("change", function () {
+    const region = this.value;
+
+    fetch("/api/options")
+        .then(r => r.json())
+        .then(data => {
+            const allCities = data.cities_by_region[region] || [];
+            fillDropdown("citySelect", allCities);
+        });
+});
+
+// Loading animation on submit
+document.getElementById("predictForm").addEventListener("submit", function () {
+    const btn = document.getElementById("submitBtn");
+    btn.disabled = true;
+    btn.innerHTML = `<span class="spinner-border spinner-border-sm"></span> Predicting...`;
+});
+</script>
+
+</body>
+</html>

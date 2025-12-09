@@ -269,6 +269,26 @@ def api_predict():
     rent = float(np.expm1(hybrid_log))
     return jsonify({'predicted_rent': rent})
 
+@app.route("/api/options")
+def api_options():
+    regions = sorted(df_raw["region"].dropna().unique().tolist())
+    property_types = sorted(df_raw["property_type"].dropna().unique().tolist())
+    furnished = sorted(df_raw["furnished"].dropna().unique().tolist())
+
+    # Cities grouped by region
+    cities_by_region = {
+        region: sorted(df_raw[df_raw["region"] == region]["city"].dropna().unique().tolist())
+        for region in regions
+    }
+
+    return jsonify({
+        "regions": regions,
+        "property_types": property_types,
+        "furnished": furnished,
+        "cities_by_region": cities_by_region
+    })
+
+
 
 
 if __name__ == "__main__":

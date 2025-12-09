@@ -1,0 +1,46 @@
+        .result-box {
+            max-width: 850px;
+            margin: auto;
+            padding: 40px;
+            border-radius: 18px;
+            background: #ffffff;
+            box-shadow: 0 8px 30px rgba(0,0,0,0.08);
+            margin-top: 40px;
+        }
+
+        .rent-value {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: #007bff;
+        }
+
+        .label-text {
+            font-size: 1rem;
+            color: #555;
+        }
+
+        .recommendation-card {
+            border-radius: 12px;
+            padding: 20px;
+            background: white;
+            transition: 0.3s;
+            box-shadow: 0 6px 20px rgba(0,0,0,0.08);
+        }
+
+        .recommendation-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 12px 28px rgba(0,0,0,0.15);
+        }
+
+        .map-button-container {
+            text-align: center;
+            margin-top: 30px;
+        }
+
+        .footer {
+            margin-top: 70px;
+            padding: 20px;
+            text-align: center;
+            color: #777;
+        }
+ 
