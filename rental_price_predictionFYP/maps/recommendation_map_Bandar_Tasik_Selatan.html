@@ -25,7 +25,7 @@
             <meta name="viewport" content="width=device-width,
                 initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
             <style>
-                #map_a6cb4c241b006c0483c8736618f699d9 {
+                #map_03fb5240763526144940ce45d1d4c171 {
                     position: relative;
                     width: 100.0%;
                     height: 100.0%;
@@ -42,14 +42,14 @@
 <body>
     
     
-            <div class="folium-map" id="map_a6cb4c241b006c0483c8736618f699d9" ></div>
+            <div class="folium-map" id="map_03fb5240763526144940ce45d1d4c171" ></div>
         
 </body>
 <script>
     
     
-            var map_a6cb4c241b006c0483c8736618f699d9 = L.map(
-                "map_a6cb4c241b006c0483c8736618f699d9",
+            var map_03fb5240763526144940ce45d1d4c171 = L.map(
+                "map_03fb5240763526144940ce45d1d4c171",
                 {
                     center: [3.0760972, 101.7114467],
                     crs: L.CRS.EPSG3857,
@@ -63,183 +63,75 @@
 
         
     
-            var tile_layer_e9684ea64776004ebf2ea4f1f113aab3 = L.tileLayer(
+            var tile_layer_8c9247ad744493359d927ac682f1b891 = L.tileLayer(
                 "https://tile.openstreetmap.org/{z}/{x}/{y}.png",
                 {"attribution": "\u0026copy; \u003ca href=\"https://www.openstreetmap.org/copyright\"\u003eOpenStreetMap\u003c/a\u003e contributors", "detectRetina": false, "maxNativeZoom": 19, "maxZoom": 19, "minZoom": 0, "noWrap": false, "opacity": 1, "subdomains": "abc", "tms": false}
             );
         
     
-            tile_layer_e9684ea64776004ebf2ea4f1f113aab3.addTo(map_a6cb4c241b006c0483c8736618f699d9);
+            tile_layer_8c9247ad744493359d927ac682f1b891.addTo(map_03fb5240763526144940ce45d1d4c171);
         
     
-            var marker_cluster_08e0218ef6243d04c5d8a45b2b64434a = L.markerClusterGroup(
+            var marker_cluster_a76a45a74c1d3b45409e017dbd3fd896 = L.markerClusterGroup(
                 {}
             );
         
     
-            marker_cluster_08e0218ef6243d04c5d8a45b2b64434a.addTo(map_a6cb4c241b006c0483c8736618f699d9);
-        
-    
-            var marker_919af40a17e5314262ebdc6e5c14191e = L.marker(
+            var marker_f76e69a36a8a13bff990ccb3537fa103 = L.marker(
                 [3.0760972, 101.7114467],
                 {}
-            ).addTo(map_a6cb4c241b006c0483c8736618f699d9);
+            ).addTo(marker_cluster_a76a45a74c1d3b45409e017dbd3fd896);
         
     
-            var icon_47c59030590b2b731015f05fccbe4213 = L.AwesomeMarkers.icon(
-                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "green", "prefix": "glyphicon"}
+            var icon_81f4985e0a4077e46113fde09cc3a884 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "home", "iconColor": "white", "markerColor": "green", "prefix": "glyphicon"}
             );
-            marker_919af40a17e5314262ebdc6e5c14191e.setIcon(icon_47c59030590b2b731015f05fccbe4213);
+            marker_f76e69a36a8a13bff990ccb3537fa103.setIcon(icon_81f4985e0a4077e46113fde09cc3a884);
         
     
-        var popup_60eb4b85b61259a2bf3d39fd24b4d482 = L.popup({"maxWidth": "100%"});
+        var popup_29b8d07deb0a3f70f2ca5ab9707c5525 = L.popup({"maxWidth": 350});
 
         
             
-                var html_33c0f2b93f0526184e033eb839e4add7 = $(`<div id="html_33c0f2b93f0526184e033eb839e4add7" style="width: 100.0%; height: 100.0%;">Tasikmas - RM 1,000.00</div>`)[0];
-                popup_60eb4b85b61259a2bf3d39fd24b4d482.setContent(html_33c0f2b93f0526184e033eb839e4add7);
+                var html_56b6e9927cbd09fdc5a9a06c80eb7f84 = $(`<div id="html_56b6e9927cbd09fdc5a9a06c80eb7f84" style="width: 100.0%; height: 100.0%;"><div style='width: 280px; font-family: Arial;'>     <h5 style='margin-bottom:6px; color:#2c3e50;'>Tasikmas</h5>      <p style='margin:0;'><b>Monthly Rent:</b> RM 1,300.00</p>     <p style='margin:0;'><b>Size:</b> 850 sqft</p>     <p style='margin:0;'><b>Price per Sqft:</b> </p>      <hr style='margin:6px 0;'>      <p style='margin:0;'><b>Rooms:</b> 3</p>     <p style='margin:0;'><b>Bathrooms:</b> 2.0</p>     <p style='margin:0;'><b>Parking:</b> 1.0</p>      <p style='margin:0;'><b>Property Type:</b> Apartment</p>     <p style='margin:0;'><b>Furnished:</b> Fully Furnished</p>      <hr style='margin:6px 0;'>      <p style='margin:0; font-size:0.85rem;'>         <b>Facilities:</b><br>Parking, Security, Lift     </p> </div></div>`)[0];
+                popup_29b8d07deb0a3f70f2ca5ab9707c5525.setContent(html_56b6e9927cbd09fdc5a9a06c80eb7f84);
             
         
 
-        marker_919af40a17e5314262ebdc6e5c14191e.bindPopup(popup_60eb4b85b61259a2bf3d39fd24b4d482)
+        marker_f76e69a36a8a13bff990ccb3537fa103.bindPopup(popup_29b8d07deb0a3f70f2ca5ab9707c5525)
         ;
 
         
     
     
-            var marker_f48891395f592f01924a403232abf494 = L.marker(
+            var marker_1f3a9d6da758c49ddc88660bdb6b2f1a = L.marker(
                 [3.0760972, 101.7114467],
                 {}
-            ).addTo(map_a6cb4c241b006c0483c8736618f699d9);
+            ).addTo(marker_cluster_a76a45a74c1d3b45409e017dbd3fd896);
         
     
-            var icon_978d197a6316ae094ff947b10ce8b298 = L.AwesomeMarkers.icon(
-                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "green", "prefix": "glyphicon"}
+            var icon_9c90c8d64ceb532cf7ff3f8470558148 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "home", "iconColor": "white", "markerColor": "green", "prefix": "glyphicon"}
             );
-            marker_f48891395f592f01924a403232abf494.setIcon(icon_978d197a6316ae094ff947b10ce8b298);
+            marker_1f3a9d6da758c49ddc88660bdb6b2f1a.setIcon(icon_9c90c8d64ceb532cf7ff3f8470558148);
         
     
-        var popup_d68bfc2423ea022f18f0a96385e9d575 = L.popup({"maxWidth": "100%"});
+        var popup_97df42dd5353d1d451d6409ca7c3d715 = L.popup({"maxWidth": 350});
 
         
             
-                var html_7d54515aa409e3b02981b5b67ece77a6 = $(`<div id="html_7d54515aa409e3b02981b5b67ece77a6" style="width: 100.0%; height: 100.0%;">Tasikmas - RM 1,000.00</div>`)[0];
-                popup_d68bfc2423ea022f18f0a96385e9d575.setContent(html_7d54515aa409e3b02981b5b67ece77a6);
+                var html_e7f4677df406494b2e5a434da8dc7f5d = $(`<div id="html_e7f4677df406494b2e5a434da8dc7f5d" style="width: 100.0%; height: 100.0%;"><div style='width: 280px; font-family: Arial;'>     <h5 style='margin-bottom:6px; color:#2c3e50;'>Tasik Height Apartment</h5>      <p style='margin:0;'><b>Monthly Rent:</b> RM 1,200.00</p>     <p style='margin:0;'><b>Size:</b> 854 sqft</p>     <p style='margin:0;'><b>Price per Sqft:</b> </p>      <hr style='margin:6px 0;'>      <p style='margin:0;'><b>Rooms:</b> 3</p>     <p style='margin:0;'><b>Bathrooms:</b> 2.0</p>     <p style='margin:0;'><b>Parking:</b> 1.0</p>      <p style='margin:0;'><b>Property Type:</b> Apartment</p>     <p style='margin:0;'><b>Furnished:</b> Partially Furnished</p>      <hr style='margin:6px 0;'>      <p style='margin:0; font-size:0.85rem;'>         <b>Facilities:</b><br>nan     </p> </div></div>`)[0];
+                popup_97df42dd5353d1d451d6409ca7c3d715.setContent(html_e7f4677df406494b2e5a434da8dc7f5d);
             
         
 
-        marker_f48891395f592f01924a403232abf494.bindPopup(popup_d68bfc2423ea022f18f0a96385e9d575)
+        marker_1f3a9d6da758c49ddc88660bdb6b2f1a.bindPopup(popup_97df42dd5353d1d451d6409ca7c3d715)
         ;
 
         
     
     
-            var marker_63ae5d49bebbfe88783bd2ecd50dc1c1 = L.marker(
-                [3.0760972, 101.7114467],
-                {}
-            ).addTo(map_a6cb4c241b006c0483c8736618f699d9);
+            marker_cluster_a76a45a74c1d3b45409e017dbd3fd896.addTo(map_03fb5240763526144940ce45d1d4c171);
         
-    
-            var icon_a684b0f099c906855ebdd0d529ba0146 = L.AwesomeMarkers.icon(
-                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "green", "prefix": "glyphicon"}
-            );
-            marker_63ae5d49bebbfe88783bd2ecd50dc1c1.setIcon(icon_a684b0f099c906855ebdd0d529ba0146);
-        
-    
-        var popup_ed250cbeeff0cf18a98bf9cad1f17891 = L.popup({"maxWidth": "100%"});
-
-        
-            
-                var html_658135b1939b6ad111ede6d77300a1be = $(`<div id="html_658135b1939b6ad111ede6d77300a1be" style="width: 100.0%; height: 100.0%;">Tasik Height Apartment - RM 1,200.00</div>`)[0];
-                popup_ed250cbeeff0cf18a98bf9cad1f17891.setContent(html_658135b1939b6ad111ede6d77300a1be);
-            
-        
-
-        marker_63ae5d49bebbfe88783bd2ecd50dc1c1.bindPopup(popup_ed250cbeeff0cf18a98bf9cad1f17891)
-        ;
-
-        
-    
-    
-            var marker_94f587b617df789b8b7a207e9dc4b887 = L.marker(
-                [3.0760972, 101.7114467],
-                {}
-            ).addTo(map_a6cb4c241b006c0483c8736618f699d9);
-        
-    
-            var icon_65e5fdf25bcdc0a8d7a8914e2ff9ccd3 = L.AwesomeMarkers.icon(
-                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "green", "prefix": "glyphicon"}
-            );
-            marker_94f587b617df789b8b7a207e9dc4b887.setIcon(icon_65e5fdf25bcdc0a8d7a8914e2ff9ccd3);
-        
-    
-        var popup_a85a3dd0ced0f868b6d2bf2eb5cdafbb = L.popup({"maxWidth": "100%"});
-
-        
-            
-                var html_4e80f54a0511355f5f8e56ed1d148af7 = $(`<div id="html_4e80f54a0511355f5f8e56ed1d148af7" style="width: 100.0%; height: 100.0%;">Tasikmas - RM 1,000.00</div>`)[0];
-                popup_a85a3dd0ced0f868b6d2bf2eb5cdafbb.setContent(html_4e80f54a0511355f5f8e56ed1d148af7);
-            
-        
-
-        marker_94f587b617df789b8b7a207e9dc4b887.bindPopup(popup_a85a3dd0ced0f868b6d2bf2eb5cdafbb)
-        ;
-
-        
-    
-    
-            var marker_3908631d191f421e4d7555458e842d93 = L.marker(
-                [3.0760972, 101.7114467],
-                {}
-            ).addTo(map_a6cb4c241b006c0483c8736618f699d9);
-        
-    
-            var icon_b338154e320cc612e65ad5491aa6057e = L.AwesomeMarkers.icon(
-                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "green", "prefix": "glyphicon"}
-            );
-            marker_3908631d191f421e4d7555458e842d93.setIcon(icon_b338154e320cc612e65ad5491aa6057e);
-        
-    
-        var popup_6a65c9ee0e4b3f5cbf0bfa11e8b12584 = L.popup({"maxWidth": "100%"});
-
-        
-            
-                var html_75e4ad28c7c63817747f8c464e64a777 = $(`<div id="html_75e4ad28c7c63817747f8c464e64a777" style="width: 100.0%; height: 100.0%;">Pangsapuri Sri Malaysia - RM 1,000.00</div>`)[0];
-                popup_6a65c9ee0e4b3f5cbf0bfa11e8b12584.setContent(html_75e4ad28c7c63817747f8c464e64a777);
-            
-        
-
-        marker_3908631d191f421e4d7555458e842d93.bindPopup(popup_6a65c9ee0e4b3f5cbf0bfa11e8b12584)
-        ;
-
-        
-    
-    
-            var marker_daf89d14b16f885b3a5875b1fe0563b0 = L.marker(
-                [3.0760972, 101.7114467],
-                {}
-            ).addTo(map_a6cb4c241b006c0483c8736618f699d9);
-        
-    
-            var icon_0e6995d4ecf40ed0f13be65053f2cb4c = L.AwesomeMarkers.icon(
-                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "green", "prefix": "glyphicon"}
-            );
-            marker_daf89d14b16f885b3a5875b1fe0563b0.setIcon(icon_0e6995d4ecf40ed0f13be65053f2cb4c);
-        
-    
-        var popup_a11dbdbcfd66b2bb4627dd77e78ca3c7 = L.popup({"maxWidth": "100%"});
-
-        
-            
-                var html_5c6d4cffdb890411a62d74946008af28 = $(`<div id="html_5c6d4cffdb890411a62d74946008af28" style="width: 100.0%; height: 100.0%;">Tasikmas - RM 1,000.00</div>`)[0];
-                popup_a11dbdbcfd66b2bb4627dd77e78ca3c7.setContent(html_5c6d4cffdb890411a62d74946008af28);
-            
-        
-
-        marker_daf89d14b16f885b3a5875b1fe0563b0.bindPopup(popup_a11dbdbcfd66b2bb4627dd77e78ca3c7)
-        ;
-
-        
-    
 </script>
 </html>

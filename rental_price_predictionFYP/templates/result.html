@@ -14,12 +14,14 @@
     <link rel="stylesheet" href="/static/dashboardStyle.css">
     <link rel="stylesheet" href="/static/resultStyle.css">
 
+
     <!-- AOS -->
     <link href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" rel="stylesheet">
 
     <!-- SweetAlert2 -->
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
+    
 </head>
 
 <body>
@@ -37,6 +39,7 @@
             <li class="nav-item"><a class="nav-link" href="/">Home</a></li>
             <li class="nav-item"><a class="nav-link" href="/about">About System</a></li>
             <li class="nav-item"><a class="nav-link" href="/analytics">Analytics</a></li>
+
             <li class="nav-item ms-3">
                 <a class="btn btn-primary px-4 py-2" href="/predict_form">
                     <i class="bi bi-bar-chart-line"></i> Predict Again
@@ -57,7 +60,7 @@
 
     <div class="text-center mb-4">
         <div class="rent-value">RM {{ rent }}</div>
-        <div class="label-text">Estimated Monthly Rent</div>
+        <div class="text-muted">Estimated Monthly Rent</div>
     </div>
 
     <hr>
@@ -71,20 +74,35 @@
         <li class="list-group-item"><strong>Size:</strong> {{ size }} sqft</li>
     </ul>
 
-    <!-- MAP SECTION -->
-    <div class="map-button-container">
-        {% if map_path %}
-        <a href="/maps/{{ map_path }}" target="_blank" class="btn btn-success btn-lg px-4 py-2 shadow">
+        <!-- MAP BUTTON -->
+    <div class="text-center mt-4">
+        <button id="toggleMapBtn" class="btn btn-success btn-lg px-4 py-2 shadow">
             <i class="bi bi-geo-alt-fill"></i> View Recommended Properties Map
-        </a>
-        {% else %}
-        <p class="text-danger">Map could not be generated.</p>
-        {% endif %}
+        </button>
     </div>
+
+    <!-- MAP SECTION -->
+    <div id="mapContainer">
+        <div class="map-wrapper mt-3">
+
+            <!-- Loading animation -->
+            <div id="mapLoading">
+                <div class="spinner-border text-primary mb-2"></div>
+                <div>Loading interactive map...</div>
+            </div>
+
+            {% if map_path %}
+                <iframe id="mapFrame" src="/maps/{{ map_path }}" onload="hideSpinner()"></iframe>
+            {% else %}
+                <p class="text-danger text-center">Map could not be generated.</p>
+            {% endif %}
+        </div>
+    </div>
+
 
     <hr class="my-4">
 
-    <!-- RECOMMENDATION LIST -->
+    <!-- RECOMMENDATION CARDS -->
     <h4 class="fw-bold mb-3">🏘 Recommended Properties</h4>
 
     {% if recommendations %}
@@ -101,6 +119,7 @@
     {% else %}
         <p class="text-muted">No recommendations available for this search.</p>
     {% endif %}
+
 </div>
 
 <!-- FOOTER -->
@@ -122,10 +141,42 @@ Swal.fire({
     confirmButtonColor: "#007bff",
     timer: 2500,
     timerProgressBar: true,
-    showClass: { popup: "animate__animated animate__fadeInDown" },
-    hideClass: { popup: "animate__animated animate__fadeOutUp" }
 });
 </script>
+
+<script>
+const mapBox = document.getElementById("mapContainer");
+const mapBtn = document.getElementById("toggleMapBtn");
+const mapLoading = document.getElementById("mapLoading");
+const mapFrame = document.getElementById("mapFrame");
+
+function hideSpinner() {
+    mapLoading.style.display = "none";
+    mapFrame.style.opacity = "1";
+}
+
+mapBtn.addEventListener("click", () => {
+
+    if (!mapBox.classList.contains("active")) {
+        // Expand
+        mapBox.classList.add("active");
+        mapBtn.innerHTML = '<i class="bi bi-geo-alt-fill"></i> Hide Map';
+
+        // Show loading spinner
+        mapLoading.style.display = "block";
+        mapFrame.style.opacity = "0";
+
+        // Force reload map to show loading state
+        mapFrame.src = mapFrame.src;
+
+    } else {
+        // Collapse
+        mapBox.classList.remove("active");
+        mapBtn.innerHTML = '<i class="bi bi-geo-alt-fill"></i> View Recommended Properties Map';
+    }
+});
+</script>
+
 
 </body>
 </html>

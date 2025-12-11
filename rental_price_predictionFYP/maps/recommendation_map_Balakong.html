@@ -1,0 +1,353 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+    
+        <script>
+            L_NO_TOUCH = false;
+            L_DISABLE_3D = false;
+        </script>
+    
+    <style>html, body {width: 100%;height: 100%;margin: 0;padding: 0;}</style>
+    <style>#map {position:absolute;top:0;bottom:0;right:0;left:0;}</style>
+    <script src="https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.js"></script>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.2.0/css/all.min.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/python-visualization/folium/folium/templates/leaflet.awesome.rotate.min.css"/>
+    
+            <meta name="viewport" content="width=device-width,
+                initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+            <style>
+                #map_3430c362e914b265575929bc6bd1cea4 {
+                    position: relative;
+                    width: 100.0%;
+                    height: 100.0%;
+                    left: 0.0%;
+                    top: 0.0%;
+                }
+                .leaflet-container { font-size: 1rem; }
+            </style>
+        
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet.markercluster/1.1.0/leaflet.markercluster.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet.markercluster/1.1.0/MarkerCluster.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet.markercluster/1.1.0/MarkerCluster.Default.css"/>
+</head>
+<body>
+    
+    
+            <div class="folium-map" id="map_3430c362e914b265575929bc6bd1cea4" ></div>
+        
+</body>
+<script>
+    
+    
+            var map_3430c362e914b265575929bc6bd1cea4 = L.map(
+                "map_3430c362e914b265575929bc6bd1cea4",
+                {
+                    center: [3.0291306, 101.7472119],
+                    crs: L.CRS.EPSG3857,
+                    zoom: 13,
+                    zoomControl: true,
+                    preferCanvas: false,
+                }
+            );
+
+            
+
+        
+    
+            var tile_layer_f7756be4b89a4c507ae614310474ecf5 = L.tileLayer(
+                "https://tile.openstreetmap.org/{z}/{x}/{y}.png",
+                {"attribution": "\u0026copy; \u003ca href=\"https://www.openstreetmap.org/copyright\"\u003eOpenStreetMap\u003c/a\u003e contributors", "detectRetina": false, "maxNativeZoom": 19, "maxZoom": 19, "minZoom": 0, "noWrap": false, "opacity": 1, "subdomains": "abc", "tms": false}
+            );
+        
+    
+            tile_layer_f7756be4b89a4c507ae614310474ecf5.addTo(map_3430c362e914b265575929bc6bd1cea4);
+        
+    
+            var marker_cluster_55e1c4ddf8b7236c95e6c28295a24d66 = L.markerClusterGroup(
+                {}
+            );
+        
+    
+            marker_cluster_55e1c4ddf8b7236c95e6c28295a24d66.addTo(map_3430c362e914b265575929bc6bd1cea4);
+        
+    
+            var marker_effca28b72e064ce1001497864889e83 = L.marker(
+                [3.0291306, 101.7472119],
+                {}
+            ).addTo(map_3430c362e914b265575929bc6bd1cea4);
+        
+    
+            var icon_94ea0dfc11779a91907d1d90006d8673 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "green", "prefix": "glyphicon"}
+            );
+            marker_effca28b72e064ce1001497864889e83.setIcon(icon_94ea0dfc11779a91907d1d90006d8673);
+        
+    
+        var popup_52a511513d8ba344860b4675dd67728b = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_9a88265afeef95cd218db440fc975e0f = $(`<div id="html_9a88265afeef95cd218db440fc975e0f" style="width: 100.0%; height: 100.0%;">Symphony Tower - RM 1,600.00</div>`)[0];
+                popup_52a511513d8ba344860b4675dd67728b.setContent(html_9a88265afeef95cd218db440fc975e0f);
+            
+        
+
+        marker_effca28b72e064ce1001497864889e83.bindPopup(popup_52a511513d8ba344860b4675dd67728b)
+        ;
+
+        
+    
+    
+            var marker_8271901800f4d3d377e45ebcb49d342a = L.marker(
+                [3.0291306, 101.7472119],
+                {}
+            ).addTo(map_3430c362e914b265575929bc6bd1cea4);
+        
+    
+            var icon_42cb5caf56f935c4dd9670905a2be3c9 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "green", "prefix": "glyphicon"}
+            );
+            marker_8271901800f4d3d377e45ebcb49d342a.setIcon(icon_42cb5caf56f935c4dd9670905a2be3c9);
+        
+    
+        var popup_7d0832890057846d8c16062e927824f8 = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_4ac6a41460b03c0f9b71b30f0dca343d = $(`<div id="html_4ac6a41460b03c0f9b71b30f0dca343d" style="width: 100.0%; height: 100.0%;">Symphony Tower - RM 1,700.00</div>`)[0];
+                popup_7d0832890057846d8c16062e927824f8.setContent(html_4ac6a41460b03c0f9b71b30f0dca343d);
+            
+        
+
+        marker_8271901800f4d3d377e45ebcb49d342a.bindPopup(popup_7d0832890057846d8c16062e927824f8)
+        ;
+
+        
+    
+    
+            var marker_3e495134def74cba797b4a9d31bcf568 = L.marker(
+                [3.0291306, 101.7472119],
+                {}
+            ).addTo(map_3430c362e914b265575929bc6bd1cea4);
+        
+    
+            var icon_d74225b39f021c67f95cc57a04439b7c = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "green", "prefix": "glyphicon"}
+            );
+            marker_3e495134def74cba797b4a9d31bcf568.setIcon(icon_d74225b39f021c67f95cc57a04439b7c);
+        
+    
+        var popup_2cd01dcf2a846ce9297d74eecbefaf2a = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_63fdbb95a5be643385e35f3e2bafd44c = $(`<div id="html_63fdbb95a5be643385e35f3e2bafd44c" style="width: 100.0%; height: 100.0%;">Silk Sky - RM 1,800.00</div>`)[0];
+                popup_2cd01dcf2a846ce9297d74eecbefaf2a.setContent(html_63fdbb95a5be643385e35f3e2bafd44c);
+            
+        
+
+        marker_3e495134def74cba797b4a9d31bcf568.bindPopup(popup_2cd01dcf2a846ce9297d74eecbefaf2a)
+        ;
+
+        
+    
+    
+            var marker_9dc3db2f7581b27bc2af6223ec2c75e6 = L.marker(
+                [3.0291306, 101.7472119],
+                {}
+            ).addTo(map_3430c362e914b265575929bc6bd1cea4);
+        
+    
+            var icon_4fc7d49465bfa8457a1cb5035cea18f7 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "green", "prefix": "glyphicon"}
+            );
+            marker_9dc3db2f7581b27bc2af6223ec2c75e6.setIcon(icon_4fc7d49465bfa8457a1cb5035cea18f7);
+        
+    
+        var popup_0480d27666af6051e76366f2e72c96b3 = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_7fb86d17c4f041460ae88dc30dbde351 = $(`<div id="html_7fb86d17c4f041460ae88dc30dbde351" style="width: 100.0%; height: 100.0%;">Silk Sky - RM 1,600.00</div>`)[0];
+                popup_0480d27666af6051e76366f2e72c96b3.setContent(html_7fb86d17c4f041460ae88dc30dbde351);
+            
+        
+
+        marker_9dc3db2f7581b27bc2af6223ec2c75e6.bindPopup(popup_0480d27666af6051e76366f2e72c96b3)
+        ;
+
+        
+    
+    
+            var marker_4802f090c5c6dbc45f4beaaa5af42c5e = L.marker(
+                [3.0291306, 101.7472119],
+                {}
+            ).addTo(map_3430c362e914b265575929bc6bd1cea4);
+        
+    
+            var icon_aa7bdf50dba6958b8443b647263ace84 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "green", "prefix": "glyphicon"}
+            );
+            marker_4802f090c5c6dbc45f4beaaa5af42c5e.setIcon(icon_aa7bdf50dba6958b8443b647263ace84);
+        
+    
+        var popup_0ae261769cb5611cee19e505fbe7a5ff = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_9a06b6dc996fe4f9baf3e1dbb7056d3c = $(`<div id="html_9a06b6dc996fe4f9baf3e1dbb7056d3c" style="width: 100.0%; height: 100.0%;">Symphony Tower - RM 1,600.00</div>`)[0];
+                popup_0ae261769cb5611cee19e505fbe7a5ff.setContent(html_9a06b6dc996fe4f9baf3e1dbb7056d3c);
+            
+        
+
+        marker_4802f090c5c6dbc45f4beaaa5af42c5e.bindPopup(popup_0ae261769cb5611cee19e505fbe7a5ff)
+        ;
+
+        
+    
+    
+            var marker_f598478db8c6d892e0eb4440ef111c97 = L.marker(
+                [3.0291306, 101.7472119],
+                {}
+            ).addTo(map_3430c362e914b265575929bc6bd1cea4);
+        
+    
+            var icon_b4e294996ef8a6ae51e9a2d9da001554 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "green", "prefix": "glyphicon"}
+            );
+            marker_f598478db8c6d892e0eb4440ef111c97.setIcon(icon_b4e294996ef8a6ae51e9a2d9da001554);
+        
+    
+        var popup_6903d73b155fa457101e4b8ec15e9158 = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_a520568b05e9224eee568274736adf97 = $(`<div id="html_a520568b05e9224eee568274736adf97" style="width: 100.0%; height: 100.0%;">Symphony Tower - RM 1,700.00</div>`)[0];
+                popup_6903d73b155fa457101e4b8ec15e9158.setContent(html_a520568b05e9224eee568274736adf97);
+            
+        
+
+        marker_f598478db8c6d892e0eb4440ef111c97.bindPopup(popup_6903d73b155fa457101e4b8ec15e9158)
+        ;
+
+        
+    
+    
+            var marker_f185c5ce587760aaa1374643439189cb = L.marker(
+                [3.0291306, 101.7472119],
+                {}
+            ).addTo(map_3430c362e914b265575929bc6bd1cea4);
+        
+    
+            var icon_e2d5818af3fb87b9e04537cb33ae54b5 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "green", "prefix": "glyphicon"}
+            );
+            marker_f185c5ce587760aaa1374643439189cb.setIcon(icon_e2d5818af3fb87b9e04537cb33ae54b5);
+        
+    
+        var popup_9a4ea9d19968e753b9c891d05c4df60a = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_b9f82d27eecb75fba759531993740fa5 = $(`<div id="html_b9f82d27eecb75fba759531993740fa5" style="width: 100.0%; height: 100.0%;">Symphony Tower - RM 1,700.00</div>`)[0];
+                popup_9a4ea9d19968e753b9c891d05c4df60a.setContent(html_b9f82d27eecb75fba759531993740fa5);
+            
+        
+
+        marker_f185c5ce587760aaa1374643439189cb.bindPopup(popup_9a4ea9d19968e753b9c891d05c4df60a)
+        ;
+
+        
+    
+    
+            var marker_40ec9e79c917a5c7f2d55ab58d35395c = L.marker(
+                [3.0291306, 101.7472119],
+                {}
+            ).addTo(map_3430c362e914b265575929bc6bd1cea4);
+        
+    
+            var icon_3c742e391e938477300f92c94267e82c = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "green", "prefix": "glyphicon"}
+            );
+            marker_40ec9e79c917a5c7f2d55ab58d35395c.setIcon(icon_3c742e391e938477300f92c94267e82c);
+        
+    
+        var popup_deffb2eb90dce76fe1e89f4569ee2350 = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_e8bfe2d1227e38ca28dcb35905fbb578 = $(`<div id="html_e8bfe2d1227e38ca28dcb35905fbb578" style="width: 100.0%; height: 100.0%;">Symphony Tower - RM 1,700.00</div>`)[0];
+                popup_deffb2eb90dce76fe1e89f4569ee2350.setContent(html_e8bfe2d1227e38ca28dcb35905fbb578);
+            
+        
+
+        marker_40ec9e79c917a5c7f2d55ab58d35395c.bindPopup(popup_deffb2eb90dce76fe1e89f4569ee2350)
+        ;
+
+        
+    
+    
+            var marker_e8e7e8452eb3af5b731d540e5433b43f = L.marker(
+                [3.0291306, 101.7472119],
+                {}
+            ).addTo(map_3430c362e914b265575929bc6bd1cea4);
+        
+    
+            var icon_33b0c0ce0a0a2c1512b5670d47d68d35 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "green", "prefix": "glyphicon"}
+            );
+            marker_e8e7e8452eb3af5b731d540e5433b43f.setIcon(icon_33b0c0ce0a0a2c1512b5670d47d68d35);
+        
+    
+        var popup_ea86b272a376ce455a4d613439c9d27d = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_d9b2015304cecbdbdb6709a211fd13ca = $(`<div id="html_d9b2015304cecbdbdb6709a211fd13ca" style="width: 100.0%; height: 100.0%;">Symphony Tower - RM 1,600.00</div>`)[0];
+                popup_ea86b272a376ce455a4d613439c9d27d.setContent(html_d9b2015304cecbdbdb6709a211fd13ca);
+            
+        
+
+        marker_e8e7e8452eb3af5b731d540e5433b43f.bindPopup(popup_ea86b272a376ce455a4d613439c9d27d)
+        ;
+
+        
+    
+    
+            var marker_6ca44f5eeb01638aaf4fb59492da05fe = L.marker(
+                [3.0291306, 101.7472119],
+                {}
+            ).addTo(map_3430c362e914b265575929bc6bd1cea4);
+        
+    
+            var icon_aedf559fb823808abfdf58a790f83aff = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "green", "prefix": "glyphicon"}
+            );
+            marker_6ca44f5eeb01638aaf4fb59492da05fe.setIcon(icon_aedf559fb823808abfdf58a790f83aff);
+        
+    
+        var popup_49657ed6374ae6cef083f02b71e74575 = L.popup({"maxWidth": "100%"});
+
+        
+            
+                var html_6c262731445808ec2186ace1b62aa61a = $(`<div id="html_6c262731445808ec2186ace1b62aa61a" style="width: 100.0%; height: 100.0%;">Symphony Tower - RM 1,600.00</div>`)[0];
+                popup_49657ed6374ae6cef083f02b71e74575.setContent(html_6c262731445808ec2186ace1b62aa61a);
+            
+        
+
+        marker_6ca44f5eeb01638aaf4fb59492da05fe.bindPopup(popup_49657ed6374ae6cef083f02b71e74575)
+        ;
+
+        
+    
+</script>
+</html>

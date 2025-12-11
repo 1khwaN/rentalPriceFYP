@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+    
+        <script>
+            L_NO_TOUCH = false;
+            L_DISABLE_3D = false;
+        </script>
+    
+    <style>html, body {width: 100%;height: 100%;margin: 0;padding: 0;}</style>
+    <style>#map {position:absolute;top:0;bottom:0;right:0;left:0;}</style>
+    <script src="https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.js"></script>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.2.0/css/all.min.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/python-visualization/folium/folium/templates/leaflet.awesome.rotate.min.css"/>
+    
+            <meta name="viewport" content="width=device-width,
+                initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+            <style>
+                #map_c38e8af739f1755a6e519a1235b5d81d {
+                    position: relative;
+                    width: 100.0%;
+                    height: 100.0%;
+                    left: 0.0%;
+                    top: 0.0%;
+                }
+                .leaflet-container { font-size: 1rem; }
+            </style>
+        
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet.markercluster/1.1.0/leaflet.markercluster.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet.markercluster/1.1.0/MarkerCluster.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet.markercluster/1.1.0/MarkerCluster.Default.css"/>
+</head>
+<body>
+    
+    
+            <div class="folium-map" id="map_c38e8af739f1755a6e519a1235b5d81d" ></div>
+        
+</body>
+<script>
+    
+    
+            var map_c38e8af739f1755a6e519a1235b5d81d = L.map(
+                "map_c38e8af739f1755a6e519a1235b5d81d",
+                {
+                    center: [3.1001724, 101.5374534],
+                    crs: L.CRS.EPSG3857,
+                    zoom: 13,
+                    zoomControl: true,
+                    preferCanvas: false,
+                }
+            );
+
+            
+
+        
+    
+            var tile_layer_f37f3e44c6146d482c3e6a41296f6199 = L.tileLayer(
+                "https://tile.openstreetmap.org/{z}/{x}/{y}.png",
+                {"attribution": "\u0026copy; \u003ca href=\"https://www.openstreetmap.org/copyright\"\u003eOpenStreetMap\u003c/a\u003e contributors", "detectRetina": false, "maxNativeZoom": 19, "maxZoom": 19, "minZoom": 0, "noWrap": false, "opacity": 1, "subdomains": "abc", "tms": false}
+            );
+        
+    
+            tile_layer_f37f3e44c6146d482c3e6a41296f6199.addTo(map_c38e8af739f1755a6e519a1235b5d81d);
+        
+    
+            var marker_cluster_0accf7e80dc62573aecbbed0fc1c92df = L.markerClusterGroup(
+                {}
+            );
+        
+    
+            var marker_918a1a6c4e60c23590c9e93b5656c7f5 = L.marker(
+                [3.1001724, 101.5374534],
+                {}
+            ).addTo(marker_cluster_0accf7e80dc62573aecbbed0fc1c92df);
+        
+    
+            var icon_1c7d415c1eae951441d2f284e9fc0442 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "home", "iconColor": "white", "markerColor": "green", "prefix": "glyphicon"}
+            );
+            marker_918a1a6c4e60c23590c9e93b5656c7f5.setIcon(icon_1c7d415c1eae951441d2f284e9fc0442);
+        
+    
+        var popup_24a662a5978936fa8e6546d2146fec50 = L.popup({"maxWidth": 350});
+
+        
+            
+                var html_9e7f8005a2f1b84329489fef3392ab09 = $(`<div id="html_9e7f8005a2f1b84329489fef3392ab09" style="width: 100.0%; height: 100.0%;"><div style='width: 280px; font-family: Arial;'>     <h5 style='margin-bottom:6px; color:#2c3e50;'>Renai Jelutong Residences</h5>      <p style='margin:0;'><b>Monthly Rent:</b> RM 2,300.00</p>     <p style='margin:0;'><b>Size:</b> 1250 sqft</p>     <p style='margin:0;'><b>Price per Sqft:</b> </p>      <hr style='margin:6px 0;'>      <p style='margin:0;'><b>Rooms:</b> 3</p>     <p style='margin:0;'><b>Bathrooms:</b> 2.0</p>     <p style='margin:0;'><b>Parking:</b> 2.0</p>      <p style='margin:0;'><b>Property Type:</b> Condominium</p>     <p style='margin:0;'><b>Furnished:</b> Partially Furnished</p>      <hr style='margin:6px 0;'>      <p style='margin:0; font-size:0.85rem;'>         <b>Facilities:</b><br>Swimming Pool, Gymnasium, Tennis Court, Squash Court, Security, Parking, Minimart, Playground, Lift     </p> </div></div>`)[0];
+                popup_24a662a5978936fa8e6546d2146fec50.setContent(html_9e7f8005a2f1b84329489fef3392ab09);
+            
+        
+
+        marker_918a1a6c4e60c23590c9e93b5656c7f5.bindPopup(popup_24a662a5978936fa8e6546d2146fec50)
+        ;
+
+        
+    
+    
+            var marker_f390c9778ebcd53ec496d458ecc9f847 = L.marker(
+                [3.1001724, 101.5374534],
+                {}
+            ).addTo(marker_cluster_0accf7e80dc62573aecbbed0fc1c92df);
+        
+    
+            var icon_e9c11d5ddb40bc8ab9aba306f13180a1 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "home", "iconColor": "white", "markerColor": "green", "prefix": "glyphicon"}
+            );
+            marker_f390c9778ebcd53ec496d458ecc9f847.setIcon(icon_e9c11d5ddb40bc8ab9aba306f13180a1);
+        
+    
+        var popup_86c5c6d294d326c23173230916aa1a0b = L.popup({"maxWidth": 350});
+
+        
+            
+                var html_ce51932cbe8f8f5770198dc3be5bb002 = $(`<div id="html_ce51932cbe8f8f5770198dc3be5bb002" style="width: 100.0%; height: 100.0%;"><div style='width: 280px; font-family: Arial;'>     <h5 style='margin-bottom:6px; color:#2c3e50;'>Renai Jelutong Residences</h5>      <p style='margin:0;'><b>Monthly Rent:</b> RM 2,300.00</p>     <p style='margin:0;'><b>Size:</b> 1250 sqft</p>     <p style='margin:0;'><b>Price per Sqft:</b> </p>      <hr style='margin:6px 0;'>      <p style='margin:0;'><b>Rooms:</b> 3</p>     <p style='margin:0;'><b>Bathrooms:</b> 2.0</p>     <p style='margin:0;'><b>Parking:</b> 2.0</p>      <p style='margin:0;'><b>Property Type:</b> Condominium</p>     <p style='margin:0;'><b>Furnished:</b> Partially Furnished</p>      <hr style='margin:6px 0;'>      <p style='margin:0; font-size:0.85rem;'>         <b>Facilities:</b><br>Lift, Swimming Pool, Tennis Court, Parking, Security, Squash Court, Minimart, Playground, Gymnasium     </p> </div></div>`)[0];
+                popup_86c5c6d294d326c23173230916aa1a0b.setContent(html_ce51932cbe8f8f5770198dc3be5bb002);
+            
+        
+
+        marker_f390c9778ebcd53ec496d458ecc9f847.bindPopup(popup_86c5c6d294d326c23173230916aa1a0b)
+        ;
+
+        
+    
+    
+            var marker_a72bd35ec06e1de33fcfcb2482040c2e = L.marker(
+                [3.1001724, 101.5374534],
+                {}
+            ).addTo(marker_cluster_0accf7e80dc62573aecbbed0fc1c92df);
+        
+    
+            var icon_8b2f2f2a3fa7b6168270f1b7addc2caa = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "home", "iconColor": "white", "markerColor": "green", "prefix": "glyphicon"}
+            );
+            marker_a72bd35ec06e1de33fcfcb2482040c2e.setIcon(icon_8b2f2f2a3fa7b6168270f1b7addc2caa);
+        
+    
+        var popup_7d282a18d9f5bd836b6a2525033f38ec = L.popup({"maxWidth": 350});
+
+        
+            
+                var html_a1381780103148fc6cdaf4420d8bab1c = $(`<div id="html_a1381780103148fc6cdaf4420d8bab1c" style="width: 100.0%; height: 100.0%;"><div style='width: 280px; font-family: Arial;'>     <h5 style='margin-bottom:6px; color:#2c3e50;'>Suria Residence</h5>      <p style='margin:0;'><b>Monthly Rent:</b> RM 2,000.00</p>     <p style='margin:0;'><b>Size:</b> 900 sqft</p>     <p style='margin:0;'><b>Price per Sqft:</b> </p>      <hr style='margin:6px 0;'>      <p style='margin:0;'><b>Rooms:</b> 2</p>     <p style='margin:0;'><b>Bathrooms:</b> 1.0</p>     <p style='margin:0;'><b>Parking:</b> 2.0</p>      <p style='margin:0;'><b>Property Type:</b> Service Residence</p>     <p style='margin:0;'><b>Furnished:</b> Fully Furnished</p>      <hr style='margin:6px 0;'>      <p style='margin:0; font-size:0.85rem;'>         <b>Facilities:</b><br>Parking, Security, Lift, Swimming Pool, Playground, Gymnasium, Barbeque area, Multipurpose hall, Club house, Jogging Track     </p> </div></div>`)[0];
+                popup_7d282a18d9f5bd836b6a2525033f38ec.setContent(html_a1381780103148fc6cdaf4420d8bab1c);
+            
+        
+
+        marker_a72bd35ec06e1de33fcfcb2482040c2e.bindPopup(popup_7d282a18d9f5bd836b6a2525033f38ec)
+        ;
+
+        
+    
+    
+            var marker_cb9eb720b086fc136acb32e896ace2f8 = L.marker(
+                [3.1001724, 101.5374534],
+                {}
+            ).addTo(marker_cluster_0accf7e80dc62573aecbbed0fc1c92df);
+        
+    
+            var icon_44709f7759291853de728a2c4cd83f71 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "home", "iconColor": "white", "markerColor": "green", "prefix": "glyphicon"}
+            );
+            marker_cb9eb720b086fc136acb32e896ace2f8.setIcon(icon_44709f7759291853de728a2c4cd83f71);
+        
+    
+        var popup_dd0541c83c296685a2d16318aec9fa8d = L.popup({"maxWidth": 350});
+
+        
+            
+                var html_079992b2ccf77acca0cf0d9f284e9aaa = $(`<div id="html_079992b2ccf77acca0cf0d9f284e9aaa" style="width: 100.0%; height: 100.0%;"><div style='width: 280px; font-family: Arial;'>     <h5 style='margin-bottom:6px; color:#2c3e50;'>Renai Jelutong Residences</h5>      <p style='margin:0;'><b>Monthly Rent:</b> RM 2,300.00</p>     <p style='margin:0;'><b>Size:</b> 1250 sqft</p>     <p style='margin:0;'><b>Price per Sqft:</b> </p>      <hr style='margin:6px 0;'>      <p style='margin:0;'><b>Rooms:</b> 3</p>     <p style='margin:0;'><b>Bathrooms:</b> 2.0</p>     <p style='margin:0;'><b>Parking:</b> 2.0</p>      <p style='margin:0;'><b>Property Type:</b> Condominium</p>     <p style='margin:0;'><b>Furnished:</b> Partially Furnished</p>      <hr style='margin:6px 0;'>      <p style='margin:0; font-size:0.85rem;'>         <b>Facilities:</b><br>Swimming Pool, Security, Minimart, Lift, Squash Court, Tennis Court, Parking, Playground, Gymnasium     </p> </div></div>`)[0];
+                popup_dd0541c83c296685a2d16318aec9fa8d.setContent(html_079992b2ccf77acca0cf0d9f284e9aaa);
+            
+        
+
+        marker_cb9eb720b086fc136acb32e896ace2f8.bindPopup(popup_dd0541c83c296685a2d16318aec9fa8d)
+        ;
+
+        
+    
+    
+            var marker_144d30f1573c1450e129666d3950ca1b = L.marker(
+                [3.1001724, 101.5374534],
+                {}
+            ).addTo(marker_cluster_0accf7e80dc62573aecbbed0fc1c92df);
+        
+    
+            var icon_af546562b0accbd0027118190fc0c47b = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "home", "iconColor": "white", "markerColor": "green", "prefix": "glyphicon"}
+            );
+            marker_144d30f1573c1450e129666d3950ca1b.setIcon(icon_af546562b0accbd0027118190fc0c47b);
+        
+    
+        var popup_99b11f0c4b488485039bd762cd2cb918 = L.popup({"maxWidth": 350});
+
+        
+            
+                var html_0b94678a162257919e1fc6851d675319 = $(`<div id="html_0b94678a162257919e1fc6851d675319" style="width: 100.0%; height: 100.0%;"><div style='width: 280px; font-family: Arial;'>     <h5 style='margin-bottom:6px; color:#2c3e50;'>Renai Jelutong Residences</h5>      <p style='margin:0;'><b>Monthly Rent:</b> RM 2,300.00</p>     <p style='margin:0;'><b>Size:</b> 1250 sqft</p>     <p style='margin:0;'><b>Price per Sqft:</b> </p>      <hr style='margin:6px 0;'>      <p style='margin:0;'><b>Rooms:</b> 3</p>     <p style='margin:0;'><b>Bathrooms:</b> 2.0</p>     <p style='margin:0;'><b>Parking:</b> 2.0</p>      <p style='margin:0;'><b>Property Type:</b> Condominium</p>     <p style='margin:0;'><b>Furnished:</b> Partially Furnished</p>      <hr style='margin:6px 0;'>      <p style='margin:0; font-size:0.85rem;'>         <b>Facilities:</b><br>Playground, Gymnasium, Parking, Minimart, Tennis Court, Security, Squash Court, Swimming Pool, Lift     </p> </div></div>`)[0];
+                popup_99b11f0c4b488485039bd762cd2cb918.setContent(html_0b94678a162257919e1fc6851d675319);
+            
+        
+
+        marker_144d30f1573c1450e129666d3950ca1b.bindPopup(popup_99b11f0c4b488485039bd762cd2cb918)
+        ;
+
+        
+    
+    
+            var marker_e9a9dfa31c3379b1743a6d9af9c5dd2c = L.marker(
+                [3.1001724, 101.5374534],
+                {}
+            ).addTo(marker_cluster_0accf7e80dc62573aecbbed0fc1c92df);
+        
+    
+            var icon_6a2ea945c4fab521f5bd8d50964ae075 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "home", "iconColor": "white", "markerColor": "green", "prefix": "glyphicon"}
+            );
+            marker_e9a9dfa31c3379b1743a6d9af9c5dd2c.setIcon(icon_6a2ea945c4fab521f5bd8d50964ae075);
+        
+    
+        var popup_0b502b4ea2bd4cb469817f47ca841788 = L.popup({"maxWidth": 350});
+
+        
+            
+                var html_c5ff22f3be47c27d8ea76355e02cac06 = $(`<div id="html_c5ff22f3be47c27d8ea76355e02cac06" style="width: 100.0%; height: 100.0%;"><div style='width: 280px; font-family: Arial;'>     <h5 style='margin-bottom:6px; color:#2c3e50;'>Renai Jelutong Residences</h5>      <p style='margin:0;'><b>Monthly Rent:</b> RM 2,300.00</p>     <p style='margin:0;'><b>Size:</b> 1200 sqft</p>     <p style='margin:0;'><b>Price per Sqft:</b> </p>      <hr style='margin:6px 0;'>      <p style='margin:0;'><b>Rooms:</b> 3</p>     <p style='margin:0;'><b>Bathrooms:</b> 2.0</p>     <p style='margin:0;'><b>Parking:</b> 2.0</p>      <p style='margin:0;'><b>Property Type:</b> Condominium</p>     <p style='margin:0;'><b>Furnished:</b> Partially Furnished</p>      <hr style='margin:6px 0;'>      <p style='margin:0; font-size:0.85rem;'>         <b>Facilities:</b><br>Playground, Security, Swimming Pool, Squash Court, Lift, Parking, Minimart, Gymnasium, Tennis Court, Barbeque area, Multipurpose hall, Sauna     </p> </div></div>`)[0];
+                popup_0b502b4ea2bd4cb469817f47ca841788.setContent(html_c5ff22f3be47c27d8ea76355e02cac06);
+            
+        
+
+        marker_e9a9dfa31c3379b1743a6d9af9c5dd2c.bindPopup(popup_0b502b4ea2bd4cb469817f47ca841788)
+        ;
+
+        
+    
+    
+            var marker_013e63ad27d47170687c9ff982f7d471 = L.marker(
+                [3.1001724, 101.5374534],
+                {}
+            ).addTo(marker_cluster_0accf7e80dc62573aecbbed0fc1c92df);
+        
+    
+            var icon_c1685f63a1e9cfabbdcf91319a6b5536 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "home", "iconColor": "white", "markerColor": "green", "prefix": "glyphicon"}
+            );
+            marker_013e63ad27d47170687c9ff982f7d471.setIcon(icon_c1685f63a1e9cfabbdcf91319a6b5536);
+        
+    
+        var popup_fadf3b848e9dc26419289dc7308f31a0 = L.popup({"maxWidth": 350});
+
+        
+            
+                var html_33dbf5580e68cc34bff4f285bcbcbaf0 = $(`<div id="html_33dbf5580e68cc34bff4f285bcbcbaf0" style="width: 100.0%; height: 100.0%;"><div style='width: 280px; font-family: Arial;'>     <h5 style='margin-bottom:6px; color:#2c3e50;'>Renai Jelutong Residences</h5>      <p style='margin:0;'><b>Monthly Rent:</b> RM 2,200.00</p>     <p style='margin:0;'><b>Size:</b> 1053 sqft</p>     <p style='margin:0;'><b>Price per Sqft:</b> </p>      <hr style='margin:6px 0;'>      <p style='margin:0;'><b>Rooms:</b> 2</p>     <p style='margin:0;'><b>Bathrooms:</b> 2.0</p>     <p style='margin:0;'><b>Parking:</b> 2.0</p>      <p style='margin:0;'><b>Property Type:</b> Service Residence</p>     <p style='margin:0;'><b>Furnished:</b> Partially Furnished</p>      <hr style='margin:6px 0;'>      <p style='margin:0; font-size:0.85rem;'>         <b>Facilities:</b><br>Minimart, Security, Squash Court, Lift, Parking, Playground, Swimming Pool, Gymnasium, Tennis Court     </p> </div></div>`)[0];
+                popup_fadf3b848e9dc26419289dc7308f31a0.setContent(html_33dbf5580e68cc34bff4f285bcbcbaf0);
+            
+        
+
+        marker_013e63ad27d47170687c9ff982f7d471.bindPopup(popup_fadf3b848e9dc26419289dc7308f31a0)
+        ;
+
+        
+    
+    
+            marker_cluster_0accf7e80dc62573aecbbed0fc1c92df.addTo(map_c38e8af739f1755a6e519a1235b5d81d);
+        
+</script>
+</html>
