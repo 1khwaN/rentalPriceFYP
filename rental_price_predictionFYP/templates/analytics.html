@@ -1,25 +1,85 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <title>Analytics Dashboard</title>
+    <meta charset="UTF-8">
+    <title>Analytics Dashboard | RPPSHomes</title>
+
+    <!-- Bootstrap -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Icons -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css" rel="stylesheet">
+
+    <!-- Shared Styles -->
     <link rel="stylesheet" href="/static/dashboardStyle.css">
+
+    <!-- Analytics Page Styles -->
+    <link rel="stylesheet" href="/static/analyticStyle.css">
 </head>
 
 <body class="page-transition">
 
+<!-- NAVBAR -->
 {% include 'navbar.html' %}
 
-<div class="container mt-5">
-    <h2 class="fw-bold mb-4">PowerBI Analytics Dashboard</h2>
+<!-- OFFSET FOR FIXED NAVBAR -->
+<div style="height: 90px;"></div>
 
-    <iframe 
-        width="100%" 
-        height="700" 
-        src="YOUR_POWERBI_EMBED_URL"
-        frameborder="0" 
-        allowFullScreen="true">
-    </iframe>
+<div class="container analytics-container">
+
+    <!-- PAGE HEADER -->
+    <div class="text-center mb-4">
+        <h1 class="fw-bold">
+            📊 Rental Market Analytics
+        </h1>
+        <p class="text-muted mt-2">
+            Interactive Power BI dashboard visualizing rental trends, property characteristics, and location-based insights
+        </p>
+    </div>
+
+    <!-- ANALYTICS CARD -->
+    <div class="analytics-card mb-5">
+
+        <!-- INFO ROW -->
+        <div class="row mb-3 align-items-center">
+            <div class="col-md-8">
+                <h5 class="fw-semibold mb-1">
+                    <i class="bi bi-bar-chart-fill text-primary"></i>
+                    Power BI Interactive Dashboard
+                </h5>
+                <p class="analytics-info mb-0">
+                    Data source: Cleaned rental listings (Kuala Lumpur & Selangor)
+                </p>
+            </div>
+            <div class="col-md-4 text-md-end mt-2 mt-md-0">
+                <span class="badge bg-primary px-3 py-2">
+                    Live Analytics
+                </span>
+            </div>
+        </div>
+
+        <!-- EMBEDDED POWER BI -->
+        <div class="iframe-wrapper">
+            <iframe title="rentalPricingDashboard" width="600" height="373.5" 
+                src="https://app.powerbi.com/view?r=eyJrIjoiZTM4YzM5ZDQtYTA3OS00NjIyLTkwNzQtNThjMWM3YmUwNTg3IiwidCI6ImNkY2JiMGUyLTlmZWEtNGY1NC04NjcwLTY3MjcwNzc5N2FkYSIsImMiOjEwfQ%3D%3D" 
+                frameborder="0" 
+                allowFullScreen="true">
+            </iframe>
+        </div>
+
+        <!-- FOOTNOTE -->
+        <div class="mt-3 analytics-info">
+            <i class="bi bi-info-circle"></i>
+            Use slicers inside the dashboard to filter by region, city, property type, and furnishing status.
+        </div>
+
+    </div>
+
+</div>
+
+<!-- FOOTER -->
+<div class="footer">
+    © 2025 Rental Price Prediction System — Final Year Project (FYP)
 </div>
 
 </body>

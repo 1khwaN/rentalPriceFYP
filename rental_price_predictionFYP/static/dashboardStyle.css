@@ -1,9 +1,19 @@
+:root {
+    --teal-main: #4fb3ad;       /* Primary teal */
+    --teal-dark: #2f8f8b;       /* Header / footer */
+    --teal-light: #e8f6f5;      /* Page background */
+    --card-bg: #ffffff;
+    --text-dark: #2c3e50;
+    --text-muted: #6c757d;
+}
+
 /* Background & layout */
 body {
-    background: linear-gradient(135deg, #eef2f3 0%, #dfe9f3 100%);
-    min-height: 100vh;
+    background: var(--teal-light);
     font-family: 'Segoe UI', sans-serif;
+    min-height: 100vh;
 }
+
 
 /* Hero section */
 .hero-section {

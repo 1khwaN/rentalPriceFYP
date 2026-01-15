@@ -1,0 +1,48 @@
+/* ===========================
+   ANALYTICS PAGE STYLES
+   =========================== */
+
+.analytics-container {
+    max-width: 1200px;
+    margin: auto;
+}
+
+/* Card container */
+.analytics-card {
+    background: #ffffff;
+    border-radius: 16px;
+    padding: 25px;
+    box-shadow: 0 8px 30px rgba(0,0,0,0.08);
+    transition: 0.3s;
+}
+
+.analytics-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 14px 40px rgba(0,0,0,0.12);
+}
+
+/* Responsive Power BI iframe */
+.iframe-wrapper {
+    position: relative;
+    width: 100%;
+    height: 0;
+    padding-bottom: 65%;
+    overflow: hidden;
+    border-radius: 12px;
+    background: #f5f7fa;
+}
+
+.iframe-wrapper iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border: none;
+}
+
+/* Info text */
+.analytics-info {
+    font-size: 0.95rem;
+    color: #666;
+}
