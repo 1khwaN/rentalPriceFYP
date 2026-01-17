@@ -1,1 +1,58 @@
-body{font-family:Arial;}
+:root {
+    --teal-dark: #2f7f7b;
+    --teal-main: #5fb3a2;
+    --teal-light: #e6f4f1;
+    --card-bg: #ffffff;
+    --text-dark: #2c3e50;
+    --text-muted: #6c757d;
+    --accent: #f4b942;
+}
+
+body {
+    background: linear-gradient(135deg, var(--teal-dark), var(--teal-main));
+    min-height: 100vh;
+    font-family: 'Segoe UI', sans-serif;
+    color: var(--text-dark);
+}
+
+/* NAVBAR */
+.navbar {
+    background: rgba(255,255,255,0.95);
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid rgba(0,0,0,0.05);
+}
+
+.navbar-brand {
+    font-weight: 700;
+    color: var(--teal-dark) !important;
+}
+
+.nav-link {
+    color: #444 !important;
+    margin-right: 15px;
+}
+
+.nav-link:hover {
+    color: var(--teal-dark) !important;
+}
+
+/* BUTTONS */
+.btn-primary {
+    background: var(--teal-main);
+    border: none;
+    border-radius: 10px;
+}
+
+.btn-primary:hover {
+    background: var(--teal-dark);
+}
+
+/* PAGE TRANSITION */
+.page-transition {
+    animation: fadePage 0.6s ease;
+}
+
+@keyframes fadePage {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+}

@@ -1,95 +1,216 @@
 :root {
-    --teal-main: #4fb3ad;       /* Primary teal */
-    --teal-dark: #2f8f8b;       /* Header / footer */
-    --teal-light: #e8f6f5;      /* Page background */
-    --card-bg: #ffffff;
-    --text-dark: #2c3e50;
-    --text-muted: #6c757d;
+    --teal-main: #4f8f8b;
+    --teal-dark: #3a6f6b;
+    --white: #ffffff;
 }
 
-/* Background & layout */
-body {
-    background: var(--teal-light);
-    font-family: 'Segoe UI', sans-serif;
-    min-height: 100vh;
+/* HERO WRAPPER */
+.hero-wrapper {
+    background: linear-gradient(135deg, var(--teal-dark), var(--teal-main));
+    min-height: calc(100vh - 90px);
+    padding: 80px 60px;
+    color: white;
 }
 
-
-/* Hero section */
-.hero-section {
-    padding: 120px 20px;
-    text-align: center;
+/* LEFT SIDE */
+.hero-left {
+    padding-right: 60px;
 }
 
 .hero-title {
     font-size: 3rem;
-    font-weight: 700;
-    color: #2c3e50;
+    font-weight: 800;
+    line-height: 1.2;
 }
 
-.hero-subtitle {
-    font-size: 1.25rem;
-    color: #555;
-    margin-top: 15px;
-    margin-bottom: 30px;
+.hero-title span {
+    color: #ffe08a;
 }
 
-/* Feature cards */
-.feature-card {
-    transition: 0.3s;
-    border-radius: 12px;
-    cursor: default;
+.hero-desc {
+    font-size: 1.2rem;
+    margin: 25px 0 35px;
+    opacity: 0.95;
 }
 
-.feature-card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+.hero-buttons .btn {
+    border-radius: 30px;
+    padding: 12px 28px;
 }
 
-/* Footer */
-.footer {
-    margin-top: 60px;
+/* RIGHT SIDE */
+.hero-right {
+    display: flex;
+    justify-content: center;
+}
+
+/* === GLASSMORPHISM PROPERTY CARD === */
+.property-card {
+    position: relative;
+    height: 420px;
+    border-radius: 32px;
+    overflow: hidden;
+
+    background: rgba(255, 255, 255, 0.12);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+
+    border: 1px solid rgba(255, 255, 255, 0.25);
+    box-shadow: 
+        0 20px 45px rgba(0, 0, 0, 0.35),
+        inset 0 0 0 rgba(255,255,255,0.1);
+
+    transform: translateZ(0); /* GPU fix */
+}
+
+.property-card::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+        to bottom,
+        rgba(0,0,0,0.1),
+        rgba(0,0,0,0.6)
+    );
+    z-index: 1;
+}
+
+
+.property-card img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 30px;
+    opacity: 0.85;
+}
+
+
+/* OVERLAY */
+.property-overlay {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
     padding: 20px;
+    background: linear-gradient(transparent, rgba(0,0,0,0.7));
+}
+
+.property-overlay h5 {
+    margin: 0;
+    font-weight: 700;
+}
+
+.property-overlay p {
+    margin: 0;
+    font-size: 0.95rem;
+}
+
+/* FOOTER */
+.footer {
+    background: #f8f9fa;
     text-align: center;
+    padding: 20px;
     font-size: 0.9rem;
-    color: #777;
+    color: #666;
 }
 
-/* NAVBAR */
-.navbar {
-    backdrop-filter: blur(10px);
-    border-bottom: 1px solid rgba(0,0,0,0.05);
+/* Ensure carousel never loses rounded corners */
+#propertyCarousel,
+#propertyCarousel .carousel-inner,
+#propertyCarousel .carousel-item {
+    border-radius: 30px;
+    overflow: hidden;
 }
 
-.navbar-brand {
-    color: #2c3e50 !important;
-}
 
-.nav-link {
-    color: #555 !important;
-    font-size: 1rem;
-    margin-right: 15px;
-    transition: 0.2s;
-}
 
-.nav-link:hover {
-    color: #000 !important;
-    transform: translateY(-2px);
-}
-
-.navbar .btn-primary {
-    border-radius: 8px;
-}
-
-/* Smooth page fade-in animation */
-.page-transition {
-    animation: fadeIn 0.55s ease-in-out;
+/* === NON-ACTIVE SLIDES === */
+.carousel-item {
     opacity: 0;
-    animation-fill-mode: forwards;
+    transform: scale(0.92);
+    filter: blur(6px);
+    transition: 
+        opacity 0.8s ease,
+        transform 0.8s ease,
+        filter 0.8s ease;
+    pointer-events: none;
 }
 
-@keyframes fadeIn {
-    from { opacity: 0; transform: translateY(10px); }
-    to   { opacity: 1; transform: translateY(0); }
+/* === ACTIVE SLIDE FOCUS === */
+.carousel-item.active {
+    opacity: 1;
+    transform: scale(1);
+    filter: blur(0);
+    pointer-events: auto;
+    z-index: 5;
 }
+
+.carousel-item:not(.active) .property-card img {
+    opacity: 0.45;
+}
+
+.carousel-item,
+.property-card,
+.property-card img {
+    border-radius: 32px;
+    overflow: hidden;
+}
+
+
+
+.carousel-item-next,
+.carousel-item-prev,
+.carousel-item.active {
+    display: flex;
+    justify-content: center;
+}
+
+.property-info {
+    position: absolute;
+    bottom: 25px;
+    left: 25px;
+    right: 25px;
+    z-index: 2;
+
+    color: #ffffff;
+}
+
+.property-info h4 {
+    font-size: 1.3rem;
+    font-weight: 700;
+    margin-bottom: 6px;
+}
+
+.property-info p {
+    margin: 0;
+    font-size: 0.95rem;
+    opacity: 0.9;
+}
+
+.carousel-fade .carousel-item {
+    opacity: 0;
+    transition-property: opacity;
+}
+
+.carousel-fade .carousel-item.active {
+    opacity: 1;
+}
+
+
+/* Image must inherit rounding */
+.property-card img {
+    width: 100%;
+    height: 420px;
+    object-fit: cover;
+    border-radius: 30px;
+}
+
+/* === CAROUSEL CONTAINER BLEND === */
+#propertyCarousel,
+#propertyCarousel .carousel-inner {
+    background: transparent;
+    box-shadow: none;
+    overflow: visible;
+}
+
+
 

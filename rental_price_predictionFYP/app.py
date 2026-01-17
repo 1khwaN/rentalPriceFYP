@@ -24,7 +24,7 @@ print("Loading datasets and model...")
 df_raw = pd.read_csv(CSV_BEFORE)
 df_model = pd.read_csv(CSV_MODEL)
 
-print(f"Loaded raw dataset {df_raw.shape} and model-ready dataset {df_model.shape}")
+print(f"Loaded cleaned dataset {df_raw.shape} and model-ready dataset {df_model.shape}")
 
 # ---------- load model ----------
 model_data = joblib.load(MODEL_PKL)

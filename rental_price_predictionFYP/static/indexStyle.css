@@ -1,28 +1,26 @@
+.form-card {
+    background: white;
+    border-radius: 18px;
+    padding: 40px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.12);
+    animation: fadePage 0.7s ease;
+}
 
-        .form-card {
-            max-width: 700px;
-            margin: auto;
-            padding: 40px;
-            border-radius: 16px;
-            background: #ffffff;
-            box-shadow: 0 6px 25px rgba(0,0,0,0.08);
-            margin-top: 50px;
-            transition: 0.3s;
-        }
-        .form-card:hover {
-            transform: translateY(-4px);
-            box-shadow: 0 12px 35px rgba(0,0,0,0.12);
-        }
-        .page-title {
-            text-align: center;
-            margin-top: 40px;
-            font-size: 2rem;
-            font-weight: 700;
-            color: #2c3e50;
-        }
-        .submit-btn {
-            width: 100%;
-            padding: 12px;
-            font-size: 1.1rem;
-            border-radius: 10px;
-        }
+.page-title {
+    text-align: center;
+    font-size: 2.2rem;
+    font-weight: 700;
+    color: white;
+    margin-top: 40px;
+}
+
+.form-label {
+    font-weight: 600;
+}
+
+.submit-btn {
+    width: 100%;
+    padding: 14px;
+    font-size: 1.1rem;
+    border-radius: 12px;
+}
