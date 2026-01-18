@@ -35,7 +35,41 @@ model_columns = model_data["columns"]
 
 template_row = pd.DataFrame([np.zeros(len(model_columns))], columns=model_columns)
 
+# ---------------- GEO CACHE ----------------
+city_cache = {}
+
 # ---------- helper functions ----------
+from geopy.extra.rate_limiter import RateLimiter
+
+def get_city_coords(region, city):
+    key = f"{city}_{region}".lower()
+
+    if key in city_cache:
+        return city_cache[key]
+
+    try:
+        geolocator = Nominatim(user_agent="rental_app")
+        geocode = RateLimiter(geolocator.geocode, min_delay_seconds=1)
+        loc = geocode(f"{city}, {region}, Malaysia", timeout=3)
+
+        if loc:
+            city_cache[key] = (loc.latitude, loc.longitude)
+            return city_cache[key]
+    except Exception as e:
+        print("Geocode error:", e)
+
+    return None
+
+def detect_rail_proximity(text):
+    if not isinstance(text, str):
+        return False
+
+    keywords = ["mrt", "lrt", "ktm", "monorail", "rail"]
+    text = text.lower()
+
+    return any(k in text for k in keywords)
+
+
 def get_city_price_per_sqft(region, city):
     region = str(region).strip().lower()
     city = str(city).strip().lower()
@@ -133,61 +167,91 @@ def build_property_popup(r):
 # MAP GENERATION
 # ============================================================
 def generate_map_and_recs(region, city, predicted_rent):
-    geolocator = Nominatim(user_agent="rental_app")
-    try:
-        city_loc = geolocator.geocode(f"{city}, {region}, Malaysia")
-        if not city_loc:
-            return None, []
-
-        user_coords = (city_loc.latitude, city_loc.longitude)
-
-        m = folium.Map(location=user_coords, zoom_start=13)
-        marker_cluster = MarkerCluster().add_to(m)
-
-        # Filter properties
-        props = df_raw[df_raw["city"].astype(str).str.lower() == city.lower()].copy()
-
-        min_rent, max_rent = predicted_rent * 0.9, predicted_rent * 1.1
-        recs = props[(props["monthly_rent"] >= min_rent) & (props["monthly_rent"] <= max_rent)]
-
-        if recs.empty:
-            recs = props.nlargest(5, "monthly_rent")
-
-        recommendations = []
-
-        for _, r in recs.iterrows():
-            prop_name = r.get("prop_name", "Unknown")
-            rent = r.get("monthly_rent", 0)
-
-            # Get coordinates
-            try:
-                loc = geolocator.geocode(f"{prop_name}, {city}, {region}, Malaysia")
-                coords = (loc.latitude, loc.longitude) if loc else user_coords
-            except:
-                coords = user_coords
-
-            popup = build_property_popup(r)
-
-            folium.Marker(
-                location=coords,
-                popup=popup,
-                icon=folium.Icon(color="green", icon="home")
-            ).add_to(marker_cluster)
-
-            recommendations.append({
-                "name": prop_name,
-                "rent": float(rent)
-            })
-
-        filename = f"recommendation_map_{city.replace(' ', '_')}.html"
-        filepath = os.path.join(MAPS_DIR, filename)
-        m.save(filepath)
-
-        return filename, recommendations
-
-    except Exception as e:
-        print("MAP ERROR:", e)
+    coords = get_city_coords(region, city)
+    if not coords:
         return None, []
+
+    # Base map
+    m = folium.Map(location=coords, zoom_start=13)
+    marker_cluster = MarkerCluster().add_to(m)
+
+    # Filter properties by city
+    props = df_raw[df_raw["city"].astype(str).str.lower() == city.lower()].copy()
+
+    if props.empty:
+        return None, []
+
+    # Filter by range first
+    min_rent, max_rent = predicted_rent * 0.9, predicted_rent * 1.1
+    recs = props[(props["monthly_rent"] >= min_rent) & (props["monthly_rent"] <= max_rent)].copy()
+
+    # Fallback if empty
+    if recs.empty:
+        recs = props.copy()
+
+    # Rank by closeness to predicted rent
+    recs["rent_diff"] = abs(recs["monthly_rent"] - predicted_rent)
+    recs = recs.sort_values("rent_diff").head(11)
+
+    # HARD LIMIT (important!)
+    recs = recs.head(10)
+
+    recommendations = []
+
+    for _, r in recs.iterrows():
+        popup = build_property_popup(r)
+
+        prop_name = r.get("prop_name", "Unknown")
+        rent = r.get("monthly_rent", 0)
+
+        #Detect MRT/LRT
+        near_rail = detect_rail_proximity(
+            f"{r.get('facilities','')} {r.get('additional_facilities','')}"
+        )
+
+        # Use city center coords (FAST & STABLE)
+        icon_color = "blue" if near_rail else "green"
+        icon_name = "train" if near_rail else "home"
+
+        folium.Marker(
+            location=coords,
+            popup=popup,
+            icon=folium.Icon(color=icon_color, icon=icon_name, prefix="fa")
+        ).add_to(marker_cluster)
+
+        recommendations.append({
+            "name": prop_name,
+            "rent": float(rent),
+            "near_rail": near_rail,
+            "rent_diff": float(r["rent_diff"])
+        })
+
+    legend_html = """
+    <div style="
+        position: fixed;
+        bottom: 30px;
+        left: 30px;
+        background: white;
+        padding: 10px 14px;
+        border-radius: 10px;
+        box-shadow: 0 4px 14px rgba(0,0,0,0.2);
+        font-size: 14px;
+    ">
+    <b>Legend</b><br>
+    <i class="fa fa-home" style="color:green"></i> Property<br>
+    <i class="fa fa-train" style="color:blue"></i> Near MRT/LRT
+    </div>
+    """
+    m.get_root().html.add_child(folium.Element(legend_html))
+
+
+    filename = f"recommendation_map_{city.replace(' ', '_')}.html"
+    filepath = os.path.join(MAPS_DIR, filename)
+    m.save(filepath)
+
+    return filename, recommendations
+
+
 
 
 # ============================================================
@@ -223,20 +287,39 @@ def predict():
     hybrid_log = (rf_raw + xgb_raw) / 2
     predicted_rent = float(np.expm1(hybrid_log))
 
-    map_filename, recommendations = generate_map_and_recs(
-        user_input["region"], user_input["city"], predicted_rent
-    )
-
+    # DO NOT generate map here
     return render_template(
         "result.html",
         rent=round(predicted_rent, 2),
         city=user_input["city"],
         region=user_input["region"],
         size=user_input["size"],
-        map_path=map_filename,
-        recommendations=recommendations
+        map_path=None,      # <-- IMPORTANT
+        recommendations=[]
     )
 
+    # return render_template(
+    #     "result.html",
+    #     rent=round(predicted_rent, 2),
+    #     city=user_input["city"],
+    #     region=user_input["region"],
+    #     size=user_input["size"],
+    #     map_path=map_filename,
+    #     recommendations=recommendations
+    # )
+@app.route("/generate_map", methods=["POST"])
+def generate_map():
+    data = request.json
+    region = data["region"]
+    city = data["city"]
+    rent = float(data["rent"])
+
+    map_filename, recommendations = generate_map_and_recs(region, city, rent)
+
+    return jsonify({
+        "map_path": map_filename,
+        "recommendations": recommendations
+    })
 
 @app.route("/maps/<path:filename>")
 def serve_map(filename):

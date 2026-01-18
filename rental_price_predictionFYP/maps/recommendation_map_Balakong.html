@@ -25,7 +25,7 @@
             <meta name="viewport" content="width=device-width,
                 initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
             <style>
-                #map_3430c362e914b265575929bc6bd1cea4 {
+                #map_d2ed633b8fe9d7d39c0cfaa2d2fbe3f6 {
                     position: relative;
                     width: 100.0%;
                     height: 100.0%;
@@ -42,14 +42,30 @@
 <body>
     
     
-            <div class="folium-map" id="map_3430c362e914b265575929bc6bd1cea4" ></div>
+    <div style="
+        position: fixed;
+        bottom: 30px;
+        left: 30px;
+        background: white;
+        padding: 10px 14px;
+        border-radius: 10px;
+        box-shadow: 0 4px 14px rgba(0,0,0,0.2);
+        font-size: 14px;
+    ">
+    <b>Legend</b><br>
+    <i class="fa fa-home" style="color:green"></i> Property<br>
+    <i class="fa fa-train" style="color:blue"></i> Near MRT/LRT
+    </div>
+    
+    
+            <div class="folium-map" id="map_d2ed633b8fe9d7d39c0cfaa2d2fbe3f6" ></div>
         
 </body>
 <script>
     
     
-            var map_3430c362e914b265575929bc6bd1cea4 = L.map(
-                "map_3430c362e914b265575929bc6bd1cea4",
+            var map_d2ed633b8fe9d7d39c0cfaa2d2fbe3f6 = L.map(
+                "map_d2ed633b8fe9d7d39c0cfaa2d2fbe3f6",
                 {
                     center: [3.0291306, 101.7472119],
                     crs: L.CRS.EPSG3857,
@@ -63,291 +79,156 @@
 
         
     
-            var tile_layer_f7756be4b89a4c507ae614310474ecf5 = L.tileLayer(
+            var tile_layer_9cdd6872c1d0d60f9e8c7d717d0c6084 = L.tileLayer(
                 "https://tile.openstreetmap.org/{z}/{x}/{y}.png",
                 {"attribution": "\u0026copy; \u003ca href=\"https://www.openstreetmap.org/copyright\"\u003eOpenStreetMap\u003c/a\u003e contributors", "detectRetina": false, "maxNativeZoom": 19, "maxZoom": 19, "minZoom": 0, "noWrap": false, "opacity": 1, "subdomains": "abc", "tms": false}
             );
         
     
-            tile_layer_f7756be4b89a4c507ae614310474ecf5.addTo(map_3430c362e914b265575929bc6bd1cea4);
+            tile_layer_9cdd6872c1d0d60f9e8c7d717d0c6084.addTo(map_d2ed633b8fe9d7d39c0cfaa2d2fbe3f6);
         
     
-            var marker_cluster_55e1c4ddf8b7236c95e6c28295a24d66 = L.markerClusterGroup(
+            var marker_cluster_0384dea3bb26f27e8fb9e75833ceb70d = L.markerClusterGroup(
                 {}
             );
         
     
-            marker_cluster_55e1c4ddf8b7236c95e6c28295a24d66.addTo(map_3430c362e914b265575929bc6bd1cea4);
-        
-    
-            var marker_effca28b72e064ce1001497864889e83 = L.marker(
+            var marker_6987d8b8055645abea6bb7d159cda59f = L.marker(
                 [3.0291306, 101.7472119],
                 {}
-            ).addTo(map_3430c362e914b265575929bc6bd1cea4);
+            ).addTo(marker_cluster_0384dea3bb26f27e8fb9e75833ceb70d);
         
     
-            var icon_94ea0dfc11779a91907d1d90006d8673 = L.AwesomeMarkers.icon(
-                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "green", "prefix": "glyphicon"}
+            var icon_1291e7b50337d4cee11b53ed33719ed0 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "home", "iconColor": "white", "markerColor": "green", "prefix": "fa"}
             );
-            marker_effca28b72e064ce1001497864889e83.setIcon(icon_94ea0dfc11779a91907d1d90006d8673);
+            marker_6987d8b8055645abea6bb7d159cda59f.setIcon(icon_1291e7b50337d4cee11b53ed33719ed0);
         
     
-        var popup_52a511513d8ba344860b4675dd67728b = L.popup({"maxWidth": "100%"});
+        var popup_a5a0b9b79c7034b313e471d2e134a220 = L.popup({"maxWidth": 350});
 
         
             
-                var html_9a88265afeef95cd218db440fc975e0f = $(`<div id="html_9a88265afeef95cd218db440fc975e0f" style="width: 100.0%; height: 100.0%;">Symphony Tower - RM 1,600.00</div>`)[0];
-                popup_52a511513d8ba344860b4675dd67728b.setContent(html_9a88265afeef95cd218db440fc975e0f);
+                var html_5e1a22e0bce24383d02e649acacafed1 = $(`<div id="html_5e1a22e0bce24383d02e649acacafed1" style="width: 100.0%; height: 100.0%;"><div style='width: 280px; font-family: Arial;'>     <h5 style='margin-bottom:6px; color:#2c3e50;'>Silk Sky</h5>      <p style='margin:0;'><b>Monthly Rent:</b> RM 1,250.00</p>     <p style='margin:0;'><b>Size:</b> 484 sqft</p>      <hr style='margin:6px 0;'>      <p style='margin:0;'><b>Rooms:</b> 1</p>     <p style='margin:0;'><b>Bathrooms:</b> 1.0</p>     <p style='margin:0;'><b>Parking:</b> 1.0</p>      <p style='margin:0;'><b>Property Type:</b> Service Residence</p>     <p style='margin:0;'><b>Furnished:</b> Fully Furnished</p>      <hr style='margin:6px 0;'>      <p style='margin:0; font-size:0.85rem;'>         <b>Facilities:</b><br>nan     </p> </div></div>`)[0];
+                popup_a5a0b9b79c7034b313e471d2e134a220.setContent(html_5e1a22e0bce24383d02e649acacafed1);
             
         
 
-        marker_effca28b72e064ce1001497864889e83.bindPopup(popup_52a511513d8ba344860b4675dd67728b)
+        marker_6987d8b8055645abea6bb7d159cda59f.bindPopup(popup_a5a0b9b79c7034b313e471d2e134a220)
         ;
 
         
     
     
-            var marker_8271901800f4d3d377e45ebcb49d342a = L.marker(
+            var marker_89e5d2deca998ecea508d5b584f9925c = L.marker(
                 [3.0291306, 101.7472119],
                 {}
-            ).addTo(map_3430c362e914b265575929bc6bd1cea4);
+            ).addTo(marker_cluster_0384dea3bb26f27e8fb9e75833ceb70d);
         
     
-            var icon_42cb5caf56f935c4dd9670905a2be3c9 = L.AwesomeMarkers.icon(
-                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "green", "prefix": "glyphicon"}
+            var icon_54af57b01ce4558aa904e1d486f071c8 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "home", "iconColor": "white", "markerColor": "green", "prefix": "fa"}
             );
-            marker_8271901800f4d3d377e45ebcb49d342a.setIcon(icon_42cb5caf56f935c4dd9670905a2be3c9);
+            marker_89e5d2deca998ecea508d5b584f9925c.setIcon(icon_54af57b01ce4558aa904e1d486f071c8);
         
     
-        var popup_7d0832890057846d8c16062e927824f8 = L.popup({"maxWidth": "100%"});
+        var popup_a67fbbf6c779a7435e1c6f1dbb57383e = L.popup({"maxWidth": 350});
 
         
             
-                var html_4ac6a41460b03c0f9b71b30f0dca343d = $(`<div id="html_4ac6a41460b03c0f9b71b30f0dca343d" style="width: 100.0%; height: 100.0%;">Symphony Tower - RM 1,700.00</div>`)[0];
-                popup_7d0832890057846d8c16062e927824f8.setContent(html_4ac6a41460b03c0f9b71b30f0dca343d);
+                var html_24c3d30331e0ece581a6adf33935d12e = $(`<div id="html_24c3d30331e0ece581a6adf33935d12e" style="width: 100.0%; height: 100.0%;"><div style='width: 280px; font-family: Arial;'>     <h5 style='margin-bottom:6px; color:#2c3e50;'>Silk Sky</h5>      <p style='margin:0;'><b>Monthly Rent:</b> RM 1,200.00</p>     <p style='margin:0;'><b>Size:</b> 1044 sqft</p>      <hr style='margin:6px 0;'>      <p style='margin:0;'><b>Rooms:</b> 3</p>     <p style='margin:0;'><b>Bathrooms:</b> 2.0</p>     <p style='margin:0;'><b>Parking:</b> 2.0</p>      <p style='margin:0;'><b>Property Type:</b> Service Residence</p>     <p style='margin:0;'><b>Furnished:</b> Partially Furnished</p>      <hr style='margin:6px 0;'>      <p style='margin:0; font-size:0.85rem;'>         <b>Facilities:</b><br>Parking, Security, Lift, Swimming Pool, Playground, Gymnasium     </p> </div></div>`)[0];
+                popup_a67fbbf6c779a7435e1c6f1dbb57383e.setContent(html_24c3d30331e0ece581a6adf33935d12e);
             
         
 
-        marker_8271901800f4d3d377e45ebcb49d342a.bindPopup(popup_7d0832890057846d8c16062e927824f8)
+        marker_89e5d2deca998ecea508d5b584f9925c.bindPopup(popup_a67fbbf6c779a7435e1c6f1dbb57383e)
         ;
 
         
     
     
-            var marker_3e495134def74cba797b4a9d31bcf568 = L.marker(
+            var marker_401cafa96b9fe767a9ffed6f275a0e13 = L.marker(
                 [3.0291306, 101.7472119],
                 {}
-            ).addTo(map_3430c362e914b265575929bc6bd1cea4);
+            ).addTo(marker_cluster_0384dea3bb26f27e8fb9e75833ceb70d);
         
     
-            var icon_d74225b39f021c67f95cc57a04439b7c = L.AwesomeMarkers.icon(
-                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "green", "prefix": "glyphicon"}
+            var icon_8e6d60a6cc25c80b0557c8f344fc7da6 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "train", "iconColor": "white", "markerColor": "blue", "prefix": "fa"}
             );
-            marker_3e495134def74cba797b4a9d31bcf568.setIcon(icon_d74225b39f021c67f95cc57a04439b7c);
+            marker_401cafa96b9fe767a9ffed6f275a0e13.setIcon(icon_8e6d60a6cc25c80b0557c8f344fc7da6);
         
     
-        var popup_2cd01dcf2a846ce9297d74eecbefaf2a = L.popup({"maxWidth": "100%"});
+        var popup_5ef339bc68ecb44c5dd2be305ea1637e = L.popup({"maxWidth": 350});
 
         
             
-                var html_63fdbb95a5be643385e35f3e2bafd44c = $(`<div id="html_63fdbb95a5be643385e35f3e2bafd44c" style="width: 100.0%; height: 100.0%;">Silk Sky - RM 1,800.00</div>`)[0];
-                popup_2cd01dcf2a846ce9297d74eecbefaf2a.setContent(html_63fdbb95a5be643385e35f3e2bafd44c);
+                var html_303d6fb863283ca2c0f1e97e4a206e97 = $(`<div id="html_303d6fb863283ca2c0f1e97e4a206e97" style="width: 100.0%; height: 100.0%;"><div style='width: 280px; font-family: Arial;'>     <h5 style='margin-bottom:6px; color:#2c3e50;'>Vista Bangi</h5>      <p style='margin:0;'><b>Monthly Rent:</b> RM 1,200.00</p>     <p style='margin:0;'><b>Size:</b> 500 sqft</p>      <hr style='margin:6px 0;'>      <p style='margin:0;'><b>Rooms:</b> 1</p>     <p style='margin:0;'><b>Bathrooms:</b> 1.0</p>     <p style='margin:0;'><b>Parking:</b> 1.0</p>      <p style='margin:0;'><b>Property Type:</b> Condominium</p>     <p style='margin:0;'><b>Furnished:</b> Fully Furnished</p>      <hr style='margin:6px 0;'>      <p style='margin:0; font-size:0.85rem;'>         <b>Facilities:</b><br>Parking, Security, Lift, Swimming Pool, Playground, Gymnasium, Barbeque area, Multipurpose hall, Minimart     </p> </div></div>`)[0];
+                popup_5ef339bc68ecb44c5dd2be305ea1637e.setContent(html_303d6fb863283ca2c0f1e97e4a206e97);
             
         
 
-        marker_3e495134def74cba797b4a9d31bcf568.bindPopup(popup_2cd01dcf2a846ce9297d74eecbefaf2a)
+        marker_401cafa96b9fe767a9ffed6f275a0e13.bindPopup(popup_5ef339bc68ecb44c5dd2be305ea1637e)
         ;
 
         
     
     
-            var marker_9dc3db2f7581b27bc2af6223ec2c75e6 = L.marker(
+            var marker_a05ca72f7551e9b8d44d6f5f834cb7bf = L.marker(
                 [3.0291306, 101.7472119],
                 {}
-            ).addTo(map_3430c362e914b265575929bc6bd1cea4);
+            ).addTo(marker_cluster_0384dea3bb26f27e8fb9e75833ceb70d);
         
     
-            var icon_4fc7d49465bfa8457a1cb5035cea18f7 = L.AwesomeMarkers.icon(
-                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "green", "prefix": "glyphicon"}
+            var icon_c7eb1e56a87cf17c0a2735257d95e227 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "home", "iconColor": "white", "markerColor": "green", "prefix": "fa"}
             );
-            marker_9dc3db2f7581b27bc2af6223ec2c75e6.setIcon(icon_4fc7d49465bfa8457a1cb5035cea18f7);
+            marker_a05ca72f7551e9b8d44d6f5f834cb7bf.setIcon(icon_c7eb1e56a87cf17c0a2735257d95e227);
         
     
-        var popup_0480d27666af6051e76366f2e72c96b3 = L.popup({"maxWidth": "100%"});
+        var popup_af7e41363ff756cac9cb219dd3c9b5f6 = L.popup({"maxWidth": 350});
 
         
             
-                var html_7fb86d17c4f041460ae88dc30dbde351 = $(`<div id="html_7fb86d17c4f041460ae88dc30dbde351" style="width: 100.0%; height: 100.0%;">Silk Sky - RM 1,600.00</div>`)[0];
-                popup_0480d27666af6051e76366f2e72c96b3.setContent(html_7fb86d17c4f041460ae88dc30dbde351);
+                var html_21d663d82c87cf85923164af574c2372 = $(`<div id="html_21d663d82c87cf85923164af574c2372" style="width: 100.0%; height: 100.0%;"><div style='width: 280px; font-family: Arial;'>     <h5 style='margin-bottom:6px; color:#2c3e50;'>Symphony Tower</h5>      <p style='margin:0;'><b>Monthly Rent:</b> RM 1,200.00</p>     <p style='margin:0;'><b>Size:</b> 500 sqft</p>      <hr style='margin:6px 0;'>      <p style='margin:0;'><b>Rooms:</b> 1</p>     <p style='margin:0;'><b>Bathrooms:</b> 1.0</p>     <p style='margin:0;'><b>Parking:</b> 1.0</p>      <p style='margin:0;'><b>Property Type:</b> Service Residence</p>     <p style='margin:0;'><b>Furnished:</b> Fully Furnished</p>      <hr style='margin:6px 0;'>      <p style='margin:0; font-size:0.85rem;'>         <b>Facilities:</b><br>Barbeque area, Parking, Swimming Pool, Jogging Track, Gymnasium, Multipurpose hall, Sauna, Security, Lift, Playground     </p> </div></div>`)[0];
+                popup_af7e41363ff756cac9cb219dd3c9b5f6.setContent(html_21d663d82c87cf85923164af574c2372);
             
         
 
-        marker_9dc3db2f7581b27bc2af6223ec2c75e6.bindPopup(popup_0480d27666af6051e76366f2e72c96b3)
+        marker_a05ca72f7551e9b8d44d6f5f834cb7bf.bindPopup(popup_af7e41363ff756cac9cb219dd3c9b5f6)
         ;
 
         
     
     
-            var marker_4802f090c5c6dbc45f4beaaa5af42c5e = L.marker(
+            var marker_446f9860825ab87d4f59c059dfb3f718 = L.marker(
                 [3.0291306, 101.7472119],
                 {}
-            ).addTo(map_3430c362e914b265575929bc6bd1cea4);
+            ).addTo(marker_cluster_0384dea3bb26f27e8fb9e75833ceb70d);
         
     
-            var icon_aa7bdf50dba6958b8443b647263ace84 = L.AwesomeMarkers.icon(
-                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "green", "prefix": "glyphicon"}
+            var icon_7bc598b280ff2ec405f47c81d14aceb1 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "home", "iconColor": "white", "markerColor": "green", "prefix": "fa"}
             );
-            marker_4802f090c5c6dbc45f4beaaa5af42c5e.setIcon(icon_aa7bdf50dba6958b8443b647263ace84);
+            marker_446f9860825ab87d4f59c059dfb3f718.setIcon(icon_7bc598b280ff2ec405f47c81d14aceb1);
         
     
-        var popup_0ae261769cb5611cee19e505fbe7a5ff = L.popup({"maxWidth": "100%"});
+        var popup_29dd5ca5ffdffc1d9337948789dd8141 = L.popup({"maxWidth": 350});
 
         
             
-                var html_9a06b6dc996fe4f9baf3e1dbb7056d3c = $(`<div id="html_9a06b6dc996fe4f9baf3e1dbb7056d3c" style="width: 100.0%; height: 100.0%;">Symphony Tower - RM 1,600.00</div>`)[0];
-                popup_0ae261769cb5611cee19e505fbe7a5ff.setContent(html_9a06b6dc996fe4f9baf3e1dbb7056d3c);
+                var html_d917454bc9a165783a6e4ed11aead8c1 = $(`<div id="html_d917454bc9a165783a6e4ed11aead8c1" style="width: 100.0%; height: 100.0%;"><div style='width: 280px; font-family: Arial;'>     <h5 style='margin-bottom:6px; color:#2c3e50;'>Silk Sky</h5>      <p style='margin:0;'><b>Monthly Rent:</b> RM 1,200.00</p>     <p style='margin:0;'><b>Size:</b> 484 sqft</p>      <hr style='margin:6px 0;'>      <p style='margin:0;'><b>Rooms:</b> 1</p>     <p style='margin:0;'><b>Bathrooms:</b> 1.0</p>     <p style='margin:0;'><b>Parking:</b> 1.0</p>      <p style='margin:0;'><b>Property Type:</b> Service Residence</p>     <p style='margin:0;'><b>Furnished:</b> Fully Furnished</p>      <hr style='margin:6px 0;'>      <p style='margin:0; font-size:0.85rem;'>         <b>Facilities:</b><br>nan     </p> </div></div>`)[0];
+                popup_29dd5ca5ffdffc1d9337948789dd8141.setContent(html_d917454bc9a165783a6e4ed11aead8c1);
             
         
 
-        marker_4802f090c5c6dbc45f4beaaa5af42c5e.bindPopup(popup_0ae261769cb5611cee19e505fbe7a5ff)
+        marker_446f9860825ab87d4f59c059dfb3f718.bindPopup(popup_29dd5ca5ffdffc1d9337948789dd8141)
         ;
 
         
     
     
-            var marker_f598478db8c6d892e0eb4440ef111c97 = L.marker(
-                [3.0291306, 101.7472119],
-                {}
-            ).addTo(map_3430c362e914b265575929bc6bd1cea4);
+            marker_cluster_0384dea3bb26f27e8fb9e75833ceb70d.addTo(map_d2ed633b8fe9d7d39c0cfaa2d2fbe3f6);
         
-    
-            var icon_b4e294996ef8a6ae51e9a2d9da001554 = L.AwesomeMarkers.icon(
-                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "green", "prefix": "glyphicon"}
-            );
-            marker_f598478db8c6d892e0eb4440ef111c97.setIcon(icon_b4e294996ef8a6ae51e9a2d9da001554);
-        
-    
-        var popup_6903d73b155fa457101e4b8ec15e9158 = L.popup({"maxWidth": "100%"});
-
-        
-            
-                var html_a520568b05e9224eee568274736adf97 = $(`<div id="html_a520568b05e9224eee568274736adf97" style="width: 100.0%; height: 100.0%;">Symphony Tower - RM 1,700.00</div>`)[0];
-                popup_6903d73b155fa457101e4b8ec15e9158.setContent(html_a520568b05e9224eee568274736adf97);
-            
-        
-
-        marker_f598478db8c6d892e0eb4440ef111c97.bindPopup(popup_6903d73b155fa457101e4b8ec15e9158)
-        ;
-
-        
-    
-    
-            var marker_f185c5ce587760aaa1374643439189cb = L.marker(
-                [3.0291306, 101.7472119],
-                {}
-            ).addTo(map_3430c362e914b265575929bc6bd1cea4);
-        
-    
-            var icon_e2d5818af3fb87b9e04537cb33ae54b5 = L.AwesomeMarkers.icon(
-                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "green", "prefix": "glyphicon"}
-            );
-            marker_f185c5ce587760aaa1374643439189cb.setIcon(icon_e2d5818af3fb87b9e04537cb33ae54b5);
-        
-    
-        var popup_9a4ea9d19968e753b9c891d05c4df60a = L.popup({"maxWidth": "100%"});
-
-        
-            
-                var html_b9f82d27eecb75fba759531993740fa5 = $(`<div id="html_b9f82d27eecb75fba759531993740fa5" style="width: 100.0%; height: 100.0%;">Symphony Tower - RM 1,700.00</div>`)[0];
-                popup_9a4ea9d19968e753b9c891d05c4df60a.setContent(html_b9f82d27eecb75fba759531993740fa5);
-            
-        
-
-        marker_f185c5ce587760aaa1374643439189cb.bindPopup(popup_9a4ea9d19968e753b9c891d05c4df60a)
-        ;
-
-        
-    
-    
-            var marker_40ec9e79c917a5c7f2d55ab58d35395c = L.marker(
-                [3.0291306, 101.7472119],
-                {}
-            ).addTo(map_3430c362e914b265575929bc6bd1cea4);
-        
-    
-            var icon_3c742e391e938477300f92c94267e82c = L.AwesomeMarkers.icon(
-                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "green", "prefix": "glyphicon"}
-            );
-            marker_40ec9e79c917a5c7f2d55ab58d35395c.setIcon(icon_3c742e391e938477300f92c94267e82c);
-        
-    
-        var popup_deffb2eb90dce76fe1e89f4569ee2350 = L.popup({"maxWidth": "100%"});
-
-        
-            
-                var html_e8bfe2d1227e38ca28dcb35905fbb578 = $(`<div id="html_e8bfe2d1227e38ca28dcb35905fbb578" style="width: 100.0%; height: 100.0%;">Symphony Tower - RM 1,700.00</div>`)[0];
-                popup_deffb2eb90dce76fe1e89f4569ee2350.setContent(html_e8bfe2d1227e38ca28dcb35905fbb578);
-            
-        
-
-        marker_40ec9e79c917a5c7f2d55ab58d35395c.bindPopup(popup_deffb2eb90dce76fe1e89f4569ee2350)
-        ;
-
-        
-    
-    
-            var marker_e8e7e8452eb3af5b731d540e5433b43f = L.marker(
-                [3.0291306, 101.7472119],
-                {}
-            ).addTo(map_3430c362e914b265575929bc6bd1cea4);
-        
-    
-            var icon_33b0c0ce0a0a2c1512b5670d47d68d35 = L.AwesomeMarkers.icon(
-                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "green", "prefix": "glyphicon"}
-            );
-            marker_e8e7e8452eb3af5b731d540e5433b43f.setIcon(icon_33b0c0ce0a0a2c1512b5670d47d68d35);
-        
-    
-        var popup_ea86b272a376ce455a4d613439c9d27d = L.popup({"maxWidth": "100%"});
-
-        
-            
-                var html_d9b2015304cecbdbdb6709a211fd13ca = $(`<div id="html_d9b2015304cecbdbdb6709a211fd13ca" style="width: 100.0%; height: 100.0%;">Symphony Tower - RM 1,600.00</div>`)[0];
-                popup_ea86b272a376ce455a4d613439c9d27d.setContent(html_d9b2015304cecbdbdb6709a211fd13ca);
-            
-        
-
-        marker_e8e7e8452eb3af5b731d540e5433b43f.bindPopup(popup_ea86b272a376ce455a4d613439c9d27d)
-        ;
-
-        
-    
-    
-            var marker_6ca44f5eeb01638aaf4fb59492da05fe = L.marker(
-                [3.0291306, 101.7472119],
-                {}
-            ).addTo(map_3430c362e914b265575929bc6bd1cea4);
-        
-    
-            var icon_aedf559fb823808abfdf58a790f83aff = L.AwesomeMarkers.icon(
-                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "green", "prefix": "glyphicon"}
-            );
-            marker_6ca44f5eeb01638aaf4fb59492da05fe.setIcon(icon_aedf559fb823808abfdf58a790f83aff);
-        
-    
-        var popup_49657ed6374ae6cef083f02b71e74575 = L.popup({"maxWidth": "100%"});
-
-        
-            
-                var html_6c262731445808ec2186ace1b62aa61a = $(`<div id="html_6c262731445808ec2186ace1b62aa61a" style="width: 100.0%; height: 100.0%;">Symphony Tower - RM 1,600.00</div>`)[0];
-                popup_49657ed6374ae6cef083f02b71e74575.setContent(html_6c262731445808ec2186ace1b62aa61a);
-            
-        
-
-        marker_6ca44f5eeb01638aaf4fb59492da05fe.bindPopup(popup_49657ed6374ae6cef083f02b71e74575)
-        ;
-
-        
-    
 </script>
 </html>

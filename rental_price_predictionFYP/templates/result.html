@@ -89,16 +89,17 @@
         <div class="map-wrapper mt-3">
 
             <!-- Loading animation -->
-            <div id="mapLoading">
+            <!-- <div id="mapLoading">
                 <div class="spinner-border text-primary mb-2"></div>
                 <div>Loading interactive map...</div>
-            </div>
+            </div> -->
 
-            {% if map_path %}
-                <iframe id="mapFrame" src="/maps/{{ map_path }}" onload="hideSpinner()"></iframe>
-            {% else %}
-                <p class="text-danger text-center">Map could not be generated.</p>
-            {% endif %}
+            <div class="map-wrapper mt-3" id="mapWrapper">
+                <div id="mapLoading" style="display:none;">
+                    <div class="spinner-border text-primary mb-2"></div>
+                    <div>Loading interactive map...</div>
+                </div>
+            </div>
         </div>
     </div>
 
@@ -108,20 +109,9 @@
     <!-- RECOMMENDATION CARDS -->
     <h4 class="fw-bold mb-3">🏘 Recommended Properties</h4>
 
-    {% if recommendations %}
-        <div class="row g-4">
-            {% for rec in recommendations %}
-            <div class="col-md-6">
-                <div class="recommendation-card" data-aos="fade-up">
-                    <h5 class="fw-bold">{{ rec.name }}</h5>
-                    <p class="text-muted mb-1">Rent: RM {{ rec.rent }}</p>
-                </div>
-            </div>
-            {% endfor %}
-        </div>
-    {% else %}
-        <p class="text-muted">No recommendations available for this search.</p>
-    {% endif %}
+    <div id="recommendationSection">
+        <p class="text-muted">Recommendations will appear after map is generated.</p>
+    </div>
 
 </div>
 
@@ -148,6 +138,95 @@ Swal.fire({
 </script>
 
 <script>
+const mapBox = document.getElementById("mapContainer");
+const mapBtn = document.getElementById("toggleMapBtn");
+const mapWrapper = document.getElementById("mapWrapper");
+const mapLoading = document.getElementById("mapLoading");
+const recSection = document.getElementById("recommendationSection");
+
+let mapLoaded = false;
+
+mapBtn.addEventListener("click", async () => {
+
+    if (mapLoaded) {
+        mapBox.classList.toggle("active");
+        return;
+    }
+
+    mapBox.classList.add("active");
+    mapLoading.style.display = "block";
+
+    try {
+        const response = await fetch("/generate_map", {
+            method: "POST",
+            headers: {"Content-Type": "application/json"},
+            body: JSON.stringify({
+                region: "{{ region }}",
+                city: "{{ city }}",
+                rent: "{{ rent }}"
+            })
+        });
+
+        const data = await response.json();
+
+        if (!data.map_path) {
+            mapLoading.innerHTML = "<p class='text-danger'>Map generation failed.</p>";
+            return;
+        }
+
+        // Add map
+        const iframe = document.createElement("iframe");
+        iframe.src = `/maps/${data.map_path}`;
+        iframe.onload = () => mapLoading.style.display = "none";
+        mapWrapper.appendChild(iframe);
+
+        // Render recommendations
+        if (data.recommendations.length > 0) {
+            recSection.innerHTML = `<div class="recommendation-grid"></div>`;
+            const grid = recSection.querySelector(".recommendation-grid");
+
+            data.recommendations.forEach(r => {
+                grid.innerHTML += `
+                    <div class="recommendation-card">
+                        <h5>${r.name}</h5>
+                        <p>Rent: RM ${r.rent.toLocaleString()}</p>
+                    </div>
+                `;
+            });
+        }
+
+
+        mapLoaded = true;
+
+    } catch (err) {
+        mapLoading.innerHTML = "<p class='text-danger'>Server error.</p>";
+        console.error(err);
+    }
+});
+
+data.recommendations.forEach((r, index) => {
+    grid.innerHTML += `
+        <div class="recommendation-card ${index === 0 ? 'best-match' : ''}">
+            <h5>
+                ${r.name}
+                ${index === 0 ? '<span class="badge bg-success ms-2">Best Match</span>' : ''}
+            </h5>
+
+            <p>Rent: RM ${r.rent.toLocaleString()}</p>
+
+            ${r.near_rail ? `
+                <p class="text-primary mt-1">
+                    <i class="bi bi-train-front"></i> Near MRT / LRT
+                </p>` : ''}
+        </div>
+    `;
+});
+
+
+</script>
+
+
+<!-- <script>
 const mapBox = document.getElementById("mapContainer");
 const mapBtn = document.getElementById("toggleMapBtn");
 const mapLoading = document.getElementById("mapLoading");
@@ -178,7 +257,9 @@ mapBtn.addEventListener("click", () => {
         mapBtn.innerHTML = '<i class="bi bi-geo-alt-fill"></i> View Recommended Properties Map';
     }
 });
-</script>
+</script> -->
+
+
 
 
 </body>

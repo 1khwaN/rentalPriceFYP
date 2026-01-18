@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+    
+        <script>
+            L_NO_TOUCH = false;
+            L_DISABLE_3D = false;
+        </script>
+    
+    <style>html, body {width: 100%;height: 100%;margin: 0;padding: 0;}</style>
+    <style>#map {position:absolute;top:0;bottom:0;right:0;left:0;}</style>
+    <script src="https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.js"></script>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.2.0/css/all.min.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/python-visualization/folium/folium/templates/leaflet.awesome.rotate.min.css"/>
+    
+            <meta name="viewport" content="width=device-width,
+                initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+            <style>
+                #map_be60e0c1025bd015706c2725a01dd6cb {
+                    position: relative;
+                    width: 100.0%;
+                    height: 100.0%;
+                    left: 0.0%;
+                    top: 0.0%;
+                }
+                .leaflet-container { font-size: 1rem; }
+            </style>
+        
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet.markercluster/1.1.0/leaflet.markercluster.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet.markercluster/1.1.0/MarkerCluster.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet.markercluster/1.1.0/MarkerCluster.Default.css"/>
+</head>
+<body>
+    
+    
+            <div class="folium-map" id="map_be60e0c1025bd015706c2725a01dd6cb" ></div>
+        
+</body>
+<script>
+    
+    
+            var map_be60e0c1025bd015706c2725a01dd6cb = L.map(
+                "map_be60e0c1025bd015706c2725a01dd6cb",
+                {
+                    center: [3.3, 101.7],
+                    crs: L.CRS.EPSG3857,
+                    zoom: 13,
+                    zoomControl: true,
+                    preferCanvas: false,
+                }
+            );
+
+            
+
+        
+    
+            var tile_layer_7fbafe285f89e95f7a707a9c2e26acd3 = L.tileLayer(
+                "https://tile.openstreetmap.org/{z}/{x}/{y}.png",
+                {"attribution": "\u0026copy; \u003ca href=\"https://www.openstreetmap.org/copyright\"\u003eOpenStreetMap\u003c/a\u003e contributors", "detectRetina": false, "maxNativeZoom": 19, "maxZoom": 19, "minZoom": 0, "noWrap": false, "opacity": 1, "subdomains": "abc", "tms": false}
+            );
+        
+    
+            tile_layer_7fbafe285f89e95f7a707a9c2e26acd3.addTo(map_be60e0c1025bd015706c2725a01dd6cb);
+        
+    
+            var marker_cluster_0bddc7085be9dc05c65230e3613ac5af = L.markerClusterGroup(
+                {}
+            );
+        
+    
+            var marker_f705e28dfd805910965c32e8a52356bb = L.marker(
+                [3.3, 101.7],
+                {}
+            ).addTo(marker_cluster_0bddc7085be9dc05c65230e3613ac5af);
+        
+    
+            var icon_145a6181444aad14fdd1047092987a1f = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "home", "iconColor": "white", "markerColor": "green", "prefix": "glyphicon"}
+            );
+            marker_f705e28dfd805910965c32e8a52356bb.setIcon(icon_145a6181444aad14fdd1047092987a1f);
+        
+    
+        var popup_b84301fca8e82175a3a8edcf95010fdb = L.popup({"maxWidth": 350});
+
+        
+            
+                var html_96e06436d36fc28f6b913cb9906bdd56 = $(`<div id="html_96e06436d36fc28f6b913cb9906bdd56" style="width: 100.0%; height: 100.0%;"><div style='width: 280px; font-family: Arial;'>     <h5 style='margin-bottom:6px; color:#2c3e50;'>KL Traders Square Residences</h5>      <p style='margin:0;'><b>Monthly Rent:</b> RM 1,400.00</p>     <p style='margin:0;'><b>Size:</b> 850 sqft</p>     <p style='margin:0;'><b>Price per Sqft:</b> </p>      <hr style='margin:6px 0;'>      <p style='margin:0;'><b>Rooms:</b> 3</p>     <p style='margin:0;'><b>Bathrooms:</b> 2.0</p>     <p style='margin:0;'><b>Parking:</b> 1.0</p>      <p style='margin:0;'><b>Property Type:</b> Service Residence</p>     <p style='margin:0;'><b>Furnished:</b> Not Furnished</p>      <hr style='margin:6px 0;'>      <p style='margin:0; font-size:0.85rem;'>         <b>Facilities:</b><br>Swimming Pool, Lift, Security, Parking, Gymnasium, Sauna, Barbeque area, Minimart, Multipurpose hall, Squash Court, Tennis Court, Jogging Track, Club house, Playground     </p> </div></div>`)[0];
+                popup_b84301fca8e82175a3a8edcf95010fdb.setContent(html_96e06436d36fc28f6b913cb9906bdd56);
+            
+        
+
+        marker_f705e28dfd805910965c32e8a52356bb.bindPopup(popup_b84301fca8e82175a3a8edcf95010fdb)
+        ;
+
+        
+    
+    
+            var marker_6173a9a951a49d0bc5afb80fad43e7bb = L.marker(
+                [3.3, 101.7],
+                {}
+            ).addTo(marker_cluster_0bddc7085be9dc05c65230e3613ac5af);
+        
+    
+            var icon_4421580d6dc758749981b0e0aea59bfb = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "home", "iconColor": "white", "markerColor": "green", "prefix": "glyphicon"}
+            );
+            marker_6173a9a951a49d0bc5afb80fad43e7bb.setIcon(icon_4421580d6dc758749981b0e0aea59bfb);
+        
+    
+        var popup_e3b2d7853e366b755294ce60292302ff = L.popup({"maxWidth": 350});
+
+        
+            
+                var html_fa5abcaeddcdc94590628f1bbd3ca68a = $(`<div id="html_fa5abcaeddcdc94590628f1bbd3ca68a" style="width: 100.0%; height: 100.0%;"><div style='width: 280px; font-family: Arial;'>     <h5 style='margin-bottom:6px; color:#2c3e50;'>Pangsapuri Villa Harmonis</h5>      <p style='margin:0;'><b>Monthly Rent:</b> RM 1,300.00</p>     <p style='margin:0;'><b>Size:</b> 950 sqft</p>     <p style='margin:0;'><b>Price per Sqft:</b> </p>      <hr style='margin:6px 0;'>      <p style='margin:0;'><b>Rooms:</b> 3</p>     <p style='margin:0;'><b>Bathrooms:</b> 2.0</p>     <p style='margin:0;'><b>Parking:</b> 1.0</p>      <p style='margin:0;'><b>Property Type:</b> Apartment</p>     <p style='margin:0;'><b>Furnished:</b> Not Furnished</p>      <hr style='margin:6px 0;'>      <p style='margin:0; font-size:0.85rem;'>         <b>Facilities:</b><br>Parking, Security, Lift     </p> </div></div>`)[0];
+                popup_e3b2d7853e366b755294ce60292302ff.setContent(html_fa5abcaeddcdc94590628f1bbd3ca68a);
+            
+        
+
+        marker_6173a9a951a49d0bc5afb80fad43e7bb.bindPopup(popup_e3b2d7853e366b755294ce60292302ff)
+        ;
+
+        
+    
+    
+            var marker_c7287fc7abc0763e263a1cca0f27a5a3 = L.marker(
+                [3.3, 101.7],
+                {}
+            ).addTo(marker_cluster_0bddc7085be9dc05c65230e3613ac5af);
+        
+    
+            var icon_d014255d370f5f9455c07681eb1b7389 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "home", "iconColor": "white", "markerColor": "green", "prefix": "glyphicon"}
+            );
+            marker_c7287fc7abc0763e263a1cca0f27a5a3.setIcon(icon_d014255d370f5f9455c07681eb1b7389);
+        
+    
+        var popup_1308c8d33b2c838185d9c507bcd8eb16 = L.popup({"maxWidth": 350});
+
+        
+            
+                var html_d8d62f2663628d67ab0c132afa2ea45a = $(`<div id="html_d8d62f2663628d67ab0c132afa2ea45a" style="width: 100.0%; height: 100.0%;"><div style='width: 280px; font-family: Arial;'>     <h5 style='margin-bottom:6px; color:#2c3e50;'>KL Traders Square Residences</h5>      <p style='margin:0;'><b>Monthly Rent:</b> RM 1,500.00</p>     <p style='margin:0;'><b>Size:</b> 940 sqft</p>     <p style='margin:0;'><b>Price per Sqft:</b> </p>      <hr style='margin:6px 0;'>      <p style='margin:0;'><b>Rooms:</b> 4</p>     <p style='margin:0;'><b>Bathrooms:</b> 2.0</p>     <p style='margin:0;'><b>Parking:</b> 1.0</p>      <p style='margin:0;'><b>Property Type:</b> Service Residence</p>     <p style='margin:0;'><b>Furnished:</b> Partially Furnished</p>      <hr style='margin:6px 0;'>      <p style='margin:0; font-size:0.85rem;'>         <b>Facilities:</b><br>nan     </p> </div></div>`)[0];
+                popup_1308c8d33b2c838185d9c507bcd8eb16.setContent(html_d8d62f2663628d67ab0c132afa2ea45a);
+            
+        
+
+        marker_c7287fc7abc0763e263a1cca0f27a5a3.bindPopup(popup_1308c8d33b2c838185d9c507bcd8eb16)
+        ;
+
+        
+    
+    
+            var marker_bd4f743179de6a16c128887b6821faa8 = L.marker(
+                [3.3, 101.7],
+                {}
+            ).addTo(marker_cluster_0bddc7085be9dc05c65230e3613ac5af);
+        
+    
+            var icon_eda05b3bc54bbfdd2fc1e2401b92604b = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "home", "iconColor": "white", "markerColor": "green", "prefix": "glyphicon"}
+            );
+            marker_bd4f743179de6a16c128887b6821faa8.setIcon(icon_eda05b3bc54bbfdd2fc1e2401b92604b);
+        
+    
+        var popup_56b97850daad9badcc56057457653227 = L.popup({"maxWidth": 350});
+
+        
+            
+                var html_f340a1439b35dcda9be14deec309bda7 = $(`<div id="html_f340a1439b35dcda9be14deec309bda7" style="width: 100.0%; height: 100.0%;"><div style='width: 280px; font-family: Arial;'>     <h5 style='margin-bottom:6px; color:#2c3e50;'>KL Traders Square Residences</h5>      <p style='margin:0;'><b>Monthly Rent:</b> RM 1,500.00</p>     <p style='margin:0;'><b>Size:</b> 940 sqft</p>     <p style='margin:0;'><b>Price per Sqft:</b> </p>      <hr style='margin:6px 0;'>      <p style='margin:0;'><b>Rooms:</b> 4</p>     <p style='margin:0;'><b>Bathrooms:</b> 2.0</p>     <p style='margin:0;'><b>Parking:</b> 1.0</p>      <p style='margin:0;'><b>Property Type:</b> Service Residence</p>     <p style='margin:0;'><b>Furnished:</b> Partially Furnished</p>      <hr style='margin:6px 0;'>      <p style='margin:0; font-size:0.85rem;'>         <b>Facilities:</b><br>nan     </p> </div></div>`)[0];
+                popup_56b97850daad9badcc56057457653227.setContent(html_f340a1439b35dcda9be14deec309bda7);
+            
+        
+
+        marker_bd4f743179de6a16c128887b6821faa8.bindPopup(popup_56b97850daad9badcc56057457653227)
+        ;
+
+        
+    
+    
+            var marker_ae6d24fddac805b75535e32593ef7593 = L.marker(
+                [3.3, 101.7],
+                {}
+            ).addTo(marker_cluster_0bddc7085be9dc05c65230e3613ac5af);
+        
+    
+            var icon_9201998f84d8a5506ed5cd7e9547db62 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "home", "iconColor": "white", "markerColor": "green", "prefix": "glyphicon"}
+            );
+            marker_ae6d24fddac805b75535e32593ef7593.setIcon(icon_9201998f84d8a5506ed5cd7e9547db62);
+        
+    
+        var popup_173da70855104f12d4d2eedce79e7f9d = L.popup({"maxWidth": 350});
+
+        
+            
+                var html_dde49ce5a5756f6840892408eade3ec2 = $(`<div id="html_dde49ce5a5756f6840892408eade3ec2" style="width: 100.0%; height: 100.0%;"><div style='width: 280px; font-family: Arial;'>     <h5 style='margin-bottom:6px; color:#2c3e50;'>KL Traders Square Residences</h5>      <p style='margin:0;'><b>Monthly Rent:</b> RM 1,500.00</p>     <p style='margin:0;'><b>Size:</b> 940 sqft</p>     <p style='margin:0;'><b>Price per Sqft:</b> </p>      <hr style='margin:6px 0;'>      <p style='margin:0;'><b>Rooms:</b> 4</p>     <p style='margin:0;'><b>Bathrooms:</b> 2.0</p>     <p style='margin:0;'><b>Parking:</b> 1.0</p>      <p style='margin:0;'><b>Property Type:</b> Service Residence</p>     <p style='margin:0;'><b>Furnished:</b> Partially Furnished</p>      <hr style='margin:6px 0;'>      <p style='margin:0; font-size:0.85rem;'>         <b>Facilities:</b><br>Parking, Security, Lift, Swimming Pool, Playground, Jogging Track, Gymnasium     </p> </div></div>`)[0];
+                popup_173da70855104f12d4d2eedce79e7f9d.setContent(html_dde49ce5a5756f6840892408eade3ec2);
+            
+        
+
+        marker_ae6d24fddac805b75535e32593ef7593.bindPopup(popup_173da70855104f12d4d2eedce79e7f9d)
+        ;
+
+        
+    
+    
+            marker_cluster_0bddc7085be9dc05c65230e3613ac5af.addTo(map_be60e0c1025bd015706c2725a01dd6cb);
+        
+</script>
+</html>

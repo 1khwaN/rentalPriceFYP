@@ -15,20 +15,38 @@
             color: #007bff;
         }
 
-        .recommendation-card {
-            border-radius: 12px;
-            padding: 20px;
-            background: white;
-            transition: 0.3s;
-            box-shadow: 0 6px 20px rgba(0,0,0,0.08);
-        }
+.recommendation-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 20px;
+    margin-top: 25px;
+}
 
-        .recommendation-card:hover {
-            transform: translateY(-4px);
-            box-shadow: 0 12px 28px rgba(0,0,0,0.15);
-        }
+.recommendation-card {
+    border-radius: 16px;
+    padding: 20px;
+    background: white;
+    box-shadow: 0 6px 20px rgba(0,0,0,0.08);
+    transition: 0.3s ease;
+}
+
+.recommendation-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 14px 30px rgba(0,0,0,0.15);
+}
+
+.recommendation-card h5 {
+    font-weight: 700;
+    margin-bottom: 6px;
+}
+
+.recommendation-card p {
+    margin: 0;
+    color: #666;
+}
 
         /* MAP CONTAINER UPGRADE */
+/* MAP CONTAINER */
 #mapContainer {
     max-height: 0;
     overflow: hidden;
@@ -37,19 +55,28 @@
     margin-top: 25px;
 }
 
-/* Show state (applied by JS) */
 #mapContainer.active {
     opacity: 1;
     max-height: 800px;
 }
 
+/* MAP WRAPPER (NO INNER GAP) */
 .map-wrapper {
-    background: rgba(255, 255, 255, 0.85);
-    border-radius: 16px;
-    padding: 15px;
+    position: relative;
+    width: 100%;
+    height: 650px;
+    border-radius: 18px;
+    overflow: hidden;              /* ⬅ CRITICAL */
+    background: #f8f9fa;
     box-shadow: 0 12px 35px rgba(0,0,0,0.15);
-    backdrop-filter: blur(10px);
-    animation: fadeUp 0.7s ease;
+}
+
+/* MAP IFRAME */
+.map-wrapper iframe {
+    width: 100%;
+    height: 100%;
+    border: none;
+    border-radius: 18px;
 }
 
 #mapFrame {
@@ -61,11 +88,15 @@
 
 /* MAP LOADING SPINNER */
 #mapLoading {
-    text-align: center;
-    padding: 20px;
+    position: absolute;
+    inset: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background: rgba(255,255,255,0.8);
+    z-index: 5;
     font-size: 1.1rem;
-    color: #333;
-    display: none;
 }
 
 @keyframes fadeUp {
@@ -73,10 +104,19 @@
     to   { transform: translateY(0); opacity: 1; }
 }
 
+.footer {
+    margin-top: 70px;
+    padding: 20px;
+    text-align: center;
+    color: #777;
+}
 
-        .footer {
-            margin-top: 70px;
-            padding: 20px;
-            text-align: center;
-            color: #777;
-        }
+
+.best-match {
+    border: 2px solid #28a745;
+    background: linear-gradient(135deg, #ffffff, #f1fff6);
+}
+
+.recommendation-card i.bi-train-front {
+    margin-right: 6px;
+}
