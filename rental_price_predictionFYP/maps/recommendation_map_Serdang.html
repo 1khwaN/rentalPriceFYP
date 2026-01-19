@@ -25,7 +25,7 @@
             <meta name="viewport" content="width=device-width,
                 initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
             <style>
-                #map_6d0a8e9e3465291758e33d85c9b652b3 {
+                #map_cb0c52b6f06a20fd69538249ed6422fb {
                     position: relative;
                     width: 100.0%;
                     height: 100.0%;
@@ -42,16 +42,32 @@
 <body>
     
     
-            <div class="folium-map" id="map_6d0a8e9e3465291758e33d85c9b652b3" ></div>
+    <div style="
+        position: fixed;
+        bottom: 30px;
+        left: 30px;
+        background: white;
+        padding: 10px 14px;
+        border-radius: 10px;
+        box-shadow: 0 4px 14px rgba(0,0,0,0.2);
+        font-size: 14px;
+    ">
+    <b>Legend</b><br>
+    <i class="fa fa-home" style="color:green"></i> Property<br>
+    <i class="fa fa-train" style="color:red"></i> MRT / LRT / KTM Station
+    </div>
+    
+    
+            <div class="folium-map" id="map_cb0c52b6f06a20fd69538249ed6422fb" ></div>
         
 </body>
 <script>
     
     
-            var map_6d0a8e9e3465291758e33d85c9b652b3 = L.map(
-                "map_6d0a8e9e3465291758e33d85c9b652b3",
+            var map_cb0c52b6f06a20fd69538249ed6422fb = L.map(
+                "map_cb0c52b6f06a20fd69538249ed6422fb",
                 {
-                    center: [3.0461063, 101.7066401],
+                    center: [3.0505494, 101.7058604],
                     crs: L.CRS.EPSG3857,
                     zoom: 13,
                     zoomControl: true,
@@ -63,48 +79,48 @@
 
         
     
-            var tile_layer_0624564291423923650b52ee7f0cf246 = L.tileLayer(
+            var tile_layer_52fff90085a5e8f345353b922be6707c = L.tileLayer(
                 "https://tile.openstreetmap.org/{z}/{x}/{y}.png",
                 {"attribution": "\u0026copy; \u003ca href=\"https://www.openstreetmap.org/copyright\"\u003eOpenStreetMap\u003c/a\u003e contributors", "detectRetina": false, "maxNativeZoom": 19, "maxZoom": 19, "minZoom": 0, "noWrap": false, "opacity": 1, "subdomains": "abc", "tms": false}
             );
         
     
-            tile_layer_0624564291423923650b52ee7f0cf246.addTo(map_6d0a8e9e3465291758e33d85c9b652b3);
+            tile_layer_52fff90085a5e8f345353b922be6707c.addTo(map_cb0c52b6f06a20fd69538249ed6422fb);
         
     
-            var marker_cluster_0f81f458401699d3c7c5942897487419 = L.markerClusterGroup(
+            var marker_cluster_1071de32934dda845489588d030f73a3 = L.markerClusterGroup(
                 {}
             );
         
     
-            marker_cluster_0f81f458401699d3c7c5942897487419.addTo(map_6d0a8e9e3465291758e33d85c9b652b3);
-        
-    
-            var marker_30b1db4cd83b601841b21105599e855a = L.marker(
-                [3.0461063, 101.7066401],
+            var marker_3b5805d0a180ae5792586ad6b2af83cd = L.marker(
+                [3.0505494, 101.7058604],
                 {}
-            ).addTo(map_6d0a8e9e3465291758e33d85c9b652b3);
+            ).addTo(marker_cluster_1071de32934dda845489588d030f73a3);
         
     
-            var icon_4179948c95923f4cebaed7a5096ce469 = L.AwesomeMarkers.icon(
-                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "green", "prefix": "glyphicon"}
+            var icon_9c9f953f99d334cb03c1b4ff7894449f = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "home", "iconColor": "white", "markerColor": "green", "prefix": "fa"}
             );
-            marker_30b1db4cd83b601841b21105599e855a.setIcon(icon_4179948c95923f4cebaed7a5096ce469);
+            marker_3b5805d0a180ae5792586ad6b2af83cd.setIcon(icon_9c9f953f99d334cb03c1b4ff7894449f);
         
     
-        var popup_40b89ef1571d02dfcb59a7eb8e4ceb85 = L.popup({"maxWidth": "100%"});
+        var popup_55fbb7b5a0aee39d39f0afc643f0e992 = L.popup({"maxWidth": 350});
 
         
             
-                var html_7dd080de7291a809bad3e0f0f15baa72 = $(`<div id="html_7dd080de7291a809bad3e0f0f15baa72" style="width: 100.0%; height: 100.0%;">Villa Pavilion Condo - RM 1,100.00</div>`)[0];
-                popup_40b89ef1571d02dfcb59a7eb8e4ceb85.setContent(html_7dd080de7291a809bad3e0f0f15baa72);
+                var html_774e5287b9e6b3f1582c6c5586585838 = $(`<div id="html_774e5287b9e6b3f1582c6c5586585838" style="width: 100.0%; height: 100.0%;"><div style='width: 280px; font-family: Arial;'>     <h5 style='margin-bottom:6px; color:#2c3e50;'>Serdang Raya Court Apartment, Seri Kembangan</h5>      <p style='margin:0;'><b>Monthly Rent:</b> RM 1,200.00</p>     <p style='margin:0;'><b>Size:</b> 764 sqft</p>      <hr style='margin:6px 0;'>      <p style='margin:0;'><b>Rooms:</b> 3</p>     <p style='margin:0;'><b>Bathrooms:</b> 2.0</p>     <p style='margin:0;'><b>Parking:</b> 1.0</p>      <p style='margin:0;'><b>Property Type:</b> apartment</p>     <p style='margin:0;'><b>Furnished:</b> Fully Furnished</p>      <hr style='margin:6px 0;'>      <p style='margin:0; font-size:0.85rem;'>         <b>Facilities:</b><br>Parking, Lift     </p> </div></div>`)[0];
+                popup_55fbb7b5a0aee39d39f0afc643f0e992.setContent(html_774e5287b9e6b3f1582c6c5586585838);
             
         
 
-        marker_30b1db4cd83b601841b21105599e855a.bindPopup(popup_40b89ef1571d02dfcb59a7eb8e4ceb85)
+        marker_3b5805d0a180ae5792586ad6b2af83cd.bindPopup(popup_55fbb7b5a0aee39d39f0afc643f0e992)
         ;
 
         
     
+    
+            marker_cluster_1071de32934dda845489588d030f73a3.addTo(map_cb0c52b6f06a20fd69538249ed6422fb);
+        
 </script>
 </html>

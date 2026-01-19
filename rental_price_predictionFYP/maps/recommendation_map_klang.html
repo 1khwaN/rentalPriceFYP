@@ -1,0 +1,369 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+    
+        <script>
+            L_NO_TOUCH = false;
+            L_DISABLE_3D = false;
+        </script>
+    
+    <style>html, body {width: 100%;height: 100%;margin: 0;padding: 0;}</style>
+    <style>#map {position:absolute;top:0;bottom:0;right:0;left:0;}</style>
+    <script src="https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.js"></script>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.2.0/css/all.min.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/python-visualization/folium/folium/templates/leaflet.awesome.rotate.min.css"/>
+    
+            <meta name="viewport" content="width=device-width,
+                initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+            <style>
+                #map_28aad898092b65d98d3b6164689c047b {
+                    position: relative;
+                    width: 100.0%;
+                    height: 100.0%;
+                    left: 0.0%;
+                    top: 0.0%;
+                }
+                .leaflet-container { font-size: 1rem; }
+            </style>
+        
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet.markercluster/1.1.0/leaflet.markercluster.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet.markercluster/1.1.0/MarkerCluster.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet.markercluster/1.1.0/MarkerCluster.Default.css"/>
+</head>
+<body>
+    
+    
+    <div style="
+        position: fixed;
+        bottom: 30px;
+        left: 30px;
+        background: white;
+        padding: 10px 14px;
+        border-radius: 10px;
+        box-shadow: 0 4px 14px rgba(0,0,0,0.2);
+        font-size: 14px;
+    ">
+    <b>Legend</b><br>
+    <i class="fa fa-home" style="color:green"></i> Property<br>
+    <i class="fa fa-train" style="color:blue"></i> Near MRT/LRT
+    </div>
+    
+    
+            <div class="folium-map" id="map_28aad898092b65d98d3b6164689c047b" ></div>
+        
+</body>
+<script>
+    
+    
+            var map_28aad898092b65d98d3b6164689c047b = L.map(
+                "map_28aad898092b65d98d3b6164689c047b",
+                {
+                    center: [3.0448394, 101.4447363],
+                    crs: L.CRS.EPSG3857,
+                    zoom: 13,
+                    zoomControl: true,
+                    preferCanvas: false,
+                }
+            );
+
+            
+
+        
+    
+            var tile_layer_9d49de146703627563630fe3144a898d = L.tileLayer(
+                "https://tile.openstreetmap.org/{z}/{x}/{y}.png",
+                {"attribution": "\u0026copy; \u003ca href=\"https://www.openstreetmap.org/copyright\"\u003eOpenStreetMap\u003c/a\u003e contributors", "detectRetina": false, "maxNativeZoom": 19, "maxZoom": 19, "minZoom": 0, "noWrap": false, "opacity": 1, "subdomains": "abc", "tms": false}
+            );
+        
+    
+            tile_layer_9d49de146703627563630fe3144a898d.addTo(map_28aad898092b65d98d3b6164689c047b);
+        
+    
+            var marker_cluster_a8f1498f60339bdd75501c8481d467fa = L.markerClusterGroup(
+                {}
+            );
+        
+    
+            var marker_9cd82b64749643821ebc9ca566e75140 = L.marker(
+                [3.0464998438765125, 101.44616908878783],
+                {}
+            ).addTo(marker_cluster_a8f1498f60339bdd75501c8481d467fa);
+        
+    
+            var icon_4ede5eddf2572bfafdbef8144c4015ff = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "home", "iconColor": "white", "markerColor": "green", "prefix": "fa"}
+            );
+            marker_9cd82b64749643821ebc9ca566e75140.setIcon(icon_4ede5eddf2572bfafdbef8144c4015ff);
+        
+    
+        var popup_e58eaba3b2ebf6f99d5d3db5325f99c9 = L.popup({"maxWidth": 350});
+
+        
+            
+                var html_ddabf78e7b02477acdf062c2d30f3308 = $(`<div id="html_ddabf78e7b02477acdf062c2d30f3308" style="width: 100.0%; height: 100.0%;"><div style='width: 280px; font-family: Arial;'>     <h5 style='margin-bottom:6px; color:#2c3e50;'>Maple Residence (Klang)</h5>      <p style='margin:0;'><b>Monthly Rent:</b> RM 1,600.00</p>     <p style='margin:0;'><b>Size:</b> 884 sqft</p>      <hr style='margin:6px 0;'>      <p style='margin:0;'><b>Rooms:</b> 3</p>     <p style='margin:0;'><b>Bathrooms:</b> 2.0</p>     <p style='margin:0;'><b>Parking:</b> 2.0</p>      <p style='margin:0;'><b>Property Type:</b> condominium</p>     <p style='margin:0;'><b>Furnished:</b> Fully Furnished</p>      <hr style='margin:6px 0;'>      <p style='margin:0; font-size:0.85rem;'>         <b>Facilities:</b><br>Multipurpose hall     </p> </div></div>`)[0];
+                popup_e58eaba3b2ebf6f99d5d3db5325f99c9.setContent(html_ddabf78e7b02477acdf062c2d30f3308);
+            
+        
+
+        marker_9cd82b64749643821ebc9ca566e75140.bindPopup(popup_e58eaba3b2ebf6f99d5d3db5325f99c9)
+        ;
+
+        
+    
+    
+            var marker_73da91f117eaf5b98aa81898df417598 = L.marker(
+                [3.0450416857700318, 101.44618885439714],
+                {}
+            ).addTo(marker_cluster_a8f1498f60339bdd75501c8481d467fa);
+        
+    
+            var icon_c87ca73e3ef812bce44fffa61735cb9c = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "home", "iconColor": "white", "markerColor": "green", "prefix": "fa"}
+            );
+            marker_73da91f117eaf5b98aa81898df417598.setIcon(icon_c87ca73e3ef812bce44fffa61735cb9c);
+        
+    
+        var popup_2746aa599ed7d414ca86ae6da3a16443 = L.popup({"maxWidth": 350});
+
+        
+            
+                var html_18b22b9e6e6967db60fbd0992c8b0412 = $(`<div id="html_18b22b9e6e6967db60fbd0992c8b0412" style="width: 100.0%; height: 100.0%;"><div style='width: 280px; font-family: Arial;'>     <h5 style='margin-bottom:6px; color:#2c3e50;'>Maple Residence (Klang)</h5>      <p style='margin:0;'><b>Monthly Rent:</b> RM 1,600.00</p>     <p style='margin:0;'><b>Size:</b> 884 sqft</p>      <hr style='margin:6px 0;'>      <p style='margin:0;'><b>Rooms:</b> 3</p>     <p style='margin:0;'><b>Bathrooms:</b> 2.0</p>     <p style='margin:0;'><b>Parking:</b> 2.0</p>      <p style='margin:0;'><b>Property Type:</b> condominium</p>     <p style='margin:0;'><b>Furnished:</b> Fully Furnished</p>      <hr style='margin:6px 0;'>      <p style='margin:0; font-size:0.85rem;'>         <b>Facilities:</b><br>Multipurpose hall     </p> </div></div>`)[0];
+                popup_2746aa599ed7d414ca86ae6da3a16443.setContent(html_18b22b9e6e6967db60fbd0992c8b0412);
+            
+        
+
+        marker_73da91f117eaf5b98aa81898df417598.bindPopup(popup_2746aa599ed7d414ca86ae6da3a16443)
+        ;
+
+        
+    
+    
+            var marker_aff9f47586dd51a1ece849f6d900d057 = L.marker(
+                [3.0440324019628116, 101.4448060920988],
+                {}
+            ).addTo(marker_cluster_a8f1498f60339bdd75501c8481d467fa);
+        
+    
+            var icon_4092c5c33540c1fa799e98246a866bb1 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "home", "iconColor": "white", "markerColor": "green", "prefix": "fa"}
+            );
+            marker_aff9f47586dd51a1ece849f6d900d057.setIcon(icon_4092c5c33540c1fa799e98246a866bb1);
+        
+    
+        var popup_cf8657c5425b8afab3fdcf663e054fca = L.popup({"maxWidth": 350});
+
+        
+            
+                var html_15b9e7de341acf59e05aca7537d13ae1 = $(`<div id="html_15b9e7de341acf59e05aca7537d13ae1" style="width: 100.0%; height: 100.0%;"><div style='width: 280px; font-family: Arial;'>     <h5 style='margin-bottom:6px; color:#2c3e50;'>Maple Residence (Klang)</h5>      <p style='margin:0;'><b>Monthly Rent:</b> RM 1,600.00</p>     <p style='margin:0;'><b>Size:</b> 867 sqft</p>      <hr style='margin:6px 0;'>      <p style='margin:0;'><b>Rooms:</b> 3</p>     <p style='margin:0;'><b>Bathrooms:</b> 2.0</p>     <p style='margin:0;'><b>Parking:</b> 2.0</p>      <p style='margin:0;'><b>Property Type:</b> condominium</p>     <p style='margin:0;'><b>Furnished:</b> Partially Furnished</p>      <hr style='margin:6px 0;'>      <p style='margin:0; font-size:0.85rem;'>         <b>Facilities:</b><br>Multipurpose hall     </p> </div></div>`)[0];
+                popup_cf8657c5425b8afab3fdcf663e054fca.setContent(html_15b9e7de341acf59e05aca7537d13ae1);
+            
+        
+
+        marker_aff9f47586dd51a1ece849f6d900d057.bindPopup(popup_cf8657c5425b8afab3fdcf663e054fca)
+        ;
+
+        
+    
+    
+            var marker_e1cad4d16afb419b30f7250e7b32fb6a = L.marker(
+                [3.04640260548177, 101.44552200619991],
+                {}
+            ).addTo(marker_cluster_a8f1498f60339bdd75501c8481d467fa);
+        
+    
+            var icon_1fe47d077bfcd2db2f23214bd24f4c6e = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "home", "iconColor": "white", "markerColor": "green", "prefix": "fa"}
+            );
+            marker_e1cad4d16afb419b30f7250e7b32fb6a.setIcon(icon_1fe47d077bfcd2db2f23214bd24f4c6e);
+        
+    
+        var popup_2704dba43fcb55faf6d334df40b4a542 = L.popup({"maxWidth": 350});
+
+        
+            
+                var html_75a6b9c5a866b8a7bb38ff0667194738 = $(`<div id="html_75a6b9c5a866b8a7bb38ff0667194738" style="width: 100.0%; height: 100.0%;"><div style='width: 280px; font-family: Arial;'>     <h5 style='margin-bottom:6px; color:#2c3e50;'>Maple Residence (Klang)</h5>      <p style='margin:0;'><b>Monthly Rent:</b> RM 1,600.00</p>     <p style='margin:0;'><b>Size:</b> 867 sqft</p>      <hr style='margin:6px 0;'>      <p style='margin:0;'><b>Rooms:</b> 3</p>     <p style='margin:0;'><b>Bathrooms:</b> 2.0</p>     <p style='margin:0;'><b>Parking:</b> 2.0</p>      <p style='margin:0;'><b>Property Type:</b> condominium</p>     <p style='margin:0;'><b>Furnished:</b> Partially Furnished</p>      <hr style='margin:6px 0;'>      <p style='margin:0; font-size:0.85rem;'>         <b>Facilities:</b><br>Multipurpose hall     </p> </div></div>`)[0];
+                popup_2704dba43fcb55faf6d334df40b4a542.setContent(html_75a6b9c5a866b8a7bb38ff0667194738);
+            
+        
+
+        marker_e1cad4d16afb419b30f7250e7b32fb6a.bindPopup(popup_2704dba43fcb55faf6d334df40b4a542)
+        ;
+
+        
+    
+    
+            var marker_669f37d3cf48b37c076c2e48ab4c8f39 = L.marker(
+                [3.0462759641114214, 101.4439642095377],
+                {}
+            ).addTo(marker_cluster_a8f1498f60339bdd75501c8481d467fa);
+        
+    
+            var icon_d1251bf2e644c539011abc7e31a77cfe = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "home", "iconColor": "white", "markerColor": "green", "prefix": "fa"}
+            );
+            marker_669f37d3cf48b37c076c2e48ab4c8f39.setIcon(icon_d1251bf2e644c539011abc7e31a77cfe);
+        
+    
+        var popup_d3d9f5f8b4110d99b3e64bf3064862d7 = L.popup({"maxWidth": 350});
+
+        
+            
+                var html_03727c4e6b940de0dc4f67a65ff70d9e = $(`<div id="html_03727c4e6b940de0dc4f67a65ff70d9e" style="width: 100.0%; height: 100.0%;"><div style='width: 280px; font-family: Arial;'>     <h5 style='margin-bottom:6px; color:#2c3e50;'>Maple Residence (Klang)</h5>      <p style='margin:0;'><b>Monthly Rent:</b> RM 1,600.00</p>     <p style='margin:0;'><b>Size:</b> 884 sqft</p>      <hr style='margin:6px 0;'>      <p style='margin:0;'><b>Rooms:</b> 3</p>     <p style='margin:0;'><b>Bathrooms:</b> 2.0</p>     <p style='margin:0;'><b>Parking:</b> 2.0</p>      <p style='margin:0;'><b>Property Type:</b> condominium</p>     <p style='margin:0;'><b>Furnished:</b> Fully Furnished</p>      <hr style='margin:6px 0;'>      <p style='margin:0; font-size:0.85rem;'>         <b>Facilities:</b><br>Multipurpose hall     </p> </div></div>`)[0];
+                popup_d3d9f5f8b4110d99b3e64bf3064862d7.setContent(html_03727c4e6b940de0dc4f67a65ff70d9e);
+            
+        
+
+        marker_669f37d3cf48b37c076c2e48ab4c8f39.bindPopup(popup_d3d9f5f8b4110d99b3e64bf3064862d7)
+        ;
+
+        
+    
+    
+            var marker_9c03d53bba3ae33111c3289d557c02e6 = L.marker(
+                [3.0463600583289336, 101.44334488756212],
+                {}
+            ).addTo(marker_cluster_a8f1498f60339bdd75501c8481d467fa);
+        
+    
+            var icon_adb9093bffae2efc68fe0420b77108a5 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "home", "iconColor": "white", "markerColor": "green", "prefix": "fa"}
+            );
+            marker_9c03d53bba3ae33111c3289d557c02e6.setIcon(icon_adb9093bffae2efc68fe0420b77108a5);
+        
+    
+        var popup_76c55e4c3af6c9c9f8c682b21fd234fe = L.popup({"maxWidth": 350});
+
+        
+            
+                var html_141a4f2377ab70a81dab57cfbef7f5f8 = $(`<div id="html_141a4f2377ab70a81dab57cfbef7f5f8" style="width: 100.0%; height: 100.0%;"><div style='width: 280px; font-family: Arial;'>     <h5 style='margin-bottom:6px; color:#2c3e50;'>Maple Residence (Klang)</h5>      <p style='margin:0;'><b>Monthly Rent:</b> RM 1,600.00</p>     <p style='margin:0;'><b>Size:</b> 884 sqft</p>      <hr style='margin:6px 0;'>      <p style='margin:0;'><b>Rooms:</b> 3</p>     <p style='margin:0;'><b>Bathrooms:</b> 2.0</p>     <p style='margin:0;'><b>Parking:</b> 2.0</p>      <p style='margin:0;'><b>Property Type:</b> condominium</p>     <p style='margin:0;'><b>Furnished:</b> Fully Furnished</p>      <hr style='margin:6px 0;'>      <p style='margin:0; font-size:0.85rem;'>         <b>Facilities:</b><br>Multipurpose hall     </p> </div></div>`)[0];
+                popup_76c55e4c3af6c9c9f8c682b21fd234fe.setContent(html_141a4f2377ab70a81dab57cfbef7f5f8);
+            
+        
+
+        marker_9c03d53bba3ae33111c3289d557c02e6.bindPopup(popup_76c55e4c3af6c9c9f8c682b21fd234fe)
+        ;
+
+        
+    
+    
+            var marker_ebe1f5e861179e4af327e23de946bb4b = L.marker(
+                [3.043745173409239, 101.44660031601828],
+                {}
+            ).addTo(marker_cluster_a8f1498f60339bdd75501c8481d467fa);
+        
+    
+            var icon_20e87c869085104bb02273c57f48f4db = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "home", "iconColor": "white", "markerColor": "green", "prefix": "fa"}
+            );
+            marker_ebe1f5e861179e4af327e23de946bb4b.setIcon(icon_20e87c869085104bb02273c57f48f4db);
+        
+    
+        var popup_08639627f6c72c9411651e8eab630fb0 = L.popup({"maxWidth": 350});
+
+        
+            
+                var html_e0b9c409e554d5574046c74c1aadcdbe = $(`<div id="html_e0b9c409e554d5574046c74c1aadcdbe" style="width: 100.0%; height: 100.0%;"><div style='width: 280px; font-family: Arial;'>     <h5 style='margin-bottom:6px; color:#2c3e50;'>Maple Residence (Klang)</h5>      <p style='margin:0;'><b>Monthly Rent:</b> RM 1,600.00</p>     <p style='margin:0;'><b>Size:</b> 884 sqft</p>      <hr style='margin:6px 0;'>      <p style='margin:0;'><b>Rooms:</b> 3</p>     <p style='margin:0;'><b>Bathrooms:</b> 2.0</p>     <p style='margin:0;'><b>Parking:</b> 1.0</p>      <p style='margin:0;'><b>Property Type:</b> condominium</p>     <p style='margin:0;'><b>Furnished:</b> Fully Furnished</p>      <hr style='margin:6px 0;'>      <p style='margin:0; font-size:0.85rem;'>         <b>Facilities:</b><br>Multipurpose hall     </p> </div></div>`)[0];
+                popup_08639627f6c72c9411651e8eab630fb0.setContent(html_e0b9c409e554d5574046c74c1aadcdbe);
+            
+        
+
+        marker_ebe1f5e861179e4af327e23de946bb4b.bindPopup(popup_08639627f6c72c9411651e8eab630fb0)
+        ;
+
+        
+    
+    
+            var marker_4af2a6c19d5f58a62b927212bdb81cbb = L.marker(
+                [3.046653146949692, 101.4446357103069],
+                {}
+            ).addTo(marker_cluster_a8f1498f60339bdd75501c8481d467fa);
+        
+    
+            var icon_5736feb9781055d91bff90d81b7b2c84 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "home", "iconColor": "white", "markerColor": "green", "prefix": "fa"}
+            );
+            marker_4af2a6c19d5f58a62b927212bdb81cbb.setIcon(icon_5736feb9781055d91bff90d81b7b2c84);
+        
+    
+        var popup_f5e0b038ce9862c0592134abeed598ab = L.popup({"maxWidth": 350});
+
+        
+            
+                var html_b62a89c0df0c960efa163ade58de6c4e = $(`<div id="html_b62a89c0df0c960efa163ade58de6c4e" style="width: 100.0%; height: 100.0%;"><div style='width: 280px; font-family: Arial;'>     <h5 style='margin-bottom:6px; color:#2c3e50;'>Maple Residence (Klang)</h5>      <p style='margin:0;'><b>Monthly Rent:</b> RM 1,600.00</p>     <p style='margin:0;'><b>Size:</b> 884 sqft</p>      <hr style='margin:6px 0;'>      <p style='margin:0;'><b>Rooms:</b> 3</p>     <p style='margin:0;'><b>Bathrooms:</b> 2.0</p>     <p style='margin:0;'><b>Parking:</b> 2.0</p>      <p style='margin:0;'><b>Property Type:</b> condominium</p>     <p style='margin:0;'><b>Furnished:</b> Fully Furnished</p>      <hr style='margin:6px 0;'>      <p style='margin:0; font-size:0.85rem;'>         <b>Facilities:</b><br>Multipurpose hall     </p> </div></div>`)[0];
+                popup_f5e0b038ce9862c0592134abeed598ab.setContent(html_b62a89c0df0c960efa163ade58de6c4e);
+            
+        
+
+        marker_4af2a6c19d5f58a62b927212bdb81cbb.bindPopup(popup_f5e0b038ce9862c0592134abeed598ab)
+        ;
+
+        
+    
+    
+            var marker_9e48162fed1c0d0df1208be0281e863c = L.marker(
+                [3.0436347195930504, 101.44581888132454],
+                {}
+            ).addTo(marker_cluster_a8f1498f60339bdd75501c8481d467fa);
+        
+    
+            var icon_16ee8f1cac7ccdb59ef2b540607bd99d = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "home", "iconColor": "white", "markerColor": "green", "prefix": "fa"}
+            );
+            marker_9e48162fed1c0d0df1208be0281e863c.setIcon(icon_16ee8f1cac7ccdb59ef2b540607bd99d);
+        
+    
+        var popup_b404897c8296a4019297e8673a30d9ce = L.popup({"maxWidth": 350});
+
+        
+            
+                var html_20b9215eb4458a7bdf5ddb5885576f04 = $(`<div id="html_20b9215eb4458a7bdf5ddb5885576f04" style="width: 100.0%; height: 100.0%;"><div style='width: 280px; font-family: Arial;'>     <h5 style='margin-bottom:6px; color:#2c3e50;'>Maple Residence (Klang)</h5>      <p style='margin:0;'><b>Monthly Rent:</b> RM 1,600.00</p>     <p style='margin:0;'><b>Size:</b> 870 sqft</p>      <hr style='margin:6px 0;'>      <p style='margin:0;'><b>Rooms:</b> 3</p>     <p style='margin:0;'><b>Bathrooms:</b> 2.0</p>     <p style='margin:0;'><b>Parking:</b> 2.0</p>      <p style='margin:0;'><b>Property Type:</b> condominium</p>     <p style='margin:0;'><b>Furnished:</b> Fully Furnished</p>      <hr style='margin:6px 0;'>      <p style='margin:0; font-size:0.85rem;'>         <b>Facilities:</b><br>Multipurpose hall, Parking, Lift, Security, Swimming Pool, Playground, Gymnasium, Sauna, Barbeque area     </p> </div></div>`)[0];
+                popup_b404897c8296a4019297e8673a30d9ce.setContent(html_20b9215eb4458a7bdf5ddb5885576f04);
+            
+        
+
+        marker_9e48162fed1c0d0df1208be0281e863c.bindPopup(popup_b404897c8296a4019297e8673a30d9ce)
+        ;
+
+        
+    
+    
+            var marker_d991ebf4a4ce3abe9cd45683c73e6530 = L.marker(
+                [3.043203136644892, 101.44430707331573],
+                {}
+            ).addTo(marker_cluster_a8f1498f60339bdd75501c8481d467fa);
+        
+    
+            var icon_73c4781ff7effa170156ae415b68d03e = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "home", "iconColor": "white", "markerColor": "green", "prefix": "fa"}
+            );
+            marker_d991ebf4a4ce3abe9cd45683c73e6530.setIcon(icon_73c4781ff7effa170156ae415b68d03e);
+        
+    
+        var popup_5aff0ab941bf89da33d844e131c4713d = L.popup({"maxWidth": 350});
+
+        
+            
+                var html_0f1149cbd90984fecc8d4445dc695926 = $(`<div id="html_0f1149cbd90984fecc8d4445dc695926" style="width: 100.0%; height: 100.0%;"><div style='width: 280px; font-family: Arial;'>     <h5 style='margin-bottom:6px; color:#2c3e50;'>Maple Residence (Klang)</h5>      <p style='margin:0;'><b>Monthly Rent:</b> RM 1,600.00</p>     <p style='margin:0;'><b>Size:</b> 884 sqft</p>      <hr style='margin:6px 0;'>      <p style='margin:0;'><b>Rooms:</b> 3</p>     <p style='margin:0;'><b>Bathrooms:</b> 2.0</p>     <p style='margin:0;'><b>Parking:</b> 2.0</p>      <p style='margin:0;'><b>Property Type:</b> condominium</p>     <p style='margin:0;'><b>Furnished:</b> Partially Furnished</p>      <hr style='margin:6px 0;'>      <p style='margin:0; font-size:0.85rem;'>         <b>Facilities:</b><br>Multipurpose hall     </p> </div></div>`)[0];
+                popup_5aff0ab941bf89da33d844e131c4713d.setContent(html_0f1149cbd90984fecc8d4445dc695926);
+            
+        
+
+        marker_d991ebf4a4ce3abe9cd45683c73e6530.bindPopup(popup_5aff0ab941bf89da33d844e131c4713d)
+        ;
+
+        
+    
+    
+            marker_cluster_a8f1498f60339bdd75501c8481d467fa.addTo(map_28aad898092b65d98d3b6164689c047b);
+        
+</script>
+</html>
