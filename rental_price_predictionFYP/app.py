@@ -469,6 +469,58 @@ def api_options():
         "cities_by_region": cities_by_region
     })
 
+@app.route("/api/analytics")
+def analytics_data():
+    df = df_raw.copy()
+
+    region = request.args.get("region")
+    city = request.args.get("city")
+    property_type = request.args.get("property_type")
+
+    if region:
+        df = df[df["region"] == region]
+    if city:
+        df = df[df["city"] == city]
+    if property_type:
+        df = df[df["property_type"] == property_type]
+
+    response = {
+        "kpis": {
+            "avg_rent": round(df["monthly_rent"].mean(), 2),
+            "max_rent": round(df["monthly_rent"].max(), 2),
+            "median_rent": round(df["monthly_rent"].median(), 2),
+            "avg_size": round(df["size"].mean(), 2),
+            "total_listings": int(len(df)),
+            "avg_psf": round(df["monthly_rent"].sum() / df["size"].sum(), 2)
+        },
+
+        "avg_rent_by_region": (
+            df.groupby("region")["monthly_rent"]
+            .mean()
+            .round(0)
+            .to_dict()
+        ),
+
+        "avg_rent_by_property_type": (
+            df.groupby("property_type")["monthly_rent"]
+            .mean()
+            .round(0)
+            .sort_values(ascending=False)
+            .to_dict()
+        ),
+
+        "top_cities": (
+            df.groupby("city")["monthly_rent"]
+            .mean()
+            .round(0)
+            .sort_values(ascending=False)
+            .head(10)
+            .to_dict()
+        )
+    }
+
+    return jsonify(response)
+
 
 if __name__ == "__main__":
     print("Starting Flask app (debug mode)...")
