@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+    
+        <script>
+            L_NO_TOUCH = false;
+            L_DISABLE_3D = false;
+        </script>
+    
+    <style>html, body {width: 100%;height: 100%;margin: 0;padding: 0;}</style>
+    <style>#map {position:absolute;top:0;bottom:0;right:0;left:0;}</style>
+    <script src="https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.js"></script>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.2.0/css/all.min.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/python-visualization/folium/folium/templates/leaflet.awesome.rotate.min.css"/>
+    
+            <meta name="viewport" content="width=device-width,
+                initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+            <style>
+                #map_f4b9a8533775ccee6d7e1c7135ef10e9 {
+                    position: relative;
+                    width: 100.0%;
+                    height: 100.0%;
+                    left: 0.0%;
+                    top: 0.0%;
+                }
+                .leaflet-container { font-size: 1rem; }
+            </style>
+        
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet.markercluster/1.1.0/leaflet.markercluster.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet.markercluster/1.1.0/MarkerCluster.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet.markercluster/1.1.0/MarkerCluster.Default.css"/>
+</head>
+<body>
+    
+    
+    <div style="
+        position: fixed;
+        bottom: 30px;
+        left: 30px;
+        background: white;
+        padding: 10px 14px;
+        border-radius: 10px;
+        box-shadow: 0 4px 14px rgba(0,0,0,0.2);
+        font-size: 14px;
+    ">
+    <b>Legend</b><br>
+    <i class="fa fa-home" style="color:green"></i> Property<br>
+    <i class="fa fa-train" style="color:red"></i> MRT / LRT / KTM Station
+    </div>
+    
+    
+            <div class="folium-map" id="map_f4b9a8533775ccee6d7e1c7135ef10e9" ></div>
+        
+</body>
+<script>
+    
+    
+            var map_f4b9a8533775ccee6d7e1c7135ef10e9 = L.map(
+                "map_f4b9a8533775ccee6d7e1c7135ef10e9",
+                {
+                    center: [3.1077904, 101.4621432],
+                    crs: L.CRS.EPSG3857,
+                    zoom: 13,
+                    zoomControl: true,
+                    preferCanvas: false,
+                }
+            );
+
+            
+
+        
+    
+            var tile_layer_d4692b296211b176683e9289b794cf27 = L.tileLayer(
+                "https://tile.openstreetmap.org/{z}/{x}/{y}.png",
+                {"attribution": "\u0026copy; \u003ca href=\"https://www.openstreetmap.org/copyright\"\u003eOpenStreetMap\u003c/a\u003e contributors", "detectRetina": false, "maxNativeZoom": 19, "maxZoom": 19, "minZoom": 0, "noWrap": false, "opacity": 1, "subdomains": "abc", "tms": false}
+            );
+        
+    
+            tile_layer_d4692b296211b176683e9289b794cf27.addTo(map_f4b9a8533775ccee6d7e1c7135ef10e9);
+        
+    
+            var marker_cluster_f7a4c846e734f3cea249ae34c73c17b0 = L.markerClusterGroup(
+                {}
+            );
+        
+    
+            var marker_add496f88f9f191d8a49de29a0594cef = L.marker(
+                [3.1077904, 101.4621432],
+                {}
+            ).addTo(marker_cluster_f7a4c846e734f3cea249ae34c73c17b0);
+        
+    
+            var icon_d0e3c6741085c7094cc178b937c07425 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "train", "iconColor": "white", "markerColor": "blue", "prefix": "fa"}
+            );
+            marker_add496f88f9f191d8a49de29a0594cef.setIcon(icon_d0e3c6741085c7094cc178b937c07425);
+        
+    
+        var popup_34639c94d79c874d571b9eabe5d4a233 = L.popup({"maxWidth": 350});
+
+        
+            
+                var html_4822e91747a8532cc5e7d4937c9dd2a2 = $(`<div id="html_4822e91747a8532cc5e7d4937c9dd2a2" style="width: 100.0%; height: 100.0%;"><div style='width: 280px; font-family: Arial;'>     <h5 style='margin-bottom:6px; color:#2c3e50;'>Seri Baiduri (Setia Alam)</h5>      <p style='margin:0;'><b>Monthly Rent:</b> RM 1,800.00</p>     <p style='margin:0;'><b>Size:</b> 920 sqft</p>      <hr style='margin:6px 0;'>      <p style='margin:0;'><b>Rooms:</b> 3</p>     <p style='margin:0;'><b>Bathrooms:</b> 2.0</p>     <p style='margin:0;'><b>Parking:</b> 2.0</p>      <p style='margin:0;'><b>Property Type:</b> apartment</p>     <p style='margin:0;'><b>Furnished:</b> Fully Furnished</p>      <hr style='margin:6px 0;'>      <p style='margin:0; font-size:0.85rem;'>         <b>Facilities:</b><br>Parking, Security, Lift, Swimming Pool, Playground, Gymnasium, Sauna, Barbeque area, Minimart, Multipurpose hall, Club house, Jogging Track, Tennis Court, Squash Court     </p> </div></div>`)[0];
+                popup_34639c94d79c874d571b9eabe5d4a233.setContent(html_4822e91747a8532cc5e7d4937c9dd2a2);
+            
+        
+
+        marker_add496f88f9f191d8a49de29a0594cef.bindPopup(popup_34639c94d79c874d571b9eabe5d4a233)
+        ;
+
+        
+    
+    
+            var marker_a02334eef85c5e679ab147d9b2b20c47 = L.marker(
+                [3.1077904, 101.4621432],
+                {}
+            ).addTo(marker_cluster_f7a4c846e734f3cea249ae34c73c17b0);
+        
+    
+            var icon_64325e82f8e4241b9fdf7e1337c9bd26 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "train", "iconColor": "white", "markerColor": "blue", "prefix": "fa"}
+            );
+            marker_a02334eef85c5e679ab147d9b2b20c47.setIcon(icon_64325e82f8e4241b9fdf7e1337c9bd26);
+        
+    
+        var popup_1be597838b0bb249d2f35411ce60021a = L.popup({"maxWidth": 350});
+
+        
+            
+                var html_036a97806d1adfbc33466453070b7ae7 = $(`<div id="html_036a97806d1adfbc33466453070b7ae7" style="width: 100.0%; height: 100.0%;"><div style='width: 280px; font-family: Arial;'>     <h5 style='margin-bottom:6px; color:#2c3e50;'>Seri Baiduri (Setia Alam)</h5>      <p style='margin:0;'><b>Monthly Rent:</b> RM 1,800.00</p>     <p style='margin:0;'><b>Size:</b> 920 sqft</p>      <hr style='margin:6px 0;'>      <p style='margin:0;'><b>Rooms:</b> 3</p>     <p style='margin:0;'><b>Bathrooms:</b> 2.0</p>     <p style='margin:0;'><b>Parking:</b> 2.0</p>      <p style='margin:0;'><b>Property Type:</b> apartment</p>     <p style='margin:0;'><b>Furnished:</b> Fully Furnished</p>      <hr style='margin:6px 0;'>      <p style='margin:0; font-size:0.85rem;'>         <b>Facilities:</b><br>Parking, Security, Lift, Swimming Pool, Playground, Gymnasium, Sauna, Barbeque area, Minimart, Multipurpose hall, Club house, Jogging Track, Tennis Court, Squash Court     </p> </div></div>`)[0];
+                popup_1be597838b0bb249d2f35411ce60021a.setContent(html_036a97806d1adfbc33466453070b7ae7);
+            
+        
+
+        marker_a02334eef85c5e679ab147d9b2b20c47.bindPopup(popup_1be597838b0bb249d2f35411ce60021a)
+        ;
+
+        
+    
+    
+            var marker_1c08532d56d3181bc6736593f53a7df5 = L.marker(
+                [3.1077904, 101.4621432],
+                {}
+            ).addTo(marker_cluster_f7a4c846e734f3cea249ae34c73c17b0);
+        
+    
+            var icon_cf4ac6f4f03d7433f85efa752ee83207 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "home", "iconColor": "white", "markerColor": "green", "prefix": "fa"}
+            );
+            marker_1c08532d56d3181bc6736593f53a7df5.setIcon(icon_cf4ac6f4f03d7433f85efa752ee83207);
+        
+    
+        var popup_f884ddc7a94941d6cceeaed4131ef268 = L.popup({"maxWidth": 350});
+
+        
+            
+                var html_10baf855ad43138cef160e16ac16c962 = $(`<div id="html_10baf855ad43138cef160e16ac16c962" style="width: 100.0%; height: 100.0%;"><div style='width: 280px; font-family: Arial;'>     <h5 style='margin-bottom:6px; color:#2c3e50;'>Seri Baiduri (Setia Alam)</h5>      <p style='margin:0;'><b>Monthly Rent:</b> RM 1,800.00</p>     <p style='margin:0;'><b>Size:</b> 930 sqft</p>      <hr style='margin:6px 0;'>      <p style='margin:0;'><b>Rooms:</b> 3</p>     <p style='margin:0;'><b>Bathrooms:</b> 2.0</p>     <p style='margin:0;'><b>Parking:</b> 2.0</p>      <p style='margin:0;'><b>Property Type:</b> apartment</p>     <p style='margin:0;'><b>Furnished:</b> Fully Furnished</p>      <hr style='margin:6px 0;'>      <p style='margin:0; font-size:0.85rem;'>         <b>Facilities:</b><br>nan     </p> </div></div>`)[0];
+                popup_f884ddc7a94941d6cceeaed4131ef268.setContent(html_10baf855ad43138cef160e16ac16c962);
+            
+        
+
+        marker_1c08532d56d3181bc6736593f53a7df5.bindPopup(popup_f884ddc7a94941d6cceeaed4131ef268)
+        ;
+
+        
+    
+    
+            var marker_1967a70239cda4ac5a381eefbd1980ca = L.marker(
+                [3.1077904, 101.4621432],
+                {}
+            ).addTo(marker_cluster_f7a4c846e734f3cea249ae34c73c17b0);
+        
+    
+            var icon_021247eacedd5b8ad5f1d2072b57d20d = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "train", "iconColor": "white", "markerColor": "blue", "prefix": "fa"}
+            );
+            marker_1967a70239cda4ac5a381eefbd1980ca.setIcon(icon_021247eacedd5b8ad5f1d2072b57d20d);
+        
+    
+        var popup_20d31ceba1425f520e17d68f770b8f02 = L.popup({"maxWidth": 350});
+
+        
+            
+                var html_c6f0ffc15cc6ce4cbb1601b1a280c491 = $(`<div id="html_c6f0ffc15cc6ce4cbb1601b1a280c491" style="width: 100.0%; height: 100.0%;"><div style='width: 280px; font-family: Arial;'>     <h5 style='margin-bottom:6px; color:#2c3e50;'>Seri Baiduri (Setia Alam)</h5>      <p style='margin:0;'><b>Monthly Rent:</b> RM 1,800.00</p>     <p style='margin:0;'><b>Size:</b> 920 sqft</p>      <hr style='margin:6px 0;'>      <p style='margin:0;'><b>Rooms:</b> 3</p>     <p style='margin:0;'><b>Bathrooms:</b> 2.0</p>     <p style='margin:0;'><b>Parking:</b> 2.0</p>      <p style='margin:0;'><b>Property Type:</b> apartment</p>     <p style='margin:0;'><b>Furnished:</b> Fully Furnished</p>      <hr style='margin:6px 0;'>      <p style='margin:0; font-size:0.85rem;'>         <b>Facilities:</b><br>Parking, Security, Lift, Swimming Pool, Playground, Gymnasium, Sauna, Barbeque area, Minimart, Multipurpose hall, Club house, Jogging Track, Tennis Court, Squash Court     </p> </div></div>`)[0];
+                popup_20d31ceba1425f520e17d68f770b8f02.setContent(html_c6f0ffc15cc6ce4cbb1601b1a280c491);
+            
+        
+
+        marker_1967a70239cda4ac5a381eefbd1980ca.bindPopup(popup_20d31ceba1425f520e17d68f770b8f02)
+        ;
+
+        
+    
+    
+            var marker_cfddcf31ca255cfac2510716a7fc6a73 = L.marker(
+                [3.1077904, 101.4621432],
+                {}
+            ).addTo(marker_cluster_f7a4c846e734f3cea249ae34c73c17b0);
+        
+    
+            var icon_ac62a0d61706cfd4c32aba1d4a06a6f1 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "home", "iconColor": "white", "markerColor": "green", "prefix": "fa"}
+            );
+            marker_cfddcf31ca255cfac2510716a7fc6a73.setIcon(icon_ac62a0d61706cfd4c32aba1d4a06a6f1);
+        
+    
+        var popup_6ee69b4af3c9dfb706b0e28f34784d48 = L.popup({"maxWidth": 350});
+
+        
+            
+                var html_353394a2a3c26246db2005b07a7fbd0a = $(`<div id="html_353394a2a3c26246db2005b07a7fbd0a" style="width: 100.0%; height: 100.0%;"><div style='width: 280px; font-family: Arial;'>     <h5 style='margin-bottom:6px; color:#2c3e50;'>Seri Baiduri (Setia Alam)</h5>      <p style='margin:0;'><b>Monthly Rent:</b> RM 1,800.00</p>     <p style='margin:0;'><b>Size:</b> 900 sqft</p>      <hr style='margin:6px 0;'>      <p style='margin:0;'><b>Rooms:</b> 3</p>     <p style='margin:0;'><b>Bathrooms:</b> 2.0</p>     <p style='margin:0;'><b>Parking:</b> 1.0</p>      <p style='margin:0;'><b>Property Type:</b> apartment</p>     <p style='margin:0;'><b>Furnished:</b> Fully Furnished</p>      <hr style='margin:6px 0;'>      <p style='margin:0; font-size:0.85rem;'>         <b>Facilities:</b><br>nan     </p> </div></div>`)[0];
+                popup_6ee69b4af3c9dfb706b0e28f34784d48.setContent(html_353394a2a3c26246db2005b07a7fbd0a);
+            
+        
+
+        marker_cfddcf31ca255cfac2510716a7fc6a73.bindPopup(popup_6ee69b4af3c9dfb706b0e28f34784d48)
+        ;
+
+        
+    
+    
+            var marker_37009d9422fc71996143d46bb665324d = L.marker(
+                [3.1077904, 101.4621432],
+                {}
+            ).addTo(marker_cluster_f7a4c846e734f3cea249ae34c73c17b0);
+        
+    
+            var icon_52c41caacfdc7b50c1ac0632d08e4295 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "home", "iconColor": "white", "markerColor": "green", "prefix": "fa"}
+            );
+            marker_37009d9422fc71996143d46bb665324d.setIcon(icon_52c41caacfdc7b50c1ac0632d08e4295);
+        
+    
+        var popup_5b903e87501f9f775ca72b9604fec4de = L.popup({"maxWidth": 350});
+
+        
+            
+                var html_053dd3953a2aadc7813170911a5d56ef = $(`<div id="html_053dd3953a2aadc7813170911a5d56ef" style="width: 100.0%; height: 100.0%;"><div style='width: 280px; font-family: Arial;'>     <h5 style='margin-bottom:6px; color:#2c3e50;'>Seri Baiduri (Setia Alam)</h5>      <p style='margin:0;'><b>Monthly Rent:</b> RM 1,800.00</p>     <p style='margin:0;'><b>Size:</b> 920 sqft</p>      <hr style='margin:6px 0;'>      <p style='margin:0;'><b>Rooms:</b> 3</p>     <p style='margin:0;'><b>Bathrooms:</b> 2.0</p>     <p style='margin:0;'><b>Parking:</b> 1.0</p>      <p style='margin:0;'><b>Property Type:</b> apartment</p>     <p style='margin:0;'><b>Furnished:</b> Fully Furnished</p>      <hr style='margin:6px 0;'>      <p style='margin:0; font-size:0.85rem;'>         <b>Facilities:</b><br>nan     </p> </div></div>`)[0];
+                popup_5b903e87501f9f775ca72b9604fec4de.setContent(html_053dd3953a2aadc7813170911a5d56ef);
+            
+        
+
+        marker_37009d9422fc71996143d46bb665324d.bindPopup(popup_5b903e87501f9f775ca72b9604fec4de)
+        ;
+
+        
+    
+    
+            var marker_593fd877748edf05d867a5e1f0e5d3fe = L.marker(
+                [3.1077904, 101.4621432],
+                {}
+            ).addTo(marker_cluster_f7a4c846e734f3cea249ae34c73c17b0);
+        
+    
+            var icon_9a08cb2565727648986b5fb728e4e541 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "home", "iconColor": "white", "markerColor": "green", "prefix": "fa"}
+            );
+            marker_593fd877748edf05d867a5e1f0e5d3fe.setIcon(icon_9a08cb2565727648986b5fb728e4e541);
+        
+    
+        var popup_16ff92b4188350db65358dd596e9b4dc = L.popup({"maxWidth": 350});
+
+        
+            
+                var html_6063951a30a5cdd4e95ad26deda2a582 = $(`<div id="html_6063951a30a5cdd4e95ad26deda2a582" style="width: 100.0%; height: 100.0%;"><div style='width: 280px; font-family: Arial;'>     <h5 style='margin-bottom:6px; color:#2c3e50;'>Seri Kasturi (Setia Alam)</h5>      <p style='margin:0;'><b>Monthly Rent:</b> RM 1,700.00</p>     <p style='margin:0;'><b>Size:</b> 813 sqft</p>      <hr style='margin:6px 0;'>      <p style='margin:0;'><b>Rooms:</b> 3</p>     <p style='margin:0;'><b>Bathrooms:</b> 2.0</p>     <p style='margin:0;'><b>Parking:</b> 1.0</p>      <p style='margin:0;'><b>Property Type:</b> apartment</p>     <p style='margin:0;'><b>Furnished:</b> Fully Furnished</p>      <hr style='margin:6px 0;'>      <p style='margin:0; font-size:0.85rem;'>         <b>Facilities:</b><br>Parking, Security, Lift, Swimming Pool, Playground, Gymnasium, Jogging Track, Minimart     </p> </div></div>`)[0];
+                popup_16ff92b4188350db65358dd596e9b4dc.setContent(html_6063951a30a5cdd4e95ad26deda2a582);
+            
+        
+
+        marker_593fd877748edf05d867a5e1f0e5d3fe.bindPopup(popup_16ff92b4188350db65358dd596e9b4dc)
+        ;
+
+        
+    
+    
+            marker_cluster_f7a4c846e734f3cea249ae34c73c17b0.addTo(map_f4b9a8533775ccee6d7e1c7135ef10e9);
+        
+</script>
+</html>

@@ -54,35 +54,91 @@
 
 <div style="height: 90px;"></div>
 
-<!-- RESULT BOX -->
-<div class="result-box" data-aos="fade-up">
+<div class="container mt-5">
+    <div class="row g-4">
 
-    <h2 class="text-center fw-bold mb-3">🎉 Prediction Successful!</h2>
+        <!-- RESULT BOX -->
+        <div class="col-md-7">
+            <div class="result-box" data-aos="fade-up">
 
-    <p class="text-center mb-4">Here is the estimated rental price for your selected property:</p>
+                <h2 class="text-center fw-bold mb-3">🎉 Prediction Successful!</h2>
 
-    <div class="text-center mb-4">
-        <div class="rent-value">RM {{ rent }}</div>
-        <div class="text-muted">Estimated Monthly Rent</div>
+                <p class="text-center mb-4">
+                    Here is the estimated rental price for your selected property:
+                </p>
+
+                <div class="text-center mb-4">
+                    <div class="rent-value">RM {{ rent }}</div>
+                    <div class="text-muted">Estimated Monthly Rent</div>
+                </div>
+
+                <hr>
+
+                <h4 class="fw-bold mt-4">📌 Property Information</h4>
+
+                <ul class="list-group mt-3 mb-4">
+                    <li class="list-group-item"><strong>Region:</strong> {{ region }}</li>
+                    <li class="list-group-item"><strong>City:</strong> {{ city }}</li>
+                    <li class="list-group-item"><strong>Size:</strong> {{ size }} sqft</li>
+                </ul>
+
+                <div class="text-center mt-4">
+                    <button id="toggleMapBtn" class="btn btn-success btn-lg px-4 py-2 shadow">
+                        <i class="bi bi-geo-alt-fill"></i> View Recommended Properties Map
+                    </button>
+                </div>
+
+                <!-- MAP -->
+                <div id="mapContainer">
+                    <div class="map-wrapper mt-3" id="mapWrapper">
+                        <div id="mapLoading" style="display:none;">
+                            <div class="spinner-border text-primary mb-2"></div>
+                            <div>Loading interactive map...</div>
+                        </div>
+                    </div>
+                </div>
+
+                <hr class="my-4">
+
+                <h4 class="fw-bold mb-3">🏘 Recommended Properties</h4>
+                <div id="recommendationSection">
+                    <p class="text-muted">
+                        Recommendations will appear after map is generated.
+                    </p>
+                </div>
+
+            </div>
+        </div>
+
+        <!-- CONFIDENCE BOX -->
+        <div class="col-md-5">
+            <div class="result-box" data-aos="fade-up">
+
+                <h4 class="fw-bold mb-3">📊 Prediction Confidence</h4>
+
+                <div class="alert alert-{{ confidence.color }} text-center">
+                    <h5 class="mb-1">
+                        Confidence Level:
+                        <strong>{{ confidence.confidence }}</strong>
+                    </h5>
+                    <p class="mb-0">
+                        Expected Error Range:
+                        <strong>± RM {{ confidence.error_range }}</strong>
+                    </p>
+                </div>
+
+                <p class="text-muted text-center mt-3" style="font-size: 0.9rem;">
+                    Confidence is estimated using historical model error
+                    and similarity to past properties in this region.
+                </p>
+
+            </div>
+        </div>
+
     </div>
+</div>
 
-    <hr>
 
-    <!-- PROPERTY DETAILS -->
-    <h4 class="fw-bold mt-4">📌 Property Information</h4>
-
-    <ul class="list-group mt-3 mb-4">
-        <li class="list-group-item"><strong>Region:</strong> {{ region }}</li>
-        <li class="list-group-item"><strong>City:</strong> {{ city }}</li>
-        <li class="list-group-item"><strong>Size:</strong> {{ size }} sqft</li>
-    </ul>
-
-        <!-- MAP BUTTON -->
-    <div class="text-center mt-4">
-        <button id="toggleMapBtn" class="btn btn-success btn-lg px-4 py-2 shadow">
-            <i class="bi bi-geo-alt-fill"></i> View Recommended Properties Map
-        </button>
-    </div>
 
     <!-- MAP SECTION -->
     <div id="mapContainer">
@@ -106,12 +162,7 @@
 
     <hr class="my-4">
 
-    <!-- RECOMMENDATION CARDS -->
-    <h4 class="fw-bold mb-3">🏘 Recommended Properties</h4>
-
-    <div id="recommendationSection">
-        <p class="text-muted">Recommendations will appear after map is generated.</p>
-    </div>
+    
 
 </div>
 

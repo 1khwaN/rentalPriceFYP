@@ -15,6 +15,11 @@
             color: #007bff;
         }
 
+        .alert {
+            border-radius: 14px;
+            box-shadow: 0 6px 18px rgba(0,0,0,0.1);
+        }
+
 .recommendation-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));

@@ -1,0 +1,409 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+    
+        <script>
+            L_NO_TOUCH = false;
+            L_DISABLE_3D = false;
+        </script>
+    
+    <style>html, body {width: 100%;height: 100%;margin: 0;padding: 0;}</style>
+    <style>#map {position:absolute;top:0;bottom:0;right:0;left:0;}</style>
+    <script src="https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.js"></script>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.2.0/css/all.min.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/python-visualization/folium/folium/templates/leaflet.awesome.rotate.min.css"/>
+    
+            <meta name="viewport" content="width=device-width,
+                initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+            <style>
+                #map_9eefbcf3b27ce4936ded818ec87f663c {
+                    position: relative;
+                    width: 100.0%;
+                    height: 100.0%;
+                    left: 0.0%;
+                    top: 0.0%;
+                }
+                .leaflet-container { font-size: 1rem; }
+            </style>
+        
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet.markercluster/1.1.0/leaflet.markercluster.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet.markercluster/1.1.0/MarkerCluster.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet.markercluster/1.1.0/MarkerCluster.Default.css"/>
+</head>
+<body>
+    
+    
+    <div style="
+        position: fixed;
+        bottom: 30px;
+        left: 30px;
+        background: white;
+        padding: 10px 14px;
+        border-radius: 10px;
+        box-shadow: 0 4px 14px rgba(0,0,0,0.2);
+        font-size: 14px;
+    ">
+    <b>Legend</b><br>
+    <i class="fa fa-home" style="color:green"></i> Property<br>
+    <i class="fa fa-train" style="color:red"></i> MRT / LRT / KTM Station
+    </div>
+    
+    
+            <div class="folium-map" id="map_9eefbcf3b27ce4936ded818ec87f663c" ></div>
+        
+</body>
+<script>
+    
+    
+            var map_9eefbcf3b27ce4936ded818ec87f663c = L.map(
+                "map_9eefbcf3b27ce4936ded818ec87f663c",
+                {
+                    center: [3.0340649, 101.7055684],
+                    crs: L.CRS.EPSG3857,
+                    zoom: 13,
+                    zoomControl: true,
+                    preferCanvas: false,
+                }
+            );
+
+            
+
+        
+    
+            var tile_layer_aabb73102c4ac58c44d00b1aba939e5c = L.tileLayer(
+                "https://tile.openstreetmap.org/{z}/{x}/{y}.png",
+                {"attribution": "\u0026copy; \u003ca href=\"https://www.openstreetmap.org/copyright\"\u003eOpenStreetMap\u003c/a\u003e contributors", "detectRetina": false, "maxNativeZoom": 19, "maxZoom": 19, "minZoom": 0, "noWrap": false, "opacity": 1, "subdomains": "abc", "tms": false}
+            );
+        
+    
+            tile_layer_aabb73102c4ac58c44d00b1aba939e5c.addTo(map_9eefbcf3b27ce4936ded818ec87f663c);
+        
+    
+            var marker_cluster_38fa8a022c69e2bae0312c6740523c35 = L.markerClusterGroup(
+                {}
+            );
+        
+    
+            var marker_54af37dfbdf4c1f933d8d4fd6d9da9c7 = L.marker(
+                [3.0340649, 101.7055684],
+                {}
+            ).addTo(marker_cluster_38fa8a022c69e2bae0312c6740523c35);
+        
+    
+            var icon_95adf057e2af565207139593a7783315 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "home", "iconColor": "white", "markerColor": "green", "prefix": "fa"}
+            );
+            marker_54af37dfbdf4c1f933d8d4fd6d9da9c7.setIcon(icon_95adf057e2af565207139593a7783315);
+        
+    
+        var popup_2480712b5675264bd6d8b33fb7edad7b = L.popup({"maxWidth": 350});
+
+        
+            
+                var html_1d2f2b759722887eda5b5527c8bf128b = $(`<div id="html_1d2f2b759722887eda5b5527c8bf128b" style="width: 100.0%; height: 100.0%;"><div style='width: 280px; font-family: Arial;'>     <h5 style='margin-bottom:6px; color:#2c3e50;'>Green Park</h5>      <p style='margin:0;'><b>Monthly Rent:</b> RM 1,350.00</p>     <p style='margin:0;'><b>Size:</b> 1100 sqft</p>      <hr style='margin:6px 0;'>      <p style='margin:0;'><b>Rooms:</b> 3</p>     <p style='margin:0;'><b>Bathrooms:</b> 2.0</p>     <p style='margin:0;'><b>Parking:</b> 2.0</p>      <p style='margin:0;'><b>Property Type:</b> condominium</p>     <p style='margin:0;'><b>Furnished:</b> Partially Furnished</p>      <hr style='margin:6px 0;'>      <p style='margin:0; font-size:0.85rem;'>         <b>Facilities:</b><br>Parking, Security, Lift, Swimming Pool, Playground, Minimart, Gymnasium, Jogging Track, Tennis Court, Barbeque area     </p> </div></div>`)[0];
+                popup_2480712b5675264bd6d8b33fb7edad7b.setContent(html_1d2f2b759722887eda5b5527c8bf128b);
+            
+        
+
+        marker_54af37dfbdf4c1f933d8d4fd6d9da9c7.bindPopup(popup_2480712b5675264bd6d8b33fb7edad7b)
+        ;
+
+        
+    
+    
+            var marker_d21588c6f90570b1d3571149b8268517 = L.marker(
+                [3.0340649, 101.7055684],
+                {}
+            ).addTo(marker_cluster_38fa8a022c69e2bae0312c6740523c35);
+        
+    
+            var icon_d0340f696232f08a6a43f229b6769435 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "home", "iconColor": "white", "markerColor": "green", "prefix": "fa"}
+            );
+            marker_d21588c6f90570b1d3571149b8268517.setIcon(icon_d0340f696232f08a6a43f229b6769435);
+        
+    
+        var popup_61c29de34d193da549c42e7b68e4b8df = L.popup({"maxWidth": 350});
+
+        
+            
+                var html_74e29082a0c7da92de8e7427391c9556 = $(`<div id="html_74e29082a0c7da92de8e7427391c9556" style="width: 100.0%; height: 100.0%;"><div style='width: 280px; font-family: Arial;'>     <h5 style='margin-bottom:6px; color:#2c3e50;'>Green Park</h5>      <p style='margin:0;'><b>Monthly Rent:</b> RM 1,350.00</p>     <p style='margin:0;'><b>Size:</b> 854 sqft</p>      <hr style='margin:6px 0;'>      <p style='margin:0;'><b>Rooms:</b> 3</p>     <p style='margin:0;'><b>Bathrooms:</b> 2.0</p>     <p style='margin:0;'><b>Parking:</b> 2.0</p>      <p style='margin:0;'><b>Property Type:</b> condominium</p>     <p style='margin:0;'><b>Furnished:</b> Partially Furnished</p>      <hr style='margin:6px 0;'>      <p style='margin:0; font-size:0.85rem;'>         <b>Facilities:</b><br>Parking, Security, Lift, Swimming Pool, Playground, Gymnasium, Barbeque area, Minimart, Multipurpose hall, Jogging Track     </p> </div></div>`)[0];
+                popup_61c29de34d193da549c42e7b68e4b8df.setContent(html_74e29082a0c7da92de8e7427391c9556);
+            
+        
+
+        marker_d21588c6f90570b1d3571149b8268517.bindPopup(popup_61c29de34d193da549c42e7b68e4b8df)
+        ;
+
+        
+    
+    
+            var marker_f67996d642b2654d94ac670ae10d906a = L.marker(
+                [3.0340649, 101.7055684],
+                {}
+            ).addTo(marker_cluster_38fa8a022c69e2bae0312c6740523c35);
+        
+    
+            var icon_13be8f32bd5cb163228907b2e5b12d38 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "home", "iconColor": "white", "markerColor": "green", "prefix": "fa"}
+            );
+            marker_f67996d642b2654d94ac670ae10d906a.setIcon(icon_13be8f32bd5cb163228907b2e5b12d38);
+        
+    
+        var popup_84684b93c05507e8ff2f9e7487e0f2fe = L.popup({"maxWidth": 350});
+
+        
+            
+                var html_01a6d104b72aa45b2eb849479c02001d = $(`<div id="html_01a6d104b72aa45b2eb849479c02001d" style="width: 100.0%; height: 100.0%;"><div style='width: 280px; font-family: Arial;'>     <h5 style='margin-bottom:6px; color:#2c3e50;'>Green Park</h5>      <p style='margin:0;'><b>Monthly Rent:</b> RM 1,350.00</p>     <p style='margin:0;'><b>Size:</b> 854 sqft</p>      <hr style='margin:6px 0;'>      <p style='margin:0;'><b>Rooms:</b> 3</p>     <p style='margin:0;'><b>Bathrooms:</b> 2.0</p>     <p style='margin:0;'><b>Parking:</b> 2.0</p>      <p style='margin:0;'><b>Property Type:</b> condominium</p>     <p style='margin:0;'><b>Furnished:</b> Partially Furnished</p>      <hr style='margin:6px 0;'>      <p style='margin:0; font-size:0.85rem;'>         <b>Facilities:</b><br>Parking, Security, Lift, Playground, Swimming Pool, Gymnasium, Barbeque area, Minimart, Multipurpose hall, Jogging Track     </p> </div></div>`)[0];
+                popup_84684b93c05507e8ff2f9e7487e0f2fe.setContent(html_01a6d104b72aa45b2eb849479c02001d);
+            
+        
+
+        marker_f67996d642b2654d94ac670ae10d906a.bindPopup(popup_84684b93c05507e8ff2f9e7487e0f2fe)
+        ;
+
+        
+    
+    
+            var marker_03a5ce79b835bc86fc8cc81ff3e8aa94 = L.marker(
+                [3.0340649, 101.7055684],
+                {}
+            ).addTo(marker_cluster_38fa8a022c69e2bae0312c6740523c35);
+        
+    
+            var icon_6961ebe4b5244a1b166498b299eb29d0 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "train", "iconColor": "white", "markerColor": "blue", "prefix": "fa"}
+            );
+            marker_03a5ce79b835bc86fc8cc81ff3e8aa94.setIcon(icon_6961ebe4b5244a1b166498b299eb29d0);
+        
+    
+        var popup_a72cba7645a6bb724464f175d3a32472 = L.popup({"maxWidth": 350});
+
+        
+            
+                var html_af06ecbad567a8e7cd887df4a0773b8d = $(`<div id="html_af06ecbad567a8e7cd887df4a0773b8d" style="width: 100.0%; height: 100.0%;"><div style='width: 280px; font-family: Arial;'>     <h5 style='margin-bottom:6px; color:#2c3e50;'>Springville Residence</h5>      <p style='margin:0;'><b>Monthly Rent:</b> RM 1,350.00</p>     <p style='margin:0;'><b>Size:</b> 1100 sqft</p>      <hr style='margin:6px 0;'>      <p style='margin:0;'><b>Rooms:</b> 3</p>     <p style='margin:0;'><b>Bathrooms:</b> 2.0</p>     <p style='margin:0;'><b>Parking:</b> 2.0</p>      <p style='margin:0;'><b>Property Type:</b> condominium</p>     <p style='margin:0;'><b>Furnished:</b> Partially Furnished</p>      <hr style='margin:6px 0;'>      <p style='margin:0; font-size:0.85rem;'>         <b>Facilities:</b><br>Security, Gymnasium, Multipurpose hall, Playground, Swimming Pool     </p> </div></div>`)[0];
+                popup_a72cba7645a6bb724464f175d3a32472.setContent(html_af06ecbad567a8e7cd887df4a0773b8d);
+            
+        
+
+        marker_03a5ce79b835bc86fc8cc81ff3e8aa94.bindPopup(popup_a72cba7645a6bb724464f175d3a32472)
+        ;
+
+        
+    
+    
+            var marker_4b08ea1c6644e22a48079d526506a471 = L.marker(
+                [3.0340649, 101.7055684],
+                {}
+            ).addTo(marker_cluster_38fa8a022c69e2bae0312c6740523c35);
+        
+    
+            var icon_f4eae8ffbff808c0b1e2b5e701b3176e = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "home", "iconColor": "white", "markerColor": "green", "prefix": "fa"}
+            );
+            marker_4b08ea1c6644e22a48079d526506a471.setIcon(icon_f4eae8ffbff808c0b1e2b5e701b3176e);
+        
+    
+        var popup_67def900fbeb71dcd7f225fd9ca82061 = L.popup({"maxWidth": 350});
+
+        
+            
+                var html_8870830a7c4a3f1f63fc9d0561680f9d = $(`<div id="html_8870830a7c4a3f1f63fc9d0561680f9d" style="width: 100.0%; height: 100.0%;"><div style='width: 280px; font-family: Arial;'>     <h5 style='margin-bottom:6px; color:#2c3e50;'>Green Park</h5>      <p style='margin:0;'><b>Monthly Rent:</b> RM 1,350.00</p>     <p style='margin:0;'><b>Size:</b> 854 sqft</p>      <hr style='margin:6px 0;'>      <p style='margin:0;'><b>Rooms:</b> 3</p>     <p style='margin:0;'><b>Bathrooms:</b> 2.0</p>     <p style='margin:0;'><b>Parking:</b> 2.0</p>      <p style='margin:0;'><b>Property Type:</b> condominium</p>     <p style='margin:0;'><b>Furnished:</b> Partially Furnished</p>      <hr style='margin:6px 0;'>      <p style='margin:0; font-size:0.85rem;'>         <b>Facilities:</b><br>Lift, Parking, Playground, Swimming Pool, Gymnasium, Minimart     </p> </div></div>`)[0];
+                popup_67def900fbeb71dcd7f225fd9ca82061.setContent(html_8870830a7c4a3f1f63fc9d0561680f9d);
+            
+        
+
+        marker_4b08ea1c6644e22a48079d526506a471.bindPopup(popup_67def900fbeb71dcd7f225fd9ca82061)
+        ;
+
+        
+    
+    
+            var marker_da28b5c2b8b201e2f6e11e7d8fe8f76a = L.marker(
+                [3.0340649, 101.7055684],
+                {}
+            ).addTo(marker_cluster_38fa8a022c69e2bae0312c6740523c35);
+        
+    
+            var icon_2a46fc9ede46a3ee7cef921d02898d88 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "home", "iconColor": "white", "markerColor": "green", "prefix": "fa"}
+            );
+            marker_da28b5c2b8b201e2f6e11e7d8fe8f76a.setIcon(icon_2a46fc9ede46a3ee7cef921d02898d88);
+        
+    
+        var popup_86e265c94d7ad844ae5533e2fa93586c = L.popup({"maxWidth": 350});
+
+        
+            
+                var html_a39f640c347aa6ca64c9564edea91e0a = $(`<div id="html_a39f640c347aa6ca64c9564edea91e0a" style="width: 100.0%; height: 100.0%;"><div style='width: 280px; font-family: Arial;'>     <h5 style='margin-bottom:6px; color:#2c3e50;'>Green Park</h5>      <p style='margin:0;'><b>Monthly Rent:</b> RM 1,350.00</p>     <p style='margin:0;'><b>Size:</b> 854 sqft</p>      <hr style='margin:6px 0;'>      <p style='margin:0;'><b>Rooms:</b> 3</p>     <p style='margin:0;'><b>Bathrooms:</b> 2.0</p>     <p style='margin:0;'><b>Parking:</b> 2.0</p>      <p style='margin:0;'><b>Property Type:</b> condominium</p>     <p style='margin:0;'><b>Furnished:</b> Partially Furnished</p>      <hr style='margin:6px 0;'>      <p style='margin:0; font-size:0.85rem;'>         <b>Facilities:</b><br>Parking, Security, Lift, Swimming Pool, Playground, Gymnasium, Barbeque area, Minimart, Multipurpose hall, Jogging Track     </p> </div></div>`)[0];
+                popup_86e265c94d7ad844ae5533e2fa93586c.setContent(html_a39f640c347aa6ca64c9564edea91e0a);
+            
+        
+
+        marker_da28b5c2b8b201e2f6e11e7d8fe8f76a.bindPopup(popup_86e265c94d7ad844ae5533e2fa93586c)
+        ;
+
+        
+    
+    
+            var marker_114ff02f85296fcc04bb4e16ef2e0c28 = L.marker(
+                [3.0340649, 101.7055684],
+                {}
+            ).addTo(marker_cluster_38fa8a022c69e2bae0312c6740523c35);
+        
+    
+            var icon_10df67f5b525c15f1f8dc51633cc95c5 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "train", "iconColor": "white", "markerColor": "blue", "prefix": "fa"}
+            );
+            marker_114ff02f85296fcc04bb4e16ef2e0c28.setIcon(icon_10df67f5b525c15f1f8dc51633cc95c5);
+        
+    
+        var popup_38bb7c4706da7aec2599b109a378a697 = L.popup({"maxWidth": 350});
+
+        
+            
+                var html_3941448447286ac7274d198fd8560147 = $(`<div id="html_3941448447286ac7274d198fd8560147" style="width: 100.0%; height: 100.0%;"><div style='width: 280px; font-family: Arial;'>     <h5 style='margin-bottom:6px; color:#2c3e50;'>Sfera Residency</h5>      <p style='margin:0;'><b>Monthly Rent:</b> RM 1,399.00</p>     <p style='margin:0;'><b>Size:</b> 996 sqft</p>      <hr style='margin:6px 0;'>      <p style='margin:0;'><b>Rooms:</b> 3</p>     <p style='margin:0;'><b>Bathrooms:</b> 2.0</p>     <p style='margin:0;'><b>Parking:</b> 2.0</p>      <p style='margin:0;'><b>Property Type:</b> condominium</p>     <p style='margin:0;'><b>Furnished:</b> Partially Furnished</p>      <hr style='margin:6px 0;'>      <p style='margin:0; font-size:0.85rem;'>         <b>Facilities:</b><br>Parking, Playground, Barbeque area, Squash Court, Minimart, Sauna, Security, Swimming Pool, Gymnasium, Multipurpose hall     </p> </div></div>`)[0];
+                popup_38bb7c4706da7aec2599b109a378a697.setContent(html_3941448447286ac7274d198fd8560147);
+            
+        
+
+        marker_114ff02f85296fcc04bb4e16ef2e0c28.bindPopup(popup_38bb7c4706da7aec2599b109a378a697)
+        ;
+
+        
+    
+    
+            var marker_55f33ce56c11b12f5bd26947a4238902 = L.marker(
+                [3.0340649, 101.7055684],
+                {}
+            ).addTo(marker_cluster_38fa8a022c69e2bae0312c6740523c35);
+        
+    
+            var icon_ddff0ad1d604688036577989097b0b77 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "home", "iconColor": "white", "markerColor": "green", "prefix": "fa"}
+            );
+            marker_55f33ce56c11b12f5bd26947a4238902.setIcon(icon_ddff0ad1d604688036577989097b0b77);
+        
+    
+        var popup_47ff1deec935ceaccd6311a6a4a09896 = L.popup({"maxWidth": 350});
+
+        
+            
+                var html_064456b66698a5260984c802f63a2ce7 = $(`<div id="html_064456b66698a5260984c802f63a2ce7" style="width: 100.0%; height: 100.0%;"><div style='width: 280px; font-family: Arial;'>     <h5 style='margin-bottom:6px; color:#2c3e50;'>Villa Park</h5>      <p style='margin:0;'><b>Monthly Rent:</b> RM 1,400.00</p>     <p style='margin:0;'><b>Size:</b> 1106 sqft</p>      <hr style='margin:6px 0;'>      <p style='margin:0;'><b>Rooms:</b> 3</p>     <p style='margin:0;'><b>Bathrooms:</b> 2.0</p>     <p style='margin:0;'><b>Parking:</b> 1.0</p>      <p style='margin:0;'><b>Property Type:</b> condominium</p>     <p style='margin:0;'><b>Furnished:</b> Fully Furnished</p>      <hr style='margin:6px 0;'>      <p style='margin:0; font-size:0.85rem;'>         <b>Facilities:</b><br>Multipurpose hall, Club house, Security, Tennis Court, Parking, Minimart, Gymnasium, Barbeque area, Sauna, Playground, Swimming Pool, Jogging Track     </p> </div></div>`)[0];
+                popup_47ff1deec935ceaccd6311a6a4a09896.setContent(html_064456b66698a5260984c802f63a2ce7);
+            
+        
+
+        marker_55f33ce56c11b12f5bd26947a4238902.bindPopup(popup_47ff1deec935ceaccd6311a6a4a09896)
+        ;
+
+        
+    
+    
+            var marker_bed8127c23224c6beeecfd02d4d55e96 = L.marker(
+                [3.0340649, 101.7055684],
+                {}
+            ).addTo(marker_cluster_38fa8a022c69e2bae0312c6740523c35);
+        
+    
+            var icon_518ac67870d7c44c30cd4be9e3f5c5c8 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "home", "iconColor": "white", "markerColor": "green", "prefix": "fa"}
+            );
+            marker_bed8127c23224c6beeecfd02d4d55e96.setIcon(icon_518ac67870d7c44c30cd4be9e3f5c5c8);
+        
+    
+        var popup_91164a21293fd20cfb0a59e447959751 = L.popup({"maxWidth": 350});
+
+        
+            
+                var html_db73be4f9b329c432327fac46d7b40ef = $(`<div id="html_db73be4f9b329c432327fac46d7b40ef" style="width: 100.0%; height: 100.0%;"><div style='width: 280px; font-family: Arial;'>     <h5 style='margin-bottom:6px; color:#2c3e50;'>Green Park</h5>      <p style='margin:0;'><b>Monthly Rent:</b> RM 1,400.00</p>     <p style='margin:0;'><b>Size:</b> 854 sqft</p>      <hr style='margin:6px 0;'>      <p style='margin:0;'><b>Rooms:</b> 3</p>     <p style='margin:0;'><b>Bathrooms:</b> 2.0</p>     <p style='margin:0;'><b>Parking:</b> 2.0</p>      <p style='margin:0;'><b>Property Type:</b> condominium</p>     <p style='margin:0;'><b>Furnished:</b> Partially Furnished</p>      <hr style='margin:6px 0;'>      <p style='margin:0; font-size:0.85rem;'>         <b>Facilities:</b><br>nan     </p> </div></div>`)[0];
+                popup_91164a21293fd20cfb0a59e447959751.setContent(html_db73be4f9b329c432327fac46d7b40ef);
+            
+        
+
+        marker_bed8127c23224c6beeecfd02d4d55e96.bindPopup(popup_91164a21293fd20cfb0a59e447959751)
+        ;
+
+        
+    
+    
+            var marker_06e862d57e97726846449ac7341d85a9 = L.marker(
+                [3.0340649, 101.7055684],
+                {}
+            ).addTo(marker_cluster_38fa8a022c69e2bae0312c6740523c35);
+        
+    
+            var icon_3783414f75d7396aece1fc7642121b94 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "home", "iconColor": "white", "markerColor": "green", "prefix": "fa"}
+            );
+            marker_06e862d57e97726846449ac7341d85a9.setIcon(icon_3783414f75d7396aece1fc7642121b94);
+        
+    
+        var popup_23b588271e41ddf75ff180519ef74515 = L.popup({"maxWidth": 350});
+
+        
+            
+                var html_4e1e5a994c355d65f6a6407935646228 = $(`<div id="html_4e1e5a994c355d65f6a6407935646228" style="width: 100.0%; height: 100.0%;"><div style='width: 280px; font-family: Arial;'>     <h5 style='margin-bottom:6px; color:#2c3e50;'>Green Park</h5>      <p style='margin:0;'><b>Monthly Rent:</b> RM 1,400.00</p>     <p style='margin:0;'><b>Size:</b> 854 sqft</p>      <hr style='margin:6px 0;'>      <p style='margin:0;'><b>Rooms:</b> 3</p>     <p style='margin:0;'><b>Bathrooms:</b> 2.0</p>     <p style='margin:0;'><b>Parking:</b> 2.0</p>      <p style='margin:0;'><b>Property Type:</b> condominium</p>     <p style='margin:0;'><b>Furnished:</b> Partially Furnished</p>      <hr style='margin:6px 0;'>      <p style='margin:0; font-size:0.85rem;'>         <b>Facilities:</b><br>nan     </p> </div></div>`)[0];
+                popup_23b588271e41ddf75ff180519ef74515.setContent(html_4e1e5a994c355d65f6a6407935646228);
+            
+        
+
+        marker_06e862d57e97726846449ac7341d85a9.bindPopup(popup_23b588271e41ddf75ff180519ef74515)
+        ;
+
+        
+    
+    
+            marker_cluster_38fa8a022c69e2bae0312c6740523c35.addTo(map_9eefbcf3b27ce4936ded818ec87f663c);
+        
+    
+            var marker_46d85e1cc9ac0c01d7c80d363c930ec2 = L.marker(
+                [3.0419099, 101.7049441],
+                {}
+            ).addTo(map_9eefbcf3b27ce4936ded818ec87f663c);
+        
+    
+            var icon_3e35eb66cc599757a63fbdab47b4cd0b = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "train", "iconColor": "white", "markerColor": "red", "prefix": "fa"}
+            );
+            marker_46d85e1cc9ac0c01d7c80d363c930ec2.setIcon(icon_3e35eb66cc599757a63fbdab47b4cd0b);
+        
+    
+            marker_46d85e1cc9ac0c01d7c80d363c930ec2.bindTooltip(
+                `<div>
+                     MRT
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_65c101c0cfb600b4ca9df94ace7eb598 = L.marker(
+                [3.0233688, 101.7160272],
+                {}
+            ).addTo(map_9eefbcf3b27ce4936ded818ec87f663c);
+        
+    
+            var icon_271f860d4e8875761fb2c658e001b45c = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "train", "iconColor": "white", "markerColor": "red", "prefix": "fa"}
+            );
+            marker_65c101c0cfb600b4ca9df94ace7eb598.setIcon(icon_271f860d4e8875761fb2c658e001b45c);
+        
+    
+            marker_65c101c0cfb600b4ca9df94ace7eb598.bindTooltip(
+                `<div>
+                     KTM
+                 </div>`,
+                {"sticky": true}
+            );
+        
+</script>
+</html>

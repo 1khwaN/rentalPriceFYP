@@ -35,6 +35,29 @@ model_columns = model_data["columns"]
 
 template_row = pd.DataFrame([np.zeros(len(model_columns))], columns=model_columns)
 
+# ---------------- MODEL ERROR STATS ----------------
+# Estimate error from training data (offline-safe)
+try:
+    y_true = df_model["monthly_rent"]
+    X_full = df_model.drop(columns=["monthly_rent"])
+    
+    rf_preds = rf.predict(X_full)
+    xgb_preds = xgb.predict(X_full)
+    hybrid_preds = (rf_preds + xgb_preds) / 2
+    hybrid_preds = np.expm1(hybrid_preds)
+
+    abs_errors = np.abs(hybrid_preds - y_true)
+
+    ERROR_MEDIAN = np.median(abs_errors)
+    ERROR_75 = np.percentile(abs_errors, 75)
+    ERROR_90 = np.percentile(abs_errors, 90)
+
+except Exception as e:
+    print("⚠️ Error stats fallback:", e)
+    ERROR_MEDIAN = 250
+    ERROR_75 = 400
+    ERROR_90 = 600
+
 # ---------------- GEO CACHE ----------------
 city_cache = {}
 
@@ -42,6 +65,25 @@ city_cache = {}
 from geopy.extra.rate_limiter import RateLimiter
 from geopy.distance import geodesic
 
+def get_prediction_confidence(predicted_rent):
+    if predicted_rent < 1000:
+        error = ERROR_75
+        confidence = "High"
+        color = "success"
+    elif predicted_rent < 3000:
+        error = ERROR_90
+        confidence = "Medium"
+        color = "warning"
+    else:
+        error = ERROR_90 * 1.2
+        confidence = "Low"
+        color = "danger"
+
+    return {
+        "confidence": confidence,
+        "error_range": round(error, 2),
+        "color": color
+    }
 
 def get_city_coords(region, city):
     key = f"{city}_{region}".lower()
@@ -78,7 +120,10 @@ def add_rail_stations(map_obj, region, city):
     stations = [
         f"MRT station {city}, {region}, Malaysia",
         f"LRT station {city}, {region}, Malaysia",
-        f"KTM station {city}, {region}, Malaysia"
+        f"KTM station {city}, {region}, Malaysia",
+        f"{city} MRT Station, Malaysia",
+        f"{city} LRT Station, Malaysia",
+        f"{city} KTM Station, Malaysia"
     ]
 
     for s in stations:
@@ -97,7 +142,7 @@ def add_rail_stations(map_obj, region, city):
         except:
             continue
 
-def is_near_station(prop_coords, station_coords, threshold_km=0.8):
+def is_near_station(prop_coords, station_coords, threshold_km=2.0):
     return geodesic(prop_coords, station_coords).km <= threshold_km
 
 def get_city_price_per_sqft(region, city):
@@ -357,6 +402,8 @@ def predict():
     hybrid_log = (rf_raw + xgb_raw) / 2
     predicted_rent = float(np.expm1(hybrid_log))
 
+    confidence_info = get_prediction_confidence(predicted_rent)
+
     # DO NOT generate map here
     return render_template(
         "result.html",
@@ -365,6 +412,7 @@ def predict():
         region=user_input["region"],
         size=user_input["size"],
         property_type=user_input["property_type"],
+        confidence=confidence_info,
         map_path=None,      # <-- IMPORTANT
         recommendations=[]
     )
