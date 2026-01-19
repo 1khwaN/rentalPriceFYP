@@ -25,7 +25,7 @@
             <meta name="viewport" content="width=device-width,
                 initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
             <style>
-                #map_d5bdfd960ebf71c1c537211c857bc5c8 {
+                #map_0cd492ef3538f3740819756a0baad0b7 {
                     position: relative;
                     width: 100.0%;
                     height: 100.0%;
@@ -42,16 +42,32 @@
 <body>
     
     
-            <div class="folium-map" id="map_d5bdfd960ebf71c1c537211c857bc5c8" ></div>
+    <div style="
+        position: fixed;
+        bottom: 30px;
+        left: 30px;
+        background: white;
+        padding: 10px 14px;
+        border-radius: 10px;
+        box-shadow: 0 4px 14px rgba(0,0,0,0.2);
+        font-size: 14px;
+    ">
+    <b>Legend</b><br>
+    <i class="fa fa-home" style="color:green"></i> Property<br>
+    <i class="fa fa-train" style="color:red"></i> MRT / LRT / KTM Station
+    </div>
+    
+    
+            <div class="folium-map" id="map_0cd492ef3538f3740819756a0baad0b7" ></div>
         
 </body>
 <script>
     
     
-            var map_d5bdfd960ebf71c1c537211c857bc5c8 = L.map(
-                "map_d5bdfd960ebf71c1c537211c857bc5c8",
+            var map_0cd492ef3538f3740819756a0baad0b7 = L.map(
+                "map_0cd492ef3538f3740819756a0baad0b7",
                 {
-                    center: [2.9040583, 101.7862548],
+                    center: [2.9039612, 101.7860889],
                     crs: L.CRS.EPSG3857,
                     zoom: 13,
                     zoomControl: true,
@@ -63,291 +79,331 @@
 
         
     
-            var tile_layer_64d32e377c3cce8d367ac2c1a82c1fa7 = L.tileLayer(
+            var tile_layer_10a4cee568d2d823738b0553b0bfc66a = L.tileLayer(
                 "https://tile.openstreetmap.org/{z}/{x}/{y}.png",
                 {"attribution": "\u0026copy; \u003ca href=\"https://www.openstreetmap.org/copyright\"\u003eOpenStreetMap\u003c/a\u003e contributors", "detectRetina": false, "maxNativeZoom": 19, "maxZoom": 19, "minZoom": 0, "noWrap": false, "opacity": 1, "subdomains": "abc", "tms": false}
             );
         
     
-            tile_layer_64d32e377c3cce8d367ac2c1a82c1fa7.addTo(map_d5bdfd960ebf71c1c537211c857bc5c8);
+            tile_layer_10a4cee568d2d823738b0553b0bfc66a.addTo(map_0cd492ef3538f3740819756a0baad0b7);
         
     
-            var marker_cluster_fa50456defca3f87293a7e925bf06231 = L.markerClusterGroup(
+            var marker_cluster_a61813de60be27684ac9dc545fbe7382 = L.markerClusterGroup(
                 {}
             );
         
     
-            marker_cluster_fa50456defca3f87293a7e925bf06231.addTo(map_d5bdfd960ebf71c1c537211c857bc5c8);
-        
-    
-            var marker_6cb4f9ffc1c68c5c9401b2f1f8e110e1 = L.marker(
-                [2.9040583, 101.7862548],
+            var marker_94f1a1b37d0bd7aa793c1980a51a61a7 = L.marker(
+                [2.9039612, 101.7860889],
                 {}
-            ).addTo(map_d5bdfd960ebf71c1c537211c857bc5c8);
+            ).addTo(marker_cluster_a61813de60be27684ac9dc545fbe7382);
         
     
-            var icon_180980be684e7f07741ae42fb23b43ab = L.AwesomeMarkers.icon(
-                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "green", "prefix": "glyphicon"}
+            var icon_3a850a3af8e0bce4c320e8724975bfa6 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "home", "iconColor": "white", "markerColor": "green", "prefix": "fa"}
             );
-            marker_6cb4f9ffc1c68c5c9401b2f1f8e110e1.setIcon(icon_180980be684e7f07741ae42fb23b43ab);
+            marker_94f1a1b37d0bd7aa793c1980a51a61a7.setIcon(icon_3a850a3af8e0bce4c320e8724975bfa6);
         
     
-        var popup_a81d82edcc43f9464bb90f9104d0dd34 = L.popup({"maxWidth": "100%"});
+        var popup_6b82f1d76d87f94e373ff37acf5dc2ab = L.popup({"maxWidth": 350});
 
         
             
-                var html_afbefa8024f442186df35348eeb266d9 = $(`<div id="html_afbefa8024f442186df35348eeb266d9" style="width: 100.0%; height: 100.0%;">Savanna Executive Suites - RM 1,500.00</div>`)[0];
-                popup_a81d82edcc43f9464bb90f9104d0dd34.setContent(html_afbefa8024f442186df35348eeb266d9);
+                var html_97e20ec40ed5ccfa6c7b60d985b60f7f = $(`<div id="html_97e20ec40ed5ccfa6c7b60d985b60f7f" style="width: 100.0%; height: 100.0%;"><div style='width: 280px; font-family: Arial;'>     <h5 style='margin-bottom:6px; color:#2c3e50;'>Intana Ria</h5>      <p style='margin:0;'><b>Monthly Rent:</b> RM 1,350.00</p>     <p style='margin:0;'><b>Size:</b> 1000 sqft</p>      <hr style='margin:6px 0;'>      <p style='margin:0;'><b>Rooms:</b> 4</p>     <p style='margin:0;'><b>Bathrooms:</b> 2.0</p>     <p style='margin:0;'><b>Parking:</b> 1.0</p>      <p style='margin:0;'><b>Property Type:</b> apartment</p>     <p style='margin:0;'><b>Furnished:</b> Fully Furnished</p>      <hr style='margin:6px 0;'>      <p style='margin:0; font-size:0.85rem;'>         <b>Facilities:</b><br>Security, Swimming Pool, Playground, Multipurpose hall, Parking     </p> </div></div>`)[0];
+                popup_6b82f1d76d87f94e373ff37acf5dc2ab.setContent(html_97e20ec40ed5ccfa6c7b60d985b60f7f);
             
         
 
-        marker_6cb4f9ffc1c68c5c9401b2f1f8e110e1.bindPopup(popup_a81d82edcc43f9464bb90f9104d0dd34)
+        marker_94f1a1b37d0bd7aa793c1980a51a61a7.bindPopup(popup_6b82f1d76d87f94e373ff37acf5dc2ab)
         ;
 
         
     
     
-            var marker_904a89509fc9ce81a68a4aeff00b6210 = L.marker(
-                [2.9040583, 101.7862548],
+            var marker_bc520600a65ae9862c772db8186b8ce0 = L.marker(
+                [2.9039612, 101.7860889],
                 {}
-            ).addTo(map_d5bdfd960ebf71c1c537211c857bc5c8);
+            ).addTo(marker_cluster_a61813de60be27684ac9dc545fbe7382);
         
     
-            var icon_11d7c57507bc1341b3d57e0886336dfd = L.AwesomeMarkers.icon(
-                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "green", "prefix": "glyphicon"}
+            var icon_8a8921d3ab6ee84c6cfe7f9724ff6e14 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "home", "iconColor": "white", "markerColor": "green", "prefix": "fa"}
             );
-            marker_904a89509fc9ce81a68a4aeff00b6210.setIcon(icon_11d7c57507bc1341b3d57e0886336dfd);
+            marker_bc520600a65ae9862c772db8186b8ce0.setIcon(icon_8a8921d3ab6ee84c6cfe7f9724ff6e14);
         
     
-        var popup_503bdc19d711292562ae3cb641fcd250 = L.popup({"maxWidth": "100%"});
+        var popup_5a85e6ce8aa5c6c3d5edea344e946b06 = L.popup({"maxWidth": 350});
 
         
             
-                var html_8e603b2728cea46aeaab9c237c235efd = $(`<div id="html_8e603b2728cea46aeaab9c237c235efd" style="width: 100.0%; height: 100.0%;">Sensory Residence - RM 1,500.00</div>`)[0];
-                popup_503bdc19d711292562ae3cb641fcd250.setContent(html_8e603b2728cea46aeaab9c237c235efd);
+                var html_16d611b58a36c4388af816cd473d832c = $(`<div id="html_16d611b58a36c4388af816cd473d832c" style="width: 100.0%; height: 100.0%;"><div style='width: 280px; font-family: Arial;'>     <h5 style='margin-bottom:6px; color:#2c3e50;'>Intana Ria</h5>      <p style='margin:0;'><b>Monthly Rent:</b> RM 1,350.00</p>     <p style='margin:0;'><b>Size:</b> 980 sqft</p>      <hr style='margin:6px 0;'>      <p style='margin:0;'><b>Rooms:</b> 4</p>     <p style='margin:0;'><b>Bathrooms:</b> 2.0</p>     <p style='margin:0;'><b>Parking:</b> 1.0</p>      <p style='margin:0;'><b>Property Type:</b> apartment</p>     <p style='margin:0;'><b>Furnished:</b> Fully Furnished</p>      <hr style='margin:6px 0;'>      <p style='margin:0; font-size:0.85rem;'>         <b>Facilities:</b><br>Parking, Security, Lift, Swimming Pool, Playground, Multipurpose hall     </p> </div></div>`)[0];
+                popup_5a85e6ce8aa5c6c3d5edea344e946b06.setContent(html_16d611b58a36c4388af816cd473d832c);
             
         
 
-        marker_904a89509fc9ce81a68a4aeff00b6210.bindPopup(popup_503bdc19d711292562ae3cb641fcd250)
+        marker_bc520600a65ae9862c772db8186b8ce0.bindPopup(popup_5a85e6ce8aa5c6c3d5edea344e946b06)
         ;
 
         
     
     
-            var marker_99c35fe99df30d5240d4610bfda2ee43 = L.marker(
-                [2.9040583, 101.7862548],
+            var marker_5629c87ab51d81bc344e604d596ac6ba = L.marker(
+                [2.9039612, 101.7860889],
                 {}
-            ).addTo(map_d5bdfd960ebf71c1c537211c857bc5c8);
+            ).addTo(marker_cluster_a61813de60be27684ac9dc545fbe7382);
         
     
-            var icon_ff7a695dee51a85fb3bd53bc83d6422a = L.AwesomeMarkers.icon(
-                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "green", "prefix": "glyphicon"}
+            var icon_1e01822b5cb08ab7980df1d63de125f6 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "home", "iconColor": "white", "markerColor": "green", "prefix": "fa"}
             );
-            marker_99c35fe99df30d5240d4610bfda2ee43.setIcon(icon_ff7a695dee51a85fb3bd53bc83d6422a);
+            marker_5629c87ab51d81bc344e604d596ac6ba.setIcon(icon_1e01822b5cb08ab7980df1d63de125f6);
         
     
-        var popup_8877b5c068cb7d34e10fa492452fa383 = L.popup({"maxWidth": "100%"});
+        var popup_369813833559791a4b989586bbcf3a05 = L.popup({"maxWidth": 350});
 
         
             
-                var html_ba1bb1062bd92399a4eeffea3337b6db = $(`<div id="html_ba1bb1062bd92399a4eeffea3337b6db" style="width: 100.0%; height: 100.0%;">Palmyra Residences - RM 1,700.00</div>`)[0];
-                popup_8877b5c068cb7d34e10fa492452fa383.setContent(html_ba1bb1062bd92399a4eeffea3337b6db);
+                var html_5f3352e56c8d600f16b8104ad16c2ad1 = $(`<div id="html_5f3352e56c8d600f16b8104ad16c2ad1" style="width: 100.0%; height: 100.0%;"><div style='width: 280px; font-family: Arial;'>     <h5 style='margin-bottom:6px; color:#2c3e50;'>Intana Ria</h5>      <p style='margin:0;'><b>Monthly Rent:</b> RM 1,350.00</p>     <p style='margin:0;'><b>Size:</b> 980 sqft</p>      <hr style='margin:6px 0;'>      <p style='margin:0;'><b>Rooms:</b> 4</p>     <p style='margin:0;'><b>Bathrooms:</b> 2.0</p>     <p style='margin:0;'><b>Parking:</b> 2.0</p>      <p style='margin:0;'><b>Property Type:</b> apartment</p>     <p style='margin:0;'><b>Furnished:</b> Fully Furnished</p>      <hr style='margin:6px 0;'>      <p style='margin:0; font-size:0.85rem;'>         <b>Facilities:</b><br>Swimming Pool, Playground, Security, Multipurpose hall, Parking     </p> </div></div>`)[0];
+                popup_369813833559791a4b989586bbcf3a05.setContent(html_5f3352e56c8d600f16b8104ad16c2ad1);
             
         
 
-        marker_99c35fe99df30d5240d4610bfda2ee43.bindPopup(popup_8877b5c068cb7d34e10fa492452fa383)
+        marker_5629c87ab51d81bc344e604d596ac6ba.bindPopup(popup_369813833559791a4b989586bbcf3a05)
         ;
 
         
     
     
-            var marker_5e4a27e3421c88eb24cbadfa442cde55 = L.marker(
-                [2.9040583, 101.7862548],
+            var marker_c4cfed69095ab475cd5bf36deb6d83f1 = L.marker(
+                [2.9039612, 101.7860889],
                 {}
-            ).addTo(map_d5bdfd960ebf71c1c537211c857bc5c8);
+            ).addTo(marker_cluster_a61813de60be27684ac9dc545fbe7382);
         
     
-            var icon_207c283cb965e088ba66d66683591a1e = L.AwesomeMarkers.icon(
-                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "green", "prefix": "glyphicon"}
+            var icon_09de4fac87bb6cb762dca5c28acf13cd = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "train", "iconColor": "white", "markerColor": "blue", "prefix": "fa"}
             );
-            marker_5e4a27e3421c88eb24cbadfa442cde55.setIcon(icon_207c283cb965e088ba66d66683591a1e);
+            marker_c4cfed69095ab475cd5bf36deb6d83f1.setIcon(icon_09de4fac87bb6cb762dca5c28acf13cd);
         
     
-        var popup_3957bbd5b83885de72d3c65904ccadf0 = L.popup({"maxWidth": "100%"});
+        var popup_d9a5689ab66ffeb334ec08efe34a303c = L.popup({"maxWidth": 350});
 
         
             
-                var html_a2eaf4bef873c87c8daef67b878e1527 = $(`<div id="html_a2eaf4bef873c87c8daef67b878e1527" style="width: 100.0%; height: 100.0%;">Palmya Residence Bandar Puteri Bangi - RM 1,700.00</div>`)[0];
-                popup_3957bbd5b83885de72d3c65904ccadf0.setContent(html_a2eaf4bef873c87c8daef67b878e1527);
+                var html_89e62f16bb2c7fe7aaac9c76c1e3ec9f = $(`<div id="html_89e62f16bb2c7fe7aaac9c76c1e3ec9f" style="width: 100.0%; height: 100.0%;"><div style='width: 280px; font-family: Arial;'>     <h5 style='margin-bottom:6px; color:#2c3e50;'>Intana Ria</h5>      <p style='margin:0;'><b>Monthly Rent:</b> RM 1,348.00</p>     <p style='margin:0;'><b>Size:</b> 980 sqft</p>      <hr style='margin:6px 0;'>      <p style='margin:0;'><b>Rooms:</b> 4</p>     <p style='margin:0;'><b>Bathrooms:</b> 2.0</p>     <p style='margin:0;'><b>Parking:</b> 1.0</p>      <p style='margin:0;'><b>Property Type:</b> apartment</p>     <p style='margin:0;'><b>Furnished:</b> Fully Furnished</p>      <hr style='margin:6px 0;'>      <p style='margin:0; font-size:0.85rem;'>         <b>Facilities:</b><br>Swimming Pool, Playground, Multipurpose hall, Security, Parking, Minimart, Lift     </p> </div></div>`)[0];
+                popup_d9a5689ab66ffeb334ec08efe34a303c.setContent(html_89e62f16bb2c7fe7aaac9c76c1e3ec9f);
             
         
 
-        marker_5e4a27e3421c88eb24cbadfa442cde55.bindPopup(popup_3957bbd5b83885de72d3c65904ccadf0)
+        marker_c4cfed69095ab475cd5bf36deb6d83f1.bindPopup(popup_d9a5689ab66ffeb334ec08efe34a303c)
         ;
 
         
     
     
-            var marker_a8334771cb1cf9bace36ff379b214156 = L.marker(
-                [2.9040583, 101.7862548],
+            var marker_c62037729d5b35e9e0e381593fc45ee2 = L.marker(
+                [2.9039612, 101.7860889],
                 {}
-            ).addTo(map_d5bdfd960ebf71c1c537211c857bc5c8);
+            ).addTo(marker_cluster_a61813de60be27684ac9dc545fbe7382);
         
     
-            var icon_a2907ef3d16782b47e40f9cf34adddee = L.AwesomeMarkers.icon(
-                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "green", "prefix": "glyphicon"}
+            var icon_29aee5b5919de74516cd55a3106f72cd = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "train", "iconColor": "white", "markerColor": "blue", "prefix": "fa"}
             );
-            marker_a8334771cb1cf9bace36ff379b214156.setIcon(icon_a2907ef3d16782b47e40f9cf34adddee);
+            marker_c62037729d5b35e9e0e381593fc45ee2.setIcon(icon_29aee5b5919de74516cd55a3106f72cd);
         
     
-        var popup_5644d757c099211e9c8be274f09d92ff = L.popup({"maxWidth": "100%"});
+        var popup_3256f40abc722fe999a1fe4979949c7e = L.popup({"maxWidth": 350});
 
         
             
-                var html_076d3e93c289e98ea6902f0c6fca9f09 = $(`<div id="html_076d3e93c289e98ea6902f0c6fca9f09" style="width: 100.0%; height: 100.0%;">Palmyra Residences - RM 1,600.00</div>`)[0];
-                popup_5644d757c099211e9c8be274f09d92ff.setContent(html_076d3e93c289e98ea6902f0c6fca9f09);
+                var html_c253ebcd3358a3ef167dfda1012a6e29 = $(`<div id="html_c253ebcd3358a3ef167dfda1012a6e29" style="width: 100.0%; height: 100.0%;"><div style='width: 280px; font-family: Arial;'>     <h5 style='margin-bottom:6px; color:#2c3e50;'>Putra1 @ Bandar Seri Putra Bangi</h5>      <p style='margin:0;'><b>Monthly Rent:</b> RM 1,400.00</p>     <p style='margin:0;'><b>Size:</b> 1150 sqft</p>      <hr style='margin:6px 0;'>      <p style='margin:0;'><b>Rooms:</b> 3</p>     <p style='margin:0;'><b>Bathrooms:</b> 3.0</p>     <p style='margin:0;'><b>Parking:</b> 1.0</p>      <p style='margin:0;'><b>Property Type:</b> apartment</p>     <p style='margin:0;'><b>Furnished:</b> Partially Furnished</p>      <hr style='margin:6px 0;'>      <p style='margin:0; font-size:0.85rem;'>         <b>Facilities:</b><br>nan     </p> </div></div>`)[0];
+                popup_3256f40abc722fe999a1fe4979949c7e.setContent(html_c253ebcd3358a3ef167dfda1012a6e29);
             
         
 
-        marker_a8334771cb1cf9bace36ff379b214156.bindPopup(popup_5644d757c099211e9c8be274f09d92ff)
+        marker_c62037729d5b35e9e0e381593fc45ee2.bindPopup(popup_3256f40abc722fe999a1fe4979949c7e)
         ;
 
         
     
     
-            var marker_21164272f2fba75dba5fc5a09ba94e07 = L.marker(
-                [2.9040583, 101.7862548],
+            var marker_9479a4e8f2626ce6dbba6906a7dcef0f = L.marker(
+                [2.9039612, 101.7860889],
                 {}
-            ).addTo(map_d5bdfd960ebf71c1c537211c857bc5c8);
+            ).addTo(marker_cluster_a61813de60be27684ac9dc545fbe7382);
         
     
-            var icon_a281baa8ebe13f0bf24e04b40324a627 = L.AwesomeMarkers.icon(
-                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "green", "prefix": "glyphicon"}
+            var icon_c93fa22fa41907bb0edff527d41b134a = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "home", "iconColor": "white", "markerColor": "green", "prefix": "fa"}
             );
-            marker_21164272f2fba75dba5fc5a09ba94e07.setIcon(icon_a281baa8ebe13f0bf24e04b40324a627);
+            marker_9479a4e8f2626ce6dbba6906a7dcef0f.setIcon(icon_c93fa22fa41907bb0edff527d41b134a);
         
     
-        var popup_2b3e34ed2e210079edbcb723b19ffc0f = L.popup({"maxWidth": "100%"});
+        var popup_b09810c1984508756084d89b8eb3f91c = L.popup({"maxWidth": 350});
 
         
             
-                var html_62145b7ac1fcc4003be7847f5502ec99 = $(`<div id="html_62145b7ac1fcc4003be7847f5502ec99" style="width: 100.0%; height: 100.0%;">Savanna Executive Suites - RM 1,700.00</div>`)[0];
-                popup_2b3e34ed2e210079edbcb723b19ffc0f.setContent(html_62145b7ac1fcc4003be7847f5502ec99);
+                var html_be2a441f4240bfe607505fd988e37e56 = $(`<div id="html_be2a441f4240bfe607505fd988e37e56" style="width: 100.0%; height: 100.0%;"><div style='width: 280px; font-family: Arial;'>     <h5 style='margin-bottom:6px; color:#2c3e50;'>Putra1 @ Bandar Seri Putra Bangi</h5>      <p style='margin:0;'><b>Monthly Rent:</b> RM 1,400.00</p>     <p style='margin:0;'><b>Size:</b> 1086 sqft</p>      <hr style='margin:6px 0;'>      <p style='margin:0;'><b>Rooms:</b> 3</p>     <p style='margin:0;'><b>Bathrooms:</b> 2.0</p>     <p style='margin:0;'><b>Parking:</b> 2.0</p>      <p style='margin:0;'><b>Property Type:</b> apartment</p>     <p style='margin:0;'><b>Furnished:</b> Partially Furnished</p>      <hr style='margin:6px 0;'>      <p style='margin:0; font-size:0.85rem;'>         <b>Facilities:</b><br>nan     </p> </div></div>`)[0];
+                popup_b09810c1984508756084d89b8eb3f91c.setContent(html_be2a441f4240bfe607505fd988e37e56);
             
         
 
-        marker_21164272f2fba75dba5fc5a09ba94e07.bindPopup(popup_2b3e34ed2e210079edbcb723b19ffc0f)
+        marker_9479a4e8f2626ce6dbba6906a7dcef0f.bindPopup(popup_b09810c1984508756084d89b8eb3f91c)
         ;
 
         
     
     
-            var marker_2817d18e78cb1fdde3bf510b8510a388 = L.marker(
-                [2.9040583, 101.7862548],
+            var marker_5345f7494bb01277b6d149c7ffe0f1cc = L.marker(
+                [2.9039612, 101.7860889],
                 {}
-            ).addTo(map_d5bdfd960ebf71c1c537211c857bc5c8);
+            ).addTo(marker_cluster_a61813de60be27684ac9dc545fbe7382);
         
     
-            var icon_c1bfd11760c3429c3eb377f65590a3fd = L.AwesomeMarkers.icon(
-                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "green", "prefix": "glyphicon"}
+            var icon_1a589060cd99b70820a61e1711a33d07 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "home", "iconColor": "white", "markerColor": "green", "prefix": "fa"}
             );
-            marker_2817d18e78cb1fdde3bf510b8510a388.setIcon(icon_c1bfd11760c3429c3eb377f65590a3fd);
+            marker_5345f7494bb01277b6d149c7ffe0f1cc.setIcon(icon_1a589060cd99b70820a61e1711a33d07);
         
     
-        var popup_b97d70e66013cf735a46f08381485662 = L.popup({"maxWidth": "100%"});
+        var popup_83a02a2ef6a07d0c9bec43d67b7a2349 = L.popup({"maxWidth": 350});
 
         
             
-                var html_f65ef81c7d4c387bd17c87870dff92e6 = $(`<div id="html_f65ef81c7d4c387bd17c87870dff92e6" style="width: 100.0%; height: 100.0%;">Savanna Executive Suites - RM 1,500.00</div>`)[0];
-                popup_b97d70e66013cf735a46f08381485662.setContent(html_f65ef81c7d4c387bd17c87870dff92e6);
+                var html_c3de0c1b468f4f5b5354c9758934d52a = $(`<div id="html_c3de0c1b468f4f5b5354c9758934d52a" style="width: 100.0%; height: 100.0%;"><div style='width: 280px; font-family: Arial;'>     <h5 style='margin-bottom:6px; color:#2c3e50;'>Pangsapuri Putra Impian (Bangi)</h5>      <p style='margin:0;'><b>Monthly Rent:</b> RM 1,400.00</p>     <p style='margin:0;'><b>Size:</b> 1100 sqft</p>      <hr style='margin:6px 0;'>      <p style='margin:0;'><b>Rooms:</b> 3</p>     <p style='margin:0;'><b>Bathrooms:</b> 3.0</p>     <p style='margin:0;'><b>Parking:</b> 2.0</p>      <p style='margin:0;'><b>Property Type:</b> apartment</p>     <p style='margin:0;'><b>Furnished:</b> Partially Furnished</p>      <hr style='margin:6px 0;'>      <p style='margin:0; font-size:0.85rem;'>         <b>Facilities:</b><br>Parking, Lift, Security, Swimming Pool, Playground, Minimart, Gymnasium, Jogging Track     </p> </div></div>`)[0];
+                popup_83a02a2ef6a07d0c9bec43d67b7a2349.setContent(html_c3de0c1b468f4f5b5354c9758934d52a);
             
         
 
-        marker_2817d18e78cb1fdde3bf510b8510a388.bindPopup(popup_b97d70e66013cf735a46f08381485662)
+        marker_5345f7494bb01277b6d149c7ffe0f1cc.bindPopup(popup_83a02a2ef6a07d0c9bec43d67b7a2349)
         ;
 
         
     
     
-            var marker_46bb0a3109c785183ac935615c337bb1 = L.marker(
-                [2.9040583, 101.7862548],
+            var marker_63d31bd96843e9e0869fb5c1e0653b77 = L.marker(
+                [2.9039612, 101.7860889],
                 {}
-            ).addTo(map_d5bdfd960ebf71c1c537211c857bc5c8);
+            ).addTo(marker_cluster_a61813de60be27684ac9dc545fbe7382);
         
     
-            var icon_4bcbdb8c8cfe3684a36749b211265eda = L.AwesomeMarkers.icon(
-                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "green", "prefix": "glyphicon"}
+            var icon_15055a5477fb4dd26fd81948c46a1430 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "home", "iconColor": "white", "markerColor": "green", "prefix": "fa"}
             );
-            marker_46bb0a3109c785183ac935615c337bb1.setIcon(icon_4bcbdb8c8cfe3684a36749b211265eda);
+            marker_63d31bd96843e9e0869fb5c1e0653b77.setIcon(icon_15055a5477fb4dd26fd81948c46a1430);
         
     
-        var popup_04c94ec88a9cb37038bfdf44fc584d6a = L.popup({"maxWidth": "100%"});
+        var popup_45a9c0bf6c6e3e9f921b718908eb5107 = L.popup({"maxWidth": 350});
 
         
             
-                var html_3798fc2dd871fac547d5caaf34810f3b = $(`<div id="html_3798fc2dd871fac547d5caaf34810f3b" style="width: 100.0%; height: 100.0%;">Palmyra Residences - RM 1,700.00</div>`)[0];
-                popup_04c94ec88a9cb37038bfdf44fc584d6a.setContent(html_3798fc2dd871fac547d5caaf34810f3b);
+                var html_6978bbc542de4ffd75743c43549d6b7c = $(`<div id="html_6978bbc542de4ffd75743c43549d6b7c" style="width: 100.0%; height: 100.0%;"><div style='width: 280px; font-family: Arial;'>     <h5 style='margin-bottom:6px; color:#2c3e50;'>Pangsapuri Putra Impian (Bangi)</h5>      <p style='margin:0;'><b>Monthly Rent:</b> RM 1,400.00</p>     <p style='margin:0;'><b>Size:</b> 1100 sqft</p>      <hr style='margin:6px 0;'>      <p style='margin:0;'><b>Rooms:</b> 3</p>     <p style='margin:0;'><b>Bathrooms:</b> 2.0</p>     <p style='margin:0;'><b>Parking:</b> 2.0</p>      <p style='margin:0;'><b>Property Type:</b> apartment</p>     <p style='margin:0;'><b>Furnished:</b> Fully Furnished</p>      <hr style='margin:6px 0;'>      <p style='margin:0; font-size:0.85rem;'>         <b>Facilities:</b><br>Parking, Security, Lift, Swimming Pool, Playground, Multipurpose hall     </p> </div></div>`)[0];
+                popup_45a9c0bf6c6e3e9f921b718908eb5107.setContent(html_6978bbc542de4ffd75743c43549d6b7c);
             
         
 
-        marker_46bb0a3109c785183ac935615c337bb1.bindPopup(popup_04c94ec88a9cb37038bfdf44fc584d6a)
+        marker_63d31bd96843e9e0869fb5c1e0653b77.bindPopup(popup_45a9c0bf6c6e3e9f921b718908eb5107)
         ;
 
         
     
     
-            var marker_1c804f1d79455714ba984c4d681810d3 = L.marker(
-                [2.9040583, 101.7862548],
+            var marker_ef2d63144bb39de5ab21ae422f6cd8c6 = L.marker(
+                [2.9039612, 101.7860889],
                 {}
-            ).addTo(map_d5bdfd960ebf71c1c537211c857bc5c8);
+            ).addTo(marker_cluster_a61813de60be27684ac9dc545fbe7382);
         
     
-            var icon_018162126fed61bce09267b6c592c60a = L.AwesomeMarkers.icon(
-                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "green", "prefix": "glyphicon"}
+            var icon_7bab40e7438dd341b26aa32df74508bb = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "home", "iconColor": "white", "markerColor": "green", "prefix": "fa"}
             );
-            marker_1c804f1d79455714ba984c4d681810d3.setIcon(icon_018162126fed61bce09267b6c592c60a);
+            marker_ef2d63144bb39de5ab21ae422f6cd8c6.setIcon(icon_7bab40e7438dd341b26aa32df74508bb);
         
     
-        var popup_af86ebad67f1663a64f7e25dd6e7e347 = L.popup({"maxWidth": "100%"});
+        var popup_b3d12eb144f099d3b62dce9ea80c0c36 = L.popup({"maxWidth": 350});
 
         
             
-                var html_fb08916a434485c2fda4ec02e47920c0 = $(`<div id="html_fb08916a434485c2fda4ec02e47920c0" style="width: 100.0%; height: 100.0%;">Palmyra Residences - RM 1,700.00</div>`)[0];
-                popup_af86ebad67f1663a64f7e25dd6e7e347.setContent(html_fb08916a434485c2fda4ec02e47920c0);
+                var html_92a1aad9a21c2d1ad6dfb15efe02c0bb = $(`<div id="html_92a1aad9a21c2d1ad6dfb15efe02c0bb" style="width: 100.0%; height: 100.0%;"><div style='width: 280px; font-family: Arial;'>     <h5 style='margin-bottom:6px; color:#2c3e50;'>Kelompok Rajawali Apartment</h5>      <p style='margin:0;'><b>Monthly Rent:</b> RM 1,300.00</p>     <p style='margin:0;'><b>Size:</b> 900 sqft</p>      <hr style='margin:6px 0;'>      <p style='margin:0;'><b>Rooms:</b> 3</p>     <p style='margin:0;'><b>Bathrooms:</b> 2.0</p>     <p style='margin:0;'><b>Parking:</b> 1.0</p>      <p style='margin:0;'><b>Property Type:</b> apartment</p>     <p style='margin:0;'><b>Furnished:</b> Not Furnished</p>      <hr style='margin:6px 0;'>      <p style='margin:0; font-size:0.85rem;'>         <b>Facilities:</b><br>Playground, Parking, Security, Lift     </p> </div></div>`)[0];
+                popup_b3d12eb144f099d3b62dce9ea80c0c36.setContent(html_92a1aad9a21c2d1ad6dfb15efe02c0bb);
             
         
 
-        marker_1c804f1d79455714ba984c4d681810d3.bindPopup(popup_af86ebad67f1663a64f7e25dd6e7e347)
+        marker_ef2d63144bb39de5ab21ae422f6cd8c6.bindPopup(popup_b3d12eb144f099d3b62dce9ea80c0c36)
         ;
 
         
     
     
-            var marker_b0c7c0b91e80f40b7139e41059eeff81 = L.marker(
-                [2.9040583, 101.7862548],
+            var marker_0391377e5d6395115b8d0118794e2a5e = L.marker(
+                [2.9039612, 101.7860889],
                 {}
-            ).addTo(map_d5bdfd960ebf71c1c537211c857bc5c8);
+            ).addTo(marker_cluster_a61813de60be27684ac9dc545fbe7382);
         
     
-            var icon_f1080413c0a3554d472429384e03ca88 = L.AwesomeMarkers.icon(
-                {"extraClasses": "fa-rotate-0", "icon": "info-sign", "iconColor": "white", "markerColor": "green", "prefix": "glyphicon"}
+            var icon_3486a70071b914bbd2a71a0dcbb0fb1f = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "home", "iconColor": "white", "markerColor": "green", "prefix": "fa"}
             );
-            marker_b0c7c0b91e80f40b7139e41059eeff81.setIcon(icon_f1080413c0a3554d472429384e03ca88);
+            marker_0391377e5d6395115b8d0118794e2a5e.setIcon(icon_3486a70071b914bbd2a71a0dcbb0fb1f);
         
     
-        var popup_65652a734a52a26ebf25953a7efdf5d1 = L.popup({"maxWidth": "100%"});
+        var popup_b13458eb0c08fcc25c71e4ceb359037f = L.popup({"maxWidth": 350});
 
         
             
-                var html_3cf7efc52dae38a05178fa20b6320bc9 = $(`<div id="html_3cf7efc52dae38a05178fa20b6320bc9" style="width: 100.0%; height: 100.0%;">Palmyra Residences - RM 1,700.00</div>`)[0];
-                popup_65652a734a52a26ebf25953a7efdf5d1.setContent(html_3cf7efc52dae38a05178fa20b6320bc9);
+                var html_3d805658e6bfbe91abe30f27221aba5c = $(`<div id="html_3d805658e6bfbe91abe30f27221aba5c" style="width: 100.0%; height: 100.0%;"><div style='width: 280px; font-family: Arial;'>     <h5 style='margin-bottom:6px; color:#2c3e50;'>Pangsapuri Putra Impian (Bangi)</h5>      <p style='margin:0;'><b>Monthly Rent:</b> RM 1,300.00</p>     <p style='margin:0;'><b>Size:</b> 950 sqft</p>      <hr style='margin:6px 0;'>      <p style='margin:0;'><b>Rooms:</b> 3</p>     <p style='margin:0;'><b>Bathrooms:</b> 2.0</p>     <p style='margin:0;'><b>Parking:</b> 2.0</p>      <p style='margin:0;'><b>Property Type:</b> apartment</p>     <p style='margin:0;'><b>Furnished:</b> Fully Furnished</p>      <hr style='margin:6px 0;'>      <p style='margin:0; font-size:0.85rem;'>         <b>Facilities:</b><br>Parking, Security, Playground, Lift, Minimart, Swimming Pool     </p> </div></div>`)[0];
+                popup_b13458eb0c08fcc25c71e4ceb359037f.setContent(html_3d805658e6bfbe91abe30f27221aba5c);
             
         
 
-        marker_b0c7c0b91e80f40b7139e41059eeff81.bindPopup(popup_65652a734a52a26ebf25953a7efdf5d1)
+        marker_0391377e5d6395115b8d0118794e2a5e.bindPopup(popup_b13458eb0c08fcc25c71e4ceb359037f)
         ;
 
         
     
+    
+            marker_cluster_a61813de60be27684ac9dc545fbe7382.addTo(map_0cd492ef3538f3740819756a0baad0b7);
+        
+    
+            var marker_b53c3d236752003c72782a16016d6214 = L.marker(
+                [2.9039612, 101.7860889],
+                {}
+            ).addTo(map_0cd492ef3538f3740819756a0baad0b7);
+        
+    
+            var icon_16fc1f0000e5cb2e43b9b3fd199bc35e = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "train", "iconColor": "white", "markerColor": "red", "prefix": "fa"}
+            );
+            marker_b53c3d236752003c72782a16016d6214.setIcon(icon_16fc1f0000e5cb2e43b9b3fd199bc35e);
+        
+    
+            marker_b53c3d236752003c72782a16016d6214.bindTooltip(
+                `<div>
+                     KTM
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_3fb34f3d8f00cc957548a3974a6f923a = L.marker(
+                [2.9039612, 101.7860889],
+                {}
+            ).addTo(map_0cd492ef3538f3740819756a0baad0b7);
+        
+    
+            var icon_5c60b1ca8245d15d73105076786aac32 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "train", "iconColor": "white", "markerColor": "red", "prefix": "fa"}
+            );
+            marker_3fb34f3d8f00cc957548a3974a6f923a.setIcon(icon_5c60b1ca8245d15d73105076786aac32);
+        
+    
+            marker_3fb34f3d8f00cc957548a3974a6f923a.bindTooltip(
+                `<div>
+                     bangi KTM Station, Malaysia
+                 </div>`,
+                {"sticky": true}
+            );
+        
 </script>
 </html>
