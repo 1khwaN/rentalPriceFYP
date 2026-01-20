@@ -112,27 +112,32 @@
 
         <!-- CONFIDENCE BOX -->
         <div class="col-md-5">
-            <div class="result-box" data-aos="fade-up">
+            <div class="result-box mt-4" data-aos="fade-up">
 
                 <h4 class="fw-bold mb-3">📊 Prediction Confidence</h4>
 
-                <div class="alert alert-{{ confidence.color }} text-center">
-                    <h5 class="mb-1">
-                        Confidence Level:
-                        <strong>{{ confidence.confidence }}</strong>
-                    </h5>
-                    <p class="mb-0">
-                        Expected Error Range:
-                        <strong>± RM {{ confidence.error_range }}</strong>
-                    </p>
+                <div class="mb-2">
+                    <strong>Confidence Level:</strong> {{ confidence.confidence }}
                 </div>
 
-                <p class="text-muted text-center mt-3" style="font-size: 0.9rem;">
-                    Confidence is estimated using historical model error
-                    and similarity to past properties in this region.
+                <div class="progress mb-3" style="height: 22px;">
+                    <div class="progress-bar bg-{{ confidence.color }}"
+                        role="progressbar"
+                        style="width: {{ confidence.percent }}%;">
+                        {{ confidence.percent }}%
+                    </div>
+                </div>
+
+                <div class="alert alert-{{ confidence.color }} text-center">
+                    Expected Error Range: <strong>± RM {{ confidence.error_range }}</strong>
+                </div>
+
+                <p class="text-muted text-center mt-2" style="font-size: 0.9rem;">
+                    Confidence is estimated using historical model error (MAE) on similar properties.
                 </p>
 
             </div>
+
         </div>
 
     </div>

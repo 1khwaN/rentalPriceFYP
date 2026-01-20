@@ -66,24 +66,35 @@ from geopy.extra.rate_limiter import RateLimiter
 from geopy.distance import geodesic
 
 def get_prediction_confidence(predicted_rent):
-    if predicted_rent < 1000:
-        error = ERROR_75
-        confidence = "High"
+    if predicted_rent <= 0:
+        return {
+            "confidence": "N/A",
+            "error_range": 0,
+            "color": "secondary",
+            "percent": 0
+        }
+
+    error = ERROR_MEDIAN
+
+    confidence_pct = max(
+        60,
+        min(95, 100 - (error / predicted_rent * 100))
+    )
+
+    if confidence_pct >= 85:
         color = "success"
-    elif predicted_rent < 3000:
-        error = ERROR_90
-        confidence = "Medium"
+    elif confidence_pct >= 70:
         color = "warning"
     else:
-        error = ERROR_90 * 1.2
-        confidence = "Low"
         color = "danger"
 
     return {
-        "confidence": confidence,
+        "confidence": f"{confidence_pct:.1f}%",
         "error_range": round(error, 2),
-        "color": color
+        "color": color,
+        "percent": round(confidence_pct, 1)
     }
+
 
 def get_city_coords(region, city):
     key = f"{city}_{region}".lower()
