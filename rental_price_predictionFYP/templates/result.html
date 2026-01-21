@@ -114,7 +114,15 @@
         <div class="col-md-5">
             <div class="result-box mt-4" data-aos="fade-up">
 
-                <h4 class="fw-bold mb-3">📊 Prediction Confidence</h4>
+                <h4 class="fw-bold mb-3">
+                    📊 Prediction Confidence
+                    <i class="bi bi-info-circle-fill text-muted ms-1"
+                        data-bs-toggle="tooltip"
+                        data-bs-placement="right"
+                        title="{{ confidence.explanation }}">
+                    </i>
+                </h4>
+
 
                 <div class="mb-2">
                     <strong>Confidence Level:</strong> {{ confidence.confidence }}
@@ -212,6 +220,7 @@ mapBtn.addEventListener("click", async () => {
 
     mapBox.classList.add("active");
     mapLoading.style.display = "block";
+    recSection.innerHTML = ""; // ✅ clear ONCE
 
     try {
         const response = await fetch("/generate_map", {
@@ -229,12 +238,12 @@ mapBtn.addEventListener("click", async () => {
         const data = await response.json();
 
         if (!data.map_path) {
-            mapLoading.innerHTML = "<p class='text-danger'>Map generation failed.</p>";
+            mapLoading.innerHTML =
+                "<p class='text-danger text-center'>Map generation failed.</p>";
             return;
         }
 
-        recSection.innerHTML = "";
-
+        /* ✅ EXPLANATION MESSAGE */
         if (data.message) {
             recSection.innerHTML += `
                 <div class="alert alert-info text-center mb-3">
@@ -243,6 +252,7 @@ mapBtn.addEventListener("click", async () => {
             `;
         }
 
+        /* ✅ RECOMMENDATION LIST */
         if (data.recommendations.length > 0) {
             recSection.innerHTML += `<div class="recommendation-grid"></div>`;
             const grid = recSection.querySelector(".recommendation-grid");
@@ -254,49 +264,48 @@ mapBtn.addEventListener("click", async () => {
                             ${r.name}
                             ${index === 0 ? '<span class="badge bg-success ms-2">Best Match</span>' : ''}
                         </h5>
-
                         <p>Rent: RM ${r.rent.toLocaleString()}</p>
-
                         ${r.near_rail ? `
                             <p class="text-primary mt-1">
-                                <i class="bi bi-train-front"></i> Near MRT / LRT
+                                <i class="bi bi-train-front"></i> Near MRT / LRT / KTM
                             </p>` : ''}
                     </div>
                 `;
             });
+        } else {
+            recSection.innerHTML += `
+                <div class="alert alert-warning text-center">
+                    No recommended properties matched your criteria.
+                </div>
+            `;
         }
 
-
-        // Add map
+        /* ✅ MAP */
         const iframe = document.createElement("iframe");
         iframe.src = `/maps/${data.map_path}`;
         iframe.onload = () => mapLoading.style.display = "none";
         mapWrapper.appendChild(iframe);
 
-        // Render recommendations
-        if (data.recommendations.length > 0) {
-            recSection.innerHTML = `<div class="recommendation-grid"></div>`;
-            const grid = recSection.querySelector(".recommendation-grid");
-
-            data.recommendations.forEach(r => {
-                grid.innerHTML += `
-                    <div class="recommendation-card">
-                        <h5>${r.name}</h5>
-                        <p>Rent: RM ${r.rent.toLocaleString()}</p>
-                    </div>
-                `;
-            });
-        }
-
-
         mapLoaded = true;
 
     } catch (err) {
-        mapLoading.innerHTML = "<p class='text-danger'>Server error.</p>";
+        mapLoading.innerHTML =
+            "<p class='text-danger text-center'>Server error.</p>";
         console.error(err);
     }
 });
+</script>
 
+
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+    const tooltipTriggerList = [].slice.call(
+        document.querySelectorAll('[data-bs-toggle="tooltip"]')
+    );
+    tooltipTriggerList.map(function (tooltipTriggerEl) {
+        return new bootstrap.Tooltip(tooltipTriggerEl);
+    });
+});
 </script>
 
 

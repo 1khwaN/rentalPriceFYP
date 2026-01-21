@@ -25,7 +25,7 @@
             <meta name="viewport" content="width=device-width,
                 initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
             <style>
-                #map_43737664bec6edae628711c34344f3df {
+                #map_73c56900bf31be1f32a2f7e0c839ee43 {
                     position: relative;
                     width: 100.0%;
                     height: 100.0%;
@@ -42,30 +42,14 @@
 <body>
     
     
-    <div style="
-        position: fixed;
-        bottom: 30px;
-        left: 30px;
-        background: white;
-        padding: 10px 14px;
-        border-radius: 10px;
-        box-shadow: 0 4px 14px rgba(0,0,0,0.2);
-        font-size: 14px;
-    ">
-    <b>Legend</b><br>
-    <i class="fa fa-home" style="color:green"></i> Property<br>
-    <i class="fa fa-train" style="color:red"></i> MRT / LRT / KTM Station
-    </div>
-    
-    
-            <div class="folium-map" id="map_43737664bec6edae628711c34344f3df" ></div>
+            <div class="folium-map" id="map_73c56900bf31be1f32a2f7e0c839ee43" ></div>
         
 </body>
 <script>
     
     
-            var map_43737664bec6edae628711c34344f3df = L.map(
-                "map_43737664bec6edae628711c34344f3df",
+            var map_73c56900bf31be1f32a2f7e0c839ee43 = L.map(
+                "map_73c56900bf31be1f32a2f7e0c839ee43",
                 {
                     center: [2.9040583, 101.7862548],
                     crs: L.CRS.EPSG3857,
@@ -79,306 +63,63 @@
 
         
     
-            var tile_layer_eb9b526377dbedde3875f66cb29e9430 = L.tileLayer(
+            var tile_layer_f27a50792093dc98481775179c8f9d02 = L.tileLayer(
                 "https://tile.openstreetmap.org/{z}/{x}/{y}.png",
                 {"attribution": "\u0026copy; \u003ca href=\"https://www.openstreetmap.org/copyright\"\u003eOpenStreetMap\u003c/a\u003e contributors", "detectRetina": false, "maxNativeZoom": 19, "maxZoom": 19, "minZoom": 0, "noWrap": false, "opacity": 1, "subdomains": "abc", "tms": false}
             );
         
     
-            tile_layer_eb9b526377dbedde3875f66cb29e9430.addTo(map_43737664bec6edae628711c34344f3df);
+            tile_layer_f27a50792093dc98481775179c8f9d02.addTo(map_73c56900bf31be1f32a2f7e0c839ee43);
         
     
-            var marker_cluster_79b4e7abd8b6dc8031fe72f8b127e9d0 = L.markerClusterGroup(
+            var marker_cluster_9770489de6d15dcadc0fd0c0da246221 = L.markerClusterGroup(
                 {}
             );
         
     
-            var marker_6b638671c1692ddb468c6ee9f2923401 = L.marker(
+            var marker_65ce469c79ea60055e58b400d6f52e16 = L.marker(
                 [2.9040583, 101.7862548],
                 {}
-            ).addTo(marker_cluster_79b4e7abd8b6dc8031fe72f8b127e9d0);
+            ).addTo(marker_cluster_9770489de6d15dcadc0fd0c0da246221);
         
     
-            var icon_3c5bfdebf1ad81059c2177288b3ff4f4 = L.AwesomeMarkers.icon(
-                {"extraClasses": "fa-rotate-0", "icon": "home", "iconColor": "white", "markerColor": "green", "prefix": "fa"}
-            );
-            marker_6b638671c1692ddb468c6ee9f2923401.setIcon(icon_3c5bfdebf1ad81059c2177288b3ff4f4);
-        
-    
-        var popup_2b7009e6d9a00ea64b9cbf06cf896665 = L.popup({"maxWidth": 350});
-
-        
-            
-                var html_b2d9bcbc631a12b243da5fa18434ba27 = $(`<div id="html_b2d9bcbc631a12b243da5fa18434ba27" style="width: 100.0%; height: 100.0%;"><div style='width: 280px; font-family: Arial;'>     <h5 style='margin-bottom:6px; color:#2c3e50;'>Intana Ria</h5>      <p style='margin:0;'><b>Monthly Rent:</b> RM 1,350.00</p>     <p style='margin:0;'><b>Size:</b> 1000 sqft</p>      <hr style='margin:6px 0;'>      <p style='margin:0;'><b>Rooms:</b> 4</p>     <p style='margin:0;'><b>Bathrooms:</b> 2.0</p>     <p style='margin:0;'><b>Parking:</b> 1.0</p>      <p style='margin:0;'><b>Property Type:</b> apartment</p>     <p style='margin:0;'><b>Furnished:</b> Fully Furnished</p>      <hr style='margin:6px 0;'>      <p style='margin:0; font-size:0.85rem;'>         <b>Facilities:</b><br>Security, Swimming Pool, Playground, Multipurpose hall, Parking     </p> </div></div>`)[0];
-                popup_2b7009e6d9a00ea64b9cbf06cf896665.setContent(html_b2d9bcbc631a12b243da5fa18434ba27);
-            
-        
-
-        marker_6b638671c1692ddb468c6ee9f2923401.bindPopup(popup_2b7009e6d9a00ea64b9cbf06cf896665)
-        ;
-
-        
-    
-    
-            var marker_dd0d91cf113c5be76bf42d7501ead0ea = L.marker(
-                [2.9040583, 101.7862548],
-                {}
-            ).addTo(marker_cluster_79b4e7abd8b6dc8031fe72f8b127e9d0);
-        
-    
-            var icon_2f64edb28d6ae214d31ae43e8b4b03b7 = L.AwesomeMarkers.icon(
-                {"extraClasses": "fa-rotate-0", "icon": "home", "iconColor": "white", "markerColor": "green", "prefix": "fa"}
-            );
-            marker_dd0d91cf113c5be76bf42d7501ead0ea.setIcon(icon_2f64edb28d6ae214d31ae43e8b4b03b7);
-        
-    
-        var popup_dd3b5526737949403b6a54115d674097 = L.popup({"maxWidth": 350});
-
-        
-            
-                var html_be4701b30d666014ea84636285c138d6 = $(`<div id="html_be4701b30d666014ea84636285c138d6" style="width: 100.0%; height: 100.0%;"><div style='width: 280px; font-family: Arial;'>     <h5 style='margin-bottom:6px; color:#2c3e50;'>Intana Ria</h5>      <p style='margin:0;'><b>Monthly Rent:</b> RM 1,350.00</p>     <p style='margin:0;'><b>Size:</b> 980 sqft</p>      <hr style='margin:6px 0;'>      <p style='margin:0;'><b>Rooms:</b> 4</p>     <p style='margin:0;'><b>Bathrooms:</b> 2.0</p>     <p style='margin:0;'><b>Parking:</b> 1.0</p>      <p style='margin:0;'><b>Property Type:</b> apartment</p>     <p style='margin:0;'><b>Furnished:</b> Fully Furnished</p>      <hr style='margin:6px 0;'>      <p style='margin:0; font-size:0.85rem;'>         <b>Facilities:</b><br>Parking, Security, Lift, Swimming Pool, Playground, Multipurpose hall     </p> </div></div>`)[0];
-                popup_dd3b5526737949403b6a54115d674097.setContent(html_be4701b30d666014ea84636285c138d6);
-            
-        
-
-        marker_dd0d91cf113c5be76bf42d7501ead0ea.bindPopup(popup_dd3b5526737949403b6a54115d674097)
-        ;
-
-        
-    
-    
-            var marker_da60b5794e8723220ab169077451b98d = L.marker(
-                [2.9040583, 101.7862548],
-                {}
-            ).addTo(marker_cluster_79b4e7abd8b6dc8031fe72f8b127e9d0);
-        
-    
-            var icon_71394ee8aa1f18d3d129b660b25e8172 = L.AwesomeMarkers.icon(
-                {"extraClasses": "fa-rotate-0", "icon": "home", "iconColor": "white", "markerColor": "green", "prefix": "fa"}
-            );
-            marker_da60b5794e8723220ab169077451b98d.setIcon(icon_71394ee8aa1f18d3d129b660b25e8172);
-        
-    
-        var popup_aaadcc8466af5fb892c88a4c519b6437 = L.popup({"maxWidth": 350});
-
-        
-            
-                var html_1192d785542a6e14b6fc136d341f0488 = $(`<div id="html_1192d785542a6e14b6fc136d341f0488" style="width: 100.0%; height: 100.0%;"><div style='width: 280px; font-family: Arial;'>     <h5 style='margin-bottom:6px; color:#2c3e50;'>Intana Ria</h5>      <p style='margin:0;'><b>Monthly Rent:</b> RM 1,350.00</p>     <p style='margin:0;'><b>Size:</b> 980 sqft</p>      <hr style='margin:6px 0;'>      <p style='margin:0;'><b>Rooms:</b> 4</p>     <p style='margin:0;'><b>Bathrooms:</b> 2.0</p>     <p style='margin:0;'><b>Parking:</b> 2.0</p>      <p style='margin:0;'><b>Property Type:</b> apartment</p>     <p style='margin:0;'><b>Furnished:</b> Fully Furnished</p>      <hr style='margin:6px 0;'>      <p style='margin:0; font-size:0.85rem;'>         <b>Facilities:</b><br>Swimming Pool, Playground, Security, Multipurpose hall, Parking     </p> </div></div>`)[0];
-                popup_aaadcc8466af5fb892c88a4c519b6437.setContent(html_1192d785542a6e14b6fc136d341f0488);
-            
-        
-
-        marker_da60b5794e8723220ab169077451b98d.bindPopup(popup_aaadcc8466af5fb892c88a4c519b6437)
-        ;
-
-        
-    
-    
-            var marker_915202a7958fa90f37685192754695eb = L.marker(
-                [2.9040583, 101.7862548],
-                {}
-            ).addTo(marker_cluster_79b4e7abd8b6dc8031fe72f8b127e9d0);
-        
-    
-            var icon_5ea17e288474b0eee7946999c7401f81 = L.AwesomeMarkers.icon(
+            var icon_a7afbd20a614c2528a52e36e51b60d02 = L.AwesomeMarkers.icon(
                 {"extraClasses": "fa-rotate-0", "icon": "train", "iconColor": "white", "markerColor": "blue", "prefix": "fa"}
             );
-            marker_915202a7958fa90f37685192754695eb.setIcon(icon_5ea17e288474b0eee7946999c7401f81);
+            marker_65ce469c79ea60055e58b400d6f52e16.setIcon(icon_a7afbd20a614c2528a52e36e51b60d02);
         
     
-        var popup_18718ead247e6d169eb6da1235735b36 = L.popup({"maxWidth": 350});
+        var popup_95c541dcd1e396c74dd2313b47478c3f = L.popup({"maxWidth": 350});
 
         
             
-                var html_70206ff8cd4f4e7f58da35dfec507ae8 = $(`<div id="html_70206ff8cd4f4e7f58da35dfec507ae8" style="width: 100.0%; height: 100.0%;"><div style='width: 280px; font-family: Arial;'>     <h5 style='margin-bottom:6px; color:#2c3e50;'>Intana Ria</h5>      <p style='margin:0;'><b>Monthly Rent:</b> RM 1,348.00</p>     <p style='margin:0;'><b>Size:</b> 980 sqft</p>      <hr style='margin:6px 0;'>      <p style='margin:0;'><b>Rooms:</b> 4</p>     <p style='margin:0;'><b>Bathrooms:</b> 2.0</p>     <p style='margin:0;'><b>Parking:</b> 1.0</p>      <p style='margin:0;'><b>Property Type:</b> apartment</p>     <p style='margin:0;'><b>Furnished:</b> Fully Furnished</p>      <hr style='margin:6px 0;'>      <p style='margin:0; font-size:0.85rem;'>         <b>Facilities:</b><br>Swimming Pool, Playground, Multipurpose hall, Security, Parking, Minimart, Lift     </p> </div></div>`)[0];
-                popup_18718ead247e6d169eb6da1235735b36.setContent(html_70206ff8cd4f4e7f58da35dfec507ae8);
+                var html_7990d9cd963ec438e10d2ed709f79152 = $(`<div id="html_7990d9cd963ec438e10d2ed709f79152" style="width: 100.0%; height: 100.0%;"><div style='width: 280px; font-family: Arial;'>     <h5 style='margin-bottom:6px; color:#2c3e50;'>Unknown</h5>      <p style='margin:0;'><b>Monthly Rent:</b> RM 1,000.00</p>     <p style='margin:0;'><b>Size:</b> 3048 sqft</p>      <hr style='margin:6px 0;'>      <p style='margin:0;'><b>Rooms:</b> 7</p>     <p style='margin:0;'><b>Bathrooms:</b> 6.0</p>     <p style='margin:0;'><b>Parking:</b> 2.0</p>      <p style='margin:0;'><b>Property Type:</b> condominium</p>     <p style='margin:0;'><b>Furnished:</b> Fully Furnished</p>      <hr style='margin:6px 0;'>      <p style='margin:0; font-size:0.85rem;'>         <b>Facilities:</b><br>Swimming Pool, Gymnasium, Minimart, Playground, Jogging Track, Security, 10, 11     </p> </div></div>`)[0];
+                popup_95c541dcd1e396c74dd2313b47478c3f.setContent(html_7990d9cd963ec438e10d2ed709f79152);
             
         
 
-        marker_915202a7958fa90f37685192754695eb.bindPopup(popup_18718ead247e6d169eb6da1235735b36)
+        marker_65ce469c79ea60055e58b400d6f52e16.bindPopup(popup_95c541dcd1e396c74dd2313b47478c3f)
         ;
 
         
     
     
-            var marker_3ba9fe65d3e7b89cb0f274affeb545f2 = L.marker(
-                [2.9040583, 101.7862548],
-                {}
-            ).addTo(marker_cluster_79b4e7abd8b6dc8031fe72f8b127e9d0);
+            marker_cluster_9770489de6d15dcadc0fd0c0da246221.addTo(map_73c56900bf31be1f32a2f7e0c839ee43);
         
     
-            var icon_a6c1385eccedb91d57ca37606563c623 = L.AwesomeMarkers.icon(
-                {"extraClasses": "fa-rotate-0", "icon": "train", "iconColor": "white", "markerColor": "blue", "prefix": "fa"}
-            );
-            marker_3ba9fe65d3e7b89cb0f274affeb545f2.setIcon(icon_a6c1385eccedb91d57ca37606563c623);
-        
-    
-        var popup_69c7cd5cec9c263d21ac34ef2a99d3aa = L.popup({"maxWidth": 350});
-
-        
-            
-                var html_63c8f3f6960463dbc00cfa0b5cd5905e = $(`<div id="html_63c8f3f6960463dbc00cfa0b5cd5905e" style="width: 100.0%; height: 100.0%;"><div style='width: 280px; font-family: Arial;'>     <h5 style='margin-bottom:6px; color:#2c3e50;'>Putra1 @ Bandar Seri Putra Bangi</h5>      <p style='margin:0;'><b>Monthly Rent:</b> RM 1,400.00</p>     <p style='margin:0;'><b>Size:</b> 1150 sqft</p>      <hr style='margin:6px 0;'>      <p style='margin:0;'><b>Rooms:</b> 3</p>     <p style='margin:0;'><b>Bathrooms:</b> 3.0</p>     <p style='margin:0;'><b>Parking:</b> 1.0</p>      <p style='margin:0;'><b>Property Type:</b> apartment</p>     <p style='margin:0;'><b>Furnished:</b> Partially Furnished</p>      <hr style='margin:6px 0;'>      <p style='margin:0; font-size:0.85rem;'>         <b>Facilities:</b><br>nan     </p> </div></div>`)[0];
-                popup_69c7cd5cec9c263d21ac34ef2a99d3aa.setContent(html_63c8f3f6960463dbc00cfa0b5cd5905e);
-            
-        
-
-        marker_3ba9fe65d3e7b89cb0f274affeb545f2.bindPopup(popup_69c7cd5cec9c263d21ac34ef2a99d3aa)
-        ;
-
-        
-    
-    
-            var marker_c68553ae2ba4092452f6a6624025e51e = L.marker(
-                [2.9040583, 101.7862548],
-                {}
-            ).addTo(marker_cluster_79b4e7abd8b6dc8031fe72f8b127e9d0);
-        
-    
-            var icon_f8a74fbb5c5a0f94ae73c596756213e4 = L.AwesomeMarkers.icon(
-                {"extraClasses": "fa-rotate-0", "icon": "home", "iconColor": "white", "markerColor": "green", "prefix": "fa"}
-            );
-            marker_c68553ae2ba4092452f6a6624025e51e.setIcon(icon_f8a74fbb5c5a0f94ae73c596756213e4);
-        
-    
-        var popup_af4adb97e9f6fc34aec9bf5abb272258 = L.popup({"maxWidth": 350});
-
-        
-            
-                var html_1bb21b87e1eca1bd9d9ab70d3737940d = $(`<div id="html_1bb21b87e1eca1bd9d9ab70d3737940d" style="width: 100.0%; height: 100.0%;"><div style='width: 280px; font-family: Arial;'>     <h5 style='margin-bottom:6px; color:#2c3e50;'>Putra1 @ Bandar Seri Putra Bangi</h5>      <p style='margin:0;'><b>Monthly Rent:</b> RM 1,400.00</p>     <p style='margin:0;'><b>Size:</b> 1086 sqft</p>      <hr style='margin:6px 0;'>      <p style='margin:0;'><b>Rooms:</b> 3</p>     <p style='margin:0;'><b>Bathrooms:</b> 2.0</p>     <p style='margin:0;'><b>Parking:</b> 2.0</p>      <p style='margin:0;'><b>Property Type:</b> apartment</p>     <p style='margin:0;'><b>Furnished:</b> Partially Furnished</p>      <hr style='margin:6px 0;'>      <p style='margin:0; font-size:0.85rem;'>         <b>Facilities:</b><br>nan     </p> </div></div>`)[0];
-                popup_af4adb97e9f6fc34aec9bf5abb272258.setContent(html_1bb21b87e1eca1bd9d9ab70d3737940d);
-            
-        
-
-        marker_c68553ae2ba4092452f6a6624025e51e.bindPopup(popup_af4adb97e9f6fc34aec9bf5abb272258)
-        ;
-
-        
-    
-    
-            var marker_8957201660ed560433ca9ff6d21257bd = L.marker(
-                [2.9040583, 101.7862548],
-                {}
-            ).addTo(marker_cluster_79b4e7abd8b6dc8031fe72f8b127e9d0);
-        
-    
-            var icon_f261d31c0a77caa5106ba8ef22ee2a86 = L.AwesomeMarkers.icon(
-                {"extraClasses": "fa-rotate-0", "icon": "home", "iconColor": "white", "markerColor": "green", "prefix": "fa"}
-            );
-            marker_8957201660ed560433ca9ff6d21257bd.setIcon(icon_f261d31c0a77caa5106ba8ef22ee2a86);
-        
-    
-        var popup_abe889e43505ce95e560a9a4e8d8e1dc = L.popup({"maxWidth": 350});
-
-        
-            
-                var html_8243321d3f83c0f39003e583c22e7428 = $(`<div id="html_8243321d3f83c0f39003e583c22e7428" style="width: 100.0%; height: 100.0%;"><div style='width: 280px; font-family: Arial;'>     <h5 style='margin-bottom:6px; color:#2c3e50;'>Pangsapuri Putra Impian (Bangi)</h5>      <p style='margin:0;'><b>Monthly Rent:</b> RM 1,400.00</p>     <p style='margin:0;'><b>Size:</b> 1100 sqft</p>      <hr style='margin:6px 0;'>      <p style='margin:0;'><b>Rooms:</b> 3</p>     <p style='margin:0;'><b>Bathrooms:</b> 3.0</p>     <p style='margin:0;'><b>Parking:</b> 2.0</p>      <p style='margin:0;'><b>Property Type:</b> apartment</p>     <p style='margin:0;'><b>Furnished:</b> Partially Furnished</p>      <hr style='margin:6px 0;'>      <p style='margin:0; font-size:0.85rem;'>         <b>Facilities:</b><br>Parking, Lift, Security, Swimming Pool, Playground, Minimart, Gymnasium, Jogging Track     </p> </div></div>`)[0];
-                popup_abe889e43505ce95e560a9a4e8d8e1dc.setContent(html_8243321d3f83c0f39003e583c22e7428);
-            
-        
-
-        marker_8957201660ed560433ca9ff6d21257bd.bindPopup(popup_abe889e43505ce95e560a9a4e8d8e1dc)
-        ;
-
-        
-    
-    
-            var marker_f3c0ed83fe106862a30919713de1850c = L.marker(
-                [2.9040583, 101.7862548],
-                {}
-            ).addTo(marker_cluster_79b4e7abd8b6dc8031fe72f8b127e9d0);
-        
-    
-            var icon_81bb69f9d34855b9590d77defeebb8db = L.AwesomeMarkers.icon(
-                {"extraClasses": "fa-rotate-0", "icon": "home", "iconColor": "white", "markerColor": "green", "prefix": "fa"}
-            );
-            marker_f3c0ed83fe106862a30919713de1850c.setIcon(icon_81bb69f9d34855b9590d77defeebb8db);
-        
-    
-        var popup_f89ec725f461d9d553ea11f4f132cdbe = L.popup({"maxWidth": 350});
-
-        
-            
-                var html_f8202f1f0f4d901b382adeb434c3701b = $(`<div id="html_f8202f1f0f4d901b382adeb434c3701b" style="width: 100.0%; height: 100.0%;"><div style='width: 280px; font-family: Arial;'>     <h5 style='margin-bottom:6px; color:#2c3e50;'>Pangsapuri Putra Impian (Bangi)</h5>      <p style='margin:0;'><b>Monthly Rent:</b> RM 1,400.00</p>     <p style='margin:0;'><b>Size:</b> 1100 sqft</p>      <hr style='margin:6px 0;'>      <p style='margin:0;'><b>Rooms:</b> 3</p>     <p style='margin:0;'><b>Bathrooms:</b> 2.0</p>     <p style='margin:0;'><b>Parking:</b> 2.0</p>      <p style='margin:0;'><b>Property Type:</b> apartment</p>     <p style='margin:0;'><b>Furnished:</b> Fully Furnished</p>      <hr style='margin:6px 0;'>      <p style='margin:0; font-size:0.85rem;'>         <b>Facilities:</b><br>Parking, Security, Lift, Swimming Pool, Playground, Multipurpose hall     </p> </div></div>`)[0];
-                popup_f89ec725f461d9d553ea11f4f132cdbe.setContent(html_f8202f1f0f4d901b382adeb434c3701b);
-            
-        
-
-        marker_f3c0ed83fe106862a30919713de1850c.bindPopup(popup_f89ec725f461d9d553ea11f4f132cdbe)
-        ;
-
-        
-    
-    
-            var marker_a1d9503d26f5eb5150abf8c721762330 = L.marker(
-                [2.9040583, 101.7862548],
-                {}
-            ).addTo(marker_cluster_79b4e7abd8b6dc8031fe72f8b127e9d0);
-        
-    
-            var icon_1c645c21667dfa555eb146068a8ab7cf = L.AwesomeMarkers.icon(
-                {"extraClasses": "fa-rotate-0", "icon": "home", "iconColor": "white", "markerColor": "green", "prefix": "fa"}
-            );
-            marker_a1d9503d26f5eb5150abf8c721762330.setIcon(icon_1c645c21667dfa555eb146068a8ab7cf);
-        
-    
-        var popup_9663c981f8333cf4c79a2c5c4fdc72f3 = L.popup({"maxWidth": 350});
-
-        
-            
-                var html_6e2836485b8232ff0b45f097b1b43c10 = $(`<div id="html_6e2836485b8232ff0b45f097b1b43c10" style="width: 100.0%; height: 100.0%;"><div style='width: 280px; font-family: Arial;'>     <h5 style='margin-bottom:6px; color:#2c3e50;'>Kelompok Rajawali Apartment</h5>      <p style='margin:0;'><b>Monthly Rent:</b> RM 1,300.00</p>     <p style='margin:0;'><b>Size:</b> 900 sqft</p>      <hr style='margin:6px 0;'>      <p style='margin:0;'><b>Rooms:</b> 3</p>     <p style='margin:0;'><b>Bathrooms:</b> 2.0</p>     <p style='margin:0;'><b>Parking:</b> 1.0</p>      <p style='margin:0;'><b>Property Type:</b> apartment</p>     <p style='margin:0;'><b>Furnished:</b> Not Furnished</p>      <hr style='margin:6px 0;'>      <p style='margin:0; font-size:0.85rem;'>         <b>Facilities:</b><br>Playground, Parking, Security, Lift     </p> </div></div>`)[0];
-                popup_9663c981f8333cf4c79a2c5c4fdc72f3.setContent(html_6e2836485b8232ff0b45f097b1b43c10);
-            
-        
-
-        marker_a1d9503d26f5eb5150abf8c721762330.bindPopup(popup_9663c981f8333cf4c79a2c5c4fdc72f3)
-        ;
-
-        
-    
-    
-            var marker_aa95453addfc905112a3f8e1fe1d5c0e = L.marker(
-                [2.9040583, 101.7862548],
-                {}
-            ).addTo(marker_cluster_79b4e7abd8b6dc8031fe72f8b127e9d0);
-        
-    
-            var icon_af8ebc71128a8d687f3abb4c60ff6fb4 = L.AwesomeMarkers.icon(
-                {"extraClasses": "fa-rotate-0", "icon": "home", "iconColor": "white", "markerColor": "green", "prefix": "fa"}
-            );
-            marker_aa95453addfc905112a3f8e1fe1d5c0e.setIcon(icon_af8ebc71128a8d687f3abb4c60ff6fb4);
-        
-    
-        var popup_3020826bf9fceaf29d2b9cfbb6c14789 = L.popup({"maxWidth": 350});
-
-        
-            
-                var html_5fc4345a1ceedbcdc680ed0edbade50d = $(`<div id="html_5fc4345a1ceedbcdc680ed0edbade50d" style="width: 100.0%; height: 100.0%;"><div style='width: 280px; font-family: Arial;'>     <h5 style='margin-bottom:6px; color:#2c3e50;'>Pangsapuri Putra Impian (Bangi)</h5>      <p style='margin:0;'><b>Monthly Rent:</b> RM 1,300.00</p>     <p style='margin:0;'><b>Size:</b> 950 sqft</p>      <hr style='margin:6px 0;'>      <p style='margin:0;'><b>Rooms:</b> 3</p>     <p style='margin:0;'><b>Bathrooms:</b> 2.0</p>     <p style='margin:0;'><b>Parking:</b> 2.0</p>      <p style='margin:0;'><b>Property Type:</b> apartment</p>     <p style='margin:0;'><b>Furnished:</b> Fully Furnished</p>      <hr style='margin:6px 0;'>      <p style='margin:0; font-size:0.85rem;'>         <b>Facilities:</b><br>Parking, Security, Playground, Lift, Minimart, Swimming Pool     </p> </div></div>`)[0];
-                popup_3020826bf9fceaf29d2b9cfbb6c14789.setContent(html_5fc4345a1ceedbcdc680ed0edbade50d);
-            
-        
-
-        marker_aa95453addfc905112a3f8e1fe1d5c0e.bindPopup(popup_3020826bf9fceaf29d2b9cfbb6c14789)
-        ;
-
-        
-    
-    
-            marker_cluster_79b4e7abd8b6dc8031fe72f8b127e9d0.addTo(map_43737664bec6edae628711c34344f3df);
-        
-    
-            var marker_1b8f48c773d8e91d9d57ff67fa8519e4 = L.marker(
+            var marker_5c30524d892247d56f02e2a43ff6ab9d = L.marker(
                 [2.9039612, 101.7860889],
                 {}
-            ).addTo(map_43737664bec6edae628711c34344f3df);
+            ).addTo(map_73c56900bf31be1f32a2f7e0c839ee43);
         
     
-            var icon_8b3690229d0c8409a3f605e81d71dc7b = L.AwesomeMarkers.icon(
+            var icon_4b23d281c771c29cda8b8195feaf328c = L.AwesomeMarkers.icon(
                 {"extraClasses": "fa-rotate-0", "icon": "train", "iconColor": "white", "markerColor": "red", "prefix": "fa"}
             );
-            marker_1b8f48c773d8e91d9d57ff67fa8519e4.setIcon(icon_8b3690229d0c8409a3f605e81d71dc7b);
+            marker_5c30524d892247d56f02e2a43ff6ab9d.setIcon(icon_4b23d281c771c29cda8b8195feaf328c);
         
     
-            marker_1b8f48c773d8e91d9d57ff67fa8519e4.bindTooltip(
+            marker_5c30524d892247d56f02e2a43ff6ab9d.bindTooltip(
                 `<div>
                      KTM
                  </div>`,
@@ -386,21 +127,21 @@
             );
         
     
-            var marker_823f120908b05adf0fe0c26c0cd779c6 = L.marker(
+            var marker_88ea42057a1a640e316b2d7774cd36e1 = L.marker(
                 [2.9039612, 101.7860889],
                 {}
-            ).addTo(map_43737664bec6edae628711c34344f3df);
+            ).addTo(map_73c56900bf31be1f32a2f7e0c839ee43);
         
     
-            var icon_1b6dcf5706689cc21eac9d344ff83488 = L.AwesomeMarkers.icon(
+            var icon_ce9a685fb13a63a34ac03f2526ef7b0e = L.AwesomeMarkers.icon(
                 {"extraClasses": "fa-rotate-0", "icon": "train", "iconColor": "white", "markerColor": "red", "prefix": "fa"}
             );
-            marker_823f120908b05adf0fe0c26c0cd779c6.setIcon(icon_1b6dcf5706689cc21eac9d344ff83488);
+            marker_88ea42057a1a640e316b2d7774cd36e1.setIcon(icon_ce9a685fb13a63a34ac03f2526ef7b0e);
         
     
-            marker_823f120908b05adf0fe0c26c0cd779c6.bindTooltip(
+            marker_88ea42057a1a640e316b2d7774cd36e1.bindTooltip(
                 `<div>
-                     bangi KTM Station, Malaysia
+                     Bangi KTM Station, Malaysia
                  </div>`,
                 {"sticky": true}
             );

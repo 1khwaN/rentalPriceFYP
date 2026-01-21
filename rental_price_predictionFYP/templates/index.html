@@ -69,11 +69,13 @@
         <div class="row mb-3">
             <div class="col-md-6">
                 <label class="form-label">Size (sqft)</label>
-                <input type="number" name="size" class="form-control" required>
+                <input type="number" name="size" class="form-control" 
+                min="200" max ="10000" required>
             </div>
             <div class="col-md-6">
                 <label class="form-label">Completion Year</label>
-                <input type="number" name="completion_year" class="form-control" required>
+                <input type="number" name="completion_year" class="form-control" 
+                min="1960" max="2025"required>
             </div>
         </div>
 
@@ -81,18 +83,21 @@
         <div class="row mb-3">
             <div class="col-md-6">
                 <label class="form-label">Parking</label>
-                <input type="number" name="parking" class="form-control">
+                <input type="number" name="parking" class="form-control"
+                min="0" max ="5" required>
             </div>
             <div class="col-md-6">
                 <label class="form-label">Rooms</label>
-                <input type="number" name="rooms" class="form-control">
+                <input type="number" name="rooms" class="form-control"
+                min="0" max ="10" required>
             </div>
         </div>
 
         <!-- Bathroom -->
         <div class="mb-3">
             <label class="form-label">Bathrooms</label>
-            <input type="number" name="bathroom" class="form-control">
+            <input type="number" name="bathroom" class="form-control"
+            min="1" max ="8" required>
         </div>
 
         <!-- Property Type -->
@@ -161,6 +166,59 @@ document.getElementById("predictForm").addEventListener("submit", function () {
     btn.innerHTML = `<span class="spinner-border spinner-border-sm"></span> Predicting...`;
 });
 </script>
+
+<script>
+const sizeInput = document.querySelector('input[name="size"]');
+const roomInput = document.querySelector('input[name="rooms"]');
+const bathInput = document.querySelector('input[name="bathroom"]');
+const typeSelect = document.getElementById("propertyTypeSelect");
+
+typeSelect.addEventListener("change", () => {
+    const type = typeSelect.value.toLowerCase();
+
+    // RESET DEFAULTS
+    sizeInput.min = 200;
+    sizeInput.max = 7000;
+    roomInput.min = 0;
+    roomInput.max = 10;
+    bathInput.min = 1;
+    bathInput.max = 8;
+
+    // STUDIO / SOHO
+    if (type.includes("studio") || type.includes("soho")) {
+        roomInput.max = 1;
+        bathInput.min = 1;
+        bathInput.max = 1;
+        sizeInput.min = 250;
+        sizeInput.max = 850;
+    }
+
+    // APARTMENT / CONDO
+    else if (type.includes("apartment") || type.includes("condo")) {
+        roomInput.min = 1;
+        roomInput.max = 5;
+        bathInput.min = 1;
+        bathInput.max = 4;
+        sizeInput.min = 500;
+        sizeInput.max = 5000;
+    }
+
+    // LAND PROPERTY
+    else if (
+        type.includes("terrace") ||
+        type.includes("semi") ||
+        type.includes("bungalow")
+    ) {
+        roomInput.min = 2;
+        roomInput.max = 10;
+        bathInput.min = 2;
+        bathInput.max = 8;
+        sizeInput.min = 900;
+        sizeInput.max = 7000;
+    }
+});
+</script>
+
 
 </body>
 </html>

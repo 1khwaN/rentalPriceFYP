@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+    
+        <script>
+            L_NO_TOUCH = false;
+            L_DISABLE_3D = false;
+        </script>
+    
+    <style>html, body {width: 100%;height: 100%;margin: 0;padding: 0;}</style>
+    <style>#map {position:absolute;top:0;bottom:0;right:0;left:0;}</style>
+    <script src="https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.js"></script>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.2.0/css/all.min.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/python-visualization/folium/folium/templates/leaflet.awesome.rotate.min.css"/>
+    
+            <meta name="viewport" content="width=device-width,
+                initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+            <style>
+                #map_38eebae6a9ac656ec360275033858a42 {
+                    position: relative;
+                    width: 100.0%;
+                    height: 100.0%;
+                    left: 0.0%;
+                    top: 0.0%;
+                }
+                .leaflet-container { font-size: 1rem; }
+            </style>
+        
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet.markercluster/1.1.0/leaflet.markercluster.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet.markercluster/1.1.0/MarkerCluster.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet.markercluster/1.1.0/MarkerCluster.Default.css"/>
+</head>
+<body>
+    
+    
+            <div class="folium-map" id="map_38eebae6a9ac656ec360275033858a42" ></div>
+        
+</body>
+<script>
+    
+    
+            var map_38eebae6a9ac656ec360275033858a42 = L.map(
+                "map_38eebae6a9ac656ec360275033858a42",
+                {
+                    center: [3.0614037, 101.6870765],
+                    crs: L.CRS.EPSG3857,
+                    zoom: 13,
+                    zoomControl: true,
+                    preferCanvas: false,
+                }
+            );
+
+            
+
+        
+    
+            var tile_layer_1f9b6de2a04b1a8630280aa3d5913080 = L.tileLayer(
+                "https://tile.openstreetmap.org/{z}/{x}/{y}.png",
+                {"attribution": "\u0026copy; \u003ca href=\"https://www.openstreetmap.org/copyright\"\u003eOpenStreetMap\u003c/a\u003e contributors", "detectRetina": false, "maxNativeZoom": 19, "maxZoom": 19, "minZoom": 0, "noWrap": false, "opacity": 1, "subdomains": "abc", "tms": false}
+            );
+        
+    
+            tile_layer_1f9b6de2a04b1a8630280aa3d5913080.addTo(map_38eebae6a9ac656ec360275033858a42);
+        
+    
+            var marker_cluster_9ec0e5bc5099a0e3093ff897b2127aa8 = L.markerClusterGroup(
+                {}
+            );
+        
+    
+            var marker_2e964e21e0ec2ba3e798bc659e524de3 = L.marker(
+                [3.0614037, 101.6870765],
+                {}
+            ).addTo(marker_cluster_9ec0e5bc5099a0e3093ff897b2127aa8);
+        
+    
+            var icon_ad382c12f88073936d46e00642fbdebd = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "train", "iconColor": "white", "markerColor": "blue", "prefix": "fa"}
+            );
+            marker_2e964e21e0ec2ba3e798bc659e524de3.setIcon(icon_ad382c12f88073936d46e00642fbdebd);
+        
+    
+        var popup_e52417472b951db752b43903f6582e36 = L.popup({"maxWidth": 350});
+
+        
+            
+                var html_a5c3ba0c1ef15831c7902af4f65cb2c1 = $(`<div id="html_a5c3ba0c1ef15831c7902af4f65cb2c1" style="width: 100.0%; height: 100.0%;"><div style='width: 280px; font-family: Arial;'>     <h5 style='margin-bottom:6px; color:#2c3e50;'>Taman Sri Endah</h5>      <p style='margin:0;'><b>Monthly Rent:</b> RM 900.00</p>     <p style='margin:0;'><b>Size:</b> 650 sqft</p>      <hr style='margin:6px 0;'>      <p style='margin:0;'><b>Rooms:</b> 2</p>     <p style='margin:0;'><b>Bathrooms:</b> 1.0</p>     <p style='margin:0;'><b>Parking:</b> 1.0</p>      <p style='margin:0;'><b>Property Type:</b> flat</p>     <p style='margin:0;'><b>Furnished:</b> Partially Furnished</p>      <hr style='margin:6px 0;'>      <p style='margin:0; font-size:0.85rem;'>         <b>Facilities:</b><br>Minimart, Playground, Parking     </p> </div></div>`)[0];
+                popup_e52417472b951db752b43903f6582e36.setContent(html_a5c3ba0c1ef15831c7902af4f65cb2c1);
+            
+        
+
+        marker_2e964e21e0ec2ba3e798bc659e524de3.bindPopup(popup_e52417472b951db752b43903f6582e36)
+        ;
+
+        
+    
+    
+            var marker_b365430940470399d8f9ec98ccf43bed = L.marker(
+                [3.0614037, 101.6870765],
+                {}
+            ).addTo(marker_cluster_9ec0e5bc5099a0e3093ff897b2127aa8);
+        
+    
+            var icon_e0aaa8c324556b63e1e682f6dcdf1aba = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "home", "iconColor": "white", "markerColor": "green", "prefix": "fa"}
+            );
+            marker_b365430940470399d8f9ec98ccf43bed.setIcon(icon_e0aaa8c324556b63e1e682f6dcdf1aba);
+        
+    
+        var popup_078bd426f1e6791b0923cd94a5126cbc = L.popup({"maxWidth": 350});
+
+        
+            
+                var html_132fb01a8fdca42e01a602cb81592142 = $(`<div id="html_132fb01a8fdca42e01a602cb81592142" style="width: 100.0%; height: 100.0%;"><div style='width: 280px; font-family: Arial;'>     <h5 style='margin-bottom:6px; color:#2c3e50;'>Sri Endah Apartment</h5>      <p style='margin:0;'><b>Monthly Rent:</b> RM 850.00</p>     <p style='margin:0;'><b>Size:</b> 650 sqft</p>      <hr style='margin:6px 0;'>      <p style='margin:0;'><b>Rooms:</b> 3</p>     <p style='margin:0;'><b>Bathrooms:</b> 1.0</p>     <p style='margin:0;'><b>Parking:</b> 1.0</p>      <p style='margin:0;'><b>Property Type:</b> apartment</p>     <p style='margin:0;'><b>Furnished:</b> Partially Furnished</p>      <hr style='margin:6px 0;'>      <p style='margin:0; font-size:0.85rem;'>         <b>Facilities:</b><br>Minimart, Parking, Playground     </p> </div></div>`)[0];
+                popup_078bd426f1e6791b0923cd94a5126cbc.setContent(html_132fb01a8fdca42e01a602cb81592142);
+            
+        
+
+        marker_b365430940470399d8f9ec98ccf43bed.bindPopup(popup_078bd426f1e6791b0923cd94a5126cbc)
+        ;
+
+        
+    
+    
+            var marker_afb6943a41b522f01cd24fa0b4e67436 = L.marker(
+                [3.0614037, 101.6870765],
+                {}
+            ).addTo(marker_cluster_9ec0e5bc5099a0e3093ff897b2127aa8);
+        
+    
+            var icon_cb4e8e303789effdce334cba227c6539 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "home", "iconColor": "white", "markerColor": "green", "prefix": "fa"}
+            );
+            marker_afb6943a41b522f01cd24fa0b4e67436.setIcon(icon_cb4e8e303789effdce334cba227c6539);
+        
+    
+        var popup_0cfbbd0139df749a7af39623afeccc08 = L.popup({"maxWidth": 350});
+
+        
+            
+                var html_b17801542bde63ddd5d82c74366e1a03 = $(`<div id="html_b17801542bde63ddd5d82c74366e1a03" style="width: 100.0%; height: 100.0%;"><div style='width: 280px; font-family: Arial;'>     <h5 style='margin-bottom:6px; color:#2c3e50;'>Taman Sri Endah</h5>      <p style='margin:0;'><b>Monthly Rent:</b> RM 850.00</p>     <p style='margin:0;'><b>Size:</b> 650 sqft</p>      <hr style='margin:6px 0;'>      <p style='margin:0;'><b>Rooms:</b> 2</p>     <p style='margin:0;'><b>Bathrooms:</b> 1.0</p>     <p style='margin:0;'><b>Parking:</b> 1.0</p>      <p style='margin:0;'><b>Property Type:</b> flat</p>     <p style='margin:0;'><b>Furnished:</b> Not Furnished</p>      <hr style='margin:6px 0;'>      <p style='margin:0; font-size:0.85rem;'>         <b>Facilities:</b><br>Playground     </p> </div></div>`)[0];
+                popup_0cfbbd0139df749a7af39623afeccc08.setContent(html_b17801542bde63ddd5d82c74366e1a03);
+            
+        
+
+        marker_afb6943a41b522f01cd24fa0b4e67436.bindPopup(popup_0cfbbd0139df749a7af39623afeccc08)
+        ;
+
+        
+    
+    
+            var marker_2da8f14ec6a4fb856e7ec20683c3f737 = L.marker(
+                [3.0614037, 101.6870765],
+                {}
+            ).addTo(marker_cluster_9ec0e5bc5099a0e3093ff897b2127aa8);
+        
+    
+            var icon_68fc7977a075818c554c229cc45b6e17 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "home", "iconColor": "white", "markerColor": "green", "prefix": "fa"}
+            );
+            marker_2da8f14ec6a4fb856e7ec20683c3f737.setIcon(icon_68fc7977a075818c554c229cc45b6e17);
+        
+    
+        var popup_f447a891842beb6710d714ca9d48d0d9 = L.popup({"maxWidth": 350});
+
+        
+            
+                var html_febada5154dc7e97a185fca62fb42157 = $(`<div id="html_febada5154dc7e97a185fca62fb42157" style="width: 100.0%; height: 100.0%;"><div style='width: 280px; font-family: Arial;'>     <h5 style='margin-bottom:6px; color:#2c3e50;'>Sri Endah Apartment</h5>      <p style='margin:0;'><b>Monthly Rent:</b> RM 800.00</p>     <p style='margin:0;'><b>Size:</b> 650 sqft</p>      <hr style='margin:6px 0;'>      <p style='margin:0;'><b>Rooms:</b> 2</p>     <p style='margin:0;'><b>Bathrooms:</b> 1.0</p>     <p style='margin:0;'><b>Parking:</b> 1.0</p>      <p style='margin:0;'><b>Property Type:</b> apartment</p>     <p style='margin:0;'><b>Furnished:</b> Partially Furnished</p>      <hr style='margin:6px 0;'>      <p style='margin:0; font-size:0.85rem;'>         <b>Facilities:</b><br>Playground, Parking     </p> </div></div>`)[0];
+                popup_f447a891842beb6710d714ca9d48d0d9.setContent(html_febada5154dc7e97a185fca62fb42157);
+            
+        
+
+        marker_2da8f14ec6a4fb856e7ec20683c3f737.bindPopup(popup_f447a891842beb6710d714ca9d48d0d9)
+        ;
+
+        
+    
+    
+            var marker_fe2dfa71a4dbb1593335faf34bec511b = L.marker(
+                [3.0614037, 101.6870765],
+                {}
+            ).addTo(marker_cluster_9ec0e5bc5099a0e3093ff897b2127aa8);
+        
+    
+            var icon_5f06420ba26149a6a2a0b5ea4f1f3630 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "train", "iconColor": "white", "markerColor": "blue", "prefix": "fa"}
+            );
+            marker_fe2dfa71a4dbb1593335faf34bec511b.setIcon(icon_5f06420ba26149a6a2a0b5ea4f1f3630);
+        
+    
+        var popup_70ae6f1269c8fe537184ae3461a015be = L.popup({"maxWidth": 350});
+
+        
+            
+                var html_668373a68d2fc0232d76fec6563afd83 = $(`<div id="html_668373a68d2fc0232d76fec6563afd83" style="width: 100.0%; height: 100.0%;"><div style='width: 280px; font-family: Arial;'>     <h5 style='margin-bottom:6px; color:#2c3e50;'>Aster Green Residence</h5>      <p style='margin:0;'><b>Monthly Rent:</b> RM 1,198.00</p>     <p style='margin:0;'><b>Size:</b> 667 sqft</p>      <hr style='margin:6px 0;'>      <p style='margin:0;'><b>Rooms:</b> 1</p>     <p style='margin:0;'><b>Bathrooms:</b> 1.0</p>     <p style='margin:0;'><b>Parking:</b> 2.0</p>      <p style='margin:0;'><b>Property Type:</b> service residence</p>     <p style='margin:0;'><b>Furnished:</b> Partially Furnished</p>      <hr style='margin:6px 0;'>      <p style='margin:0; font-size:0.85rem;'>         <b>Facilities:</b><br>Parking, Security, Barbeque area, Multipurpose hall, Playground, Swimming Pool, Lift, Sauna, Gymnasium, Club house, Jogging Track, Tennis Court, Minimart, Squash Court     </p> </div></div>`)[0];
+                popup_70ae6f1269c8fe537184ae3461a015be.setContent(html_668373a68d2fc0232d76fec6563afd83);
+            
+        
+
+        marker_fe2dfa71a4dbb1593335faf34bec511b.bindPopup(popup_70ae6f1269c8fe537184ae3461a015be)
+        ;
+
+        
+    
+    
+            var marker_561d5ba24d6e6272bf30775580643998 = L.marker(
+                [3.0614037, 101.6870765],
+                {}
+            ).addTo(marker_cluster_9ec0e5bc5099a0e3093ff897b2127aa8);
+        
+    
+            var icon_842472a6e8c496ed3cb9cbcf613df84f = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "train", "iconColor": "white", "markerColor": "blue", "prefix": "fa"}
+            );
+            marker_561d5ba24d6e6272bf30775580643998.setIcon(icon_842472a6e8c496ed3cb9cbcf613df84f);
+        
+    
+        var popup_cce360bf371afc02cf53b1253b233bc8 = L.popup({"maxWidth": 350});
+
+        
+            
+                var html_0fd36f73102a6a4c74e47f60387a239e = $(`<div id="html_0fd36f73102a6a4c74e47f60387a239e" style="width: 100.0%; height: 100.0%;"><div style='width: 280px; font-family: Arial;'>     <h5 style='margin-bottom:6px; color:#2c3e50;'>Aster Green Residence</h5>      <p style='margin:0;'><b>Monthly Rent:</b> RM 1,400.00</p>     <p style='margin:0;'><b>Size:</b> 657 sqft</p>      <hr style='margin:6px 0;'>      <p style='margin:0;'><b>Rooms:</b> 1</p>     <p style='margin:0;'><b>Bathrooms:</b> 1.0</p>     <p style='margin:0;'><b>Parking:</b> 1.0</p>      <p style='margin:0;'><b>Property Type:</b> service residence</p>     <p style='margin:0;'><b>Furnished:</b> Partially Furnished</p>      <hr style='margin:6px 0;'>      <p style='margin:0; font-size:0.85rem;'>         <b>Facilities:</b><br>Barbeque area, Security, Parking, Playground, Multipurpose hall, Swimming Pool     </p> </div></div>`)[0];
+                popup_cce360bf371afc02cf53b1253b233bc8.setContent(html_0fd36f73102a6a4c74e47f60387a239e);
+            
+        
+
+        marker_561d5ba24d6e6272bf30775580643998.bindPopup(popup_cce360bf371afc02cf53b1253b233bc8)
+        ;
+
+        
+    
+    
+            var marker_fee141eddfb4f0578e9d23f24243d3e8 = L.marker(
+                [3.0614037, 101.6870765],
+                {}
+            ).addTo(marker_cluster_9ec0e5bc5099a0e3093ff897b2127aa8);
+        
+    
+            var icon_ecbfe1324be325d7830f34d9c0a0bb2a = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "train", "iconColor": "white", "markerColor": "blue", "prefix": "fa"}
+            );
+            marker_fee141eddfb4f0578e9d23f24243d3e8.setIcon(icon_ecbfe1324be325d7830f34d9c0a0bb2a);
+        
+    
+        var popup_e848be814c102118a918638c9f61b75e = L.popup({"maxWidth": 350});
+
+        
+            
+                var html_63e59713a650ced11b427e8283b0f24f = $(`<div id="html_63e59713a650ced11b427e8283b0f24f" style="width: 100.0%; height: 100.0%;"><div style='width: 280px; font-family: Arial;'>     <h5 style='margin-bottom:6px; color:#2c3e50;'>Endah Ria</h5>      <p style='margin:0;'><b>Monthly Rent:</b> RM 1,500.00</p>     <p style='margin:0;'><b>Size:</b> 710 sqft</p>      <hr style='margin:6px 0;'>      <p style='margin:0;'><b>Rooms:</b> 3</p>     <p style='margin:0;'><b>Bathrooms:</b> 2.0</p>     <p style='margin:0;'><b>Parking:</b> 1.0</p>      <p style='margin:0;'><b>Property Type:</b> condominium</p>     <p style='margin:0;'><b>Furnished:</b> Partially Furnished</p>      <hr style='margin:6px 0;'>      <p style='margin:0; font-size:0.85rem;'>         <b>Facilities:</b><br>Parking, Security, Lift, Gymnasium, Jogging Track, Tennis Court, Squash Court, Minimart     </p> </div></div>`)[0];
+                popup_e848be814c102118a918638c9f61b75e.setContent(html_63e59713a650ced11b427e8283b0f24f);
+            
+        
+
+        marker_fee141eddfb4f0578e9d23f24243d3e8.bindPopup(popup_e848be814c102118a918638c9f61b75e)
+        ;
+
+        
+    
+    
+            var marker_42e0ead8c0b5b4acb4c72571a14d4aa8 = L.marker(
+                [3.0614037, 101.6870765],
+                {}
+            ).addTo(marker_cluster_9ec0e5bc5099a0e3093ff897b2127aa8);
+        
+    
+            var icon_83e29506353faf38a18500fe7b5335ac = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "home", "iconColor": "white", "markerColor": "green", "prefix": "fa"}
+            );
+            marker_42e0ead8c0b5b4acb4c72571a14d4aa8.setIcon(icon_83e29506353faf38a18500fe7b5335ac);
+        
+    
+        var popup_cfec2514e029d06d4471687f2bfaccee = L.popup({"maxWidth": 350});
+
+        
+            
+                var html_b0685b576a77af8065db81f4cac71e26 = $(`<div id="html_b0685b576a77af8065db81f4cac71e26" style="width: 100.0%; height: 100.0%;"><div style='width: 280px; font-family: Arial;'>     <h5 style='margin-bottom:6px; color:#2c3e50;'>Pinnacle PJ</h5>      <p style='margin:0;'><b>Monthly Rent:</b> RM 1,850.00</p>     <p style='margin:0;'><b>Size:</b> 709 sqft</p>      <hr style='margin:6px 0;'>      <p style='margin:0;'><b>Rooms:</b> 2</p>     <p style='margin:0;'><b>Bathrooms:</b> 2.0</p>     <p style='margin:0;'><b>Parking:</b> 1.0</p>      <p style='margin:0;'><b>Property Type:</b> service residence</p>     <p style='margin:0;'><b>Furnished:</b> Partially Furnished</p>      <hr style='margin:6px 0;'>      <p style='margin:0; font-size:0.85rem;'>         <b>Facilities:</b><br>Gymnasium, Security, Playground, Swimming Pool, Jogging Track, Barbeque area, Multipurpose hall, Club house     </p> </div></div>`)[0];
+                popup_cfec2514e029d06d4471687f2bfaccee.setContent(html_b0685b576a77af8065db81f4cac71e26);
+            
+        
+
+        marker_42e0ead8c0b5b4acb4c72571a14d4aa8.bindPopup(popup_cfec2514e029d06d4471687f2bfaccee)
+        ;
+
+        
+    
+    
+            marker_cluster_9ec0e5bc5099a0e3093ff897b2127aa8.addTo(map_38eebae6a9ac656ec360275033858a42);
+        
+    
+            var marker_4f5d0073c5a488fb91eb226fc7787120 = L.marker(
+                [3.0777183, 101.6995333],
+                {}
+            ).addTo(map_38eebae6a9ac656ec360275033858a42);
+        
+    
+            var icon_fedf11e2f2b7a2075b4fbae6b4411b8e = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "train", "iconColor": "white", "markerColor": "red", "prefix": "fa"}
+            );
+            marker_4f5d0073c5a488fb91eb226fc7787120.setIcon(icon_fedf11e2f2b7a2075b4fbae6b4411b8e);
+        
+    
+            marker_4f5d0073c5a488fb91eb226fc7787120.bindTooltip(
+                `<div>
+                     MRT
+                 </div>`,
+                {"sticky": true}
+            );
+        
+</script>
+</html>

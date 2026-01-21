@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+    
+        <script>
+            L_NO_TOUCH = false;
+            L_DISABLE_3D = false;
+        </script>
+    
+    <style>html, body {width: 100%;height: 100%;margin: 0;padding: 0;}</style>
+    <style>#map {position:absolute;top:0;bottom:0;right:0;left:0;}</style>
+    <script src="https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.js"></script>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.2.0/css/all.min.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/python-visualization/folium/folium/templates/leaflet.awesome.rotate.min.css"/>
+    
+            <meta name="viewport" content="width=device-width,
+                initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+            <style>
+                #map_f35bdba3ec402e6b43e6be89fef4e5ae {
+                    position: relative;
+                    width: 100.0%;
+                    height: 100.0%;
+                    left: 0.0%;
+                    top: 0.0%;
+                }
+                .leaflet-container { font-size: 1rem; }
+            </style>
+        
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet.markercluster/1.1.0/leaflet.markercluster.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet.markercluster/1.1.0/MarkerCluster.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet.markercluster/1.1.0/MarkerCluster.Default.css"/>
+</head>
+<body>
+    
+    
+            <div class="folium-map" id="map_f35bdba3ec402e6b43e6be89fef4e5ae" ></div>
+        
+</body>
+<script>
+    
+    
+            var map_f35bdba3ec402e6b43e6be89fef4e5ae = L.map(
+                "map_f35bdba3ec402e6b43e6be89fef4e5ae",
+                {
+                    center: [3.3621022, 101.3455503],
+                    crs: L.CRS.EPSG3857,
+                    zoom: 13,
+                    zoomControl: true,
+                    preferCanvas: false,
+                }
+            );
+
+            
+
+        
+    
+            var tile_layer_7ae37c2de172806c09f5858add2a596e = L.tileLayer(
+                "https://tile.openstreetmap.org/{z}/{x}/{y}.png",
+                {"attribution": "\u0026copy; \u003ca href=\"https://www.openstreetmap.org/copyright\"\u003eOpenStreetMap\u003c/a\u003e contributors", "detectRetina": false, "maxNativeZoom": 19, "maxZoom": 19, "minZoom": 0, "noWrap": false, "opacity": 1, "subdomains": "abc", "tms": false}
+            );
+        
+    
+            tile_layer_7ae37c2de172806c09f5858add2a596e.addTo(map_f35bdba3ec402e6b43e6be89fef4e5ae);
+        
+    
+            var marker_cluster_92063ef763bc0ec5db8548d1ed9eaac3 = L.markerClusterGroup(
+                {}
+            );
+        
+    
+            var marker_ae072be8109dc99601777023a615ace4 = L.marker(
+                [3.3621022, 101.3455503],
+                {}
+            ).addTo(marker_cluster_92063ef763bc0ec5db8548d1ed9eaac3);
+        
+    
+            var icon_8ab60b5bac32039182b181eed47517c9 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "home", "iconColor": "white", "markerColor": "green", "prefix": "fa"}
+            );
+            marker_ae072be8109dc99601777023a615ace4.setIcon(icon_8ab60b5bac32039182b181eed47517c9);
+        
+    
+        var popup_65df6a1dd6ba08729481afc5dba0f9e7 = L.popup({"maxWidth": 350});
+
+        
+            
+                var html_36b7316703dfd348ab8b86dce4d2e52c = $(`<div id="html_36b7316703dfd348ab8b86dce4d2e52c" style="width: 100.0%; height: 100.0%;"><div style='width: 280px; font-family: Arial;'>     <h5 style='margin-bottom:6px; color:#2c3e50;'>Villa Malawati</h5>      <p style='margin:0;'><b>Monthly Rent:</b> RM 900.00</p>     <p style='margin:0;'><b>Size:</b> 904 sqft</p>      <hr style='margin:6px 0;'>      <p style='margin:0;'><b>Rooms:</b> 3</p>     <p style='margin:0;'><b>Bathrooms:</b> 2.0</p>     <p style='margin:0;'><b>Parking:</b> 1.0</p>      <p style='margin:0;'><b>Property Type:</b> apartment</p>     <p style='margin:0;'><b>Furnished:</b> Partially Furnished</p>      <hr style='margin:6px 0;'>      <p style='margin:0; font-size:0.85rem;'>         <b>Facilities:</b><br>Parking, Security     </p> </div></div>`)[0];
+                popup_65df6a1dd6ba08729481afc5dba0f9e7.setContent(html_36b7316703dfd348ab8b86dce4d2e52c);
+            
+        
+
+        marker_ae072be8109dc99601777023a615ace4.bindPopup(popup_65df6a1dd6ba08729481afc5dba0f9e7)
+        ;
+
+        
+    
+    
+            var marker_c37220f357e77f8fafa6041bcdc079b1 = L.marker(
+                [3.3621022, 101.3455503],
+                {}
+            ).addTo(marker_cluster_92063ef763bc0ec5db8548d1ed9eaac3);
+        
+    
+            var icon_8cf0d7f64929bd37db42777c7d6ec9d0 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "home", "iconColor": "white", "markerColor": "green", "prefix": "fa"}
+            );
+            marker_c37220f357e77f8fafa6041bcdc079b1.setIcon(icon_8cf0d7f64929bd37db42777c7d6ec9d0);
+        
+    
+        var popup_f980dcf4933a34d5d328d141ea25c523 = L.popup({"maxWidth": 350});
+
+        
+            
+                var html_665175f4c04408d6af1cc183ae7039f2 = $(`<div id="html_665175f4c04408d6af1cc183ae7039f2" style="width: 100.0%; height: 100.0%;"><div style='width: 280px; font-family: Arial;'>     <h5 style='margin-bottom:6px; color:#2c3e50;'>Villa Malawati</h5>      <p style='margin:0;'><b>Monthly Rent:</b> RM 800.00</p>     <p style='margin:0;'><b>Size:</b> 938 sqft</p>      <hr style='margin:6px 0;'>      <p style='margin:0;'><b>Rooms:</b> 3</p>     <p style='margin:0;'><b>Bathrooms:</b> 2.0</p>     <p style='margin:0;'><b>Parking:</b> 1.0</p>      <p style='margin:0;'><b>Property Type:</b> apartment</p>     <p style='margin:0;'><b>Furnished:</b> Fully Furnished</p>      <hr style='margin:6px 0;'>      <p style='margin:0; font-size:0.85rem;'>         <b>Facilities:</b><br>Parking, Playground     </p> </div></div>`)[0];
+                popup_f980dcf4933a34d5d328d141ea25c523.setContent(html_665175f4c04408d6af1cc183ae7039f2);
+            
+        
+
+        marker_c37220f357e77f8fafa6041bcdc079b1.bindPopup(popup_f980dcf4933a34d5d328d141ea25c523)
+        ;
+
+        
+    
+    
+            marker_cluster_92063ef763bc0ec5db8548d1ed9eaac3.addTo(map_f35bdba3ec402e6b43e6be89fef4e5ae);
+        
+    
+            var marker_9ac4b2b4e55ec7704030ea78dd61db9f = L.marker(
+                [3.2312176, 101.7244253],
+                {}
+            ).addTo(map_f35bdba3ec402e6b43e6be89fef4e5ae);
+        
+    
+            var icon_848ec3a31cb33f1c8e8415edd764e0c3 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "train", "iconColor": "white", "markerColor": "red", "prefix": "fa"}
+            );
+            marker_9ac4b2b4e55ec7704030ea78dd61db9f.setIcon(icon_848ec3a31cb33f1c8e8415edd764e0c3);
+        
+    
+            marker_9ac4b2b4e55ec7704030ea78dd61db9f.bindTooltip(
+                `<div>
+                     LRT
+                 </div>`,
+                {"sticky": true}
+            );
+        
+    
+            var marker_10f891eb1dd0d04cd33cc4e77898f7a7 = L.marker(
+                [3.2062441, 101.5799923],
+                {}
+            ).addTo(map_f35bdba3ec402e6b43e6be89fef4e5ae);
+        
+    
+            var icon_eabe55939e126c48101cee68b42b4cec = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "train", "iconColor": "white", "markerColor": "red", "prefix": "fa"}
+            );
+            marker_10f891eb1dd0d04cd33cc4e77898f7a7.setIcon(icon_eabe55939e126c48101cee68b42b4cec);
+        
+    
+            marker_10f891eb1dd0d04cd33cc4e77898f7a7.bindTooltip(
+                `<div>
+                     KTM
+                 </div>`,
+                {"sticky": true}
+            );
+        
+</script>
+</html>

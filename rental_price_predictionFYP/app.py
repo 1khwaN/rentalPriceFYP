@@ -74,7 +74,15 @@ city_cache = {}
 from geopy.extra.rate_limiter import RateLimiter
 from geopy.distance import geodesic
 
-def get_prediction_confidence(predicted_rent):
+def get_prediction_confidence(predicted_rent, rf_log, hybrid_log, region, city):
+    """
+    Dynamic confidence estimation based on:
+    - historical MAE
+    - model disagreement
+    - price deviation from city average
+    """
+
+    # --- Safety check ---
     if predicted_rent <= 0:
         return {
             "confidence": "N/A",
@@ -83,13 +91,32 @@ def get_prediction_confidence(predicted_rent):
             "percent": 0
         }
 
-    error = ERROR_MEDIAN
+    # --- City statistics ---
+    df_city = df_raw[
+        (df_raw["region"].str.lower() == region.lower()) &
+        (df_raw["city"].str.lower() == city.lower())
+    ]
 
-    confidence_pct = max(
-        60,
-        min(95, 100 - (error / predicted_rent * 100))
-    )
+    city_median = df_city["monthly_rent"].median() if not df_city.empty else df_raw["monthly_rent"].median()
 
+    # --- Model disagreement (log-space → RM) ---
+    rf_rm = np.expm1(rf_log)
+    hybrid_rm = np.expm1(hybrid_log)
+    model_gap = abs(rf_rm - hybrid_rm)
+
+    # --- Error components ---
+    base_error = ERROR_MEDIAN
+    price_risk = abs(predicted_rent - city_median) / city_median
+    disagreement_penalty = model_gap / predicted_rent
+
+    # --- Final dynamic error ---
+    dynamic_error = base_error * (1 + price_risk + disagreement_penalty)
+
+    # --- Confidence percentage ---
+    confidence_pct = 100 - (dynamic_error / predicted_rent * 100)
+    confidence_pct = max(60, min(99, confidence_pct))
+
+    # --- Color ---
     if confidence_pct >= 85:
         color = "success"
     elif confidence_pct >= 70:
@@ -98,11 +125,19 @@ def get_prediction_confidence(predicted_rent):
         color = "danger"
 
     return {
-        "confidence": f"{confidence_pct:.1f}%",
-        "error_range": round(error, 2),
-        "color": color,
-        "percent": round(confidence_pct, 1)
-    }
+    "confidence": f"{confidence_pct:.1f}%",
+    "percent": round(confidence_pct, 1),
+    "error_range": round(dynamic_error, 2),
+    "color": color,
+    "explanation": (
+        f"Confidence is estimated using historical model error (MAE), "
+        f"agreement between Random Forest and XGBoost models, and how close "
+        f"the predicted rent is to typical rental prices in {city}. "
+        f"Higher agreement and typical prices result in higher confidence."
+    )
+}
+
+
 
 
 def get_city_coords(region, city):
@@ -282,14 +317,14 @@ def generate_map_and_recs(region, city, predicted_rent, size, property_type):
     filtered = props[
         (props["city"] == city_l) &
         (props["property_type"].str.contains(prop_type_l, na=False)) &
-        (props["size"].between(size * 0.8, size * 1.2))
+        (props["size"].between(size * 0.9, size * 1.1))
     ]
 
     # ---------------- STAGE 2: Relax property type ----------------
     if filtered.empty:
         filtered = props[
             (props["city"] == city_l) &
-            (props["size"].between(size * 0.7, size * 1.3))
+            (props["size"].between(size * 0.8, size * 1.2))
         ]
         message = (
             "ℹ️ No properties found for the selected property type. "
@@ -384,18 +419,48 @@ def analytics():
 
 @app.route("/predict", methods=["POST"])
 def predict():
+
+    # --- SAFETY INPUT VALIDATION ---
+    size = float(user_input.get("size", 0))
+    rooms = int(float(user_input.get("rooms", 0)))
+    bathroom = int(float(user_input.get("bathroom", 1)))
+    ptype = user_input.get("property_type", "").lower()
+
+    if size < 200 or size > 10000:
+        return "Invalid size input", 400
+
+    if "studio" in ptype or "soho" in ptype:
+        if rooms > 1 or bathroom != 1:
+            return "Invalid studio configuration", 400
+
+    if rooms < 0 or rooms > 10:
+        return "Invalid room count", 400
+
+    if bathroom < 1 or bathroom > 8:
+        return "Invalid bathroom count", 400
+
+
+
     user_input = request.form.to_dict()
     X_user = build_user_features(user_input)
 
-    # 🔥 STACKED HYBRID INFERENCE
-    rf_pred = rf.predict(X_user)[0]
+    # Base model
+    rf_log = rf.predict(X_user)[0]
+
+    # Stacked input
     X_user_h = X_user.copy()
-    X_user_h["rf_pred"] = rf_pred
+    X_user_h["rf_pred"] = rf_log
 
     hybrid_log = xgb.predict(X_user_h)[0]
     predicted_rent = float(np.expm1(hybrid_log))
 
-    confidence_info = get_prediction_confidence(predicted_rent)
+    confidence_info = get_prediction_confidence(
+        predicted_rent,
+        rf_log,
+        hybrid_log,
+        user_input["region"],
+        user_input["city"]
+    )
 
     return render_template(
         "result.html",

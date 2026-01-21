@@ -25,7 +25,7 @@
             <meta name="viewport" content="width=device-width,
                 initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
             <style>
-                #map_4c7d95c8fd907bafc84bc0bda52b0e8a {
+                #map_1c0acffb0a94e6778414aade702f569f {
                     position: relative;
                     width: 100.0%;
                     height: 100.0%;
@@ -42,32 +42,16 @@
 <body>
     
     
-    <div style="
-        position: fixed;
-        bottom: 30px;
-        left: 30px;
-        background: white;
-        padding: 10px 14px;
-        border-radius: 10px;
-        box-shadow: 0 4px 14px rgba(0,0,0,0.2);
-        font-size: 14px;
-    ">
-    <b>Legend</b><br>
-    <i class="fa fa-home" style="color:green"></i> Property<br>
-    <i class="fa fa-train" style="color:red"></i> MRT / LRT / KTM Station
-    </div>
-    
-    
-            <div class="folium-map" id="map_4c7d95c8fd907bafc84bc0bda52b0e8a" ></div>
+            <div class="folium-map" id="map_1c0acffb0a94e6778414aade702f569f" ></div>
         
 </body>
 <script>
     
     
-            var map_4c7d95c8fd907bafc84bc0bda52b0e8a = L.map(
-                "map_4c7d95c8fd907bafc84bc0bda52b0e8a",
+            var map_1c0acffb0a94e6778414aade702f569f = L.map(
+                "map_1c0acffb0a94e6778414aade702f569f",
                 {
-                    center: [3.0340649, 101.7055684],
+                    center: [3.0459371, 101.7066837],
                     crs: L.CRS.EPSG3857,
                     zoom: 13,
                     zoomControl: true,
@@ -79,125 +63,193 @@
 
         
     
-            var tile_layer_fde3d3a449b2e0fd0a8eea3b6b6be2d0 = L.tileLayer(
+            var tile_layer_c5e1754a77a8fdef3d069a3444b77ad5 = L.tileLayer(
                 "https://tile.openstreetmap.org/{z}/{x}/{y}.png",
                 {"attribution": "\u0026copy; \u003ca href=\"https://www.openstreetmap.org/copyright\"\u003eOpenStreetMap\u003c/a\u003e contributors", "detectRetina": false, "maxNativeZoom": 19, "maxZoom": 19, "minZoom": 0, "noWrap": false, "opacity": 1, "subdomains": "abc", "tms": false}
             );
         
     
-            tile_layer_fde3d3a449b2e0fd0a8eea3b6b6be2d0.addTo(map_4c7d95c8fd907bafc84bc0bda52b0e8a);
+            tile_layer_c5e1754a77a8fdef3d069a3444b77ad5.addTo(map_1c0acffb0a94e6778414aade702f569f);
         
     
-            var marker_cluster_579edbf247d7945facfdb804f7c6664d = L.markerClusterGroup(
+            var marker_cluster_496de8c585d024ff1b81bdcd72d0a4a9 = L.markerClusterGroup(
                 {}
             );
         
     
-            var marker_1818ede42135f0f4225280628e9f1314 = L.marker(
-                [3.0340649, 101.7055684],
+            var marker_b3cc08c7efcd602d6aebe2d541f1d8f0 = L.marker(
+                [3.0459371, 101.7066837],
                 {}
-            ).addTo(marker_cluster_579edbf247d7945facfdb804f7c6664d);
+            ).addTo(marker_cluster_496de8c585d024ff1b81bdcd72d0a4a9);
         
     
-            var icon_d44f3f50c55ff4e2f44b61a56ecb1705 = L.AwesomeMarkers.icon(
+            var icon_e5330f7b3646ece985f7c4f94fe93c77 = L.AwesomeMarkers.icon(
                 {"extraClasses": "fa-rotate-0", "icon": "train", "iconColor": "white", "markerColor": "blue", "prefix": "fa"}
             );
-            marker_1818ede42135f0f4225280628e9f1314.setIcon(icon_d44f3f50c55ff4e2f44b61a56ecb1705);
+            marker_b3cc08c7efcd602d6aebe2d541f1d8f0.setIcon(icon_e5330f7b3646ece985f7c4f94fe93c77);
         
     
-        var popup_4e49b27b66df5c7ad307e9150d1cb1a8 = L.popup({"maxWidth": 350});
+        var popup_c231ae7c5ce9ac6e349bd25552922954 = L.popup({"maxWidth": 350});
 
         
             
-                var html_a00f2494fd64292d307e24430d5e10fe = $(`<div id="html_a00f2494fd64292d307e24430d5e10fe" style="width: 100.0%; height: 100.0%;"><div style='width: 280px; font-family: Arial;'>     <h5 style='margin-bottom:6px; color:#2c3e50;'>Affiniti Apartment Bukit Serdang</h5>      <p style='margin:0;'><b>Monthly Rent:</b> RM 1,400.00</p>     <p style='margin:0;'><b>Size:</b> 850 sqft</p>      <hr style='margin:6px 0;'>      <p style='margin:0;'><b>Rooms:</b> 3</p>     <p style='margin:0;'><b>Bathrooms:</b> 2.0</p>     <p style='margin:0;'><b>Parking:</b> 2.0</p>      <p style='margin:0;'><b>Property Type:</b> apartment</p>     <p style='margin:0;'><b>Furnished:</b> Partially Furnished</p>      <hr style='margin:6px 0;'>      <p style='margin:0; font-size:0.85rem;'>         <b>Facilities:</b><br>nan     </p> </div></div>`)[0];
-                popup_4e49b27b66df5c7ad307e9150d1cb1a8.setContent(html_a00f2494fd64292d307e24430d5e10fe);
+                var html_d51193fac2dcb6c53050ee197f7ed108 = $(`<div id="html_d51193fac2dcb6c53050ee197f7ed108" style="width: 100.0%; height: 100.0%;"><div style='width: 280px; font-family: Arial;'>     <h5 style='margin-bottom:6px; color:#2c3e50;'>Unknown</h5>      <p style='margin:0;'><b>Monthly Rent:</b> RM 1,300.00</p>     <p style='margin:0;'><b>Size:</b> 1238 sqft</p>      <hr style='margin:6px 0;'>      <p style='margin:0;'><b>Rooms:</b> 4</p>     <p style='margin:0;'><b>Bathrooms:</b> 2.0</p>     <p style='margin:0;'><b>Parking:</b> 1.0</p>      <p style='margin:0;'><b>Property Type:</b> condominium</p>     <p style='margin:0;'><b>Furnished:</b> Fully Furnished</p>      <hr style='margin:6px 0;'>      <p style='margin:0; font-size:0.85rem;'>         <b>Facilities:</b><br>Parking, Security, Lift, Swimming Pool, Playground, Multipurpose hall, Minimart, Jogging Track     </p> </div></div>`)[0];
+                popup_c231ae7c5ce9ac6e349bd25552922954.setContent(html_d51193fac2dcb6c53050ee197f7ed108);
             
         
 
-        marker_1818ede42135f0f4225280628e9f1314.bindPopup(popup_4e49b27b66df5c7ad307e9150d1cb1a8)
+        marker_b3cc08c7efcd602d6aebe2d541f1d8f0.bindPopup(popup_c231ae7c5ce9ac6e349bd25552922954)
         ;
 
         
     
     
-            marker_cluster_579edbf247d7945facfdb804f7c6664d.addTo(map_4c7d95c8fd907bafc84bc0bda52b0e8a);
+            var marker_24e059e7d8e841096ec5a12e138b3553 = L.marker(
+                [3.0459371, 101.7066837],
+                {}
+            ).addTo(marker_cluster_496de8c585d024ff1b81bdcd72d0a4a9);
         
     
-            var marker_0a0a43c2e7bdcf17f2b4a24d3a9ddcdc = L.marker(
+            var icon_87dc9b525af05e109733b97de021983f = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "train", "iconColor": "white", "markerColor": "blue", "prefix": "fa"}
+            );
+            marker_24e059e7d8e841096ec5a12e138b3553.setIcon(icon_87dc9b525af05e109733b97de021983f);
+        
+    
+        var popup_238153d245ea676f58c44c10b03b72a1 = L.popup({"maxWidth": 350});
+
+        
+            
+                var html_0982896015f50f0c7875f6885307dd42 = $(`<div id="html_0982896015f50f0c7875f6885307dd42" style="width: 100.0%; height: 100.0%;"><div style='width: 280px; font-family: Arial;'>     <h5 style='margin-bottom:6px; color:#2c3e50;'>Affiniti Apartment Bukit Serdang</h5>      <p style='margin:0;'><b>Monthly Rent:</b> RM 1,400.00</p>     <p style='margin:0;'><b>Size:</b> 850 sqft</p>      <hr style='margin:6px 0;'>      <p style='margin:0;'><b>Rooms:</b> 3</p>     <p style='margin:0;'><b>Bathrooms:</b> 2.0</p>     <p style='margin:0;'><b>Parking:</b> 2.0</p>      <p style='margin:0;'><b>Property Type:</b> apartment</p>     <p style='margin:0;'><b>Furnished:</b> Partially Furnished</p>      <hr style='margin:6px 0;'>      <p style='margin:0; font-size:0.85rem;'>         <b>Facilities:</b><br>nan     </p> </div></div>`)[0];
+                popup_238153d245ea676f58c44c10b03b72a1.setContent(html_0982896015f50f0c7875f6885307dd42);
+            
+        
+
+        marker_24e059e7d8e841096ec5a12e138b3553.bindPopup(popup_238153d245ea676f58c44c10b03b72a1)
+        ;
+
+        
+    
+    
+            var marker_d5794cc6c6f0100e3fa7807be9d0ed68 = L.marker(
+                [3.0459371, 101.7066837],
+                {}
+            ).addTo(marker_cluster_496de8c585d024ff1b81bdcd72d0a4a9);
+        
+    
+            var icon_433f6cd0e7e6d70e5fe5b6a3ba7dbd53 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "home", "iconColor": "white", "markerColor": "green", "prefix": "fa"}
+            );
+            marker_d5794cc6c6f0100e3fa7807be9d0ed68.setIcon(icon_433f6cd0e7e6d70e5fe5b6a3ba7dbd53);
+        
+    
+        var popup_c4750cee40c1242b07c9e073a937bcd0 = L.popup({"maxWidth": 350});
+
+        
+            
+                var html_00e1f181343125e1421c8bff83c5cea6 = $(`<div id="html_00e1f181343125e1421c8bff83c5cea6" style="width: 100.0%; height: 100.0%;"><div style='width: 280px; font-family: Arial;'>     <h5 style='margin-bottom:6px; color:#2c3e50;'>Villa Pavilion Condo</h5>      <p style='margin:0;'><b>Monthly Rent:</b> RM 1,100.00</p>     <p style='margin:0;'><b>Size:</b> 937 sqft</p>      <hr style='margin:6px 0;'>      <p style='margin:0;'><b>Rooms:</b> 3</p>     <p style='margin:0;'><b>Bathrooms:</b> 2.0</p>     <p style='margin:0;'><b>Parking:</b> 1.0</p>      <p style='margin:0;'><b>Property Type:</b> condominium</p>     <p style='margin:0;'><b>Furnished:</b> Not Furnished</p>      <hr style='margin:6px 0;'>      <p style='margin:0; font-size:0.85rem;'>         <b>Facilities:</b><br>Parking, Security, Swimming Pool, Lift, Playground, Multipurpose hall, Minimart, Gymnasium     </p> </div></div>`)[0];
+                popup_c4750cee40c1242b07c9e073a937bcd0.setContent(html_00e1f181343125e1421c8bff83c5cea6);
+            
+        
+
+        marker_d5794cc6c6f0100e3fa7807be9d0ed68.bindPopup(popup_c4750cee40c1242b07c9e073a937bcd0)
+        ;
+
+        
+    
+    
+            var marker_af0af3e40b499ad8912e5f336155b008 = L.marker(
+                [3.0459371, 101.7066837],
+                {}
+            ).addTo(marker_cluster_496de8c585d024ff1b81bdcd72d0a4a9);
+        
+    
+            var icon_5e050824b59d792c895505cb5e2df8b5 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "train", "iconColor": "white", "markerColor": "blue", "prefix": "fa"}
+            );
+            marker_af0af3e40b499ad8912e5f336155b008.setIcon(icon_5e050824b59d792c895505cb5e2df8b5);
+        
+    
+        var popup_460650044ca8de964ceb755626131625 = L.popup({"maxWidth": 350});
+
+        
+            
+                var html_f2e34ba0a86e0fb3d2905cc410ff40dc = $(`<div id="html_f2e34ba0a86e0fb3d2905cc410ff40dc" style="width: 100.0%; height: 100.0%;"><div style='width: 280px; font-family: Arial;'>     <h5 style='margin-bottom:6px; color:#2c3e50;'>Zamrud  Residence</h5>      <p style='margin:0;'><b>Monthly Rent:</b> RM 899.00</p>     <p style='margin:0;'><b>Size:</b> 1000 sqft</p>      <hr style='margin:6px 0;'>      <p style='margin:0;'><b>Rooms:</b> 3</p>     <p style='margin:0;'><b>Bathrooms:</b> 2.0</p>     <p style='margin:0;'><b>Parking:</b> 2.0</p>      <p style='margin:0;'><b>Property Type:</b> condominium</p>     <p style='margin:0;'><b>Furnished:</b> Not Furnished</p>      <hr style='margin:6px 0;'>      <p style='margin:0; font-size:0.85rem;'>         <b>Facilities:</b><br>Parking, Security, Lift, Swimming Pool, Playground, Gymnasium, Barbeque area, Multipurpose hall, Minimart     </p> </div></div>`)[0];
+                popup_460650044ca8de964ceb755626131625.setContent(html_f2e34ba0a86e0fb3d2905cc410ff40dc);
+            
+        
+
+        marker_af0af3e40b499ad8912e5f336155b008.bindPopup(popup_460650044ca8de964ceb755626131625)
+        ;
+
+        
+    
+    
+            var marker_ea09d76eb0d876d58e24817e80c1135c = L.marker(
+                [3.0459371, 101.7066837],
+                {}
+            ).addTo(marker_cluster_496de8c585d024ff1b81bdcd72d0a4a9);
+        
+    
+            var icon_05ec05acba870b81874b258dc6dd9bd3 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "train", "iconColor": "white", "markerColor": "blue", "prefix": "fa"}
+            );
+            marker_ea09d76eb0d876d58e24817e80c1135c.setIcon(icon_05ec05acba870b81874b258dc6dd9bd3);
+        
+    
+        var popup_7cd5f91e13c376a47be8753ff3daa05c = L.popup({"maxWidth": 350});
+
+        
+            
+                var html_e41f2713bfb69b7e2883dbf24388f41b = $(`<div id="html_e41f2713bfb69b7e2883dbf24388f41b" style="width: 100.0%; height: 100.0%;"><div style='width: 280px; font-family: Arial;'>     <h5 style='margin-bottom:6px; color:#2c3e50;'>Idaman abadi</h5>      <p style='margin:0;'><b>Monthly Rent:</b> RM 800.00</p>     <p style='margin:0;'><b>Size:</b> 1022 sqft</p>      <hr style='margin:6px 0;'>      <p style='margin:0;'><b>Rooms:</b> 3</p>     <p style='margin:0;'><b>Bathrooms:</b> 3.0</p>     <p style='margin:0;'><b>Parking:</b> 2.0</p>      <p style='margin:0;'><b>Property Type:</b> condominium</p>     <p style='margin:0;'><b>Furnished:</b> Partially Furnished</p>      <hr style='margin:6px 0;'>      <p style='margin:0; font-size:0.85rem;'>         <b>Facilities:</b><br>Parking, Security, Lift, Swimming Pool, Playground, Gymnasium, Multipurpose hall, Jogging Track, Club house, Sauna, Barbeque area, Minimart     </p> </div></div>`)[0];
+                popup_7cd5f91e13c376a47be8753ff3daa05c.setContent(html_e41f2713bfb69b7e2883dbf24388f41b);
+            
+        
+
+        marker_ea09d76eb0d876d58e24817e80c1135c.bindPopup(popup_7cd5f91e13c376a47be8753ff3daa05c)
+        ;
+
+        
+    
+    
+            marker_cluster_496de8c585d024ff1b81bdcd72d0a4a9.addTo(map_1c0acffb0a94e6778414aade702f569f);
+        
+    
+            var marker_5c62f2075897364ec92c35b2d7cd1103 = L.marker(
                 [3.0419099, 101.7049441],
                 {}
-            ).addTo(map_4c7d95c8fd907bafc84bc0bda52b0e8a);
+            ).addTo(map_1c0acffb0a94e6778414aade702f569f);
         
     
-            var icon_deb3cb68516f9d305a4c0428ea307538 = L.AwesomeMarkers.icon(
+            var icon_bd3df19cf6dcb848c40e0dc399a5e9c8 = L.AwesomeMarkers.icon(
                 {"extraClasses": "fa-rotate-0", "icon": "train", "iconColor": "white", "markerColor": "red", "prefix": "fa"}
             );
-            marker_0a0a43c2e7bdcf17f2b4a24d3a9ddcdc.setIcon(icon_deb3cb68516f9d305a4c0428ea307538);
+            marker_5c62f2075897364ec92c35b2d7cd1103.setIcon(icon_bd3df19cf6dcb848c40e0dc399a5e9c8);
         
     
-            marker_0a0a43c2e7bdcf17f2b4a24d3a9ddcdc.bindTooltip(
+            marker_5c62f2075897364ec92c35b2d7cd1103.bindTooltip(
                 `<div>
-                     MRT
+                     Serdang MRT Station, Malaysia
                  </div>`,
                 {"sticky": true}
             );
         
     
-            var marker_260e4c821fa5fd28283c9189a051ea91 = L.marker(
+            var marker_fb1b333b356bfc71c05776d058a4cc3d = L.marker(
                 [3.0233688, 101.7160272],
                 {}
-            ).addTo(map_4c7d95c8fd907bafc84bc0bda52b0e8a);
+            ).addTo(map_1c0acffb0a94e6778414aade702f569f);
         
     
-            var icon_911dbd8b5d74d807b30bb7159a465ced = L.AwesomeMarkers.icon(
+            var icon_a55268eb0f60ba5d943d310b16bc9c35 = L.AwesomeMarkers.icon(
                 {"extraClasses": "fa-rotate-0", "icon": "train", "iconColor": "white", "markerColor": "red", "prefix": "fa"}
             );
-            marker_260e4c821fa5fd28283c9189a051ea91.setIcon(icon_911dbd8b5d74d807b30bb7159a465ced);
+            marker_fb1b333b356bfc71c05776d058a4cc3d.setIcon(icon_a55268eb0f60ba5d943d310b16bc9c35);
         
     
-            marker_260e4c821fa5fd28283c9189a051ea91.bindTooltip(
+            marker_fb1b333b356bfc71c05776d058a4cc3d.bindTooltip(
                 `<div>
-                     KTM
-                 </div>`,
-                {"sticky": true}
-            );
-        
-    
-            var marker_ac355ab38506f439ce0c6ef0423897e2 = L.marker(
-                [3.0419099, 101.7049441],
-                {}
-            ).addTo(map_4c7d95c8fd907bafc84bc0bda52b0e8a);
-        
-    
-            var icon_f195b4947795ba5fd31bfbc53dc12d91 = L.AwesomeMarkers.icon(
-                {"extraClasses": "fa-rotate-0", "icon": "train", "iconColor": "white", "markerColor": "red", "prefix": "fa"}
-            );
-            marker_ac355ab38506f439ce0c6ef0423897e2.setIcon(icon_f195b4947795ba5fd31bfbc53dc12d91);
-        
-    
-            marker_ac355ab38506f439ce0c6ef0423897e2.bindTooltip(
-                `<div>
-                     serdang MRT Station, Malaysia
-                 </div>`,
-                {"sticky": true}
-            );
-        
-    
-            var marker_b377dd2bc470dec5e6213d3fea33d5ca = L.marker(
-                [3.0233688, 101.7160272],
-                {}
-            ).addTo(map_4c7d95c8fd907bafc84bc0bda52b0e8a);
-        
-    
-            var icon_df7ff58b4d16864ee6286bc6b7d0fd0c = L.AwesomeMarkers.icon(
-                {"extraClasses": "fa-rotate-0", "icon": "train", "iconColor": "white", "markerColor": "red", "prefix": "fa"}
-            );
-            marker_b377dd2bc470dec5e6213d3fea33d5ca.setIcon(icon_df7ff58b4d16864ee6286bc6b7d0fd0c);
-        
-    
-            marker_b377dd2bc470dec5e6213d3fea33d5ca.bindTooltip(
-                `<div>
-                     serdang KTM Station, Malaysia
+                     Serdang KTM Station, Malaysia
                  </div>`,
                 {"sticky": true}
             );
