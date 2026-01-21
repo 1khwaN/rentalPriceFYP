@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+    
+        <script>
+            L_NO_TOUCH = false;
+            L_DISABLE_3D = false;
+        </script>
+    
+    <style>html, body {width: 100%;height: 100%;margin: 0;padding: 0;}</style>
+    <style>#map {position:absolute;top:0;bottom:0;right:0;left:0;}</style>
+    <script src="https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.js"></script>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.2.0/css/all.min.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/python-visualization/folium/folium/templates/leaflet.awesome.rotate.min.css"/>
+    
+            <meta name="viewport" content="width=device-width,
+                initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+            <style>
+                #map_5f7aaf6389b82aae163164b831a502f2 {
+                    position: relative;
+                    width: 100.0%;
+                    height: 100.0%;
+                    left: 0.0%;
+                    top: 0.0%;
+                }
+                .leaflet-container { font-size: 1rem; }
+            </style>
+        
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet.markercluster/1.1.0/leaflet.markercluster.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet.markercluster/1.1.0/MarkerCluster.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet.markercluster/1.1.0/MarkerCluster.Default.css"/>
+</head>
+<body>
+    
+    
+    <div style="
+        position: fixed;
+        bottom: 30px;
+        left: 30px;
+        background: white;
+        padding: 10px 14px;
+        border-radius: 10px;
+        box-shadow: 0 4px 14px rgba(0,0,0,0.2);
+        font-size: 14px;
+    ">
+    <b>Legend</b><br>
+    <i class="fa fa-home" style="color:green"></i> Property<br>
+    <i class="fa fa-train" style="color:red"></i> MRT / LRT / KTM Station
+    </div>
+    
+    
+            <div class="folium-map" id="map_5f7aaf6389b82aae163164b831a502f2" ></div>
+        
+</body>
+<script>
+    
+    
+            var map_5f7aaf6389b82aae163164b831a502f2 = L.map(
+                "map_5f7aaf6389b82aae163164b831a502f2",
+                {
+                    center: [3.1129733, 101.6667294],
+                    crs: L.CRS.EPSG3857,
+                    zoom: 13,
+                    zoomControl: true,
+                    preferCanvas: false,
+                }
+            );
+
+            
+
+        
+    
+            var tile_layer_6df7719df4631aa5359134fd6ee2d8a7 = L.tileLayer(
+                "https://tile.openstreetmap.org/{z}/{x}/{y}.png",
+                {"attribution": "\u0026copy; \u003ca href=\"https://www.openstreetmap.org/copyright\"\u003eOpenStreetMap\u003c/a\u003e contributors", "detectRetina": false, "maxNativeZoom": 19, "maxZoom": 19, "minZoom": 0, "noWrap": false, "opacity": 1, "subdomains": "abc", "tms": false}
+            );
+        
+    
+            tile_layer_6df7719df4631aa5359134fd6ee2d8a7.addTo(map_5f7aaf6389b82aae163164b831a502f2);
+        
+    
+            var marker_cluster_b7258f899b4f6ebd7ff160ec04c6c656 = L.markerClusterGroup(
+                {}
+            );
+        
+    
+            var marker_bbb0a612babb118b99cd2d09bacc61de = L.marker(
+                [3.1129733, 101.6667294],
+                {}
+            ).addTo(marker_cluster_b7258f899b4f6ebd7ff160ec04c6c656);
+        
+    
+            var icon_ee1ac199274b61314f8399f31e3b55b8 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "train", "iconColor": "white", "markerColor": "blue", "prefix": "fa"}
+            );
+            marker_bbb0a612babb118b99cd2d09bacc61de.setIcon(icon_ee1ac199274b61314f8399f31e3b55b8);
+        
+    
+        var popup_53297158e88b5c2858304bf76b7725b4 = L.popup({"maxWidth": 350});
+
+        
+            
+                var html_6bd4c10fcfa8b69958f04142e5b2c9cc = $(`<div id="html_6bd4c10fcfa8b69958f04142e5b2c9cc" style="width: 100.0%; height: 100.0%;"><div style='width: 280px; font-family: Arial;'>     <h5 style='margin-bottom:6px; color:#2c3e50;'>Residensi Kerinchi</h5>      <p style='margin:0;'><b>Monthly Rent:</b> RM 2,500.00</p>     <p style='margin:0;'><b>Size:</b> 900 sqft</p>      <hr style='margin:6px 0;'>      <p style='margin:0;'><b>Rooms:</b> 4</p>     <p style='margin:0;'><b>Bathrooms:</b> 2.0</p>     <p style='margin:0;'><b>Parking:</b> 1.0</p>      <p style='margin:0;'><b>Property Type:</b> condominium</p>     <p style='margin:0;'><b>Furnished:</b> Fully Furnished</p>      <hr style='margin:6px 0;'>      <p style='margin:0; font-size:0.85rem;'>         <b>Facilities:</b><br>Multipurpose hall, Parking, Security, Lift, Swimming Pool, Playground     </p> </div></div>`)[0];
+                popup_53297158e88b5c2858304bf76b7725b4.setContent(html_6bd4c10fcfa8b69958f04142e5b2c9cc);
+            
+        
+
+        marker_bbb0a612babb118b99cd2d09bacc61de.bindPopup(popup_53297158e88b5c2858304bf76b7725b4)
+        ;
+
+        
+    
+    
+            marker_cluster_b7258f899b4f6ebd7ff160ec04c6c656.addTo(map_5f7aaf6389b82aae163164b831a502f2);
+        
+</script>
+</html>

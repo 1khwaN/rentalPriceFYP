@@ -36,14 +36,23 @@ model_columns = model_data["columns"]
 template_row = pd.DataFrame([np.zeros(len(model_columns))], columns=model_columns)
 
 # ---------------- MODEL ERROR STATS ----------------
-# Estimate error from training data (offline-safe)
+# Estimate error from training data (stacked hybrid safe)
 try:
+# Ground truth
     y_true = df_model["monthly_rent"]
-    X_full = df_model.drop(columns=["monthly_rent"])
-    
+
+    # 🔥 FORCE FEATURE ALIGNMENT
+    X_full = df_model[model_columns].copy()
+
+    # Base model prediction
     rf_preds = rf.predict(X_full)
-    xgb_preds = xgb.predict(X_full)
-    hybrid_preds = (rf_preds + xgb_preds) / 2
+
+    # Stacked input
+    X_full_h = X_full.copy()
+    X_full_h["rf_pred"] = rf_preds
+
+    # Meta model prediction
+    hybrid_preds = xgb.predict(X_full_h)
     hybrid_preds = np.expm1(hybrid_preds)
 
     abs_errors = np.abs(hybrid_preds - y_true)
@@ -54,9 +63,9 @@ try:
 
 except Exception as e:
     print("⚠️ Error stats fallback:", e)
-    ERROR_MEDIAN = 250
-    ERROR_75 = 400
-    ERROR_90 = 600
+    ERROR_MEDIAN = 100
+    ERROR_75 = 200
+    ERROR_90 = 300
 
 # ---------------- GEO CACHE ----------------
 city_cache = {}
@@ -255,87 +264,81 @@ def build_property_popup(r):
 def generate_map_and_recs(region, city, predicted_rent, size, property_type):
     coords = get_city_coords(region, city)
     if not coords:
-        return None, []
+        return None, [], "⚠️ Unable to locate the selected city on map."
 
-    # Base map
     m = folium.Map(location=coords, zoom_start=13)
     marker_cluster = MarkerCluster().add_to(m)
 
-    # Normalize inputs
-    city = city.lower()
-    property_type = property_type.lower()
+    city_l = city.lower()
+    prop_type_l = property_type.lower()
 
     props = df_raw.copy()
     props["city"] = props["city"].astype(str).str.lower()
     props["property_type"] = props["property_type"].astype(str).str.lower()
 
-    # ✅ FILTERS
-    props = props[
-        (props["city"] == city) &
-        (props["property_type"].str.contains(property_type,na=False)) &
-        (props["size"] >= size * 0.80) &
-        (props["size"] <= size * 1.20) #+- size 20%
+    message = None
+
+    # ---------------- STAGE 1: Strict filter ----------------
+    filtered = props[
+        (props["city"] == city_l) &
+        (props["property_type"].str.contains(prop_type_l, na=False)) &
+        (props["size"].between(size * 0.8, size * 1.2))
     ]
 
-    if props.empty:
-        return None, []
-
-    print("Filtered properties count:", len(props))
-
-    # Rent proximity (strict first)
-    min_rent, max_rent = predicted_rent * 0.9, predicted_rent * 1.1
-    recs = props[
-        (props["monthly_rent"] >= min_rent) &
-        (props["monthly_rent"] <= max_rent)
-    ]
-
-    # Relax range progressively if empty
-    if recs.empty:
-        min_rent, max_rent = predicted_rent * 0.8, predicted_rent * 1.2
-        recs = props[
-            (props["monthly_rent"] >= min_rent) &
-            (props["monthly_rent"] <= max_rent)
+    # ---------------- STAGE 2: Relax property type ----------------
+    if filtered.empty:
+        filtered = props[
+            (props["city"] == city_l) &
+            (props["size"].between(size * 0.7, size * 1.3))
         ]
+        message = (
+            "ℹ️ No properties found for the selected property type. "
+            "Showing similar-sized properties instead."
+        )
 
-    if recs.empty:
-        min_rent, max_rent = predicted_rent * 0.7, predicted_rent * 1.3
-        recs = props[
-            (props["monthly_rent"] >= min_rent) &
-            (props["monthly_rent"] <= max_rent)
-        ]
+    # ---------------- STAGE 3: City-only fallback ----------------
+    if filtered.empty:
+        filtered = props[props["city"] == city_l]
+        message = (
+            "⚠️ Limited data available. Showing general properties in this city."
+        )
 
-    #Filter shows without rent range
-    if recs.empty:
-        recs = props.copy()
+    # ---------------- STAGE 4: No properties at all ----------------
+    if filtered.empty:
+        add_rail_stations(m, region, city)
+        filename = f"recommendation_map_{city_l.replace(' ', '_')}.html"
+        m.save(os.path.join(MAPS_DIR, filename))
 
-    # Rank by closeness
-    recs["rent_diff"] = abs(recs["monthly_rent"] - predicted_rent)
-    recs = recs.sort_values("rent_diff").head(10)
+        return filename, [], (
+            "❌ No rental listings were found for this city. "
+            "Only nearby MRT/LRT/KTM stations are shown."
+        )
+
+    # ---------------- RANK BY RENT PROXIMITY ----------------
+    filtered["rent_diff"] = abs(filtered["monthly_rent"] - predicted_rent)
+    recs = filtered.sort_values("rent_diff").head(10)
 
     recommendations = []
 
     for _, r in recs.iterrows():
-        # Detect MRT/LRT
         near_rail = detect_rail_proximity(
             f"{r.get('facilities','')} {r.get('additional_facilities','')}"
         )
 
-        icon_color = "blue" if near_rail else "green"
-        icon_name = "train" if near_rail else "home"
-
+        lat, lon = coords
         if "latitude" in r and "longitude" in r and not pd.isna(r["latitude"]):
-            lat = r["latitude"]
-            lon = r["longitude"]
-        else:
-            lat, lon = coords  # fallback to city center
-
+            lat, lon = r["latitude"], r["longitude"]
 
         popup = build_property_popup(r)
 
         folium.Marker(
             location=(lat, lon),
             popup=popup,
-            icon=folium.Icon(color=icon_color, icon=icon_name, prefix="fa")
+            icon=folium.Icon(
+                color="blue" if near_rail else "green",
+                icon="train" if near_rail else "home",
+                prefix="fa"
+            )
         ).add_to(marker_cluster)
 
         recommendations.append({
@@ -347,34 +350,11 @@ def generate_map_and_recs(region, city, predicted_rent, size, property_type):
 
     add_rail_stations(m, region, city)
 
-
-    # Legend
-    legend_html = """
-    <div style="
-        position: fixed;
-        bottom: 30px;
-        left: 30px;
-        background: white;
-        padding: 10px 14px;
-        border-radius: 10px;
-        box-shadow: 0 4px 14px rgba(0,0,0,0.2);
-        font-size: 14px;
-    ">
-    <b>Legend</b><br>
-    <i class="fa fa-home" style="color:green"></i> Property<br>
-    <i class="fa fa-train" style="color:red"></i> MRT / LRT / KTM Station
-    </div>
-    """
-
-    m.get_root().html.add_child(folium.Element(legend_html))
-
-
-    filename = f"recommendation_map_{city.replace(' ', '_')}.html"
+    filename = f"recommendation_map_{city_l.replace(' ', '_')}.html"
     m.save(os.path.join(MAPS_DIR, filename))
 
-    
+    return filename, recommendations, message
 
-    return filename, recommendations
 
 
 
@@ -407,15 +387,16 @@ def predict():
     user_input = request.form.to_dict()
     X_user = build_user_features(user_input)
 
-    rf_raw = rf.predict(X_user)[0]
-    xgb_raw = xgb.predict(X_user)[0]
+    # 🔥 STACKED HYBRID INFERENCE
+    rf_pred = rf.predict(X_user)[0]
+    X_user_h = X_user.copy()
+    X_user_h["rf_pred"] = rf_pred
 
-    hybrid_log = (rf_raw + xgb_raw) / 2
+    hybrid_log = xgb.predict(X_user_h)[0]
     predicted_rent = float(np.expm1(hybrid_log))
 
     confidence_info = get_prediction_confidence(predicted_rent)
 
-    # DO NOT generate map here
     return render_template(
         "result.html",
         rent=round(predicted_rent, 2),
@@ -424,7 +405,7 @@ def predict():
         size=user_input["size"],
         property_type=user_input["property_type"],
         confidence=confidence_info,
-        map_path=None,      # <-- IMPORTANT
+        map_path=None,
         recommendations=[]
     )
 
@@ -447,13 +428,14 @@ def generate_map():
     size = float(data["size"])
     property_type = data["property_type"]
 
-    map_filename, recommendations = generate_map_and_recs(
+    map_filename, recommendations, message= generate_map_and_recs(
         region, city, rent, size, property_type
     )
 
     return jsonify({
         "map_path": map_filename,
-        "recommendations": recommendations
+        "recommendations": recommendations,
+        "message": message
     })
 
 
